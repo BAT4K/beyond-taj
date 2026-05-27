@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Destination {
+  id                                                   String             @id
+  name                                                 String
+  description                                          String
+  region                                               String
+  idealSeason                                          String
+  vibeTags                                             String[]
+  minRequiredDays                                      Int
+  latitude                                             Float
+  longitude                                            Float
+  createdAt                                            DateTime           @default(now())
+  updatedAt                                            DateTime
+  TransitRoute_TransitRoute_destinationIdToDestination TransitRoute[]     @relation("TransitRoute_destinationIdToDestination")
+  TransitRoute_TransitRoute_originIdToDestination      TransitRoute[]     @relation("TransitRoute_originIdToDestination")
+  Landscape                                            Landscape[]        @relation("DestinationLandscapes")
+  ItineraryRequest                                     ItineraryRequest[] @relation("ItineraryDestinations")
+}
+
+model ItineraryRequest {
+  id           String        @id
+  userId       String
+  selectedDays Int
+  budgetStyle  String
+  status       String        @default("pending")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime
+  User         User          @relation(fields: [userId], references: [id])
+  Destination  Destination[] @relation("ItineraryDestinations")
+  Landscape    Landscape[]   @relation("ItineraryLandscapes")
+}
+
+model Landscape {
+  id               String             @id
+  name             String             @unique
+  description      String?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime
+  Destination      Destination[]      @relation("DestinationLandscapes")
+  ItineraryRequest ItineraryRequest[] @relation("ItineraryLandscapes")
+}
+
+model TransitRoute {
+  id                                                  String      @id
+  originId                                            String
+  destinationId                                       String
+  travelMode                                          String
+  durationHours                                       Float
+  distanceKm                                          Float
+  createdAt                                           DateTime    @default(now())
+  updatedAt                                           DateTime
+  Destination_TransitRoute_destinationIdToDestination Destination @relation("TransitRoute_destinationIdToDestination", fields: [destinationId], references: [id])
+  Destination_TransitRoute_originIdToDestination      Destination @relation("TransitRoute_originIdToDestination", fields: [originId], references: [id])
+
+  @@unique([originId, destinationId, travelMode])
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id               String             @id @default(cuid())
+  name             String?
+  email            String?            @unique
+  emailVerified    DateTime?
+  image            String?
+  passwordHash     String?
+  paymentStatus    String             @default("unpaid")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  ItineraryRequest ItineraryRequest[]
+  accounts         Account[]
+  sessions         Session[]
+  journeys         Journey[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Journey {
+  id               String   @id @default(uuid())
+  days             Int
+  travelStyle      String
+  landscapes       String[]
+  destinations     Json
+  customerName     String
+  customerEmail    String
+  itinerary        Json?
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  userId           String?
+  User             User?    @relation(fields: [userId], references: [id])
+}
