@@ -15,7 +15,7 @@ cashfree.XApiVersion = "2023-08-01";
 export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !session.user || !session.user.id) {
+    if (!session || !session.user || !(session.user as any).id) {
       return NextResponse.json({ error: "Unauthorized. Please log in to complete checkout." }, { status: 401 });
     }
 
