@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     // We mock the exchange rate for sandbox testing, but use native USD in production.
     const isSandbox = cashfree.XEnvironment === 1;
     const orderCurrency = isSandbox ? "INR" : "USD";
-    const orderAmount = isSandbox ? (amount || 300) * 84 : (amount || 300);
+    const orderAmount = isSandbox ? (amount || 39) * 84 : (amount || 39);
 
     const requestBody = {
       order_amount: orderAmount,

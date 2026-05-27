@@ -61,7 +61,7 @@ export default function CheckoutClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           journeyId,
-          amount: 300,
+          amount: 39,
         })
       });
       
@@ -184,9 +184,8 @@ export default function CheckoutClient({
                 </div>
 
                 <p className="text-[11px] text-white/30 leading-relaxed border-t border-white/5 pt-4">
-                  This is an estimate for accommodations, internal transit, and activities. Our{" "}
-                  <span className="text-white/50 font-medium">$300 intelligence fee</span> for generating your
-                  proprietary blueprint is separate and required today.
+                  This covers the <span className="text-white/50 font-medium">$39 intelligence fee</span> for generating your
+                  custom route. Your actual travel expenses (hotels, flights) will be booked separately based on this blueprint.
                 </p>
               </div>
             </div>
@@ -257,10 +256,10 @@ export default function CheckoutClient({
                   {isProcessing ? (
                     <span>Connecting to Secure Gateway...</span>
                   ) : (
-                    <>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
                       <Lock size={16} />
-                      Unlock Your Custom Blueprint — $300
-                    </>
+                      Unlock Your Custom Blueprint — $39
+                    </span>
                   )}
                 </button>
                 <div className="flex items-center justify-center gap-2 mt-4 text-[10px] text-white/40 uppercase tracking-widest">

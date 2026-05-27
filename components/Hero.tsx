@@ -1,15 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
-
-const HERO_PLAYLIST = [
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"
-];
+import SampleBlueprintModal from "./SampleBlueprintModal";
 
 const theme = {
   bg: "#0a0806",
@@ -18,33 +13,30 @@ const theme = {
 };
 
 export default function Hero() {
-  const [heroVideoIndex, setHeroVideoIndex] = useState(0);
-
+  const [showSample, setShowSample] = React.useState(false);
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
       style={{ backgroundColor: theme.bg, color: theme.cream }}
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
         <video
           suppressHydrationWarning
-          key={heroVideoIndex} // Force React to recreate video tag on src change for seamless play
           autoPlay
+          loop
           muted
           playsInline
-          onEnded={() => setHeroVideoIndex((prev) => (prev + 1) % HERO_PLAYLIST.length)}
-          src={HERO_PLAYLIST[heroVideoIndex]}
-          poster="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=2560&auto=format&fit=crop"
-          className="w-full h-full object-cover opacity-60"
+          src="/master-hero.mp4"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         />
+        <div className="absolute inset-0 bg-black/60 z-10" />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="z-20 flex flex-col items-center text-center px-4 drop-shadow-2xl"
+        className="relative z-20 flex flex-col items-center text-center px-4 drop-shadow-2xl"
       >
         <p style={{ color: theme.gold }} className="tracking-[0.3em] uppercase text-sm mb-5 font-sans">
           Curated Indian Journeys
@@ -65,17 +57,30 @@ export default function Hero() {
           Beyond the Taj
         </h1>
 
-        <Link href="/plan">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <Link href="/plan">
+            <button
+              style={{ borderColor: theme.gold }}
+              className="group relative px-10 py-5 border overflow-hidden rounded-sm cursor-pointer transition-all duration-500 bg-black/20 backdrop-blur-md hover:bg-[#c9a96e] hover:border-[#c9a96e] text-[#f5f0e8] hover:text-[#0a0806] shadow-xl hover:shadow-[0_0_30px_rgba(201,169,110,0.4)]"
+            >
+              <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-semibold">
+                Plan Your Journey <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
+          </Link>
+          
           <button
-            style={{ borderColor: theme.gold }}
-            className="group relative px-10 py-5 border overflow-hidden rounded-sm cursor-pointer transition-all duration-500 bg-black/20 backdrop-blur-md hover:bg-[#c9a96e] hover:border-[#c9a96e] text-[#f5f0e8] hover:text-[#0a0806] shadow-xl hover:shadow-[0_0_30px_rgba(201,169,110,0.4)]"
+            onClick={() => setShowSample(true)}
+            className="group relative px-8 py-5 border border-white/20 rounded-sm cursor-pointer transition-all duration-500 bg-transparent hover:border-white/50 text-white/70 hover:text-white"
           >
-            <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-semibold">
-              Plan Your Journey <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <span className="relative font-sans tracking-widest text-xs uppercase font-medium">
+              View a Sample Blueprint
             </span>
           </button>
-        </Link>
+        </div>
       </motion.div>
+
+      <SampleBlueprintModal isOpen={showSample} onClose={() => setShowSample(false)} />
 
       <motion.div
         initial={{ opacity: 0 }}

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees } from "lucide-react";
 import Map, { Marker, Source, Layer, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Link from "next/link";
@@ -51,7 +51,12 @@ const LANDSCAPE_VIDEOS: Record<string, string> = {
   "Beaches": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
   "Royal Cities": "https://www.w3schools.com/html/mov_bbb.mp4",
   "Desert": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Backwaters": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+  "Backwaters": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  "Spirituality & Ghats": "https://www.w3schools.com/html/mov_bbb.mp4",
+  "Wildlife & Safaris": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
+  "Tea Plantations & Valleys": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  "Islands & Diving": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
+  "Northeast & Living Roots": "https://www.w3schools.com/html/mov_bbb.mp4"
 };
 const DESTINATION_VIDEOS: Record<string, string> = {
   "Leh-Ladakh": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
@@ -63,6 +68,7 @@ const DESTINATION_VIDEOS: Record<string, string> = {
 };
 
 import { useRouter } from "next/navigation";
+import { validateItinerary as performValidation } from "@/utils/travelValidator";
 
 // ... existing imports/types
 
@@ -71,6 +77,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
   const [selectedDays, setSelectedDays] = useState(14);
+  const [travelMonth, setTravelMonth] = useState("");
   const [travelStyle, setTravelStyle] = useState("Balanced");
   const [selectedLandscapes, setSelectedLandscapes] = useState<string[]>([]);
   const [selectedDestinations, setSelectedDestinations] = useState<string[]>([]);
@@ -80,13 +87,15 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [warnings, setWarnings] = useState<string[]>([]);
   const [estimatedBudget, setEstimatedBudget] = useState("");
   const [isValidating, setIsValidating] = useState(false);
+  const [showValidationModal, setShowValidationModal] = useState(false);
+  const [validationMessages, setValidationMessages] = useState<string[]>([]);
 
   // Generation States
   const [isGenerating, setIsGenerating] = useState(false);
   const [loadingText, setLoadingText] = useState("Saving your selections...");
 
   useEffect(() => {
-    if (step === 4) {
+    if (step === 5) {
       validateItinerary();
     }
   }, [selectedDestinations, selectedDays, travelStyle, step]);
@@ -148,11 +157,25 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   };
 
   const nextStep = () => {
-    if (step === 4) {
+    if (step === 5) {
+      if (selectedDestinations.length === 0) return;
+      const msgs = performValidation({
+        destinations: selectedDestinations,
+        durationDays: selectedDays,
+        travelMonth,
+      });
+      if (msgs.length > 0) {
+        setValidationMessages(msgs);
+        setShowValidationModal(true);
+        return;
+      }
       saveJourneyAndCheckout();
     } else {
+      if (step === 2 && !travelMonth) {
+        return;
+      }
       setDirection(1);
-      setStep((s) => Math.min(s + 1, 4));
+      setStep((s) => Math.min(s + 1, 5));
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -307,7 +330,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
           className="h-full"
           style={{ backgroundColor: theme.gold, boxShadow: `0 0 15px ${theme.gold}` }}
           initial={{ width: 0 }}
-          animate={{ width: `${(step / 4) * 100}%` }}
+          animate={{ width: `${(step / 5) * 100}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         />
       </div>
@@ -376,6 +399,31 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
             {step === 2 && (
               <div className="text-center space-y-12">
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-8">When are you planning to travel?</h2>
+                <div className="grid grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                  {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, idx) => (
+                    <motion.button
+                      key={month}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.05, duration: 0.3 }}
+                      onClick={() => setTravelMonth(month)}
+                      style={{
+                        borderColor: travelMonth === month ? theme.gold : theme.border,
+                        backgroundColor: travelMonth === month ? theme.gold + '1A' : theme.darker,
+                        color: travelMonth === month ? theme.gold : theme.cream
+                      }}
+                      className="p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-xs md:text-sm cursor-pointer"
+                    >
+                      {month}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {step === 3 && (
+              <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-12">Define your aesthetic</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {[
@@ -426,17 +474,22 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 3 && (
+            {step === 4 && (
               <div className="text-center">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-4">What moves you?</h2>
                 <p className="text-white/50 text-sm italic tracking-wide mb-12">Select the landscapes that resonate with your soul.</p>
-                <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto">
                   {[
                     { name: "Mountains", icon: Mountain },
                     { name: "Beaches", icon: Palmtree },
                     { name: "Royal Cities", icon: Castle },
                     { name: "Desert", icon: Sun },
                     { name: "Backwaters", icon: Waves },
+                    { name: "Spirituality & Ghats", icon: Flower2 },
+                    { name: "Wildlife & Safaris", icon: PawPrint },
+                    { name: "Tea Plantations & Valleys", icon: Leaf },
+                    { name: "Islands & Diving", icon: Shell },
+                    { name: "Northeast & Living Roots", icon: Trees },
                   ].map(({ name: landscape, icon: Icon }, index) => {
                     const isSelected = selectedLandscapes.includes(landscape);
                     return (
@@ -452,7 +505,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           borderColor: isSelected ? theme.gold : theme.border,
                           backgroundColor: isSelected ? theme.gold + '0D' : theme.darker
                         }}
-                        className="relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-[130px] md:w-[150px] overflow-hidden"
+                        className="relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden"
                       >
                         {/* Hover video overlay */}
                         {hoveredCard === 'land-' + landscape && LANDSCAPE_VIDEOS[landscape] && (
@@ -486,7 +539,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 4 && (() => {
+            {step === 5 && (() => {
               const maxAllowedDestinations = Math.max(2, Math.floor(selectedDays / 2.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
 
@@ -637,24 +690,70 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
       <footer className="p-6 md:p-10 flex justify-end relative z-40">
         <button
           onClick={() => {
-            if (step === 4 && selectedDestinations.length === 0) return;
+            if (step === 5 && selectedDestinations.length === 0) return;
             nextStep();
           }}
           style={{
-            borderColor: step === 4 && hasGeoConflict ? 'rgba(245, 158, 11, 0.5)' : theme.gold,
-            opacity: step === 4 && selectedDestinations.length === 0 ? 0.5 : 1,
-            cursor: step === 4 && selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
+            borderColor: step === 5 && hasGeoConflict ? 'rgba(245, 158, 11, 0.5)' : theme.gold,
+            opacity: step === 5 && selectedDestinations.length === 0 ? 0.5 : 1,
+            cursor: step === 5 && selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
           }}
-          className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 4 && hasGeoConflict ? 'text-amber-500 hover:bg-amber-500/10' :
-              step === 4 && selectedDestinations.length === 0 ? 'text-white/50' :
+          className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 5 && hasGeoConflict ? 'text-amber-500 hover:bg-amber-500/10' :
+              step === 5 && selectedDestinations.length === 0 ? 'text-white/50' :
                 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
             }`}
         >
           <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
-            {step === 4 ? "Review Journey" : "Next"} <ChevronRight size={16} />
+            {step === 5 ? "Review Journey" : "Next"} <ChevronRight size={16} />
           </span>
         </button>
       </footer>
+
+            <AnimatePresence>
+        {showValidationModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="w-full max-w-xl bg-zinc-950 border border-zinc-800 rounded-sm p-8 shadow-2xl flex flex-col gap-6"
+            >
+              <h3 className="font-serif text-3xl text-white/90">Local Insights & Route Adjustments</h3>
+              <div className="w-16 h-px bg-white/20 mb-2" />
+              <div className="flex flex-col gap-4 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
+                {validationMessages.map((msg, i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <AlertTriangle size={18} className="text-[#c9a96e] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm leading-relaxed text-zinc-300">{msg}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <button
+                  onClick={() => setShowValidationModal(false)}
+                  className="flex-1 py-3 px-4 border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 transition-colors uppercase tracking-widest text-xs text-white/80 rounded-sm cursor-pointer"
+                >
+                  Adjust My Plan
+                </button>
+                <button
+                  onClick={() => {
+                    setShowValidationModal(false);
+                    saveJourneyAndCheckout();
+                  }}
+                  className="flex-1 py-3 px-4 border border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black transition-colors uppercase tracking-widest text-xs font-medium rounded-sm cursor-pointer"
+                >
+                  Proceed Anyway
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style dangerouslySetInnerHTML={{
         __html: `

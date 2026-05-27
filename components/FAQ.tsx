@@ -10,16 +10,16 @@ const FAQ_ITEMS = [
     answer: "No. We are pure-play travel architects. We provide the ultimate data-driven blueprint, including direct links to vetted properties. You retain 100% control over your funds, booking where and when you prefer, completely bypassing middleman commissions."
   },
   {
-    question: "What exactly do I receive for $300?",
-    answer: "You unlock your custom interactive dashboard and a premium downloadable dossier with dynamic routing mapping, curated boutique suggestions, and localized transit strategies."
+    question: "What exactly do I receive for $39?",
+    answer: "You receive a comprehensive, day-by-day itinerary meticulously engineered for your pacing, preferred landscapes, and aesthetic. This includes verified hotel recommendations, transit logic, and local insights away from typical tourist traps."
   },
   {
     question: "How does the routing engine ensure my transit times are realistic?",
     answer: "India's topography and infrastructure can be unpredictable. Our engine cross-references historical transit data and seasonal road conditions to pad travel times, ensuring you are never rushed between your bespoke experiences."
   },
   {
-    question: "Is the $300 blueprint fee refundable?",
-    answer: "Because our routing engine and travel specialists immediately begin curating and generating your proprietary dossier upon payment, the $300 itinerary design fee is strictly non-refundable."
+    question: "Is the $39 blueprint fee refundable?",
+    answer: "Because our routing engine and travel specialists immediately begin curating and generating your proprietary dossier upon payment, the $39 itinerary design fee is strictly non-refundable."
   }
 ];
 

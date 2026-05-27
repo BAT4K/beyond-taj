@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
+import prisma from '@/lib/prisma';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -17,8 +18,6 @@ export interface ItineraryResponse {
   antiScamTips: string[];
   financialOverview: string;
 }
-
-import prisma from '@/lib/prisma';
 
 export async function POST(request: Request) {
   try {
@@ -46,7 +45,7 @@ export async function POST(request: Request) {
     const dbDestinations = await prisma.destination.findMany({
       where: { id: { in: destinationIds } }
     });
-    
+
     // Map IDs to names in the same order
     const destinationNames = destinationIds.map(id => {
       const dest = dbDestinations.find((d: any) => d.id === id);
@@ -56,136 +55,137 @@ export async function POST(request: Request) {
     const selectedDays = journey.days;
     const travelStyle = journey.travelStyle;
     const selectedLandscapes = journey.landscapes;
-    const estimatedBudget = "Premium/Luxury"; // Or calculate based on style
+    const travelMonth = (journey as any).travelMonth || 'October'; // FIXED: Extracted from DB
+    const estimatedBudget = "Premium/Luxury";
 
-    const responseSchema = {
-      type: Type.OBJECT,
-      properties: {
-        tripSummary: { type: Type.STRING },
-        dailyItinerary: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              day: { type: Type.INTEGER },
-              location: { type: Type.STRING },
-              morningActivity: { type: Type.STRING },
-              afternoonActivity: { type: Type.STRING },
-              eveningActivity: { type: Type.STRING },
-              accommodationVibe: { type: Type.STRING },
-            },
-            required: ["day", "location", "morningActivity", "afternoonActivity", "eveningActivity", "accommodationVibe"]
-          }
-        },
-        hiddenGems: {
-          type: Type.ARRAY,
-          items: { type: Type.STRING }
-        },
-        antiScamTips: {
-          type: Type.ARRAY,
-          items: { type: Type.STRING }
-        },
-        financialOverview: { type: Type.STRING }
-      },
-      required: ["tripSummary", "dailyItinerary", "hiddenGems", "antiScamTips", "financialOverview"]
-    };
+    // Feature Flag: Flip this in your .env file to toggle between Live and Mock
+    const useMock = process.env.USE_MOCK_AI === 'true';
 
-    const prompt = `You are an elite, luxury travel specialist for "Beyond Taj", curating bespoke Indian journeys. 
-Create a detailed, day-by-day itinerary based strictly on the following parameters:
+    let itinerary: ItineraryResponse;
+
+    if (!useMock) {
+      // --- LIVE GEMINI 2.5 FLASH MODE ---
+      const responseSchema = {
+        type: Type.OBJECT,
+        properties: {
+          tripSummary: { type: Type.STRING },
+          dailyItinerary: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                day: { type: Type.INTEGER },
+                location: { type: Type.STRING },
+                morningActivity: { type: Type.STRING },
+                afternoonActivity: { type: Type.STRING },
+                eveningActivity: { type: Type.STRING },
+                accommodationVibe: { type: Type.STRING },
+              },
+              required: ["day", "location", "morningActivity", "afternoonActivity", "eveningActivity", "accommodationVibe"]
+            }
+          },
+          hiddenGems: { type: Type.ARRAY, items: { type: Type.STRING } },
+          antiScamTips: { type: Type.ARRAY, items: { type: Type.STRING } },
+          financialOverview: { type: Type.STRING }
+        },
+        required: ["tripSummary", "dailyItinerary", "hiddenGems", "antiScamTips", "financialOverview"]
+      };
+
+      // FIXED PROMPT: Removed contradictions and updated constraints cleanly
+      const prompt = `You are an elite, luxury travel specialist for "Beyond Taj", curating bespoke Indian journeys. 
+Create a highly detailed, day-by-day itinerary based strictly on these parameters:
 - Duration: ${selectedDays} days
+- Travel Month: ${travelMonth}
 - Travel Style: ${travelStyle}
 - Destinations: ${destinationNames.join(', ')}
 - Preferred Landscapes: ${selectedLandscapes?.join(', ') || 'Any'}
-- Estimated Budget: ${estimatedBudget || 'Not specified'}
+- Estimated Budget: ${estimatedBudget}
 
-Your response must be entirely in structured JSON matching the requested schema. Ensure the pacing is realistic, the locations make geographical sense, and the activities align with the ${travelStyle} aesthetic. Include specific, non-generic hidden gems and pragmatic anti-scam tips relevant to the selected destinations.
-Include a 'Financial Investment Overview' at the end of the itinerary that justifies the user's estimated budget of ${estimatedBudget || 'the selected travel style'}. You MUST format the budget numbers with standard US currency symbols and commas (e.g., if the input is '1050 to 2100', output it as '$1,050 to $2,100'). Break down how this budget aligns with their ${travelStyle} travel style.
+Your response must be entirely structured JSON matching the requested schema. Ensure pacing makes geographical sense. Include destination-specific luxury experiences, highly actionable local insider advice, and pragmatic anti-scam tips.
+
+FINANCIAL OVERVIEW RULE:
+Include a 'Financial Investment Overview' explaining how the budget matches a ${travelStyle} tier. You must format numbers using standard US currency symbols and commas (e.g., "$1,500 to $2,500").
 
 STRICT FORMATTING RULES:
-You must output pure text. Strictly forbid the use of markdown math delimiters, LaTeX, or dollar signs ($) for wrapping text, altitudes, or N/A values. If a value does not exist (e.g., evening activity on departure day), output the exact string 'None'.
-Do not use emojis, special characters, or markdown formatting inside the JSON string values. Time blocks must be exactly 'MORNING', 'AFTERNOON', and 'EVENING' without any leading letters or symbols.
+Output pure text inside JSON values. Do not use markdown notation, formatting syntax, or emojis. Do not use dollar signs for wrapping mathematical code or text formatting; use the dollar sign ($) exclusively for standard currency representation.
 
-ACCOMMODATION LOGIC:
-If the user is staying in the same destination for multiple consecutive days, DO NOT change the hotel/accommodation description. You must either write 'Same property as previous night' or keep the exact same property description. Users should only change accommodations when they change cities.
+ACCOMMODATION & TRANSIT PROTOCOLS:
+If the user remains in the same city for consecutive days, the accommodationVibe must read exactly 'Same property as previous night'. For transit days between cities, the morning/afternoon entries must explicitly detail high-end transfer logistics, and the accommodationVibe must update to reflect the new arrival city's destination.`;
 
-CRITICAL TRANSIT DAY PROTOCOLS:
-- NEVER duplicate an accommodation description across two different days if it involves a transit day. If a day involves major transit (e.g., flying or driving between cities), the accommodation field MUST reflect the arrival city's property.
-- For transit days, the Morning and Afternoon blocks MUST specifically detail the luxury transfer logistics (e.g., 'Private chauffeur transfer to airport, VIP lounge access, and scenic arrival drive'). Do not hallucinate activities in the departure city if they are traveling.`;
+      let response;
+      let retries = 0;
+      const maxRetries = 5;
+      let lastError;
 
-    // TODO: Restore live Gemini call after billing upgrade
-    /*
-    let response;
-    let retries = 0;
-    const maxRetries = 5;
-    let lastError;
-
-    while (retries < maxRetries) {
-      try {
-        response = await ai.models.generateContent({
-          model: 'gemini-2.5-flash',
-          contents: prompt,
-          config: {
-            responseMimeType: 'application/json',
-            responseSchema: responseSchema,
+      while (retries < maxRetries) {
+        try {
+          response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+            config: {
+              responseMimeType: 'application/json',
+              responseSchema: responseSchema,
+            }
+          });
+          break;
+        } catch (err: any) {
+          lastError = err;
+          const errorMessage = String(err.message || '');
+          if (err.status === 503 || errorMessage.includes('503') || errorMessage.includes('UNAVAILABLE')) {
+            retries++;
+            if (retries < maxRetries) {
+              const delay = Math.pow(2, retries) * 1000 + Math.random() * 1000;
+              console.log(`Gemini API 503 High Demand. Retrying in ${Math.round(delay)}ms...`);
+              await new Promise(res => setTimeout(res, delay));
+              continue;
+            }
           }
-        });
-        break; // Success
-      } catch (err: any) {
-        lastError = err;
-        const errorMessage = String(err.message || '');
-        if (err.status === 503 || errorMessage.includes('503') || errorMessage.includes('UNAVAILABLE')) {
-          retries++;
-          if (retries < maxRetries) {
-            const delay = Math.pow(2, retries) * 1000 + Math.random() * 1000; // Exponential backoff with jitter
-            console.log(`Gemini API 503 High Demand. Retrying in ${Math.round(delay)}ms... (Attempt ${retries}/${maxRetries})`);
-            await new Promise(res => setTimeout(res, delay));
-            continue;
-          }
+          throw err;
         }
-        throw err; // Not a 503 or out of retries
       }
+
+      if (!response || !response.text) {
+        throw lastError || new Error("No response generated from Gemini");
+      }
+
+      itinerary = JSON.parse(response.text);
+
+    } else {
+      // --- SMART DYNAMIC MOCK MODE ---
+      // Simulates network latency for testing loading spinners
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // Dynamically build the daily itinerary loop to match the exact duration requested
+      const dynamicDays = Array.from({ length: selectedDays }, (_, i) => {
+        const dayNum = i + 1;
+        const currentCity = destinationNames[Math.min(Math.floor(i / 2), destinationNames.length - 1)] || "Udaipur";
+
+        return {
+          day: dayNum,
+          location: currentCity,
+          morningActivity: dayNum === 1
+            ? "Private chauffeur airport transfer with VIP heritage welcome reception."
+            : `Curated private guided excursion exploring the historic highlights of ${currentCity}.`,
+          afternoonActivity: "Bespoke culinary masterclass or fine art workshop with local masters.",
+          eveningActivity: "Private sunset boat charter followed by an exclusive rooftop dining experience.",
+          accommodationVibe: dayNum % 2 === 0 ? "Same property as previous night" : `Luxury boutique heritage estate in ${currentCity}`
+        };
+      });
+
+      itinerary = {
+        tripSummary: `A meticulously tailored ${selectedDays}-day journey across ${destinationNames.join(', ')} configured perfectly for a ${travelStyle} experience during the month of ${travelMonth}.`,
+        dailyItinerary: dynamicDays,
+        hiddenGems: [
+          "A beautifully preserved, historic stepwell completely missed by standard tour groups.",
+          "An exclusive multi-generational textile workshop tucked away inside the artisan quarter."
+        ],
+        antiScamTips: [
+          "Verify all private transit drivers possess our official brand dispatch confirmation documentation.",
+          "Politely refuse unsolicited boutique or gem showroom detours recommended by external city couriers."
+        ],
+        financialOverview: `Aligned with your ${travelStyle} profile, this custom itinerary maps to an estimated execution baseline of $1,400 to $2,200 excluding international air travel.`
+      };
     }
-
-    if (!response || !response.text) {
-      throw lastError || new Error("No response generated from Gemini");
-    }
-
-    const itinerary: ItineraryResponse = JSON.parse(response.text);
-    */
-
-    // Simulate network latency
-    await new Promise((resolve) => setTimeout(resolve, 2500));
-
-    const itinerary: ItineraryResponse = {
-      tripSummary: "A mock luxury journey crafted specifically for your testing purposes. We explore vibrant cultures and historical landmarks with the utmost elegance.",
-      dailyItinerary: [
-        {
-          day: 1,
-          location: destinationNames[0] || "Udaipur",
-          morningActivity: "Private chauffeur transfer to a heritage hotel with VIP welcome.",
-          afternoonActivity: "Guided sunset boat ride on Lake Pichola with champagne.",
-          eveningActivity: "Exclusive royal dining experience overlooking the City Palace.",
-          accommodationVibe: "Heritage palace hotel with panoramic lake views"
-        },
-        {
-          day: 2,
-          location: destinationNames[0] || "Udaipur",
-          morningActivity: "Early morning private tour of the City Palace complex.",
-          afternoonActivity: "Bespoke miniature painting workshop with a master artist.",
-          eveningActivity: "Relax at the hotel spa followed by a private lakeside dinner.",
-          accommodationVibe: "Same property as previous night"
-        }
-      ],
-      hiddenGems: [
-        "A secret stepwell unknown to most tourists, perfect for photography.",
-        "A private textile workshop tucked away in the old city."
-      ],
-      antiScamTips: [
-        "Ignore unauthorized guides at major monuments; your private guide will handle all entry.",
-        "Avoid roadside gem vendors claiming to sell antique stones."
-      ],
-      financialOverview: "Based on the Luxury Explorer tier, this journey is estimated at $1,200 - $1,600, encompassing 5-star accommodations, private transfers, and elite curated experiences."
-    };
 
     // Save generated itinerary to DB and update status
     await prisma.journey.update({
