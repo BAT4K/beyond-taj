@@ -21,7 +21,6 @@ interface ItineraryResponse {
   }[];
   hiddenGems: string[];
   antiScamTips: string[];
-  financialOverview: string;
 }
 
 interface Destination {
@@ -217,7 +216,7 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
 
             {/* Header only visible in print */}
             <div className="hidden print:block text-center mb-6 pb-6 border-b border-white/10 pt-4">
-              <h1 className="font-serif text-4xl mb-4 text-white">Beyond the Taj</h1>
+              <h1 className="font-serif text-4xl mb-4 text-white">Beyond Taj</h1>
               <p className="uppercase tracking-widest text-sm text-[#c9a96e] mb-6">Official Travel Blueprint</p>
               <p className="text-base font-light text-white/70 leading-relaxed max-w-2xl mx-auto">
                 {itineraryData.tripSummary}
@@ -307,18 +306,6 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
                   ))}
                 </ul>
               </div>
-
-              {itineraryData.financialOverview && (
-                <div className="mt-8 p-6 rounded-sm bg-[#0a0806] border border-white/10 border-t-2 border-t-[#c9a96e] print:break-inside-avoid">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 rounded-full bg-black">
-                      <Wallet size={24} className="text-[#c9a96e]" />
-                    </div>
-                    <h3 className="font-serif text-2xl text-white">Financial Investment</h3>
-                  </div>
-                  <p className="text-sm text-white/70 leading-relaxed font-light">{itineraryData.financialOverview}</p>
-                </div>
-              )}
             </div>
           </div>
 

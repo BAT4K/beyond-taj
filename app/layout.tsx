@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Beyond the Taj | Bespoke Itinerary",
+  title: "Beyond Taj | Bespoke Itinerary",
   description: "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
 };
 

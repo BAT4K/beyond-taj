@@ -54,7 +54,7 @@ export default function Hero() {
           className="font-serif text-5xl md:text-7xl lg:text-8xl mb-12 font-light tracking-tight"
           style={{ textShadow: "0 10px 40px rgba(0,0,0,0.6)" }}
         >
-          Beyond the Taj
+          Beyond Taj
         </h1>
 
         <div className="flex flex-col sm:flex-row items-center gap-4">

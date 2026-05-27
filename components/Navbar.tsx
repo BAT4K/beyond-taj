@@ -14,7 +14,7 @@ export default function Navbar() {
     <header className="w-full px-6 md:px-10 py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
       <div>
         <Link href="/" className="font-serif text-xl tracking-wide text-white opacity-80 hover:opacity-100 transition-opacity">
-          Beyond the Taj
+          Beyond Taj
         </Link>
       </div>
 

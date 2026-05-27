@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Map, Calendar, ArrowRight, LogOut } from "lucide-react";
 
 export const metadata = {
-  title: "Your Dossiers | Beyond the Taj",
+  title: "Your Dossiers | Beyond Taj",
 };
 
 export default async function UserPortal() {

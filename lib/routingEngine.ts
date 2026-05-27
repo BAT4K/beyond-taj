@@ -20,24 +20,42 @@ export function validateDestinationCount(selectedDays: number, destinationCount:
   return null;
 }
 
-export async function validateExtremeDistance(destinationIds: string[]): Promise<string | null> {
-  if (destinationIds.length < 2) return null;
+export async function validateExtremeDistance(destinationIds: string[], selectedDays: number): Promise<string | null> {
+  if (destinationIds.length < 2 || selectedDays >= 8) return null;
 
-  const extremeRoute = await prisma.transitRoute.findFirst({
-    where: {
-      AND: [
-        { originId: { in: destinationIds } },
-        { destinationId: { in: destinationIds } },
-        { distanceKm: { gte: 3000 } }
-      ]
-    }
+  const dests = await prisma.destination.findMany({
+    where: { id: { in: destinationIds } },
+    select: { latitude: true, longitude: true, name: true }
   });
 
-  if (extremeRoute) {
-    return 'Extreme distance detected between selected destinations. This may require long transit times and disrupt your itinerary pace.';
+  if (dests.length < 2) return null;
+
+  let maxDistanceKm = 0;
+  for (let i = 0; i < dests.length; i++) {
+    for (let j = i + 1; j < dests.length; j++) {
+      const d = calculateHaversineDistance(dests[i].latitude, dests[i].longitude, dests[j].latitude, dests[j].longitude);
+      if (d > maxDistanceKm) maxDistanceKm = d;
+    }
+  }
+
+  // Use 900km as the flight threshold
+  if (maxDistanceKm > 900) {
+    return "High Transit Friction: Your selected destinations are geographically polarized (exceeding 900 km straight-line distance). Combining these regions in a short window requires multiple domestic flights and airport transfers, which will significantly exhaust your available leisure time.";
   }
 
   return null;
+}
+
+function calculateHaversineDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  return R * c;
 }
 
 export function estimateBudgetRange(travelStyle: string, selectedDays: number, destinationCount: number, hasExtremeDistance: boolean): string {

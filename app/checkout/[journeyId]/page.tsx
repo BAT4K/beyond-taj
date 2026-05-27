@@ -28,21 +28,11 @@ export default async function CheckoutPage({ params }: { params: Promise<{ journ
     }
   });
 
-  // Calculate budget
-  const hasExtremeDistance = await validateExtremeDistance(destinationIds);
-  const estimatedBudget = estimateBudgetRange(
-    journey.travelStyle, 
-    journey.days, 
-    destinationIds.length, 
-    !!hasExtremeDistance
-  );
-
   return (
     <CheckoutClient
       journeyId={journey.id}
       selectedDays={journey.days}
       travelStyle={journey.travelStyle}
-      estimatedBudget={estimatedBudget}
       destinations={destinations}
     />
   );

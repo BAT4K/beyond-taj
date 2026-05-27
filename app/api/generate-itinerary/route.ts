@@ -16,7 +16,6 @@ export interface ItineraryResponse {
   }[];
   hiddenGems: string[];
   antiScamTips: string[];
-  financialOverview: string;
 }
 
 export async function POST(request: Request) {
@@ -85,10 +84,9 @@ export async function POST(request: Request) {
             }
           },
           hiddenGems: { type: Type.ARRAY, items: { type: Type.STRING } },
-          antiScamTips: { type: Type.ARRAY, items: { type: Type.STRING } },
-          financialOverview: { type: Type.STRING }
+          antiScamTips: { type: Type.ARRAY, items: { type: Type.STRING } }
         },
-        required: ["tripSummary", "dailyItinerary", "hiddenGems", "antiScamTips", "financialOverview"]
+        required: ["tripSummary", "dailyItinerary", "hiddenGems", "antiScamTips"]
       };
 
       // FIXED PROMPT: Removed contradictions and updated constraints cleanly
@@ -102,9 +100,6 @@ Create a highly detailed, day-by-day itinerary based strictly on these parameter
 - Estimated Budget: ${estimatedBudget}
 
 Your response must be entirely structured JSON matching the requested schema. Ensure pacing makes geographical sense. Include destination-specific luxury experiences, highly actionable local insider advice, and pragmatic anti-scam tips.
-
-FINANCIAL OVERVIEW RULE:
-Include a 'Financial Investment Overview' explaining how the budget matches a ${travelStyle} tier. You must format numbers using standard US currency symbols and commas (e.g., "$1,500 to $2,500").
 
 STRICT FORMATTING RULES:
 Output pure text inside JSON values. Do not use markdown notation, formatting syntax, or emojis. Do not use dollar signs for wrapping mathematical code or text formatting; use the dollar sign ($) exclusively for standard currency representation.
@@ -182,8 +177,7 @@ If the user remains in the same city for consecutive days, the accommodationVibe
         antiScamTips: [
           "Verify all private transit drivers possess our official brand dispatch confirmation documentation.",
           "Politely refuse unsolicited boutique or gem showroom detours recommended by external city couriers."
-        ],
-        financialOverview: `Aligned with your ${travelStyle} profile, this custom itinerary maps to an estimated execution baseline of $1,400 to $2,200 excluding international air travel.`
+        ]
       };
     }
 

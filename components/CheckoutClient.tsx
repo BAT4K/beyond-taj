@@ -13,7 +13,6 @@ interface CheckoutClientProps {
   journeyId: string;
   selectedDays: number;
   travelStyle: string;
-  estimatedBudget: string;
   destinations: { id: string; name: string }[];
 }
 
@@ -21,7 +20,6 @@ export default function CheckoutClient({
   journeyId,
   selectedDays,
   travelStyle,
-  estimatedBudget,
   destinations,
 }: CheckoutClientProps) {
   const router = useRouter();
@@ -155,38 +153,35 @@ export default function CheckoutClient({
             <div className="border-t pt-8 mb-10" style={{ borderColor: theme.border }}>
               <div className="p-6 md:p-8 rounded-sm border border-white/5 bg-gradient-to-br from-[#c9a96e]/[0.06] via-transparent to-transparent relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a96e]/30 to-transparent" />
-
-                <p className="text-xs uppercase tracking-widest text-white/40 mb-1">Estimated Trip Budget</p>
-                <p
-                  className="font-serif text-4xl md:text-5xl mb-4 drop-shadow-[0_0_20px_rgba(201,169,110,0.25)]"
-                  style={{ color: theme.gold }}
-                >
-                  {estimatedBudget || "Select destinations..."}
-                </p>
-
-                <div className="flex flex-wrap gap-x-6 gap-y-2 text-[10px] uppercase tracking-widest text-white/40 mb-6">
-                  <span className="flex items-center gap-1.5">
-                    <Wallet size={11} style={{ color: theme.gold }} />
-                    {travelStyle} tier
-                  </span>
-                  <span>•</span>
-                  <span>{selectedDays} days</span>
-                  <span>•</span>
-                  <span>
-                    {destinations.length} destination{destinations.length !== 1 ? "s" : ""}
-                  </span>
-                  {destinations.length > 3 && (
-                    <>
-                      <span>•</span>
-                      <span className="text-[#c9a96e]/70">+15% multi-city surcharge</span>
-                    </>
-                  )}
+                
+                <div className="flex justify-between items-start mb-6">
+                  <p className="text-xs uppercase tracking-widest text-white/40">Blueprint Deliverables</p>
+                  <p className="text-xs uppercase tracking-widest" style={{ color: theme.gold }}>Included in $39 Fee</p>
                 </div>
 
-                <p className="text-[11px] text-white/30 leading-relaxed border-t border-white/5 pt-4">
-                  This covers the <span className="text-white/50 font-medium">$39 intelligence fee</span> for generating your
-                  custom route. Your actual travel expenses (hotels, flights) will be booked separately based on this blueprint.
-                </p>
+                <ul className="space-y-5">
+                  <li className="flex items-start gap-4">
+                    <span style={{ color: theme.gold }} className="mt-0.5 shrink-0">✦</span>
+                    <div>
+                      <p className="text-sm text-white/90 font-medium mb-1 tracking-wide">Curated Day-by-Day Itinerary</p>
+                      <p className="text-xs text-white/50 leading-relaxed">A seamless, personalized route perfectly optimized for your {travelStyle.toLowerCase()} pace.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span style={{ color: theme.gold }} className="mt-0.5 shrink-0">✦</span>
+                    <div>
+                      <p className="text-sm text-white/90 font-medium mb-1 tracking-wide">Hand-Picked Accommodations</p>
+                      <p className="text-xs text-white/50 leading-relaxed">Exclusive property recommendations tailored exactly to your aesthetic.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span style={{ color: theme.gold }} className="mt-0.5 shrink-0">✦</span>
+                    <div>
+                      <p className="text-sm text-white/90 font-medium mb-1 tracking-wide">Logistics & Transport Engine</p>
+                      <p className="text-xs text-white/50 leading-relaxed">Smart routing guidance spanning domestic flights, private transfers, and rail.</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
 

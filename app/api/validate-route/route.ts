@@ -28,24 +28,16 @@ export async function POST(request: Request) {
       warnings.push(countWarning);
     }
 
-    const distanceWarning = await validateExtremeDistance(destinationIds);
+    const distanceWarning = await validateExtremeDistance(destinationIds, selectedDays);
     if (distanceWarning) {
       warnings.push(distanceWarning);
     }
-
-    const estimatedBudgetRange = estimateBudgetRange(
-      travelStyle,
-      selectedDays,
-      destinationIds.length,
-      !!distanceWarning
-    );
 
     const isValid = warnings.length === 0;
 
     return NextResponse.json({
       isValid,
-      warnings,
-      estimatedBudgetRange
+      warnings
     });
   } catch (error) {
     console.error('Validation API Error:', error);

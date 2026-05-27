@@ -6,6 +6,7 @@ import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldC
 import Map, { Marker, Source, Layer, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Link from "next/link";
+import Image from "next/image";
 import type { ItineraryResponse } from "@/app/api/generate-itinerary/route";
 
 export type Destination = {
@@ -27,12 +28,38 @@ interface TravelWizardProps {
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
 const DESTINATION_IMAGES: Record<string, string> = {
-  "Leh-Ladakh": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800",
+  // --- Local images (public/destinations/) ---
+  "Alleppey": "/destinations/alleppey.webp",
+  "Delhi": "/destinations/delhi.webp",
+  "Gokarna": "/destinations/gokarna.webp",
+  "Gulmarg": "/destinations/gulmarg.webp",
+  "Havelock Island (Swaraj Dweep)": "/destinations/havelock.webp",
+  "Kaziranga": "/destinations/kaziranga.webp",
+  "Meghalaya (Shillong & Sohra)": "/destinations/meghalaya.webp",
+  "Munroe Island": "/destinations/munroe.webp",
+  "Mysore": "/destinations/mysore.webp",
+  "Varanasi": "/destinations/varanasi.webp",
+  "Varkala": "/destinations/varkala.webp",
+  // --- Unsplash fallbacks (no local image yet) ---
+  "Leh-Ladakh": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800",
+  "Spiti Valley": "https://images.unsplash.com/photo-1626714100232-10d8709aba3d?q=80&w=800",
+  "Manali": "https://images.unsplash.com/photo-1626015365107-28b43c255b0d?q=80&w=800",
+  "Tirthan Valley": "https://images.unsplash.com/photo-1600792809461-3b2aa31dde52?q=80&w=800",
   "Udaipur": "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800",
+  "Jodhpur": "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800",
   "Jaisalmer": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800",
-  "Varkala": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
-  "Alleppey": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800",
-  "Manali": "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800"
+  "Jaipur": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?q=80&w=800",
+  "Bundi": "https://images.unsplash.com/photo-1616323439449-1fc6c26fdc69?q=80&w=800",
+  "South Goa": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
+  "Ranthambore": "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=800",
+  "Jawai": "https://images.unsplash.com/photo-1456926631375-92c8ce872def?q=80&w=800",
+  "Kabini": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=800",
+  "Munnar": "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=800",
+  "Darjeeling": "https://images.unsplash.com/photo-1622308644420-736e4e4dbdef?q=80&w=800",
+  "Ziro Valley": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800",
+  "Rishikesh": "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=800",
+  "Hampi": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800",
+  "Mumbai": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800",
 };
 
 const HERO_PLAYLIST = [
@@ -72,6 +99,26 @@ import { validateItinerary as performValidation } from "@/utils/travelValidator"
 
 // ... existing imports/types
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function isMonthInSeason(month: string, season: string) {
+  if (!month || !season) return false;
+  if (season.toLowerCase().includes("all year")) return true;
+  const shortMonth = month.substring(0, 3);
+  if (season.includes(shortMonth)) return true;
+  
+  const match = season.match(/([A-Z][a-z]{2})[^\w]+([A-Z][a-z]{2})/);
+  if (match) {
+    const start = MONTHS.indexOf(match[1]);
+    const end = MONTHS.indexOf(match[2]);
+    const target = MONTHS.indexOf(shortMonth);
+    if (start !== -1 && end !== -1 && target !== -1) {
+      if (start <= end) return target >= start && target <= end;
+      return target >= start || target <= end; 
+    }
+  }
+  return false;
+}
+
 export default function TravelWizard({ destinations }: TravelWizardProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -85,7 +132,6 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const [warnings, setWarnings] = useState<string[]>([]);
-  const [estimatedBudget, setEstimatedBudget] = useState("");
   const [isValidating, setIsValidating] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
   const [validationMessages, setValidationMessages] = useState<string[]>([]);
@@ -103,12 +149,21 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const validateItinerary = async () => {
     if (selectedDestinations.length === 0) {
       setWarnings([]);
-      setEstimatedBudget("");
       return;
     }
 
     setIsValidating(true);
     try {
+      const selectedNames = destinations
+        .filter(d => selectedDestinations.includes(d.id))
+        .map(d => d.name);
+
+      const clientWarnings = performValidation({
+        destinations: selectedNames,
+        durationDays: selectedDays,
+        travelMonth,
+      });
+
       const res = await fetch("/api/validate-route", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -121,8 +176,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
       const data = await res.json();
       if (res.ok) {
-        setWarnings(data.warnings || []);
-        setEstimatedBudget(data.estimatedBudgetRange || "");
+        setWarnings([...clientWarnings, ...(data.warnings || [])]);
       }
     } catch (err) {
       console.error(err);
@@ -159,13 +213,20 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const nextStep = () => {
     if (step === 5) {
       if (selectedDestinations.length === 0) return;
+      const selectedNames = destinations
+        .filter(d => selectedDestinations.includes(d.id))
+        .map(d => d.name);
+
       const msgs = performValidation({
-        destinations: selectedDestinations,
+        destinations: selectedNames,
         durationDays: selectedDays,
         travelMonth,
       });
-      if (msgs.length > 0) {
-        setValidationMessages(msgs);
+      // also check if there are API warnings that are "High Transit Friction"
+      const allWarnings = [...msgs, ...warnings.filter(w => w.includes("High Transit Friction") || w.includes("High Friction Route") || w.includes("Extreme distance"))];
+      
+      if (allWarnings.length > 0) {
+        setValidationMessages(Array.from(new Set(allWarnings)));
         setShowValidationModal(true);
         return;
       }
@@ -284,41 +345,16 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     );
   }
 
-  const filteredDestinations = destinations.filter(
-    (d) => selectedLandscapes.length === 0 || selectedLandscapes.includes(d.landscape)
-  );
+  const filteredDestinations = destinations
+    .filter((d) => selectedLandscapes.length === 0 || selectedLandscapes.includes(d.landscape))
+    .sort((a, b) => {
+      const aMatch = isMonthInSeason(travelMonth, a.idealSeason) ? 1 : 0;
+      const bMatch = isMonthInSeason(travelMonth, b.idealSeason) ? 1 : 0;
+      if (bMatch !== aMatch) return bMatch - aMatch;
+      return a.region.localeCompare(b.region);
+    });
 
-  // Haversine formula to calculate distance between two coordinates in kilometers
-  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => {
-    const R = 6371; // Radius of the earth in km
-    const dLat = (lat2 - lat1) * (Math.PI / 180);
-    const dLon = (lon2 - lon1) * (Math.PI / 180);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in km
-  };
 
-  const selectedCoords = selectedDestinations
-    .map(id => destinations.find(d => d.id === id))
-    .filter(d => d && d.latitude && d.longitude);
-
-  let maxDistance = 0;
-  for (let i = 0; i < selectedCoords.length; i++) {
-    for (let j = i + 1; j < selectedCoords.length; j++) {
-      const dist = calculateDistance(
-        selectedCoords[i]!.latitude, selectedCoords[i]!.longitude,
-        selectedCoords[j]!.latitude, selectedCoords[j]!.longitude
-      );
-      if (dist > maxDistance) {
-        maxDistance = dist;
-      }
-    }
-  }
-
-  const hasGeoConflict = selectedDays < 8 && maxDistance > 1500;
 
   return (
     <div
@@ -355,7 +391,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
             animate="center"
             exit="exit"
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="framer-motion-print-fix w-full max-w-4xl mx-auto"
+            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 5 ? 'max-w-[1600px]' : 'max-w-4xl'}`}
           >
             {step === 1 && (
               <div className="text-center space-y-16">
@@ -429,8 +465,6 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                   {[
                     { name: "Luxury Explorer", icon: Crown, desc: "Five-star heritage properties, private transfers, exclusive access." },
                     { name: "Balanced", icon: Scale, desc: "Boutique stays, comfortable pace, authentic immersive experiences." },
-                    { name: "Adventure Nomad", icon: Compass, desc: "Off-grid locations, active pursuits, raw and unfiltered." },
-                    { name: "Deep Immersion", icon: Users, desc: "Local transit, community homestays, and unfiltered cultural connection." },
                   ].map(({ name, icon: Icon, desc }, index) => (
                     <motion.button
                       initial={{ opacity: 0, y: 20 }}
@@ -563,64 +597,53 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                     </AnimatePresence>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar">
                       {filteredDestinations.map((dest) => {
                         const isSelected = selectedDestinations.includes(dest.id);
                         const isDisabled = !isSelected && isMaxReached;
-                        const imageUrl = DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE;
                         return (
                           <div
                             key={dest.id}
                             onClick={() => toggleDestination(dest.id)}
                             onMouseEnter={() => setHoveredCard(dest.id)}
                             onMouseLeave={() => setHoveredCard(null)}
-                            className={`relative h-64 group rounded-sm overflow-hidden border transition-all duration-300 ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale-[0.5]' : 'cursor-pointer hover:border-white/20'}`}
+                            className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 bg-zinc-800 ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale-[0.5]' : 'cursor-pointer hover:border-white/20'}`}
                             style={{ borderColor: isSelected ? theme.gold : theme.border }}
                           >
-                            {/* Poster image (always visible as fallback) */}
-                            <img src={imageUrl} alt={dest.name} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isSelected ? 'scale-105' : 'group-hover:scale-105'} opacity-60`} />
+                            {/* Poster image with cinematic Ken Burns effect */}
+                            <Image 
+                              src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
+                              alt={dest.name} 
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 30vw"
+                              className={`object-cover transition-transform duration-[1000ms] ease-out ${isSelected ? 'scale-110' : 'scale-100 group-hover:scale-110'} opacity-60`} 
+                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            />
 
-                            {/* Hover video (only mounts when hovered — prevents 20 simultaneous downloads) */}
-                            {hoveredCard === dest.id && DESTINATION_VIDEOS[dest.name] && (
-                              <video
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 z-[1]"
-                              >
-                                <source src={DESTINATION_VIDEOS[dest.name]} type="video/mp4" />
-                              </video>
-                            )}
+                            {/* Dark overlay — sits ABOVE image for text legibility */}
+                            <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/60 to-transparent z-10 transition-colors duration-500 ${isSelected ? 'bg-black/40' : 'bg-transparent group-hover:bg-black/40'}`} />
 
-                            {/* Dark overlay — sits ABOVE video for text legibility */}
-                            <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/60 to-transparent z-10 transition-opacity ${isSelected ? 'opacity-90' : 'opacity-80 group-hover:opacity-90'}`} />
-
-                            <div className="absolute inset-0 p-5 flex flex-col justify-end z-20">
-                              <div className="flex justify-between items-start mb-2">
+                            <div className="absolute inset-0 p-4 flex flex-col justify-end z-20">
+                              <div className="flex justify-between items-start mb-1">
                                 <div>
-                                  <p className="text-xs uppercase tracking-widest mb-1" style={{ color: theme.gold }}>{dest.region}</p>
-                                  <h3 className="font-serif text-2xl drop-shadow-md">{dest.name}</h3>
+                                  <p className="text-[0.6rem] uppercase tracking-widest mb-0.5" style={{ color: theme.gold }}>{dest.region}</p>
+                                  <h3 className="font-serif text-xl drop-shadow-md leading-tight">{dest.name}</h3>
                                 </div>
                                 <div
-                                  className={`w-6 h-6 mt-1 rounded-full flex-shrink-0 flex items-center justify-center border transition-all ${isSelected ? 'bg-[#c9a96e] border-[#c9a96e]' : 'border-white/30'}`}
+                                  className={`w-5 h-5 mt-0.5 rounded-full flex-shrink-0 flex items-center justify-center border transition-all ${isSelected ? 'bg-[#c9a96e] border-[#c9a96e]' : 'border-white/30'}`}
                                 >
-                                  {isSelected && <CheckCircle size={14} className="text-black" />}
+                                  {isSelected && <CheckCircle size={12} className="text-black" />}
                                 </div>
                               </div>
 
-                              <p className="text-xs text-white/70 line-clamp-2 leading-relaxed mb-3 pr-4">
-                                {dest.description}
-                              </p>
-
-                              <div className="flex justify-between items-start pt-3 mt-3 border-t border-white/10 text-[0.65rem] tracking-[0.15em] text-white/60 uppercase">
-                                <div className="w-1/2 pr-2 flex items-start gap-1.5">
+                              <div className="flex flex-wrap justify-between items-start pt-2 mt-2 border-t border-white/10 text-[0.6rem] tracking-[0.12em] text-white/60 uppercase gap-1">
+                                <div className="flex-1 min-w-[80px] flex items-start gap-1">
                                   <span style={{ color: theme.gold }} className="flex-shrink-0">✦</span>
                                   <span>{dest.vibeTags.slice(0, 2).join(" • ")}</span>
                                 </div>
-                                <div className="w-1/2 text-right pl-2 border-l border-white/10">
-                                  Best: {dest.idealSeason}
+                                <div className="flex-shrink-0 text-right">
+                                  {dest.idealSeason}
                                 </div>
                               </div>
                             </div>
@@ -629,53 +652,63 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       })}
 
                       {filteredDestinations.length === 0 && (
-                        <div className="col-span-1 md:col-span-2 p-10 text-center border rounded-sm" style={{ borderColor: theme.border, backgroundColor: theme.darker }}>
+                        <div className="col-span-1 md:col-span-2 xl:col-span-3 p-10 text-center border rounded-sm" style={{ borderColor: theme.border, backgroundColor: theme.darker }}>
                           <p className="text-white/40 italic">No destinations match your selected landscapes. Try removing some filters.</p>
                         </div>
                       )}
                     </div>
-
-                    <div className="lg:col-span-1">
-                      <div style={{ backgroundColor: theme.darker, borderColor: theme.border }} className="p-6 border rounded-sm sticky top-10">
-                        <h4 className="font-sans uppercase tracking-widest text-xs mb-6 text-white/50">Live Validation</h4>
-
-                        <div className="space-y-6">
-                          <div>
-                            <p className="text-xs text-white/40 mb-1">Estimated Budget</p>
-                            <p className="font-serif text-2xl" style={{ color: theme.gold }}>
-                              {estimatedBudget || "$0 - $0"}
-                            </p>
-                          </div>
-
-                          {isValidating ? (
-                            <div className="text-sm text-white/50 animate-pulse">Analyzing route physics...</div>
-                          ) : hasGeoConflict ? (
-                            <div className="flex flex-col gap-2 items-start bg-amber-950/20 border border-amber-500/50 p-4 rounded-sm">
-                              <div className="flex gap-3 items-center">
-                                <AlertTriangle size={16} className="text-amber-500 flex-shrink-0" />
-                                <p className="text-sm text-amber-500 font-bold tracking-wide">Geographic Conflict</p>
-                              </div>
-                              <p className="text-sm text-amber-200/80 leading-relaxed mt-1">Your destinations are over 1,500km apart. For a short {selectedDays}-day trip, we highly recommend focusing on a single region to avoid exhausting transit times.</p>
-                            </div>
-                          ) : warnings.length > 0 ? (
-                            <div className="space-y-3">
-                              {warnings.map((warn, idx) => (
-                                <div key={idx} className="flex gap-3 items-start bg-amber-950/30 border border-amber-900/50 p-4 rounded-sm">
-                                  <AlertTriangle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
-                                  <p className="text-sm text-amber-200/80 leading-relaxed">{warn}</p>
-                                </div>
-                              ))}
-                            </div>
-                          ) : selectedDestinations.length > 0 ? (
-                            <div className="flex gap-3 items-center text-emerald-400/80 bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-sm">
-                              <CheckCircle size={16} />
-                              <p className="text-sm">Pacing and logistics look excellent.</p>
-                            </div>
-                          ) : (
-                            <div className="text-sm text-white/30 italic">Select destinations to validate.</div>
-                          )}
-                        </div>
+                    <div className="w-full lg:w-96 shrink-0 sticky top-8 h-fit bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 flex flex-col gap-6">
+                      <div>
+                        <h4 className="font-sans uppercase tracking-widest text-[10px] mb-4 text-white/50">Your Selection</h4>
+                        {selectedDestinations.length === 0 ? (
+                          <p className="text-sm text-zinc-500 italic">No destinations selected</p>
+                        ) : (
+                          <ul className="space-y-2">
+                            {selectedDestinations.map(id => {
+                              const d = destinations.find(x => x.id === id);
+                              return (
+                                <li key={id} className="text-sm text-zinc-300 flex items-center gap-2">
+                                  <span style={{ color: theme.gold }}>✦</span> {d?.name}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
                       </div>
+                      {isValidating ? (
+                        <div className="text-sm text-white/50 animate-pulse">Analyzing route physics...</div>
+                      ) : warnings.length > 0 ? (
+                        <div className="space-y-3">
+                          <h4 className="font-sans uppercase tracking-widest text-[10px] mb-2 text-white/50">Live Validation</h4>
+                          {warnings.map((warn, idx) => (
+                            <div key={idx} className="flex gap-3 items-start bg-amber-950/30 border border-amber-900/50 p-4 rounded-sm">
+                              <AlertTriangle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
+                              <p className="text-xs text-amber-200/80 leading-relaxed">{warn}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : selectedDestinations.length > 0 ? (
+                        <div className="flex gap-3 items-center text-emerald-400/80 bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-sm">
+                          <CheckCircle size={16} />
+                          <p className="text-xs">Pacing and logistics look excellent.</p>
+                        </div>
+                      ) : null}
+                      <button
+                        onClick={() => {
+                          if (step === 5 && selectedDestinations.length === 0) return;
+                          nextStep();
+                        }}
+                        style={{
+                          borderColor: theme.gold,
+                          opacity: selectedDestinations.length === 0 ? 0.5 : 1,
+                          cursor: selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
+                        }}
+                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 ${selectedDestinations.length === 0 ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
+                      >
+                        <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
+                          Proceed to Checkout <ChevronRight size={16} />
+                        </span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -687,29 +720,31 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         </AnimatePresence>
       </main>
 
-      <footer className="p-6 md:p-10 flex justify-end relative z-40">
-        <button
-          onClick={() => {
-            if (step === 5 && selectedDestinations.length === 0) return;
-            nextStep();
-          }}
-          style={{
-            borderColor: step === 5 && hasGeoConflict ? 'rgba(245, 158, 11, 0.5)' : theme.gold,
-            opacity: step === 5 && selectedDestinations.length === 0 ? 0.5 : 1,
-            cursor: step === 5 && selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
-          }}
-          className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 5 && hasGeoConflict ? 'text-amber-500 hover:bg-amber-500/10' :
-              step === 5 && selectedDestinations.length === 0 ? 'text-white/50' :
-                'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
-            }`}
-        >
-          <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
-            {step === 5 ? "Review Journey" : "Next"} <ChevronRight size={16} />
-          </span>
-        </button>
-      </footer>
+      {step < 5 && (
+        <footer className="p-6 md:p-10 flex justify-end relative z-40">
+          <button
+            onClick={() => {
+              if (step === 5 && selectedDestinations.length === 0) return;
+              nextStep();
+            }}
+            style={{
+              borderColor: theme.gold,
+              opacity: step === 5 && selectedDestinations.length === 0 ? 0.5 : 1,
+              cursor: step === 5 && selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
+            }}
+            className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 5 ? 'hover:bg-[#c9a96e]/10' :
+                step === 5 && selectedDestinations.length === 0 ? 'text-white/50' :
+                  'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
+              }`}
+          >
+            <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
+              {step === 5 ? "Proceed to Checkout" : "Next"} <ChevronRight size={16} />
+            </span>
+          </button>
+        </footer>
+      )}
 
-            <AnimatePresence>
+      <AnimatePresence>
         {showValidationModal && (
           <motion.div
             initial={{ opacity: 0 }}
