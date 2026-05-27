@@ -34,8 +34,8 @@ export default async function DashboardPage({ params }: { params: Promise<{ jour
   });
 
   // Re-sort to match original sequence for correct map route tracing
-  const destinationsMap = new Map(unorderedDestinations.map(d => [d.id, d]));
-  const destinations = destinationIds.map(id => destinationsMap.get(id)).filter(Boolean) as typeof unorderedDestinations;
+  const destinationsMap = new Map(unorderedDestinations.map((d: any) => [d.id, d]));
+  const destinations = destinationIds.map((id: any) => destinationsMap.get(id)).filter(Boolean) as typeof unorderedDestinations;
 
   return (
     <DashboardClient
