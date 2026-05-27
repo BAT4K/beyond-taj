@@ -66,7 +66,7 @@ export default async function UserPortal() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {journeys.map((journey) => (
+            {journeys.map((journey: any) => (
               <div
                 key={journey.id}
                 className="group relative flex flex-col justify-between p-8 rounded-sm border transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl overflow-hidden"
