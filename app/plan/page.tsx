@@ -10,7 +10,7 @@ export default async function Plan() {
     },
   });
 
-  const liveDestinations = dbDestinations.map((dest) => ({
+  const liveDestinations = dbDestinations.map((dest: any) => ({
     id: dest.id,
     name: dest.name,
     description: dest.description,
