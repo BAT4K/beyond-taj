@@ -33,7 +33,7 @@ export default function CheckoutClient({
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    load({ mode: "sandbox" }).then((cf) => {
+    load({ mode: "sandbox" }).then((cf: any) => {
       setCashfree(cf);
     });
   }, []);
@@ -137,7 +137,7 @@ export default function CheckoutClient({
               <p className="text-xs uppercase tracking-widest text-white/40 mb-4">Destinations</p>
               <div className="flex flex-wrap gap-2">
                 {destinations.length > 0 ? (
-                  destinations.map((d) => (
+                  destinations.map((d: any) => (
                     <span
                       key={d.id}
                       className="px-3 py-1 border rounded-full text-sm bg-white/5 text-white/90 hover:border-[#c9a96e]/50 transition-colors cursor-default"
