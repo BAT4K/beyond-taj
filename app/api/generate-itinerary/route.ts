@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     
     // Map IDs to names in the same order
     const destinationNames = destinationIds.map(id => {
-      const dest = dbDestinations.find(d => d.id === id);
+      const dest = dbDestinations.find((d: any) => d.id === id);
       return dest?.name || id;
     });
 
