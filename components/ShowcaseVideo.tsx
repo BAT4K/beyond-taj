@@ -33,9 +33,10 @@ export default function ShowcaseVideo() {
             muted
             playsInline
             preload="metadata"
+            poster="/showcase-poster.webp"
             suppressHydrationWarning
             className="w-full h-auto object-cover"
-            src="/showcase-video.mp4"
+            src="/showcase-compressed.mp4"
           />
         </div>
       </div>
