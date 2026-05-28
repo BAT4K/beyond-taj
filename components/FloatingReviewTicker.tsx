@@ -8,27 +8,86 @@ const REVIEWS = [
   {
     name: "Sarah M.",
     location: "London",
-    text: "The seasonal alerts saved my trip to North India! Slashed weeks of stress."
+    text: "The seasonal alerts saved my trip to North India! Slashed weeks of stress.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
     name: "David K.",
     location: "Berlin",
-    text: "Avoided a massive heatwave mistake in Delhi thanks to the custom pacing."
+    text: "Avoided a massive heatwave mistake in Delhi thanks to the custom pacing.",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/men/46.jpg"
   },
   {
     name: "Elena R.",
     location: "Madrid",
-    text: "The scam prevention guide alone was worth it. Felt completely safe."
+    text: "The scam prevention guide alone was worth it. Felt completely safe.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg"
   },
   {
     name: "James L.",
     location: "New York",
-    text: "Incredible local insights. We skipped the tourist traps entirely."
+    text: "Incredible local insights. We skipped the tourist traps entirely.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/22.jpg"
   },
   {
     name: "Aisha T.",
     location: "Dubai",
-    text: "Our Rajasthan route was flawless. The transport tips were a lifesaver."
+    text: "Our Rajasthan route was flawless. The transport tips were a lifesaver.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/31.jpg"
+  },
+  {
+    name: "Marcus P.",
+    location: "Sydney",
+    text: "Loved the curated hotels, though the pacing on day 3 was a bit fast for us.",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/men/71.jpg"
+  },
+  {
+    name: "Chloe W.",
+    location: "Toronto",
+    text: "Beyond Taj nailed the cultural immersion. We experienced Diwali like locals!",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/12.jpg"
+  },
+  {
+    name: "Terrence J.",
+    location: "Atlanta",
+    text: "The tailored culinary recommendations were phenomenal. Every meal was a hit.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/55.jpg"
+  },
+  {
+    name: "Sophie L.",
+    location: "Paris",
+    text: "Great itinerary, but we wish we had booked more buffer days for shopping.",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/women/8.jpg"
+  },
+  {
+    name: "Liam O.",
+    location: "Dublin",
+    text: "Having the exact train routes and booking timelines mapped out was priceless.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/11.jpg"
+  },
+  {
+    name: "Emma C.",
+    location: "Vancouver",
+    text: "The architecture walking tours suggested were stunning. Highly recommended.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/46.jpg"
+  },
+  {
+    name: "Julian B.",
+    location: "Amsterdam",
+    text: "Very well structured. We missed one temple due to traffic, but overall amazing.",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/men/84.jpg"
   }
 ];
 
@@ -40,6 +99,12 @@ export default function FloatingReviewTicker() {
     // Client-side shuffle to avoid Next.js hydration mismatch
     const shuffled = [...REVIEWS].sort(() => Math.random() - 0.5);
     setShuffledReviews(shuffled);
+
+    // Silently preload all images in the background to prevent layout buffer/lag
+    shuffled.forEach((review) => {
+      const img = new Image();
+      img.src = review.avatar;
+    });
 
     let cycleTimer: NodeJS.Timeout;
 
@@ -75,9 +140,11 @@ export default function FloatingReviewTicker() {
             {/* Header Row */}
             <div className="flex items-center gap-3">
               {/* Avatar */}
-              <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-amber-600/20 text-amber-500 font-bold text-sm">
-                {shuffledReviews[index].name.charAt(0)}
-              </div>
+              <img 
+                src={shuffledReviews[index].avatar} 
+                alt={`${shuffledReviews[index].name}'s avatar`}
+                className="flex-shrink-0 w-10 h-10 rounded-full object-cover border border-white/10"
+              />
               
               <div className="flex flex-col gap-0.5">
                 {/* Name & Location */}
@@ -86,9 +153,17 @@ export default function FloatingReviewTicker() {
                 </p>
                 {/* Star Rating */}
                 <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="currentColor" className="text-amber-400" />
-                  ))}
+                  {[...Array(5)].map((_, i) => {
+                    const isFilled = i < shuffledReviews[index].rating;
+                    return (
+                      <Star 
+                        key={i} 
+                        size={12} 
+                        fill={isFilled ? "currentColor" : "transparent"} 
+                        className={isFilled ? "text-amber-400" : "text-zinc-600"} 
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>

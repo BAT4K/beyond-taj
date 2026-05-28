@@ -19,6 +19,13 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-6">
+        <Link
+          href="/review"
+          className="text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+        >
+          Review Us
+        </Link>
+        
         {status === "unauthenticated" && (
           <button
             onClick={() => signIn()}
