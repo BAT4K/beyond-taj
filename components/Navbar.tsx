@@ -13,8 +13,13 @@ export default function Navbar() {
   return (
     <header className="w-full px-6 md:px-10 py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
       <div>
-        <Link href="/" className="font-serif text-xl tracking-wide text-white opacity-80 hover:opacity-100 transition-opacity">
-          Beyond Taj
+        <Link href="/" className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+          <img
+            src="/logo.png"
+            alt="Beyond Taj Emblem"
+            className="h-10 md:h-11 w-auto object-contain"
+          />
+          <span className="font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
         </Link>
       </div>
 
@@ -25,7 +30,7 @@ export default function Navbar() {
         >
           Review Us
         </Link>
-        
+
         {status === "unauthenticated" && (
           <button
             onClick={() => signIn()}
@@ -34,7 +39,7 @@ export default function Navbar() {
             Client Login
           </button>
         )}
-        
+
         {status === "authenticated" && (
           <>
             <Link
