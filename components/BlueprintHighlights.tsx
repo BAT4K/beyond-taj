@@ -40,7 +40,7 @@ export default function BlueprintHighlights() {
             <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs mb-3 font-sans">
               Blueprint Highlights
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-white font-light">
+            <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight">
               What You Unlock
             </h2>
           </div>
@@ -49,7 +49,7 @@ export default function BlueprintHighlights() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {HIGHLIGHTS.map((highlight, i) => {
             const Icon = highlight.icon;
             return (
@@ -59,11 +59,11 @@ export default function BlueprintHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 hover:border-[#c9a96e]/50 transition-all duration-500 relative overflow-hidden"
+                className="group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-all duration-500 relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity" />
                 
-                <div className="w-12 h-12 rounded-full bg-[#c9a96e]/10 flex items-center justify-center mb-8 border border-[#c9a96e]/20 group-hover:bg-[#c9a96e]/20 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-[#c9a96e]/10 flex items-center justify-center mb-8 border border-[#c9a96e]/20 md:group-hover:bg-[#c9a96e]/20 transition-colors">
                   <Icon size={20} className="text-[#c9a96e]" />
                 </div>
                 

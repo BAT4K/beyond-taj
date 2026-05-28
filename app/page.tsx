@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import ShowcaseVideo from "@/components/ShowcaseVideo";
 
 export const dynamic = 'force-static';
-export const revalidate = 3600;
+export const revalidate = 86400; // Cache for 24 hours
 // Dynamically import components below the fold
 const WhyChooseUs = nextDynamic(() => import("@/components/WhyChooseUs"));
 const Manifesto = nextDynamic(() => import("@/components/Manifesto"));

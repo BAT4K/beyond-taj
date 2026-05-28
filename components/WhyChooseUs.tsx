@@ -9,7 +9,7 @@ const theme = {
 export default function WhyChooseUs() {
   return (
     <section className="w-full py-24 px-6 md:px-10 border-t border-white/5" style={{ backgroundColor: theme.bg, color: theme.cream }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-tight mb-8">
             Travel India With <br/>
