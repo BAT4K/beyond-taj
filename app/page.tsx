@@ -1,13 +1,15 @@
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import ShowcaseVideo from "@/components/ShowcaseVideo";
 
+export const dynamic = 'force-static';
+export const revalidate = 3600;
 // Dynamically import components below the fold
-const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
-const Manifesto = dynamic(() => import("@/components/Manifesto"));
-const BlueprintHighlights = dynamic(() => import("@/components/BlueprintHighlights"));
-const FAQ = dynamic(() => import("@/components/FAQ"));
-const FloatingReviewTicker = dynamic(() => import("@/components/FloatingReviewTicker"));
+const WhyChooseUs = nextDynamic(() => import("@/components/WhyChooseUs"));
+const Manifesto = nextDynamic(() => import("@/components/Manifesto"));
+const BlueprintHighlights = nextDynamic(() => import("@/components/BlueprintHighlights"));
+const FAQ = nextDynamic(() => import("@/components/FAQ"));
+const FloatingReviewTicker = nextDynamic(() => import("@/components/FloatingReviewTicker"));
 
 export default function Home() {
   return (

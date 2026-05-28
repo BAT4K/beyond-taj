@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Cashfree } from "cashfree-pg";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 const cashfree = new Cashfree(
   1, // CFEnvironment.SANDBOX
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { journeyId, customerEmail, customerName, region } = body;
+    const { journeyId, customerEmail, customerName } = body;
 
     if (!journeyId) {
       return NextResponse.json({ error: "Missing journeyId" }, { status: 400 });
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     // Use the explicit user selection from the frontend to determine pricing tier.
     let orderAmount = 3751;
     
-    if (region === 'India') {
+    if (journey.residency === 'India') {
       orderAmount = 249;
     } else {
       orderAmount = 3751; // Static INR conversion for international users

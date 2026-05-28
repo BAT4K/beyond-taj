@@ -2,12 +2,20 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Map, { Marker, Source, Layer, MapRef } from "react-map-gl/mapbox";
-import "mapbox-gl/dist/mapbox-gl.css";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Sun, Sunset, Moon, Diamond, ShieldCheck, Wallet, AlertTriangle, MessageCircle, FileDown } from "lucide-react";
 import CinematicLoader from "./CinematicLoader";
 import { useReactToPrint } from "react-to-print";
+
+const ItineraryMap = dynamic(() => import("@/components/ItineraryMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full bg-[#12100e] flex items-center justify-center">
+      <p className="text-white/40 uppercase tracking-widest text-xs animate-pulse">Loading Map Engine...</p>
+    </div>
+  )
+});
 
 interface ItineraryResponse {
   tripSummary: string;
@@ -41,7 +49,6 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
   const [itineraryData, setItineraryData] = useState<ItineraryResponse | null>(null);
   const [loadingText, setLoadingText] = useState("Consulting local specialists...");
 
-  const mapRef = useRef<MapRef>(null);
   const printRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
@@ -69,36 +76,6 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
     generateJourney(journeyId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [journeyId]);
-
-  useEffect(() => {
-    if (!isGenerating && itineraryData && destinations.length > 0 && mapRef.current) {
-      const selectedCoords = destinations.filter(d => d.latitude && d.longitude);
-
-      if (selectedCoords.length > 0) {
-        let minLng = selectedCoords[0]!.longitude;
-        let maxLng = selectedCoords[0]!.longitude;
-        let minLat = selectedCoords[0]!.latitude;
-        let maxLat = selectedCoords[0]!.latitude;
-
-        for (const dest of selectedCoords) {
-          if (dest.longitude < minLng) minLng = dest.longitude;
-          if (dest.longitude > maxLng) maxLng = dest.longitude;
-          if (dest.latitude < minLat) minLat = dest.latitude;
-          if (dest.latitude > maxLat) maxLat = dest.latitude;
-        }
-
-        if (minLng !== maxLng || minLat !== maxLat) {
-          mapRef.current.fitBounds(
-            [
-              [minLng, minLat],
-              [maxLng, maxLat]
-            ],
-            { padding: 100, duration: 1500 }
-          );
-        }
-      }
-    }
-  }, [isGenerating, itineraryData, destinations]);
 
   const generateJourney = async (id: string) => {
     setIsGenerating(true);
@@ -311,40 +288,7 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
 
           {/* Right Column: Sticky Map */}
           <div className="w-full lg:w-1/2 sticky top-24 h-[calc(100vh-8rem)] rounded-sm overflow-hidden border border-white/10 shadow-2xl print:hidden">
-            <Map
-              ref={mapRef}
-              mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-              initialViewState={{ longitude: 78.9629, latitude: 20.5937, zoom: 4 }}
-              mapStyle="mapbox://styles/mapbox/dark-v11"
-            >
-              {destinations.length > 1 && (
-                <Source id="route" type="geojson" data={{
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                    type: 'LineString',
-                    coordinates: destinations.filter(d => d.longitude && d.latitude).map(dest => [dest.longitude, dest.latitude]) as number[][]
-                  }
-                }}>
-                  <Layer
-                    id="route-line"
-                    type="line"
-                    paint={{
-                      'line-color': '#c9a96e',
-                      'line-width': 2,
-                      'line-dasharray': [2, 2]
-                    }}
-                  />
-                </Source>
-              )}
-              {destinations.map(dest => (
-                dest.latitude && dest.longitude ? (
-                  <Marker key={dest.id} longitude={dest.longitude} latitude={dest.latitude}>
-                    <div className="w-4 h-4 rounded-full shadow-[0_0_20px_rgba(201,169,110,0.8)] border border-white/50" style={{ backgroundColor: theme.gold }} />
-                  </Marker>
-                ) : null
-              ))}
-            </Map>
+            <ItineraryMap destinations={destinations} />
           </div>
         </div>
       </main>

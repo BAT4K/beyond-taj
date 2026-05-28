@@ -6,7 +6,12 @@ export default async function DashboardPage({ params }: { params: Promise<{ jour
   const { journeyId } = await params;
 
   const journey = await prisma.journey.findUnique({
-    where: { id: journeyId }
+    where: { id: journeyId },
+    select: {
+      id: true,
+      status: true,
+      destinations: true
+    }
   });
 
   if (!journey) {

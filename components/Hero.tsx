@@ -24,6 +24,8 @@ export default function Hero() {
           loop
           muted
           playsInline
+          preload="none"
+          poster="/hero-poster.webp"
           src="/master-hero.mp4"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />

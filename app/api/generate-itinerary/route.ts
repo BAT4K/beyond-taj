@@ -55,6 +55,8 @@ export async function POST(request: Request) {
     const travelStyle = journey.travelStyle;
     const selectedLandscapes = journey.landscapes;
     const travelMonth = (journey as any).travelMonth || 'October'; // FIXED: Extracted from DB
+    const residency = journey.residency;
+    const startLocation = journey.startLocation;
     const estimatedBudget = "Premium/Luxury";
 
     // Feature Flag: Flip this in your .env file to toggle between Live and Mock
@@ -98,6 +100,15 @@ Create a highly detailed, day-by-day itinerary based strictly on these parameter
 - Destinations: ${destinationNames.join(', ')}
 - Preferred Landscapes: ${selectedLandscapes?.join(', ') || 'Any'}
 - Estimated Budget: ${estimatedBudget}
+
+[TRAVELER PROFILE CONTEXT]
+- Origin Point: ${startLocation}
+- Traveler Type: ${residency}
+
+[STRICT GENERATION DIRECTIVES FOR TRANSIT & LOGISTICS]
+1. If Traveler Type is "International", you MUST dedicate Day 1 to "Arrival, International Airport Smooth Landing, and Jetlag Calibration". Explicitly recommend the optimal major entry hub airport in India relative to their selected cities and their origin at ${startLocation}.
+2. If Traveler Type is "India", assume zero long-haul flight fatigue. Day 1 should optimize for immediate domestic regional flights or luxury private vehicle transfers originating smoothly from ${startLocation}.
+3. In the final "Logistical Checklist" section of the output, dynamically generate specific luxury transfer requirements.
 
 Your response must be entirely structured JSON matching the requested schema. Ensure pacing makes geographical sense. Include destination-specific luxury experiences, highly actionable local insider advice, and pragmatic anti-scam tips.
 

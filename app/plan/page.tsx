@@ -1,14 +1,29 @@
 import prisma from "@/lib/prisma";
 import TravelWizard from "@/components/TravelWizard";
+import { unstable_cache } from "next/cache";
 
-// export const revalidate = 60;
+const getDestinations = unstable_cache(
+  async () => {
+    return await prisma.destination.findMany({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        region: true,
+        vibeTags: true,
+        idealSeason: true,
+        latitude: true,
+        longitude: true,
+        Landscape: { select: { name: true } },
+      }
+    });
+  },
+  ['destinations'],
+  { revalidate: 3600, tags: ['destinations'] }
+);
 
 export default async function Plan() {
-  const dbDestinations = await prisma.destination.findMany({
-    include: {
-      Landscape: true,
-    },
-  });
+  const dbDestinations = await getDestinations();
 
   const liveDestinations = dbDestinations.map((dest: any) => ({
     id: dest.id,
@@ -19,7 +34,7 @@ export default async function Plan() {
     idealSeason: dest.idealSeason,
     latitude: dest.latitude,
     longitude: dest.longitude,
-    landscape: dest.Landscape.length > 0 ? dest.Landscape[0].name : "Explore",
+    landscapes: dest.Landscape.map((l: any) => l.name),
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
   }));
 

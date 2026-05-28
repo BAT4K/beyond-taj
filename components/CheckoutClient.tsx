@@ -5,8 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Wallet, Lock, ShieldCheck, Mail, ArrowRight, Loader2 } from "lucide-react";
-// @ts-ignore
-import { load } from "@cashfreepayments/cashfree-js";
+import Script from "next/script";
 import { useSession, signIn } from "next-auth/react";
 
 interface CheckoutClientProps {
@@ -14,6 +13,7 @@ interface CheckoutClientProps {
   selectedDays: number;
   travelStyle: string;
   destinations: { id: string; name: string }[];
+  landscapes: string[];
 }
 
 export default function CheckoutClient({
@@ -21,6 +21,7 @@ export default function CheckoutClient({
   selectedDays,
   travelStyle,
   destinations,
+  landscapes,
 }: CheckoutClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -29,22 +30,7 @@ export default function CheckoutClient({
   const [isAuthSuccess, setIsAuthSuccess] = useState(false);
   const [cashfree, setCashfree] = useState<any>(null);
   const [email, setEmail] = useState("");
-  const [region, setRegion] = useState<string>("International");
 
-  useEffect(() => {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (tz === "Asia/Calcutta" || tz === "Asia/Kolkata") {
-      setRegion("India");
-    } else {
-      setRegion("International");
-    }
-  }, []);
-
-  useEffect(() => {
-    load({ mode: "sandbox" }).then((cf: any) => {
-      setCashfree(cf);
-    });
-  }, []);
 
   useEffect(() => {
     // Post-Payment Routing check: Cashfree returnUrl appends ?order_id=
@@ -69,7 +55,6 @@ export default function CheckoutClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           journeyId,
-          region,
         })
       });
       
@@ -113,6 +98,17 @@ export default function CheckoutClient({
       className="min-h-screen w-full flex flex-col font-sans pt-32 pb-16"
       style={{ backgroundColor: theme.bg, color: theme.cream }}
     >
+      <Script
+        src="https://sdk.cashfree.com/js/v3/cashfree.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          // @ts-ignore
+          if (window.Cashfree) {
+            // @ts-ignore
+            setCashfree(window.Cashfree({ mode: "sandbox" }));
+          }
+        }}
+      />
       <main className="flex-1 w-full max-w-2xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -159,6 +155,23 @@ export default function CheckoutClient({
                 )}
               </div>
             </div>
+
+            {landscapes && landscapes.length > 0 && (
+              <div className="mb-10">
+                <p className="text-xs uppercase tracking-widest text-white/40 mb-4">Preferred Landscapes</p>
+                <div className="flex flex-wrap gap-2">
+                  {landscapes.map((l: string, idx: number) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 border rounded-full text-sm bg-white/5 text-white/90 hover:border-[#c9a96e]/50 transition-colors cursor-default"
+                      style={{ borderColor: theme.border }}
+                    >
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="border-t pt-8 mb-10" style={{ borderColor: theme.border }}>
               <div className="p-6 md:p-8 rounded-sm border border-white/5 bg-gradient-to-br from-[#c9a96e]/[0.06] via-transparent to-transparent relative overflow-hidden">
@@ -251,28 +264,7 @@ export default function CheckoutClient({
                 )}
               </div>
             ) : (
-              <>
-                <div className="mb-6 p-6 rounded-sm border" style={{ backgroundColor: theme.bg, borderColor: theme.border }}>
-                  <label className="block text-xs uppercase tracking-widest text-white/40 mb-2 font-medium">
-                    Country of Residence
-                  </label>
-                  <select
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
-                    className="w-full bg-white/5 border px-4 py-3 text-sm text-white/90 focus:outline-none transition-colors appearance-none cursor-pointer"
-                    style={{ borderColor: theme.border }}
-                    onFocus={(e) => e.target.style.borderColor = theme.gold}
-                    onBlur={(e) => e.target.style.borderColor = theme.border}
-                  >
-                    <option value="India" className="bg-[#0a0806]">India</option>
-                    <option value="International" className="bg-[#0a0806]">International (Other)</option>
-                  </select>
-                  <p className="mt-3 text-[10px] text-white/40 leading-relaxed font-light">
-                    Please select the region where your payment card was issued.
-                  </p>
-                </div>
-
-                <button
+              <>                <button
                   disabled={isProcessing || !cashfree}
                   onClick={handleDepositClick}
                   style={{ backgroundColor: theme.gold, color: theme.bg }}

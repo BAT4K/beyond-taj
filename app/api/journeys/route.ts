@@ -9,6 +9,8 @@ export async function POST(request: Request) {
       data: {
         days: body.days,
         travelStyle: body.travelStyle,
+        residency: body.residency,
+        startLocation: body.startLocation,
         landscapes: body.landscapes,
         destinations: body.destinations,
         customerName: body.customerName || "Anonymous",

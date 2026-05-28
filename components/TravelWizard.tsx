@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles } from "lucide-react";
-import Map, { Marker, Source, Layer, MapRef } from "react-map-gl/mapbox";
-import "mapbox-gl/dist/mapbox-gl.css";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ItineraryResponse } from "@/app/api/generate-itinerary/route";
@@ -17,7 +15,7 @@ export type Destination = {
   vibeTags: string[];
   idealSeason: string;
   image: string;
-  landscape: string;
+  landscapes: string[];
   latitude: number;
   longitude: number;
 };
@@ -61,17 +59,17 @@ const DESTINATION_IMAGES: Record<string, string> = {
 };
 
 
-const LANDSCAPE_VIDEOS: Record<string, string> = {
-  "Mountains": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Beaches": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Royal Cities": "https://www.w3schools.com/html/mov_bbb.mp4",
-  "Desert": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Backwaters": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Spirituality & Ghats": "https://www.w3schools.com/html/mov_bbb.mp4",
-  "Wildlife & Safaris": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Tea Plantations & Valleys": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Islands & Diving": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Northeast & Living Roots": "https://www.w3schools.com/html/mov_bbb.mp4"
+const LANDSCAPE_IMAGES: Record<string, string> = {
+  "Mountains": "/destinations/leh.webp",
+  "Coastal & Islands": "/destinations/havelock.webp",
+  "Royal Cities": "/destinations/jaipur.webp",
+  "Desert": "/destinations/jaisalmer.webp",
+  "Backwaters": "/destinations/alleppey.webp",
+  "Spirituality & Ghats": "/destinations/varanasi.webp",
+  "Wildlife & Safaris": "/destinations/ranthambore.webp",
+  "Tea Plantations & Valleys": "/destinations/munnar.webp",
+  "Vibrant Metropolises": "/destinations/mumbai.webp",
+  "Northeast & Living Roots": "/destinations/meghalaya.webp",
 };
 
 
@@ -100,10 +98,25 @@ function isMonthInSeason(month: string, season: string) {
   return false;
 }
 
+const categoryMap: Record<string, string[]> = {
+  "Spirituality & Ghats": ["Spiritual India"],
+  "Wildlife & Safaris": ["Wildlife & Jungle"],
+  "Tea Plantations & Valleys": ["Tea Plantations"],
+  "Northeast & Living Roots": ["Hidden Villages"],
+  "Vibrant Metropolises": ["Modern Cities"],
+  "Coastal & Islands": ["Beaches", "Islands"]
+};
+
 export default function TravelWizard({ destinations }: TravelWizardProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
+  const [residency, setResidency] = useState<'International' | 'India'>('International');
+  const [startLocation, setStartLocation] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  const [locationResults, setLocationResults] = useState<any[]>([]);
+  const [isSearchingLocation, setIsSearchingLocation] = useState(false);
+  const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [selectedDays, setSelectedDays] = useState(14);
   const [travelMonth, setTravelMonth] = useState("");
   const [travelStyle, setTravelStyle] = useState("Balanced");
@@ -124,15 +137,41 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
   // Unified Synchronization Hook
   useEffect(() => {
-    // Step 1: Trim Quantity
     const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
     if (selectedDestinations.length > maxAllowedDestinations) {
       setSelectedDestinations(prev => prev.slice(0, maxAllowedDestinations));
-      return; // The state update will re-trigger this hook with the correct length
+      return; 
     }
+  }, [selectedDays, selectedDestinations]);
 
+  // Debounced Mapbox Geocoding
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      if (locationQuery.trim().length < 3) {
+        setLocationResults([]);
+        return;
+      }
+      setIsSearchingLocation(true);
+      try {
+        const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+        const countryParam = residency === 'India' ? '&country=in' : '';
+        const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(locationQuery)}.json?access_token=${token}&types=place,locality,region${countryParam}`);
+        const data = await res.json();
+        if (data.features) {
+          setLocationResults(data.features);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsSearchingLocation(false);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [locationQuery, residency]);
+
+  useEffect(() => {
     // Step 2: Trigger Distance Validation
-    if (step === 5) {
+    if (step === 6) {
       validateItinerary();
     }
   }, [selectedDays, selectedDestinations, travelStyle, step]);
@@ -183,6 +222,8 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         body: JSON.stringify({
           days: selectedDays,
           travelStyle,
+          residency,
+          startLocation,
           landscapes: selectedLandscapes,
           destinations: selectedDestinations,
           isAutoCurated,
@@ -201,7 +242,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   };
 
   const nextStep = () => {
-    if (step === 5) {
+    if (step === 6) {
       if (selectedDestinations.length === 0 && !isAutoCurated) return;
       if (isAutoCurated) {
         saveJourneyAndCheckout();
@@ -224,11 +265,14 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
       }
       saveJourneyAndCheckout();
     } else {
-      if (step === 2 && !travelMonth) {
+      if (step === 1 && !startLocation.trim()) {
+        return;
+      }
+      if (step === 3 && !travelMonth) {
         return;
       }
       setDirection(1);
-      setStep((s) => Math.min(s + 1, 5));
+      setStep((s) => Math.min(s + 1, 6));
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -348,7 +392,11 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   }
 
   const filteredDestinations = destinations
-    .filter((d) => selectedLandscapes.length === 0 || selectedLandscapes.includes(d.landscape))
+    .filter((d) => {
+      if (selectedLandscapes.length === 0) return true;
+      const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
+      return matchedCategories.some(cat => d.landscapes.includes(cat));
+    })
     .sort((a, b) => {
       const aMatch = isMonthInSeason(travelMonth, a.idealSeason) ? 1 : 0;
       const bMatch = isMonthInSeason(travelMonth, b.idealSeason) ? 1 : 0;
@@ -368,7 +416,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
           className="h-full"
           style={{ backgroundColor: theme.gold, boxShadow: `0 0 15px ${theme.gold}` }}
           initial={{ width: 0 }}
-          animate={{ width: `${(step / 5) * 100}%` }}
+          animate={{ width: `${(step / 6) * 100}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         />
       </div>
@@ -383,7 +431,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         </button>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 md:px-10 py-10 relative z-30">
+      <main className={`flex-1 flex flex-col items-center px-4 md:px-10 py-10 relative z-30 ${step === 6 ? 'justify-start mt-0 md:pt-4' : 'justify-center'}`}>
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={step}
@@ -393,9 +441,99 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
             animate="center"
             exit="exit"
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 5 ? 'max-w-[1600px]' : 'max-w-4xl'}`}
+            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 6 ? 'max-w-[1600px]' : 'max-w-4xl'}`}
           >
             {step === 1 && (
+              <div className="text-center space-y-12">
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-12">
+                  Where are you traveling from?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
+                  {[
+                    { id: 'International', title: "International", subtext: "", icon: Compass },
+                    { id: 'India', title: "Resident of India", subtext: "", icon: Users },
+                  ].map((option, index) => (
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      key={option.id}
+                      onClick={() => setResidency(option.id as any)}
+                      style={{
+                        borderColor: residency === option.id ? theme.gold : theme.border,
+                        backgroundColor: residency === option.id ? theme.gold + '0D' : theme.darker
+                      }}
+                      className="p-6 md:p-8 text-center border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col items-center"
+                    >
+                      <option.icon className={`w-8 h-8 mb-4 ${residency === option.id ? 'text-[#c9a96e]' : 'text-white/40'}`} strokeWidth={1.5} />
+                      <h3 className="font-serif text-xl md:text-2xl mb-2 text-white/90">{option.title}</h3>
+                      {option.subtext && (
+                        <p className="text-sm tracking-widest text-[#c9a96e] font-light uppercase">{option.subtext}</p>
+                      )}
+                      
+                      {residency === option.id && (
+                        <div className="absolute top-4 right-4 w-5 h-5 rounded-full border border-[#c9a96e] flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-[#c9a96e]" />
+                        </div>
+                      )}
+                    </motion.button>
+                  ))}
+                </div>
+
+                <div className="mt-12 max-w-2xl mx-auto text-left relative">
+                  <label htmlFor="startLocation" className="block text-sm uppercase tracking-widest text-[#c9a96e] mb-4">
+                    Where will you start your journey from?
+                  </label>
+                  <input
+                    id="startLocation"
+                    type="text"
+                    value={locationQuery || startLocation}
+                    onChange={(e) => {
+                      setLocationQuery(e.target.value);
+                      if (startLocation) setStartLocation('');
+                      setShowLocationDropdown(true);
+                    }}
+                    onFocus={() => setShowLocationDropdown(true)}
+                    placeholder={residency === 'India' ? "e.g., Chandigarh, India" : "e.g., Paris, France or London, UK"}
+                    className="w-full bg-[#12100e] border border-[#2a241e] focus:border-[#c9a96e] rounded-sm px-6 py-4 text-lg text-white placeholder-white/20 outline-none transition-colors shadow-inner"
+                  />
+                  {showLocationDropdown && locationQuery.length >= 3 && (
+                    <div className="absolute top-full left-0 w-full mt-2 bg-[#1a1714] border border-[#2a241e] rounded-sm shadow-2xl z-50 overflow-hidden">
+                      {isSearchingLocation ? (
+                        <div className="p-4 text-white/50 text-sm flex items-center gap-3">
+                          <Loader2 className="animate-spin w-4 h-4" /> Searching...
+                        </div>
+                      ) : locationResults.length > 0 ? (
+                        <ul className="max-h-60 overflow-y-auto custom-scrollbar">
+                          {locationResults.map((result: any) => (
+                            <li 
+                              key={result.id}
+                              onClick={() => {
+                                setStartLocation(result.place_name);
+                                setLocationQuery(result.place_name);
+                                setShowLocationDropdown(false);
+                              }}
+                              className="px-4 py-3 hover:bg-white/5 cursor-pointer text-sm text-white/80 border-b border-white/5 last:border-0 transition-colors"
+                            >
+                              {result.place_name}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="p-4 text-white/50 text-sm">No locations found.</div>
+                      )}
+                    </div>
+                  )}
+                  {startLocation && !showLocationDropdown && (
+                    <p className="absolute -bottom-6 left-0 text-xs text-[#25D366] flex items-center gap-1">
+                      <CheckCircle size={12} /> Confirmed Location
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {step === 2 && (
               <div className="text-center space-y-16">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md">
                   How many days do you have?
@@ -435,7 +573,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 2 && (
+            {step === 3 && (
               <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-8">When are you planning to travel?</h2>
                 <div className="grid grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
@@ -460,7 +598,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 3 && (
+            {step === 4 && (
               <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-12">Define your aesthetic</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -510,21 +648,21 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 4 && (
+            {step === 5 && (
               <div className="text-center">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-4">What moves you?</h2>
                 <p className="text-white/50 text-sm italic tracking-wide mb-12">Select the landscapes that resonate with your soul.</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto">
                   {[
                     { name: "Mountains", icon: Mountain },
-                    { name: "Beaches", icon: Palmtree },
+                    { name: "Coastal & Islands", icon: Palmtree },
                     { name: "Royal Cities", icon: Castle },
                     { name: "Desert", icon: Sun },
                     { name: "Backwaters", icon: Waves },
                     { name: "Spirituality & Ghats", icon: Flower2 },
                     { name: "Wildlife & Safaris", icon: PawPrint },
                     { name: "Tea Plantations & Valleys", icon: Leaf },
-                    { name: "Islands & Diving", icon: Shell },
+                    { name: "Vibrant Metropolises", icon: Building2 },
                     { name: "Northeast & Living Roots", icon: Trees },
                   ].map(({ name: landscape, icon: Icon }, index) => {
                     const isSelected = selectedLandscapes.includes(landscape);
@@ -535,39 +673,39 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         key={landscape}
                         onClick={() => toggleLandscape(landscape)}
-                        onMouseEnter={() => setHoveredCard('land-' + landscape)}
-                        onMouseLeave={() => setHoveredCard(null)}
                         style={{
                           borderColor: isSelected ? theme.gold : theme.border,
                           backgroundColor: isSelected ? theme.gold + '0D' : theme.darker
                         }}
-                        className="relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden"
+                        className="group relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden"
                       >
-                        {/* Hover video overlay */}
-                        {hoveredCard === 'land-' + landscape && LANDSCAPE_VIDEOS[landscape] && (
-                          <video
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="absolute inset-0 w-full h-full object-cover opacity-30 z-0"
-                            src={LANDSCAPE_VIDEOS[landscape]}
-                          />
-                        )}
-                        <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/80 to-transparent z-[1] transition-opacity ${hoveredCard === 'land-' + landscape ? 'opacity-100' : 'opacity-0'}`} />
+                        <Image
+                          src={LANDSCAPE_IMAGES[landscape] || FALLBACK_IMAGE}
+                          alt={landscape}
+                          fill
+                          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
+                          placeholder="blur"
+                          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+                          className="object-cover opacity-0 group-hover:opacity-60 transition-all duration-700 ease-out scale-100 group-hover:scale-110 z-0"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/80 to-transparent z-[1] transition-opacity opacity-0 group-hover:opacity-100 duration-700" />
 
                         <div
-                          className={`absolute top-4 right-4 w-4 h-4 rounded-full border flex items-center justify-center transition-all duration-300 z-10 ${isSelected ? 'border-transparent' : 'border-white/20'}`}
+                          className={`absolute top-4 right-4 w-4 h-4 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${isSelected ? 'border-transparent' : 'border-white/20'}`}
                           style={{ backgroundColor: isSelected ? theme.gold : 'transparent' }}
                         >
                           {isSelected && <div className="w-1.5 h-1.5 bg-[#0a0806] rounded-full" />}
                         </div>
-                        <Icon
-                          className={`w-6 h-6 mb-4 transition-colors duration-300 z-10 ${isSelected ? 'opacity-100' : 'opacity-50'}`}
-                          strokeWidth={1.5}
-                          style={{ color: isSelected ? theme.gold : 'white' }}
-                        />
-                        <span className="font-sans uppercase tracking-widest text-[10px] md:text-xs text-center z-10">{landscape}</span>
+                        
+                        <div className="relative z-10 flex flex-col items-center transform transition-transform duration-500 group-hover:-translate-y-2">
+                          <Icon
+                            className={`w-6 h-6 mb-4 transition-colors duration-300 ${isSelected ? 'opacity-100' : 'opacity-50'}`}
+                            strokeWidth={1.5}
+                            style={{ color: isSelected ? theme.gold : 'white' }}
+                          />
+                          <span className="font-sans uppercase tracking-widest text-[10px] md:text-xs text-center">{landscape}</span>
+                        </div>
                       </motion.button>
                     );
                   })}
@@ -575,7 +713,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               </div>
             )}
 
-            {step === 5 && (() => {
+            {step === 6 && (() => {
               const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
 
@@ -635,7 +773,9 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                               src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
                               alt={dest.name} 
                               fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 30vw"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              placeholder="blur"
+                              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
                               className={`object-cover transition-transform duration-[1000ms] ease-out ${isSelected ? 'scale-110' : 'scale-100 group-hover:scale-110'} opacity-60`} 
                               onError={(e) => { e.currentTarget.style.display = 'none'; }}
                             />
@@ -719,7 +859,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       ) : null}
                       <button
                         onClick={() => {
-                          if (step === 5 && selectedDestinations.length === 0 && !isAutoCurated) return;
+                          if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;
                           nextStep();
                         }}
                         style={{
@@ -744,25 +884,25 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         </AnimatePresence>
       </main>
 
-      {step < 5 && (
+      {step < 6 && (
         <footer className="p-6 md:p-10 flex justify-end relative z-40">
           <button
             onClick={() => {
-              if (step === 5 && selectedDestinations.length === 0 && !isAutoCurated) return;
+              if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;
               nextStep();
             }}
             style={{
               borderColor: theme.gold,
-              opacity: step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 0.5 : 1,
-              cursor: step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 'not-allowed' : 'pointer'
+              opacity: step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 0.5 : 1,
+              cursor: step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 'not-allowed' : 'pointer'
             }}
-            className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 5 ? 'hover:bg-[#c9a96e]/10' :
-                step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 'text-white/50' :
+            className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 6 ? 'hover:bg-[#c9a96e]/10' :
+                step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 'text-white/50' :
                   'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
               }`}
           >
             <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
-              {step === 5 ? "Proceed to Checkout" : "Next"} <ChevronRight size={16} />
+              {step === 6 ? "Proceed to Checkout" : "Next"} <ChevronRight size={16} />
             </span>
           </button>
         </footer>

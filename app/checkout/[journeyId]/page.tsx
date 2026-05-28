@@ -7,7 +7,14 @@ export default async function CheckoutPage({ params }: { params: Promise<{ journ
   const { journeyId } = await params;
 
   const journey = await prisma.journey.findUnique({
-    where: { id: journeyId }
+    where: { id: journeyId },
+    select: {
+      id: true,
+      days: true,
+      travelStyle: true,
+      destinations: true,
+      landscapes: true
+    }
   });
 
   if (!journey) {
@@ -34,6 +41,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ journ
       selectedDays={journey.days}
       travelStyle={journey.travelStyle}
       destinations={destinations}
+      landscapes={(journey.landscapes as string[]) || []}
     />
   );
 }

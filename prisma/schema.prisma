@@ -117,6 +117,8 @@ model Journey {
   id               String   @id @default(uuid())
   days             Int
   travelStyle      String
+  residency        String   @default("International")
+  startLocation    String   @default("")
   landscapes       String[]
   destinations     Json
   customerName     String
