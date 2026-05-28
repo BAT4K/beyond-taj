@@ -24,6 +24,8 @@ export default function Hero() {
           loop
           muted
           playsInline
+          aria-hidden="true"
+          tabIndex={-1}
           preload="none"
           poster="/master-hero-poster.webp"
           src="/master-hero.mp4"

@@ -26,16 +26,18 @@ export default function ShowcaseVideo() {
           India you'll be visiting!
         </h2>
         
-        <div className="w-full relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
+        <div className="w-full aspect-video bg-[#0a0806] relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
           <video
             autoPlay
             loop
             muted
             playsInline
+            aria-hidden="true"
+            tabIndex={-1}
             preload="metadata"
             poster="/showcase-poster.webp"
             suppressHydrationWarning
-            className="w-full h-auto object-cover"
+            className="w-full h-full object-cover"
             src="/showcase-720.mp4"
           />
         </div>
