@@ -432,7 +432,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
       </header>
 
       <main className={`flex-1 flex flex-col items-center px-4 md:px-10 py-10 relative z-30 ${step === 6 ? 'justify-start mt-0 md:pt-4' : 'justify-center'}`}>
-        <AnimatePresence mode="wait" custom={direction}>
+        <AnimatePresence mode="wait" custom={direction} initial={false}>
           <motion.div
             key={step}
             custom={direction}
@@ -453,10 +453,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                     { id: 'International', title: "International", subtext: "", icon: Compass },
                     { id: 'India', title: "Resident of India", subtext: "", icon: Users },
                   ].map((option, index) => (
-                    <motion.button
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                    <button
                       key={option.id}
                       onClick={() => setResidency(option.id as any)}
                       style={{
@@ -476,7 +473,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           <div className="w-2 h-2 rounded-full bg-[#c9a96e]" />
                         </div>
                       )}
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
 
@@ -578,11 +575,8 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-8">When are you planning to travel?</h2>
                 <div className="grid grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
                   {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, idx) => (
-                    <motion.button
+                    <button
                       key={month}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.05, duration: 0.3 }}
                       onClick={() => setTravelMonth(month)}
                       style={{
                         borderColor: travelMonth === month ? theme.gold : theme.border,
@@ -592,7 +586,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       className="p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-xs md:text-sm cursor-pointer"
                     >
                       {month}
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -606,10 +600,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                     { name: "Luxury Explorer", icon: Crown, desc: "Five-star heritage properties, private transfers, exclusive access." },
                     { name: "Balanced", icon: Scale, desc: "Boutique stays, comfortable pace, authentic immersive experiences." },
                   ].map(({ name, icon: Icon, desc }, index) => (
-                    <motion.button
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                    <button
                       key={name}
                       onClick={() => setTravelStyle(name)}
                       style={{
@@ -642,7 +633,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       <p className="text-sm text-white/40 font-light leading-relaxed">
                         {desc}
                       </p>
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -667,10 +658,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                   ].map(({ name: landscape, icon: Icon }, index) => {
                     const isSelected = selectedLandscapes.includes(landscape);
                     return (
-                      <motion.button
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1, duration: 0.5 }}
+                      <button
                         key={landscape}
                         onClick={() => toggleLandscape(landscape)}
                         style={{
@@ -706,7 +694,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           />
                           <span className="font-sans uppercase tracking-widest text-[10px] md:text-xs text-center">{landscape}</span>
                         </div>
-                      </motion.button>
+                      </button>
                     );
                   })}
                 </div>
@@ -884,29 +872,32 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         </AnimatePresence>
       </main>
 
-      {step < 6 && (
-        <footer className="p-6 md:p-10 flex justify-end relative z-40">
-          <button
-            onClick={() => {
-              if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;
-              nextStep();
-            }}
-            style={{
-              borderColor: theme.gold,
-              opacity: step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 0.5 : 1,
-              cursor: step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 'not-allowed' : 'pointer'
-            }}
-            className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 6 ? 'hover:bg-[#c9a96e]/10' :
-                step === 6 && selectedDestinations.length === 0 && !isAutoCurated ? 'text-white/50' :
-                  'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
-              }`}
-          >
-            <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
-              {step === 6 ? "Proceed to Checkout" : "Next"} <ChevronRight size={16} />
-            </span>
-          </button>
-        </footer>
-      )}
+      {step < 6 && (() => {
+        const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && !travelMonth);
+        return (
+          <footer className="p-6 md:p-10 flex justify-end relative z-40">
+            <button
+              disabled={isNextDisabled}
+              onClick={() => {
+                if (isNextDisabled) return;
+                nextStep();
+              }}
+              style={{
+                borderColor: theme.gold,
+                opacity: isNextDisabled ? 0.3 : 1,
+                cursor: isNextDisabled ? 'not-allowed' : 'pointer'
+              }}
+              className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${
+                  isNextDisabled ? 'text-[#c9a96e]/30' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
+                }`}
+            >
+              <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-medium">
+                Next <ChevronRight size={16} />
+              </span>
+            </button>
+          </footer>
+        );
+      })()}
 
       <AnimatePresence>
         {showValidationModal && (

@@ -67,6 +67,16 @@ export default function CheckoutClient({
       if (cashfree && data.payment_session_id) {
         cashfree.checkout({
           paymentSessionId: data.payment_session_id,
+          redirectTarget: "_modal"
+        }).then((result: any) => {
+          if (result.error) {
+            console.error("Payment modal closed or error:", result.error);
+            setIsProcessing(false);
+          }
+          if (result.paymentDetails || result.redirect) {
+            // Force a hard redirect to bypass any Next.js router state issues
+            window.location.href = `/dashboard/${journeyId}`;
+          }
         });
       } else {
         throw new Error("Payment SDK not initialized or session missing");
@@ -100,7 +110,7 @@ export default function CheckoutClient({
     >
       <Script
         src="https://sdk.cashfree.com/js/v3/cashfree.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => {
           // @ts-ignore
           if (window.Cashfree) {

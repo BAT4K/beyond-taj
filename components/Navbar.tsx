@@ -11,22 +11,22 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full px-6 md:px-10 py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
+    <header className="w-full px-4 md:px-10 py-4 md:py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
       <div>
-        <Link href="/" className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+        <Link href="/" className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-all active:scale-95 active:opacity-50 active:duration-150">
           <img
             src="/logo.png"
             alt="Beyond Taj Emblem"
             className="h-10 md:h-11 w-auto object-contain"
           />
-          <span className="font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
+          <span className="hidden sm:block font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
         </Link>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3 sm:gap-6">
         <Link
           href="/review"
-          className="text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+          className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all active:scale-95 active:opacity-50 active:duration-150"
         >
           Review Us
         </Link>
@@ -34,7 +34,7 @@ export default function Navbar() {
         {status === "unauthenticated" && (
           <button
             onClick={() => signIn()}
-            className="text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors cursor-pointer"
+            className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
           >
             Client Login
           </button>
@@ -44,14 +44,14 @@ export default function Navbar() {
           <>
             <Link
               href="/dashboard"
-              className="text-xs uppercase tracking-widest font-bold transition-colors hover:opacity-80"
+              className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all hover:opacity-80 active:scale-95 active:opacity-50 active:duration-150"
               style={{ color: theme.gold }}
             >
               My Dossiers
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className="text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors cursor-pointer"
+              className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/50 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
             >
               Sign Out
             </button>
