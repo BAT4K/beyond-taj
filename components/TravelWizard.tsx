@@ -28,51 +28,39 @@ interface TravelWizardProps {
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
 const DESTINATION_IMAGES: Record<string, string> = {
-  // --- Local images (public/destinations/) ---
   "Alleppey": "/destinations/alleppey.webp",
+  "Bundi": "/destinations/bundi.webp",
+  "Darjeeling": "/destinations/darjeeling.webp",
   "Delhi": "/destinations/delhi.webp",
   "Gokarna": "/destinations/gokarna.webp",
   "Gulmarg": "/destinations/gulmarg.webp",
+  "Hampi": "/destinations/hampi.webp",
   "Havelock Island (Swaraj Dweep)": "/destinations/havelock.webp",
+  "Jaipur": "/destinations/jaipur.webp",
+  "Jaisalmer": "/destinations/jaisalmer.webp",
+  "Jawai": "/destinations/jawai.webp",
+  "Jodhpur": "/destinations/jodhpur.webp",
+  "Kabini": "/destinations/kabini.webp",
   "Kaziranga": "/destinations/kaziranga.webp",
+  "Leh-Ladakh": "/destinations/leh.webp",
+  "Manali": "/destinations/manali.webp",
   "Meghalaya (Shillong & Sohra)": "/destinations/meghalaya.webp",
+  "Mumbai": "/destinations/mumbai.webp",
+  "Munnar": "/destinations/munnar.webp",
   "Munroe Island": "/destinations/munroe.webp",
   "Mysore": "/destinations/mysore.webp",
+  "Ranthambore": "/destinations/ranthambore.webp",
+  "Rishikesh": "/destinations/rishikesh.webp",
+  "South Goa": "/destinations/southgoa.webp",
+  "Spiti Valley": "/destinations/spiti.webp",
+  "Tirthan Valley": "/destinations/tirthan.webp",
+  "Udaipur": "/destinations/udaipur.webp",
   "Varanasi": "/destinations/varanasi.webp",
   "Varkala": "/destinations/varkala.webp",
-  // --- Unsplash fallbacks (no local image yet) ---
-  "Leh-Ladakh": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800",
-  "Spiti Valley": "https://images.unsplash.com/photo-1626714100232-10d8709aba3d?q=80&w=800",
-  "Manali": "https://images.unsplash.com/photo-1626015365107-28b43c255b0d?q=80&w=800",
-  "Tirthan Valley": "https://images.unsplash.com/photo-1600792809461-3b2aa31dde52?q=80&w=800",
-  "Udaipur": "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800",
-  "Jodhpur": "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=800",
-  "Jaisalmer": "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800",
-  "Jaipur": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?q=80&w=800",
-  "Bundi": "https://images.unsplash.com/photo-1616323439449-1fc6c26fdc69?q=80&w=800",
-  "South Goa": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=800",
-  "Ranthambore": "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=800",
-  "Jawai": "https://images.unsplash.com/photo-1456926631375-92c8ce872def?q=80&w=800",
-  "Kabini": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?q=80&w=800",
-  "Munnar": "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=800",
-  "Darjeeling": "https://images.unsplash.com/photo-1622308644420-736e4e4dbdef?q=80&w=800",
-  "Ziro Valley": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800",
-  "Rishikesh": "https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=800",
-  "Hampi": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800",
-  "Mumbai": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=800",
+  "Ziro Valley": "/destinations/ziro.webp",
 };
 
-const HERO_PLAYLIST = [
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"
-];
-const STYLE_VIDEOS: Record<string, string> = {
-  "Luxury Explorer": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Balanced": "https://www.w3schools.com/html/mov_bbb.mp4",
-  "Adventure Nomad": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Deep Immersion": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-};
+
 const LANDSCAPE_VIDEOS: Record<string, string> = {
   "Mountains": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
   "Beaches": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
@@ -85,14 +73,7 @@ const LANDSCAPE_VIDEOS: Record<string, string> = {
   "Islands & Diving": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
   "Northeast & Living Roots": "https://www.w3schools.com/html/mov_bbb.mp4"
 };
-const DESTINATION_VIDEOS: Record<string, string> = {
-  "Leh-Ladakh": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Udaipur": "https://www.w3schools.com/html/mov_bbb.mp4",
-  "Jaisalmer": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Varkala": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
-  "Alleppey": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "Manali": "https://www.w3schools.com/html/mov_bbb.mp4"
-};
+
 
 import { useRouter } from "next/navigation";
 import { validateItinerary as performValidation } from "@/utils/travelValidator";
@@ -154,12 +135,10 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
     setIsValidating(true);
     try {
-      const selectedNames = destinations
-        .filter(d => selectedDestinations.includes(d.id))
-        .map(d => d.name);
+      const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
 
       const clientWarnings = performValidation({
-        destinations: selectedNames,
+        destinations: selectedDestObjs,
         durationDays: selectedDays,
         travelMonth,
       });
@@ -213,12 +192,10 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const nextStep = () => {
     if (step === 5) {
       if (selectedDestinations.length === 0) return;
-      const selectedNames = destinations
-        .filter(d => selectedDestinations.includes(d.id))
-        .map(d => d.name);
+      const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
 
       const msgs = performValidation({
-        destinations: selectedNames,
+        destinations: selectedDestObjs,
         durationDays: selectedDays,
         travelMonth,
       });

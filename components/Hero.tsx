@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import SampleBlueprintModal from "./SampleBlueprintModal";
 
 const theme = {
   bg: "#0a0806",
@@ -13,7 +12,6 @@ const theme = {
 };
 
 export default function Hero() {
-  const [showSample, setShowSample] = React.useState(false);
   return (
     <div
       className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
@@ -69,18 +67,18 @@ export default function Hero() {
             </button>
           </Link>
           
-          <button
-            onClick={() => setShowSample(true)}
+          <a
+            href="/beyond-taj-sample-blueprint.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative px-8 py-5 border border-white/20 rounded-sm cursor-pointer transition-all duration-500 bg-transparent hover:border-white/50 text-white/70 hover:text-white"
           >
             <span className="relative font-sans tracking-widest text-xs uppercase font-medium">
               View a Sample Blueprint
             </span>
-          </button>
+          </a>
         </div>
       </motion.div>
-
-      <SampleBlueprintModal isOpen={showSample} onClose={() => setShowSample(false)} />
 
       <motion.div
         initial={{ opacity: 0 }}
