@@ -36,7 +36,7 @@ export default function ShowcaseVideo() {
             poster="/showcase-poster.webp"
             suppressHydrationWarning
             className="w-full h-auto object-cover"
-            src="/showcase-compressed.mp4"
+            src="/showcase-720.mp4"
           />
         </div>
       </div>
