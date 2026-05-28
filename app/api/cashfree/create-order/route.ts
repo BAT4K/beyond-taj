@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { journeyId, customerEmail, customerName, amount } = body;
+    const { journeyId, customerEmail, customerName, region } = body;
 
     if (!journeyId) {
       return NextResponse.json({ error: "Missing journeyId" }, { status: 400 });
@@ -47,11 +47,17 @@ export async function POST(request: Request) {
       },
     });
 
-    // Cashfree Sandbox often lacks USD enablement by default. 
-    // We mock the exchange rate for sandbox testing, but use native USD in production.
-    const isSandbox = cashfree.XEnvironment === 1;
-    const orderCurrency = isSandbox ? "INR" : "USD";
-    const orderAmount = isSandbox ? (amount || 39) * 84 : (amount || 39);
+    // Explicit Billing Country Logic
+    // Use the explicit user selection from the frontend to determine pricing tier.
+    let orderAmount = 3751;
+    
+    if (region === 'India') {
+      orderAmount = 249;
+    } else {
+      orderAmount = 3751; // Static INR conversion for international users
+    }
+    
+    const orderCurrency = "INR";
 
     const requestBody = {
       order_amount: orderAmount,

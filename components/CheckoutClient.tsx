@@ -29,6 +29,16 @@ export default function CheckoutClient({
   const [isAuthSuccess, setIsAuthSuccess] = useState(false);
   const [cashfree, setCashfree] = useState<any>(null);
   const [email, setEmail] = useState("");
+  const [region, setRegion] = useState<string>("International");
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz === "Asia/Calcutta" || tz === "Asia/Kolkata") {
+      setRegion("India");
+    } else {
+      setRegion("International");
+    }
+  }, []);
 
   useEffect(() => {
     load({ mode: "sandbox" }).then((cf: any) => {
@@ -59,7 +69,7 @@ export default function CheckoutClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           journeyId,
-          amount: 39,
+          region,
         })
       });
       
@@ -156,7 +166,7 @@ export default function CheckoutClient({
                 
                 <div className="flex justify-between items-start mb-6">
                   <p className="text-xs uppercase tracking-widest text-white/40">Blueprint Deliverables</p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: theme.gold }}>Included in $39 Fee</p>
+                  <p className="text-xs uppercase tracking-widest" style={{ color: theme.gold }}>INCLUDED IN YOUR BLUEPRINT</p>
                 </div>
 
                 <ul className="space-y-5">
@@ -242,6 +252,26 @@ export default function CheckoutClient({
               </div>
             ) : (
               <>
+                <div className="mb-6 p-6 rounded-sm border" style={{ backgroundColor: theme.bg, borderColor: theme.border }}>
+                  <label className="block text-xs uppercase tracking-widest text-white/40 mb-2 font-medium">
+                    Country of Residence
+                  </label>
+                  <select
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                    className="w-full bg-white/5 border px-4 py-3 text-sm text-white/90 focus:outline-none transition-colors appearance-none cursor-pointer"
+                    style={{ borderColor: theme.border }}
+                    onFocus={(e) => e.target.style.borderColor = theme.gold}
+                    onBlur={(e) => e.target.style.borderColor = theme.border}
+                  >
+                    <option value="India" className="bg-[#0a0806]">India</option>
+                    <option value="International" className="bg-[#0a0806]">International (Other)</option>
+                  </select>
+                  <p className="mt-3 text-[10px] text-white/40 leading-relaxed font-light">
+                    Please select the region where your payment card was issued.
+                  </p>
+                </div>
+
                 <button
                   disabled={isProcessing || !cashfree}
                   onClick={handleDepositClick}
@@ -253,13 +283,15 @@ export default function CheckoutClient({
                   ) : (
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       <Lock size={16} />
-                      Unlock Your Custom Blueprint — $39
+                      PROCEED TO SECURE CHECKOUT
                     </span>
                   )}
                 </button>
-                <div className="flex items-center justify-center gap-2 mt-4 text-[10px] text-white/40 uppercase tracking-widest">
-                  <ShieldCheck size={12} />
-                  Secure, encrypted processing via Cashfree
+                <div className="flex flex-col items-center justify-center gap-2 mt-4 text-[10px] text-white/40 uppercase tracking-widest text-center">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck size={12} />
+                    Secure, encrypted processing via Cashfree
+                  </div>
                 </div>
               </>
             )}

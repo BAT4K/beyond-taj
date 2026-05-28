@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles } from "lucide-react";
 import Map, { Marker, Source, Layer, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Link from "next/link";
@@ -111,6 +111,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [selectedDestinations, setSelectedDestinations] = useState<string[]>([]);
   const [destinationError, setDestinationError] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [isAutoCurated, setIsAutoCurated] = useState(false);
 
   const [warnings, setWarnings] = useState<string[]>([]);
   const [isValidating, setIsValidating] = useState(false);
@@ -121,14 +122,23 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [loadingText, setLoadingText] = useState("Saving your selections...");
 
+  // Unified Synchronization Hook
   useEffect(() => {
+    // Step 1: Trim Quantity
+    const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
+    if (selectedDestinations.length > maxAllowedDestinations) {
+      setSelectedDestinations(prev => prev.slice(0, maxAllowedDestinations));
+      return; // The state update will re-trigger this hook with the correct length
+    }
+
+    // Step 2: Trigger Distance Validation
     if (step === 5) {
       validateItinerary();
     }
-  }, [selectedDestinations, selectedDays, travelStyle, step]);
+  }, [selectedDays, selectedDestinations, travelStyle, step]);
 
   const validateItinerary = async () => {
-    if (selectedDestinations.length === 0) {
+    if (selectedDestinations.length === 0 || isAutoCurated) {
       setWarnings([]);
       return;
     }
@@ -149,7 +159,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         body: JSON.stringify({
           selectedDays,
           travelStyle,
-          destinationIds: selectedDestinations,
+          destinationNames: selectedDestObjs.map(d => d.name),
         }),
       });
 
@@ -175,6 +185,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
           travelStyle,
           landscapes: selectedLandscapes,
           destinations: selectedDestinations,
+          isAutoCurated,
         }),
       });
       if (response.ok) {
@@ -191,7 +202,11 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
   const nextStep = () => {
     if (step === 5) {
-      if (selectedDestinations.length === 0) return;
+      if (selectedDestinations.length === 0 && !isAutoCurated) return;
+      if (isAutoCurated) {
+        saveJourneyAndCheckout();
+        return;
+      }
       const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
 
       const msgs = performValidation({
@@ -236,8 +251,18 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     );
   };
 
+  const toggleAutoCuration = () => {
+    if (!isAutoCurated) {
+      setSelectedDestinations([]);
+      setWarnings([]);
+      setValidationMessages([]);
+    }
+    setIsAutoCurated(!isAutoCurated);
+  };
+
   const toggleDestination = (destId: string) => {
-    const maxAllowed = Math.max(2, Math.floor(selectedDays / 2.5));
+    if (isAutoCurated) setIsAutoCurated(false);
+    const maxAllowed = Math.max(3, Math.floor(selectedDays / 1.5));
 
     setSelectedDestinations((prev) => {
       if (prev.includes(destId)) {
@@ -551,15 +576,14 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
             )}
 
             {step === 5 && (() => {
-              const maxAllowedDestinations = Math.max(2, Math.floor(selectedDays / 2.5));
+              const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
 
               return (
                 <div className="space-y-10">
                   <div className="text-center relative">
                     <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Curate your canvas.</h2>
-                    <p className="text-white/50 tracking-wide font-light">Select up to {maxAllowedDestinations} destinations. Our routing engine will guide you.</p>
-
+                    <p className="text-white/50 tracking-wide font-light">Select your preferred destinations. Our engine will handle the routing.</p>
                     <AnimatePresence>
                       {destinationError && (
                         <motion.div
@@ -576,9 +600,27 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
                   <div className="flex flex-col lg:flex-row gap-8">
                     <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar">
+                      {/* Magic Card */}
+                      <div
+                        onClick={toggleAutoCuration}
+                        className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 cursor-pointer ${
+                          isAutoCurated 
+                            ? 'bg-gradient-to-br from-amber-900/60 to-zinc-900 border-[#c9a96e] shadow-[0_0_20px_rgba(201,169,110,0.3)]' 
+                            : 'bg-gradient-to-br from-amber-950/40 to-zinc-900 border-zinc-800 hover:border-white/20'
+                        }`}
+                      >
+                        <div className="absolute inset-0 p-6 flex flex-col items-center justify-center text-center z-20">
+                          <Sparkles className={`mb-4 ${isAutoCurated ? 'text-[#c9a96e]' : 'text-white/50 group-hover:text-white/80'} transition-colors`} size={32} />
+                          <h3 className={`font-serif text-xl md:text-2xl mb-2 ${isAutoCurated ? 'text-white' : 'text-white/90'}`}>Bespoke Curation</h3>
+                          <p className="text-xs text-white/60 leading-relaxed max-w-[90%]">
+                            Unsure where to begin? Let our routing engine automatically map the absolute best destinations tailored perfectly to your travel month, pace, and landscape preferences.
+                          </p>
+                        </div>
+                      </div>
+
                       {filteredDestinations.map((dest) => {
                         const isSelected = selectedDestinations.includes(dest.id);
-                        const isDisabled = !isSelected && isMaxReached;
+                        const isDisabled = (!isSelected && isMaxReached) || isAutoCurated;
                         return (
                           <div
                             key={dest.id}
@@ -637,7 +679,12 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                     <div className="w-full lg:w-96 shrink-0 sticky top-8 h-fit bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 flex flex-col gap-6">
                       <div>
                         <h4 className="font-sans uppercase tracking-widest text-[10px] mb-4 text-white/50">Your Selection</h4>
-                        {selectedDestinations.length === 0 ? (
+                        {isAutoCurated ? (
+                          <div className="flex gap-3 items-center text-amber-400/80 bg-amber-950/20 border border-amber-900/30 p-4 rounded-sm mb-4">
+                            <Sparkles size={16} />
+                            <p className="text-xs">Expert Choice Active</p>
+                          </div>
+                        ) : selectedDestinations.length === 0 ? (
                           <p className="text-sm text-zinc-500 italic">No destinations selected</p>
                         ) : (
                           <ul className="space-y-2">
@@ -672,15 +719,15 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       ) : null}
                       <button
                         onClick={() => {
-                          if (step === 5 && selectedDestinations.length === 0) return;
+                          if (step === 5 && selectedDestinations.length === 0 && !isAutoCurated) return;
                           nextStep();
                         }}
                         style={{
                           borderColor: theme.gold,
-                          opacity: selectedDestinations.length === 0 ? 0.5 : 1,
-                          cursor: selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
+                          opacity: (selectedDestinations.length === 0 && !isAutoCurated) ? 0.5 : 1,
+                          cursor: (selectedDestinations.length === 0 && !isAutoCurated) ? 'not-allowed' : 'pointer'
                         }}
-                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 ${selectedDestinations.length === 0 ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
+                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
                       >
                         <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
                           Proceed to Checkout <ChevronRight size={16} />
@@ -701,16 +748,16 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         <footer className="p-6 md:p-10 flex justify-end relative z-40">
           <button
             onClick={() => {
-              if (step === 5 && selectedDestinations.length === 0) return;
+              if (step === 5 && selectedDestinations.length === 0 && !isAutoCurated) return;
               nextStep();
             }}
             style={{
               borderColor: theme.gold,
-              opacity: step === 5 && selectedDestinations.length === 0 ? 0.5 : 1,
-              cursor: step === 5 && selectedDestinations.length === 0 ? 'not-allowed' : 'pointer'
+              opacity: step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 0.5 : 1,
+              cursor: step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 'not-allowed' : 'pointer'
             }}
             className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${step === 5 ? 'hover:bg-[#c9a96e]/10' :
-                step === 5 && selectedDestinations.length === 0 ? 'text-white/50' :
+                step === 5 && selectedDestinations.length === 0 && !isAutoCurated ? 'text-white/50' :
                   'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
               }`}
           >

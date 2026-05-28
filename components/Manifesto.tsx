@@ -22,9 +22,14 @@ export default function Manifesto() {
           
           <div className="h-[1px] w-16 bg-[#c9a96e]/50 mx-auto mb-10" />
 
-          <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-light">
-            We are pure-play travel architects, not a traditional booking agency. Our platform delivers an actionable, algorithmic blueprint that eliminates hours of exhaustive travel research. We provide the exact optimized routing, under-the-radar heritage stays, and precise timing logistics necessary to save you from generic tourist traps, giving you the ultimate data-driven roadmap to experience India flawlessly.
-          </p>
+          <div className="space-y-6">
+            <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-light text-balance">
+              Built with local knowledge, not just internet data. AI can show you what's trending, but locals show you what's actually worth it.
+            </p>
+            <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-light text-balance">
+              Every itinerary is crafted by real travelers from the region who understand the culture, hidden gems, authentic food, and the tourist traps to avoid — giving you experiences you won’t find in generic travel guides.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

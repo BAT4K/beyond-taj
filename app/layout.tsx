@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
 };
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +35,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <SpeedInsights />
         </Providers>
       </body>
     </html>
