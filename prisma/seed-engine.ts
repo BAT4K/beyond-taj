@@ -216,10 +216,9 @@ async function main() {
     const id = `${edge.originId}_${edge.destinationId}_${edge.travelMode}`.toLowerCase().replace(/ /g, '_');
     await prisma.transitRoute.upsert({
       where: {
-        originId_destinationId_travelMode: {
+        originId_destinationId: {
           originId: edge.originId,
           destinationId: edge.destinationId,
-          travelMode: edge.travelMode
         }
       },
       update: {
