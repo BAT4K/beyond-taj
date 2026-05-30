@@ -1,0 +1,1 @@
+import 'dotenv/config'; import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); async function test() { const d = await prisma.destination.findMany({ select: { name: true, clusterId: true } }); console.log(d.filter(x => x.clusterId)); } test();

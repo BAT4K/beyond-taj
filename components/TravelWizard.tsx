@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Info, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2, Plane, Check } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import type { ItineraryResponse } from "@/app/api/generate-itinerary/route";
+import { generateBespokeRoute } from "@/utils/curationEngine";
+import { calculateMatchScore } from "@/utils/scoringEngine";
+
 
 export type Destination = {
   id: string;
@@ -16,12 +18,26 @@ export type Destination = {
   idealSeason: string;
   image: string;
   landscapes: string[];
+  peakMonths: number[];
+  shoulderMonths: number[];
+  avoidMonths: number[];
+  closedMonths: number[];
   latitude: number;
   longitude: number;
+  clusterId?: string | null;
+  compatibleClusters?: string[];
+  isHub?: boolean;
+};
+
+export type WarningMessage = {
+  category: 'weather' | 'logistics' | 'vibe';
+  severity: 'critical' | 'warning' | 'info';
+  message: string;
 };
 
 interface TravelWizardProps {
   destinations: Destination[];
+  transitRoutes?: { originId: string; destinationId: string; fatigueCost: number }[];
 }
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
@@ -107,7 +123,7 @@ const categoryMap: Record<string, string[]> = {
   "Coastal & Islands": ["Beaches", "Islands"]
 };
 
-export default function TravelWizard({ destinations }: TravelWizardProps) {
+export default function TravelWizard({ destinations, transitRoutes = [] }: TravelWizardProps) {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
@@ -125,15 +141,36 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
   const [destinationError, setDestinationError] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [isAutoCurated, setIsAutoCurated] = useState(false);
-
-  const [warnings, setWarnings] = useState<string[]>([]);
+  const [curationRationale, setCurationRationale] = useState<string | null>(null);
+  const [warnings, setWarnings] = useState<WarningMessage[]>([]);
   const [isValidating, setIsValidating] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
-  const [validationMessages, setValidationMessages] = useState<string[]>([]);
+  const [validationMessages, setValidationMessages] = useState<WarningMessage[]>([]);
 
   // Generation States
   const [isGenerating, setIsGenerating] = useState(false);
-  const [loadingText, setLoadingText] = useState("Saving your selections...");
+  const [loadingText, setLoadingText] = useState("Analyzing preferences...");
+
+  useEffect(() => {
+    if (!isGenerating) return;
+
+    const phrases = [
+      "Analyzing preferences...",
+      "Cross-referencing seasonal matrices...",
+      "Calculating transit friction...",
+      "Optimizing bespoke route..."
+    ];
+    let index = 0;
+    
+    setLoadingText(phrases[0]); // Reset to first phrase immediately
+
+    const intervalId = setInterval(() => {
+      index = (index + 1) % phrases.length;
+      setLoadingText(phrases[index]);
+    }, 1500);
+
+    return () => clearInterval(intervalId);
+  }, [isGenerating]);
 
   // Unified Synchronization Hook
   useEffect(() => {
@@ -144,6 +181,38 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     }
   }, [selectedDays, selectedDestinations]);
 
+  // Void auto-curation if core preferences change
+  useEffect(() => {
+    if (isAutoCurated) {
+      setIsAutoCurated(false);
+      setCurationRationale(null);
+      setSelectedDestinations([]);
+    }
+  }, [travelMonth, selectedDays, travelStyle, selectedLandscapes]);
+
+  useEffect(() => {
+    if (selectedLandscapes.length === 0) {
+      if (selectedDestinations.length > 0) {
+        setSelectedDestinations([]);
+      }
+      return;
+    }
+    
+    const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
+    
+    setSelectedDestinations(prev => {
+      const newSelection = prev.filter(id => {
+        const d = destinations.find(dest => dest.id === id);
+        if (!d) return false;
+        return matchedCategories.some(cat => d.landscapes.includes(cat));
+      });
+      
+      if (newSelection.length !== prev.length) {
+        return newSelection;
+      }
+      return prev;
+    });
+  }, [selectedLandscapes, destinations]);
   // Debounced Mapbox Geocoding
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -186,11 +255,9 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     try {
       const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
 
-      const clientWarnings = performValidation({
-        destinations: selectedDestObjs,
-        durationDays: selectedDays,
-        travelMonth,
-      });
+      // Note: We bypass clientWarnings since the server handles all complex validation now.
+      // We can just rely entirely on the API response.
+      const clientWarnings: WarningMessage[] = [];
 
       const res = await fetch("/api/validate-route", {
         method: "POST",
@@ -198,7 +265,11 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         body: JSON.stringify({
           selectedDays,
           travelStyle,
-          destinationNames: selectedDestObjs.map(d => d.name),
+          travelMonth,
+          residency,
+          startLocation,
+          destinationIds: selectedDestObjs.map(d => d.id),
+          selectedLandscapes,
         }),
       });
 
@@ -241,28 +312,21 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     }
   };
 
-  const nextStep = () => {
+  const nextStep = async () => {
     if (step === 6) {
       if (selectedDestinations.length === 0 && !isAutoCurated) return;
       if (isAutoCurated) {
         saveJourneyAndCheckout();
         return;
       }
-      const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
-
-      const msgs = performValidation({
-        destinations: selectedDestObjs,
-        durationDays: selectedDays,
-        travelMonth,
-      });
-      // also check if there are API warnings that are "High Transit Friction"
-      const allWarnings = [...msgs, ...warnings.filter(w => w.includes("High Transit Friction") || w.includes("High Friction Route") || w.includes("Extreme distance"))];
       
-      if (allWarnings.length > 0) {
-        setValidationMessages(Array.from(new Set(allWarnings)));
+      setIsValidating(true);
+      if (warnings.length > 0) {
+        setValidationMessages(warnings);
         setShowValidationModal(true);
         return;
       }
+      setIsValidating(false);
       saveJourneyAndCheckout();
     } else {
       if (step === 1 && !startLocation.trim()) {
@@ -297,11 +361,26 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
   const toggleAutoCuration = () => {
     if (!isAutoCurated) {
+      setIsGenerating(true);
+      
+      setTimeout(() => {
+        setIsAutoCurated(true);
+        const result = generateBespokeRoute(
+          { travelMonth, selectedLandscapes, days: selectedDays }, 
+          destinations,
+          transitRoutes
+        );
+        setSelectedDestinations(result.destinationIds);
+        setCurationRationale(result.rationale);
+        setWarnings([]);
+        setValidationMessages([]);
+        setIsGenerating(false);
+      }, 4000);
+    } else {
+      setIsAutoCurated(false);
       setSelectedDestinations([]);
-      setWarnings([]);
-      setValidationMessages([]);
+      setCurationRationale(null);
     }
-    setIsAutoCurated(!isAutoCurated);
   };
 
   const toggleDestination = (destId: string) => {
@@ -311,6 +390,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     setSelectedDestinations((prev) => {
       if (prev.includes(destId)) {
         setDestinationError(null);
+        setTimeout(() => document.getElementById('destination-grid')?.scrollTo({ top: 0, behavior: 'smooth' }), 50);
         return prev.filter((id) => id !== destId);
       } else {
         if (prev.length >= maxAllowed) {
@@ -319,6 +399,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
           return prev;
         }
         setDestinationError(null);
+        setTimeout(() => document.getElementById('destination-grid')?.scrollTo({ top: 0, behavior: 'smooth' }), 50);
         return [...prev, destId];
       }
     });
@@ -334,26 +415,36 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      y: direction > 0 ? 20 : -20,
       opacity: 0,
-      scale: 0.98,
-      filter: "blur(4px)",
     }),
     center: {
       zIndex: 1,
-      x: 0,
+      y: 0,
       opacity: 1,
-      scale: 1,
-      filter: "none",
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 100 : -100,
+      y: direction < 0 ? 20 : -20,
       opacity: 0,
-      scale: 0.98,
-      filter: "blur(4px)",
     }),
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
 
   if (isGenerating) {
     return (
@@ -371,14 +462,14 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
             <Loader2 size={64} style={{ color: theme.gold }} className="opacity-80" />
           </motion.div>
 
-          <div className="h-16 flex items-center justify-center">
+          <div className="h-16 flex items-center justify-center" aria-live="polite">
             <AnimatePresence mode="wait">
               <motion.h3
                 key={loadingText}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.4 }}
                 className="font-serif text-3xl md:text-4xl tracking-wide font-light"
               >
                 {loadingText}
@@ -391,16 +482,123 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
     );
   }
 
+  const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
+  const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
+  const isDisabledGlobal = isMaxReached || isAutoCurated;
+
+  const monthMap: Record<string, number> = {
+    "January": 1, "February": 2, "March": 3, "April": 4,
+    "May": 5, "June": 6, "July": 7, "August": 8,
+    "September": 9, "October": 10, "November": 11, "December": 12
+  };
+  const monthIndex = travelMonth ? monthMap[travelMonth] : null;
+
+  const nbdIds = new Set<string>();
+  const lastSelectedId = selectedDestinations.length > 0 ? selectedDestinations[selectedDestinations.length - 1] : null;
+  const lastSelectedDest = lastSelectedId ? destinations.find(d => d.id === lastSelectedId) : null;
+
+  if (lastSelectedId) {
+    if (transitRoutes && transitRoutes.length > 0) {
+      const routes = transitRoutes.filter(r => r.originId === lastSelectedId || r.destinationId === lastSelectedId);
+      if (routes.length > 0) {
+        // Collect valid connected destinations
+        const connectedNodes = new Set<string>();
+        routes.forEach(r => {
+          const targetId = r.originId === lastSelectedId ? r.destinationId : r.originId;
+          if (!selectedDestinations.includes(targetId)) {
+            connectedNodes.add(targetId);
+          }
+        });
+
+        // Score them using the dynamic multi-vector engine
+        const userContext = {
+          travelMonth,
+          selectedLandscapes,
+          days: selectedDays,
+          selectedVibes: [] // Optional vibes array could be populated here if added to step 3 in future
+        };
+
+        const scoredCandidates = Array.from(connectedNodes).map(id => {
+          const destObj = destinations.find(d => d.id === id);
+          if (!destObj) return { id, score: 0, isDeadEnd: true };
+          
+          const { score, isDeadEnd } = calculateMatchScore(destObj, userContext, lastSelectedId, transitRoutes);
+          return { id, score, isDeadEnd };
+        });
+
+        const candidates = scoredCandidates
+          .filter(c => !c.isDeadEnd && c.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 5);
+          
+        candidates.forEach(c => nbdIds.add(c.id));
+      } else if (lastSelectedDest) {
+        destinations.forEach(d => {
+          if (!selectedDestinations.includes(d.id) && d.region === lastSelectedDest.region) {
+            nbdIds.add(d.id);
+          }
+        });
+      }
+    } else if (lastSelectedDest) {
+      destinations.forEach(d => {
+        if (!selectedDestinations.includes(d.id) && d.region === lastSelectedDest.region) {
+          nbdIds.add(d.id);
+        }
+      });
+    }
+  }
+
+  const getTierAndReason = (dest: Destination) => {
+    if (selectedDestinations.includes(dest.id)) return { tier: 0 };
+    
+    const userContext = {
+      travelMonth,
+      selectedLandscapes,
+      days: selectedDays,
+      selectedVibes: []
+    };
+
+    const lastSelectedId = selectedDestinations[selectedDestinations.length - 1];
+    
+    // Use the AI Scoring Engine to determine true viability!
+    const { weatherFactor, logisticsFactor } = calculateMatchScore(dest, userContext, lastSelectedId, transitRoutes || []);
+
+    // 1. Evaluate Weather via AI Factor
+    if (weatherFactor <= 0.1) {
+      return { tier: 3, reason: "Off-Season" };
+    }
+
+    // 2. Evaluate Logistics via AI Factor (if a node is selected)
+    if (lastSelectedId && transitRoutes && transitRoutes.length > 0) {
+      // If logistics penalty is massive (meaning 0 direct connections and high fatigue)
+      if (logisticsFactor <= 0.0 && !nbdIds.has(dest.id)) {
+         return { tier: 3, reason: "Disconnected" };
+      }
+    } else if (selectedDestinations.length > 0) {
+      // Fallback if no transit routes are loaded
+      const activeRegions = new Set(selectedDestinations.map(id => destinations.find(d => d.id === id)?.region).filter(Boolean));
+      if (!activeRegions.has(dest.region) && !nbdIds.has(dest.id)) {
+        return { tier: 3, reason: "Distant Region" };
+      }
+    }
+    
+    // 3. AI Suggestions
+    if (nbdIds.has(dest.id) && !isDisabledGlobal) return { tier: 1 };
+    
+    return { tier: 2 };
+  };
+
   const filteredDestinations = destinations
     .filter((d) => {
+      if (selectedDestinations.includes(d.id)) return true;
       if (selectedLandscapes.length === 0) return true;
       const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
       return matchedCategories.some(cat => d.landscapes.includes(cat));
     })
     .sort((a, b) => {
-      const aMatch = isMonthInSeason(travelMonth, a.idealSeason) ? 1 : 0;
-      const bMatch = isMonthInSeason(travelMonth, b.idealSeason) ? 1 : 0;
-      if (bMatch !== aMatch) return bMatch - aMatch;
+      const tierA = getTierAndReason(a).tier;
+      const tierB = getTierAndReason(b).tier;
+      if (tierA !== tierB) return tierA - tierB;
       return a.region.localeCompare(b.region);
     });
 
@@ -424,14 +622,14 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
       <header className="pt-32 px-6 md:px-10 pb-6 flex justify-between items-center relative z-40">
         <button
           onClick={prevStep}
-          className={`group flex items-center gap-2 uppercase tracking-widest text-xs transition-opacity cursor-pointer print:hidden opacity-70 hover:opacity-100`}
+          className={`group flex items-center gap-2 uppercase tracking-widest text-xs transition-all cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation`}
           style={{ color: theme.gold }}
         >
           <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back
         </button>
       </header>
 
-      <main className={`flex-1 flex flex-col items-center px-4 md:px-10 py-10 relative z-30 ${step === 6 ? 'justify-start mt-0 md:pt-4' : 'justify-center'}`}>
+      <main className="flex-1 flex flex-col items-center px-4 md:px-10 py-10 relative z-30 justify-start mt-0 md:pt-4">
         <AnimatePresence mode="wait" custom={direction} initial={false}>
           <motion.div
             key={step}
@@ -440,8 +638,8 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 6 ? 'max-w-[1600px]' : 'max-w-4xl'}`}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 6 ? 'max-w-[1600px]' : 'max-w-4xl min-h-[60vh] flex flex-col justify-center'}`}
           >
             {step === 1 && (
               <div className="text-center space-y-12">
@@ -460,7 +658,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                         borderColor: residency === option.id ? theme.gold : theme.border,
                         backgroundColor: residency === option.id ? theme.gold + '0D' : theme.darker
                       }}
-                      className="p-6 md:p-8 text-center border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col items-center"
+                      className="p-6 md:p-8 text-center border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col items-center active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       <option.icon className={`w-8 h-8 mb-4 ${residency === option.id ? 'text-[#c9a96e]' : 'text-white/40'}`} strokeWidth={1.5} />
                       <h3 className="font-serif text-xl md:text-2xl mb-2 text-white/90">{option.title}</h3>
@@ -583,7 +781,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                         backgroundColor: travelMonth === month ? theme.gold + '1A' : theme.darker,
                         color: travelMonth === month ? theme.gold : theme.cream
                       }}
-                      className="p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-xs md:text-sm cursor-pointer"
+                      className="p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-xs md:text-sm cursor-pointer active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       {month}
                     </button>
@@ -607,7 +805,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                         borderColor: travelStyle === name ? theme.gold : theme.border,
                         backgroundColor: travelStyle === name ? theme.gold + '0D' : theme.darker
                       }}
-                      className="p-6 md:p-8 text-left border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col"
+                      className="p-6 md:p-8 text-left border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       {travelStyle === name && (
                         <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: theme.gold }} />
@@ -665,7 +863,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           borderColor: isSelected ? theme.gold : theme.border,
                           backgroundColor: isSelected ? theme.gold + '0D' : theme.darker
                         }}
-                        className="group relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden"
+                        className="group relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden active:scale-[0.98] active:opacity-80 touch-manipulation"
                       >
                         <Image
                           src={LANDSCAPE_IMAGES[landscape] || FALLBACK_IMAGE}
@@ -725,11 +923,15 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                   </div>
 
                   <div className="flex flex-col lg:flex-row gap-8">
-                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar">
+                    <div 
+                      id="destination-grid"
+                      className={`flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar ${isGenerating ? 'pointer-events-none' : ''}`}
+                    >
                       {/* Magic Card */}
-                      <div
+                      <button 
                         onClick={toggleAutoCuration}
-                        className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 cursor-pointer ${
+                        disabled={isGenerating}
+                        className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 cursor-pointer active:scale-[0.98] touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed ${
                           isAutoCurated 
                             ? 'bg-gradient-to-br from-amber-900/60 to-zinc-900 border-[#c9a96e] shadow-[0_0_20px_rgba(201,169,110,0.3)]' 
                             : 'bg-gradient-to-br from-amber-950/40 to-zinc-900 border-zinc-800 hover:border-white/20'
@@ -739,37 +941,57 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           <Sparkles className={`mb-4 ${isAutoCurated ? 'text-[#c9a96e]' : 'text-white/50 group-hover:text-white/80'} transition-colors`} size={32} />
                           <h3 className={`font-serif text-xl md:text-2xl mb-2 ${isAutoCurated ? 'text-white' : 'text-white/90'}`}>Bespoke Curation</h3>
                           <p className="text-xs text-white/60 leading-relaxed max-w-[90%]">
-                            Unsure where to begin? Let our routing engine automatically map the absolute best destinations tailored perfectly to your travel month, pace, and landscape preferences.
+                            Unsure where to begin? Let our deterministic matching engine effortlessly map the absolute best destinations tailored perfectly to your travel month, pace, and landscape preferences.
                           </p>
                         </div>
-                      </div>
+                      </button>
 
-                      {filteredDestinations.map((dest) => {
-                        const isSelected = selectedDestinations.includes(dest.id);
-                        const isDisabled = (!isSelected && isMaxReached) || isAutoCurated;
-                        return (
-                          <div
-                            key={dest.id}
-                            onClick={() => toggleDestination(dest.id)}
-                            onMouseEnter={() => setHoveredCard(dest.id)}
-                            onMouseLeave={() => setHoveredCard(null)}
-                            className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 bg-zinc-800 ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale-[0.5]' : 'cursor-pointer hover:border-white/20'}`}
-                            style={{ borderColor: isSelected ? theme.gold : theme.border }}
-                          >
-                            {/* Poster image with cinematic Ken Burns effect */}
-                            <Image 
-                              src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
-                              alt={dest.name} 
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              placeholder="blur"
-                              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                              className={`object-cover transition-transform duration-[1000ms] ease-out ${isSelected ? 'scale-110' : 'scale-100 group-hover:scale-110'} opacity-60`} 
-                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                            />
+                      {[...filteredDestinations].sort((a, b) => getTierAndReason(a).tier - getTierAndReason(b).tier).map((dest) => {
+                          const { tier, reason } = getTierAndReason(dest);
+                          const isSelected = selectedDestinations.includes(dest.id);
+                          const isDisabled = (!isSelected && isMaxReached) || (!isSelected && isAutoCurated);
+                          const isTier3 = tier === 3;
+                          
+                          return (
+                            <div
+                              key={dest.id}
+                              onClick={() => { if (!isDisabled) toggleDestination(dest.id) }}
+                              onMouseEnter={() => setHoveredCard(dest.id)}
+                              onMouseLeave={() => setHoveredCard(null)}
+                              className={`relative h-[260px] group rounded-sm overflow-hidden border transition-colors duration-300 bg-zinc-800 touch-manipulation ${
+                                isDisabled 
+                                  ? 'opacity-20 cursor-not-allowed grayscale' 
+                                  : isTier3 
+                                    ? 'opacity-60 grayscale cursor-pointer hover:border-red-900/50 active:scale-[0.98]'
+                                    : 'cursor-pointer hover:border-white/20 active:scale-[0.98]'
+                              }`}
+                              style={{ borderColor: isSelected ? theme.gold : theme.border }}
+                            >
+                              <Image 
+                                src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
+                                alt={dest.name} 
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                placeholder="blur"
+                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+                                className={`object-cover transition-transform duration-[1000ms] ease-out ${isSelected ? 'scale-110 opacity-100' : 'scale-100 group-hover:scale-110 opacity-60'}`} 
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              />
 
-                            {/* Dark overlay — sits ABOVE image for text legibility */}
-                            <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/60 to-transparent z-10 transition-colors duration-500 ${isSelected ? 'bg-black/40' : 'bg-transparent group-hover:bg-black/40'}`} />
+                              <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/60 to-transparent z-10 transition-colors duration-500 ${isSelected ? 'bg-transparent' : 'bg-transparent group-hover:bg-black/40'}`} />
+
+                              {isTier3 && reason && (
+                                <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[9px] text-white/90 flex items-center gap-1.5 border border-white/10 z-30 pointer-events-none">
+                                  <Plane className="w-3 h-3 text-white/70" />
+                                  <span className="uppercase tracking-widest font-medium">{reason}</span>
+                                </div>
+                              )}
+                              
+                              {tier === 1 && (
+                                <div className="absolute top-3 right-3 bg-[#c9a96e] px-2.5 py-1 rounded text-[9px] text-[#0a0806] flex items-center gap-1.5 z-30 pointer-events-none font-bold">
+                                  <span className="uppercase tracking-widest">Suggested</span>
+                                </div>
+                              )}
 
                             <div className="absolute inset-0 p-4 flex flex-col justify-end z-20">
                               <div className="flex justify-between items-start mb-1">
@@ -808,9 +1030,12 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       <div>
                         <h4 className="font-sans uppercase tracking-widest text-[10px] mb-4 text-white/50">Your Selection</h4>
                         {isAutoCurated ? (
-                          <div className="flex gap-3 items-center text-amber-400/80 bg-amber-950/20 border border-amber-900/30 p-4 rounded-sm mb-4">
-                            <Sparkles size={16} />
-                            <p className="text-xs">Expert Choice Active</p>
+                          <div className="bg-black/40 border border-white/10 p-5 rounded-sm">
+                            <div className="flex gap-3 items-center text-[#c9a96e] mb-3">
+                              <Crown size={18} />
+                              <p className="text-xs uppercase tracking-widest">Concierge Insights</p>
+                            </div>
+                            <p className="font-serif text-white/90 leading-relaxed tracking-wide">&ldquo;{curationRationale}&rdquo;</p>
                           </div>
                         ) : selectedDestinations.length === 0 ? (
                           <p className="text-sm text-zinc-500 italic">No destinations selected</p>
@@ -830,12 +1055,15 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                       {isValidating ? (
                         <div className="text-sm text-white/50 animate-pulse">Analyzing route physics...</div>
                       ) : warnings.length > 0 ? (
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                           <h4 className="font-sans uppercase tracking-widest text-[10px] mb-2 text-white/50">Live Validation</h4>
                           {warnings.map((warn, idx) => (
-                            <div key={idx} className="flex gap-3 items-start bg-amber-950/30 border border-amber-900/50 p-4 rounded-sm">
-                              <AlertTriangle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
-                              <p className="text-xs text-amber-200/80 leading-relaxed">{warn}</p>
+                            <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-5 rounded-r-sm">
+                              <div className="flex gap-2 items-center text-[#c9a96e] mb-3">
+                                {warn.category === 'vibe' ? <Info size={14} /> : <AlertTriangle size={14} />}
+                                <span className="text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
+                              </div>
+                              <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">{warn.message}</p>
                             </div>
                           ))}
                         </div>
@@ -850,12 +1078,12 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
                           if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;
                           nextStep();
                         }}
+                        disabled={selectedDestinations.length === 0 && !isAutoCurated}
                         style={{
-                          borderColor: theme.gold,
                           opacity: (selectedDestinations.length === 0 && !isAutoCurated) ? 0.5 : 1,
                           cursor: (selectedDestinations.length === 0 && !isAutoCurated) ? 'not-allowed' : 'pointer'
                         }}
-                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
+                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 active:scale-[0.98] touch-manipulation ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
                       >
                         <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
                           Proceed to Checkout <ChevronRight size={16} />
@@ -877,6 +1105,7 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
         return (
           <footer className="p-6 md:p-10 flex justify-end relative z-40">
             <button
+              suppressHydrationWarning
               disabled={isNextDisabled}
               onClick={() => {
                 if (isNextDisabled) return;
@@ -916,26 +1145,57 @@ export default function TravelWizard({ destinations }: TravelWizardProps) {
               <h3 className="font-serif text-3xl text-white/90">Local Insights & Route Adjustments</h3>
               <div className="w-16 h-px bg-white/20 mb-2" />
               <div className="flex flex-col gap-4 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
-                {validationMessages.map((msg, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <AlertTriangle size={18} className="text-[#c9a96e] flex-shrink-0 mt-0.5" />
-                    <p className="text-sm leading-relaxed text-zinc-300">{msg}</p>
-                  </div>
-                ))}
+                {validationMessages.map((msg, i) => {
+                  let Icon = AlertTriangle;
+                  let colorClass = "text-[#c9a96e]";
+                  if (msg.severity === 'critical') {
+                    colorClass = "text-red-500";
+                  } else if (msg.severity === 'info') {
+                    Icon = Info;
+                    colorClass = "text-blue-400";
+                  }
+                  
+                  return (
+                    <div key={i} className="flex gap-4 items-start bg-zinc-900/50 p-4 rounded-sm border border-zinc-800/50">
+                      <Icon size={20} className={`${colorClass} flex-shrink-0 mt-0.5`} />
+                      <div className="flex flex-col gap-1">
+                        <span className={`text-xs uppercase tracking-widest font-semibold ${colorClass}`}>
+                          {msg.category}
+                        </span>
+                        <p className="text-sm leading-relaxed text-zinc-300">{msg.message}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
                 <button
                   onClick={() => setShowValidationModal(false)}
-                  className="flex-1 py-3 px-4 border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 transition-colors uppercase tracking-widest text-xs text-white/80 rounded-sm cursor-pointer"
+                  className={`flex-1 py-3 px-4 border transition-colors uppercase tracking-widest text-xs rounded-sm cursor-pointer ${
+                    validationMessages.some(m => m.severity === 'critical')
+                      ? 'border-[#c9a96e] bg-[#c9a96e] text-black hover:bg-[#b08d55]'
+                      : 'border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 text-white/80'
+                  }`}
                 >
                   Adjust My Plan
                 </button>
                 <button
                   onClick={() => {
-                    setShowValidationModal(false);
-                    saveJourneyAndCheckout();
+                    if (validationMessages.some(m => m.severity === 'critical')) {
+                      if (window.confirm("WARNING: This route contains critical blockers (e.g., closed roads, extreme weather). The trip may be physically impossible. Are you absolutely sure you want to proceed?")) {
+                        setShowValidationModal(false);
+                        saveJourneyAndCheckout();
+                      }
+                    } else {
+                      setShowValidationModal(false);
+                      saveJourneyAndCheckout();
+                    }
                   }}
-                  className="flex-1 py-3 px-4 border border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black transition-colors uppercase tracking-widest text-xs font-medium rounded-sm cursor-pointer"
+                  className={`flex-1 py-3 px-4 border transition-colors uppercase tracking-widest text-xs font-medium rounded-sm cursor-pointer ${
+                    validationMessages.some(m => m.severity === 'critical')
+                      ? 'border-red-900/50 text-red-500 hover:bg-red-950 hover:border-red-900'
+                      : 'border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black'
+                  }`}
                 >
                   Proceed Anyway
                 </button>
