@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Upload, CheckCircle2 } from 'lucide-react';
+import { Star, CheckCircle2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 
 export default function ReviewPage() {
@@ -159,26 +159,8 @@ export default function ReviewPage() {
                 />
               </div>
 
-              {/* Avatar Upload */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-zinc-300">
-                  Avatar / Profile Photo (Optional)
-                </label>
-                <label className="flex items-center gap-4 w-full bg-black/40 border border-dashed border-white/20 rounded-lg px-5 py-6 cursor-pointer hover:bg-black/60 hover:border-amber-500/50 transition-all group">
-                  <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors shadow-inner">
-                    <Upload size={20} className="text-amber-500" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium text-zinc-300 group-hover:text-amber-500 transition-colors">
-                      Click to upload a photo
-                    </span>
-                    <span className="text-xs text-zinc-500 mt-1">
-                      SVG, PNG, or JPG (max. 2MB)
-                    </span>
-                  </div>
-                  <input type="file" accept="image/*" className="hidden" />
-                </label>
-              </div>
+
+
 
               {/* Submit */}
               <button

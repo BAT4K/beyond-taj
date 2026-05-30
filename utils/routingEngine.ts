@@ -143,7 +143,7 @@ export async function evaluateTripFeasibility(
     "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12
   };
   const mIndex = monthMap[travelMonth];
-  
+  let isWeatherClosed = false;
   if (mIndex) {
     const closedDests: string[] = [];
     const avoidDests: string[] = [];
@@ -154,6 +154,7 @@ export async function evaluateTripFeasibility(
     });
 
     if (closedDests.length > 0) {
+      isWeatherClosed = true;
       warnings.push({
         category: 'weather',
         severity: 'critical',
@@ -257,9 +258,9 @@ export async function evaluateTripFeasibility(
     });
   }
 
-  let fatigueScoreOverride = isDisconnected ? 0 : (totalMinDays > days ? 0 : 100);
+  let fatigueScoreOverride = (isDisconnected || isWeatherClosed) ? 0 : (totalMinDays > days ? 0 : 100);
   const remainingBudget = totalFatigueAllowed - totalTripFatigue;
-  if (remainingBudget < 0 && !isDisconnected && totalMinDays <= days) {
+  if (remainingBudget < 0 && !isDisconnected && totalMinDays <= days && !isWeatherClosed) {
     fatigueScoreOverride = Math.max(0, 100 - (Math.abs(remainingBudget) * 5));
     warnings.push({
       category: 'logistics',
@@ -287,7 +288,11 @@ export async function evaluateTripFeasibility(
 
   // Final Aggregation
   geoScore = Math.max(0, geoScore);
-  const TRIP_SCORE = Math.round((geoScore * 0.5) + (fatigueScore * 0.5));
+  let TRIP_SCORE = Math.round((geoScore * 0.5) + (fatigueScore * 0.5));
+  
+  if (isDisconnected || isWeatherClosed || totalMinDays > days) {
+    TRIP_SCORE = 0;
+  }
   
   return {
     score: TRIP_SCORE,

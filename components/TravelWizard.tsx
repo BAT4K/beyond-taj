@@ -22,6 +22,7 @@ export type Destination = {
   shoulderMonths: number[];
   avoidMonths: number[];
   closedMonths: number[];
+  minRequiredDays: number;
   latitude: number;
   longitude: number;
   clusterId?: string | null;
@@ -241,13 +242,21 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   useEffect(() => {
     // Step 2: Trigger Distance Validation
     if (step === 6) {
-      validateItinerary();
+      // Only show loading state if we actually have enough to validate
+      if (selectedDestinations.length >= 2 && !isAutoCurated) {
+        setIsValidating(true);
+      }
+      const handler = setTimeout(() => {
+        validateItinerary();
+      }, 400); // 400ms debounce
+      return () => clearTimeout(handler);
     }
   }, [selectedDays, selectedDestinations, travelStyle, step]);
 
   const validateItinerary = async () => {
-    if (selectedDestinations.length === 0 || isAutoCurated) {
+    if (selectedDestinations.length < 2 || isAutoCurated) {
       setWarnings([]);
+      setIsValidating(false);
       return;
     }
 
@@ -390,6 +399,9 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     setSelectedDestinations((prev) => {
       if (prev.includes(destId)) {
         setDestinationError(null);
+        // Clear warnings immediately so name + warnings disappear in sync
+        setWarnings([]);
+        setIsValidating(false);
         setTimeout(() => document.getElementById('destination-grid')?.scrollTo({ top: 0, behavior: 'smooth' }), 50);
         return prev.filter((id) => id !== destId);
       } else {
@@ -399,6 +411,11 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           return prev;
         }
         setDestinationError(null);
+        // If this will be the 2nd+ dest, show spinner immediately (no flash of stale state)
+        if (prev.length >= 1 && step === 6) {
+          setWarnings([]);
+          setIsValidating(true);
+        }
         setTimeout(() => document.getElementById('destination-grid')?.scrollTo({ top: 0, behavior: 'smooth' }), 50);
         return [...prev, destId];
       }
@@ -568,10 +585,23 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       return { tier: 3, reason: "Off-Season" };
     }
 
-    // 2. Evaluate Logistics via AI Factor (if a node is selected)
+    // 2. Evaluate Pacing (Time-Space Law)
+    const startNode = destinations.find(d => d.name.toLowerCase() === startLocation.toLowerCase() || d.id === startLocation);
+    const startNodeDays = startNode ? (startNode.minRequiredDays || 2) : 2;
+
+    const currentMinDays = selectedDestinations.reduce((sum, id) => {
+      const d = destinations.find(x => x.id === id);
+      return sum + (d?.minRequiredDays || 2);
+    }, 0);
+    
+    if (startNodeDays + currentMinDays + (dest.minRequiredDays || 2) > selectedDays) {
+      return { tier: 3, reason: "Not Enough Days" };
+    }
+
+    // 3. Evaluate Logistics via AI Factor (if a node is selected)
     if (lastSelectedId && transitRoutes && transitRoutes.length > 0) {
       // If logistics penalty is massive (meaning 0 direct connections and high fatigue)
-      if (logisticsFactor <= 0.0 && !nbdIds.has(dest.id)) {
+      if (logisticsFactor <= 0.0) {
          return { tier: 3, reason: "Disconnected" };
       }
     } else if (selectedDestinations.length > 0) {
@@ -1053,13 +1083,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         )}
                       </div>
                       {isValidating ? (
-                        <div className="text-sm text-white/50 animate-pulse">Analyzing route physics...</div>
+                        <div className="flex gap-3 items-center text-white/40 p-4">
+                          <div className="w-3 h-3 border border-white/20 border-t-[#c9a96e] rounded-full animate-spin" />
+                          <span className="font-sans text-[11px] uppercase tracking-widest">Reviewing route...</span>
+                        </div>
                       ) : warnings.length > 0 ? (
-                        <div className="space-y-4">
-                          <h4 className="font-sans uppercase tracking-widest text-[10px] mb-2 text-white/50">Live Validation</h4>
+                        <div className="space-y-3">
                           {warnings.map((warn, idx) => (
-                            <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-5 rounded-r-sm">
-                              <div className="flex gap-2 items-center text-[#c9a96e] mb-3">
+                            <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-4 rounded-r-sm">
+                              <div className="flex gap-2 items-center text-[#c9a96e] mb-2">
                                 {warn.category === 'vibe' ? <Info size={14} /> : <AlertTriangle size={14} />}
                                 <span className="text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
                               </div>
@@ -1067,10 +1099,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                             </div>
                           ))}
                         </div>
-                      ) : selectedDestinations.length > 0 ? (
-                        <div className="flex gap-3 items-center text-emerald-400/80 bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-sm">
-                          <CheckCircle size={16} />
-                          <p className="text-xs">Pacing and logistics look excellent.</p>
+                      ) : selectedDestinations.length > 1 ? (
+                        <div className="flex gap-3 items-center text-[#c9a96e]/70 bg-black/20 border-l-2 border-[#c9a96e]/30 p-4 rounded-r-sm">
+                          <CheckCircle size={14} />
+                          <p className="font-sans text-xs tracking-wide">Route optimized and feasible.</p>
                         </div>
                       ) : null}
                       <button

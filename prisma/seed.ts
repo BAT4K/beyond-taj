@@ -188,6 +188,9 @@ async function main() {
     { from: "Delhi", to: "Kaziranga", mode: "Flight to Guwahati + Drive", time: 6.0, dist: 1600, fatigue: 6.5 },
     { from: "Delhi", to: "Meghalaya", mode: "Flight to Shillong", time: 4.0, dist: 1500, fatigue: 5.0 },
     { from: "Darjeeling", to: "Kaziranga", mode: "Flight + Drive", time: 8.0, dist: 600, fatigue: 7.5 },
+    { from: "Delhi", to: "Ziro Valley", mode: "Flight to Guwahati + Long Drive", time: 10.0, dist: 1800, fatigue: 8.5 },
+    { from: "Kaziranga", to: "Ziro Valley", mode: "Road", time: 6.0, dist: 250, fatigue: 5.5 },
+    { from: "Meghalaya", to: "Ziro Valley", mode: "Road", time: 12.0, dist: 450, fatigue: 9.0 },
     
     // Cross-Country Hub Flights
     { from: "Udaipur", to: "South Goa", mode: "Connecting Flight", time: 4.5, dist: 1000, fatigue: 4.5 },

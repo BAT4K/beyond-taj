@@ -55,6 +55,7 @@ export default async function Plan() {
     shoulderMonths: dest.shoulderMonths || [],
     avoidMonths: dest.avoidMonths || [],
     closedMonths: dest.closedMonths || [],
+    minRequiredDays: dest.minRequiredDays,
     latitude: dest.latitude,
     longitude: dest.longitude,
     landscapes: dest.Landscape.map((l: any) => l.name),

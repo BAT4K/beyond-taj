@@ -8,7 +8,8 @@
     "analyze": "ANALYZE=true next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test:engine": "npx tsx scripts/validate-engine.ts"
   },
   "dependencies": {
     "@cashfreepayments/cashfree-js": "^1.0.7",

@@ -6,89 +6,95 @@ import { Star } from 'lucide-react';
 
 const REVIEWS = [
   {
-    name: "Sarah M.",
-    location: "London",
-    text: "The seasonal alerts saved my trip to North India! Slashed weeks of stress.",
+    name: "Priya Nair",
+    location: "Kochi",
+    text: "Finally someone who gets that you can't do Ladakh in 3 days lol. Saved us from a terrible itinerary.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   },
   {
-    name: "David K.",
-    location: "Berlin",
-    text: "Avoided a massive heatwave mistake in Delhi thanks to the custom pacing.",
+    name: "Rohan M.",
+    location: "Pune",
+    text: "It was good. Helped us plan Meghalaya without overthinking.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg"
   },
   {
-    name: "Elena R.",
-    location: "Madrid",
-    text: "The scam prevention guide alone was worth it. Felt completely safe.",
+    name: "Ananya Sharma",
+    location: "Delhi",
+    text: "Used this for our anniversary trip to Kerala. The pacing was perfect, we didn't feel rushed at all.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg"
   },
   {
-    name: "James L.",
-    location: "New York",
-    text: "Incredible local insights. We skipped the tourist traps entirely.",
-    rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/22.jpg"
-  },
-  {
-    name: "Aisha T.",
-    location: "Dubai",
-    text: "Our Rajasthan route was flawless. The transport tips were a lifesaver.",
-    rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/31.jpg"
-  },
-  {
-    name: "Marcus P.",
-    location: "Sydney",
-    text: "Loved the curated hotels, though the pacing on day 3 was a bit fast for us.",
+    name: "Tom H.",
+    location: "Bristol",
+    text: "Wish we'd found this before booking our first India trip. Would have avoided the monsoon disaster in Goa.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/71.jpg"
   },
   {
-    name: "Chloe W.",
+    name: "Sneha R.",
+    location: "Bangalore",
+    text: "Glad I chose this over planning everything on Google. So much easier.",
+    rating: 4,
+  },
+  {
+    name: "Vikram Joshi",
+    location: "Mumbai",
+    text: "The route suggestions were spot on. Rajasthan in 10 days felt effortless.",
+    rating: 5,
+  },
+  {
+    name: "Claire D.",
+    location: "Melbourne",
+    text: "Really helpful for first-timers. We felt so much more confident about the whole trip.",
+    rating: 4,
+  },
+  {
+    name: "Arjun K.",
+    location: "Hyderabad",
+    text: "Took my parents on the Varanasi route. They loved every minute. Thank you guys.",
+    rating: 5,
+  },
+  {
+    name: "Meera Iyer",
+    location: "Chennai",
+    text: "Not bad. Some hotel recs were mid but the overall planning was solid.",
+    rating: 4,
+  },
+  {
+    name: "Aditya Singh",
+    location: "Jaipur",
+    text: "10/10. The weather warnings alone saved us from a wasted day in Darjeeling.",
+    rating: 5,
+  },
+  {
+    name: "Lisa W.",
     location: "Toronto",
-    text: "Beyond Taj nailed the cultural immersion. We experienced Diwali like locals!",
+    text: "We did the Northeast circuit. Absolutely unreal. Never would have planned it ourselves.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/12.jpg"
   },
   {
-    name: "Terrence J.",
-    location: "Atlanta",
-    text: "The tailored culinary recommendations were phenomenal. Every meal was a hit.",
-    rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/55.jpg"
-  },
-  {
-    name: "Sophie L.",
-    location: "Paris",
-    text: "Great itinerary, but we wish we had booked more buffer days for shopping.",
+    name: "Kavita P.",
+    location: "Ahmedabad",
+    text: "Simple and clean. Did exactly what it promised.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/women/8.jpg"
   },
   {
-    name: "Liam O.",
-    location: "Dublin",
-    text: "Having the exact train routes and booking timelines mapped out was priceless.",
+    name: "Nikhil Deshmukh",
+    location: "Nagpur",
+    text: "Finally a travel tool that doesn't try to upsell you on everything. Just honest planning.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/11.jpg"
   },
   {
-    name: "Emma C.",
-    location: "Vancouver",
-    text: "The architecture walking tours suggested were stunning. Highly recommended.",
-    rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/46.jpg"
-  },
-  {
-    name: "Julian B.",
-    location: "Amsterdam",
-    text: "Very well structured. We missed one temple due to traffic, but overall amazing.",
+    name: "James R.",
+    location: "Edinburgh",
+    text: "Good stuff. Only complaint is I wanted more options for South India.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/84.jpg"
-  }
+  },
+  {
+    name: "Divya Menon",
+    location: "Trivandrum",
+    text: "Our group of 6 used this for a Himachal trip. Zero arguments about the plan for once 😂",
+    rating: 5,
+  },
 ];
 
 export default function FloatingReviewTicker() {
@@ -99,12 +105,6 @@ export default function FloatingReviewTicker() {
     // Client-side shuffle to avoid Next.js hydration mismatch
     const shuffled = [...REVIEWS].sort(() => Math.random() - 0.5);
     setShuffledReviews(shuffled);
-
-    // Silently preload all images in the background to prevent layout buffer/lag
-    shuffled.forEach((review) => {
-      const img = new Image();
-      img.src = review.avatar;
-    });
 
     let cycleTimer: NodeJS.Timeout;
 
@@ -125,6 +125,13 @@ export default function FloatingReviewTicker() {
     };
   }, []);
 
+  // Generate initials for avatar fallback
+  const getInitials = (name: string) => {
+    const parts = name.replace(/\./g, '').trim().split(' ');
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return parts[0][0].toUpperCase();
+  };
+
   return (
     <div className="fixed bottom-6 left-6 z-50 pointer-events-none hidden md:block">
       <AnimatePresence mode="wait">
@@ -139,17 +146,17 @@ export default function FloatingReviewTicker() {
           >
             {/* Header Row */}
             <div className="flex items-center gap-3">
-              {/* Avatar */}
-              <img 
-                src={shuffledReviews[index].avatar} 
-                alt={`${shuffledReviews[index].name}'s avatar`}
-                className="flex-shrink-0 w-10 h-10 rounded-full object-cover border border-white/10"
-              />
+              {/* Initial Avatar */}
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center">
+                <span className="text-xs font-medium text-white/60 select-none">
+                  {getInitials(shuffledReviews[index].name)}
+                </span>
+              </div>
               
               <div className="flex flex-col gap-0.5">
                 {/* Name & Location */}
-                <p className="text-base font-semibold text-white">
-                  {shuffledReviews[index].name} <span className="font-light text-sm text-zinc-400">from {shuffledReviews[index].location}</span>
+                <p className="text-sm font-medium text-white">
+                  {shuffledReviews[index].name} <span className="font-light text-xs text-zinc-500">from {shuffledReviews[index].location}</span>
                 </p>
                 {/* Star Rating */}
                 <div className="flex gap-0.5">
@@ -158,9 +165,9 @@ export default function FloatingReviewTicker() {
                     return (
                       <Star 
                         key={i} 
-                        size={12} 
+                        size={11} 
                         fill={isFilled ? "currentColor" : "transparent"} 
-                        className={isFilled ? "text-amber-400" : "text-zinc-600"} 
+                        className={isFilled ? "text-amber-400" : "text-zinc-700"} 
                       />
                     );
                   })}
@@ -169,8 +176,8 @@ export default function FloatingReviewTicker() {
             </div>
             
             {/* Review Body */}
-            <p className="text-sm text-zinc-200 font-light leading-relaxed font-sans italic">
-              "{shuffledReviews[index].text}"
+            <p className="text-sm text-zinc-300 font-light leading-relaxed font-sans">
+              {shuffledReviews[index].text}
             </p>
           </motion.div>
         )}
