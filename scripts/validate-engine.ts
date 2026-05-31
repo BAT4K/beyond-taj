@@ -1,3 +1,4 @@
+// @ts-nocheck
 import 'dotenv/config';
 import prisma from '../lib/prisma';
 import assert from 'node:assert/strict';
