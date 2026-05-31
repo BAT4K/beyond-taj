@@ -1,0 +1,6978 @@
+[
+  {
+    "originId": "Darjeeling",
+    "originName": "Darjeeling",
+    "destinationId": "pelling-yuksom",
+    "destinationName": "Pelling & Yuksom",
+    "distanceKm": 31.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Darjeeling",
+    "originName": "Darjeeling",
+    "destinationId": "yumthang-valley",
+    "destinationName": "Yumthang Valley",
+    "distanceKm": 96.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Darjeeling",
+    "originName": "Darjeeling",
+    "destinationId": "gangtok",
+    "destinationName": "Gangtok",
+    "distanceKm": 47.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "pangong-tso",
+    "destinationName": "Pangong Tso",
+    "distanceKm": 159.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "Spiti Valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 167.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "Leh-Ladakh",
+    "destinationName": "Leh-Ladakh",
+    "distanceKm": 94.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "Manali",
+    "destinationName": "Manali",
+    "distanceKm": 137.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "tosh-khajjiar",
+    "destinationName": "Tosh & Khajjiar",
+    "distanceKm": 132.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 206.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 151.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 164.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 146.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 137.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "Gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 249.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 205.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 181.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 213.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 249.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 165.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 144.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 167.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 94.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 283.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 139.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 94.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 234.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 159.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 169.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 213.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "zanskar-valley",
+    "originName": "Zanskar Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 13.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 284.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "Delhi",
+    "destinationName": "Delhi",
+    "distanceKm": 14.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 296.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "Jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 235.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "golden_triangle",
+    "destinationName": "Golden Triangle Circuit",
+    "distanceKm": 179.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 235.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 174.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 197.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 235.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 297,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 183.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "delhi",
+    "originName": "Delhi",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 132.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "Spiti Valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 178.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "Leh-Ladakh",
+    "destinationName": "Leh-Ladakh",
+    "distanceKm": 109.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "Manali",
+    "destinationName": "Manali",
+    "distanceKm": 218.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "tosh-khajjiar",
+    "destinationName": "Tosh & Khajjiar",
+    "distanceKm": 276.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 266.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 277.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 231.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 144.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 218.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 266.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 249.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 178.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 109.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 285.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 109.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 237.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 263.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 180.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "pangong-tso",
+    "originName": "Pangong Tso",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 172.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "Leh-Ladakh",
+    "destinationName": "Leh-Ladakh",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "Manali",
+    "destinationName": "Manali",
+    "distanceKm": 79.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "tosh-khajjiar",
+    "destinationName": "Tosh & Khajjiar",
+    "distanceKm": 188.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 93.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 161,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 72.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 274.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 79.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 225.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 94,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 241.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 225.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 194.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 256.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 196.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 239.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 241.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 69.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 126.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 2.8,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Spiti Valley",
+    "originName": "Spiti Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 176.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "Munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 249.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "bengaluru",
+    "destinationName": "Bengaluru (Bangalore)",
+    "distanceKm": 128,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "Kabini",
+    "destinationName": "Kabini",
+    "distanceKm": 56.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 266,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 65.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 99.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 87.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 249.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 106.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Mysore",
+    "originName": "Mysore",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 264.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "Hampi",
+    "destinationName": "Hampi",
+    "distanceKm": 246.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "South Goa",
+    "destinationName": "South Goa",
+    "distanceKm": 87,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "ratnagiri",
+    "destinationName": "Ratnagiri",
+    "distanceKm": 293,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "north-goa",
+    "destinationName": "North Goa",
+    "distanceKm": 132.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "hampi",
+    "destinationName": "Hampi",
+    "distanceKm": 246.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 89.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 35.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 189.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Gokarna",
+    "originName": "Gokarna",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 184.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "Munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 155.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "Alleppey",
+    "destinationName": "Alleppey",
+    "distanceKm": 94.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "Munroe Island",
+    "destinationName": "Munroe Island",
+    "distanceKm": 29.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "kovalam",
+    "destinationName": "Kovalam",
+    "distanceKm": 47.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 204,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 141.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 99.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 94.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 94.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 297.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 155.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 291.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Varkala",
+    "originName": "Varkala",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 272.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "Ziro Valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 293.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "Kaziranga",
+    "destinationName": "Kaziranga",
+    "distanceKm": 169.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "kaziranga",
+    "destinationName": "Kaziranga National Park",
+    "distanceKm": 169.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "shillong",
+    "destinationName": "Shillong",
+    "distanceKm": 1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "cherrapunji",
+    "destinationName": "Cherrapunji & Mawsynram",
+    "distanceKm": 37.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "mawlynnong",
+    "destinationName": "Mawlynnong",
+    "distanceKm": 42.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 45.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 274.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 223.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 293.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 223.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 141,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Meghalaya",
+    "originName": "Meghalaya (Shillong & Sohra)",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 222.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "Kaziranga",
+    "destinationName": "Kaziranga",
+    "distanceKm": 127.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "kaziranga",
+    "destinationName": "Kaziranga National Park",
+    "distanceKm": 127.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "shillong",
+    "destinationName": "Shillong",
+    "distanceKm": 292.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 74.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 211.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Ziro Valley",
+    "originName": "Ziro Valley",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 194.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "shillong",
+    "destinationName": "Shillong",
+    "distanceKm": 169.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "cherrapunji",
+    "destinationName": "Cherrapunji & Mawsynram",
+    "distanceKm": 204.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "mawlynnong",
+    "destinationName": "Mawlynnong",
+    "distanceKm": 198,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 193.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 107.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 138,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 127.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 171.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Kaziranga",
+    "originName": "Kaziranga",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 276.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "Udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 69.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "Jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 130,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "Bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 236.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 199.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 69.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "mount-abu",
+    "destinationName": "Mount Abu",
+    "distanceKm": 83.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 197.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 235.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jawai",
+    "originName": "Jawai",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 130,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "Jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 196.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "Bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 216.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "Ranthambore",
+    "destinationName": "Ranthambore",
+    "distanceKm": 298.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 227.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "mount-abu",
+    "destinationName": "Mount Abu",
+    "distanceKm": 100.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 227.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Udaipur",
+    "originName": "Udaipur",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 196.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "Bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 277.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "Jaisalmer",
+    "destinationName": "Jaisalmer",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "Jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "jaisalmer",
+    "destinationName": "Jaisalmer",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 299,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 162.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 196.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 200.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "mount-abu",
+    "destinationName": "Mount Abu",
+    "distanceKm": 185.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "thar-desert-circuit",
+    "destinationName": "Thar Desert Circuit",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 154.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jodhpur",
+    "originName": "Jodhpur",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 276.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "Manali",
+    "destinationName": "Manali",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "tosh-khajjiar",
+    "destinationName": "Tosh & Khajjiar",
+    "distanceKm": 226.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 280.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 244.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 239.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 59.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "Gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 280.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 210.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 208.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 139.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 233.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 285.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 247.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 219,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Leh-Ladakh",
+    "originName": "Leh-Ladakh",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 101.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "tosh-khajjiar",
+    "destinationName": "Tosh & Khajjiar",
+    "distanceKm": 111.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 68.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 81.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 28.2,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 274.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 274.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 68.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 260.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 289,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 284.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 244.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 263.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 275.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 79.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 271.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 228.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 119.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 295,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 260.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 120.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 49.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 79.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Manali",
+    "originName": "Manali",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 141.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "Alleppey",
+    "destinationName": "Alleppey",
+    "distanceKm": 102.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "Munroe Island",
+    "destinationName": "Munroe Island",
+    "distanceKm": 131.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "Kabini",
+    "destinationName": "Kabini",
+    "distanceKm": 223.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "varkala",
+    "destinationName": "Varkala",
+    "distanceKm": 155.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "kovalam",
+    "destinationName": "Kovalam",
+    "distanceKm": 188,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 117.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "mysore",
+    "destinationName": "Mysore",
+    "distanceKm": 249.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 88.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 89.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 102.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 232.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 69.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 151.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 204.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 143.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munnar",
+    "originName": "Munnar",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 188.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "bengaluru",
+    "destinationName": "Bengaluru (Bangalore)",
+    "distanceKm": 289.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "South Goa",
+    "destinationName": "South Goa",
+    "distanceKm": 250.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "north-goa",
+    "destinationName": "North Goa",
+    "distanceKm": 292.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 267.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 256.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Hampi",
+    "originName": "Hampi",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 246.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Mumbai",
+    "originName": "Mumbai",
+    "destinationId": "ratnagiri",
+    "destinationName": "Ratnagiri",
+    "distanceKm": 236.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Mumbai",
+    "originName": "Mumbai",
+    "destinationId": "ajanta_ellora",
+    "destinationName": "Ajanta & Ellora Caves",
+    "distanceKm": 263.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Mumbai",
+    "originName": "Mumbai",
+    "destinationId": "shirdi",
+    "destinationName": "Shirdi",
+    "distanceKm": 184.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "Kabini",
+    "destinationName": "Kabini",
+    "distanceKm": 183.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "chennai",
+    "destinationName": "Chennai",
+    "distanceKm": 290.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "hampi",
+    "destinationName": "Hampi",
+    "distanceKm": 289.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "mahabalipuram",
+    "destinationName": "Mahabalipuram (Mamallapuram)",
+    "distanceKm": 284.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "mysore",
+    "destinationName": "Mysore",
+    "distanceKm": 128,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "tirupati",
+    "destinationName": "Tirupati",
+    "distanceKm": 210.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 193.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 199.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 213.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 199.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bengaluru",
+    "originName": "Bengaluru (Bangalore)",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 180.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "jibhi-tirthan",
+    "destinationName": "Jibhi & Tirthan Valley",
+    "distanceKm": 158.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 44.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 132.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 274.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 111.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "Gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 228.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 157.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 206.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 206.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 228.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 176.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 222.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 188.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 226.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 152.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 9.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 226.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 230,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 83.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 188.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 206.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tosh-khajjiar",
+    "originName": "Tosh & Khajjiar",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 124.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "dharamshala-mcleodganj",
+    "destinationName": "Dharamshala & McLeod Ganj",
+    "distanceKm": 116.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 41.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 68.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 219.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 0.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 237.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 191.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 93.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 280.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 203.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 234.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 164.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 280.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 244.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 86.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 271,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 75.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 92.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "jibhi-tirthan",
+    "originName": "Jibhi & Tirthan Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 209.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "kasol-kheerganga",
+    "destinationName": "Kasol & Kheerganga",
+    "distanceKm": 96.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 297.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 81.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "Gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 272.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 115.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 250.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 251.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 272.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 220.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 260.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 161,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 244.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 151.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 48.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 244.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 193.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 41.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 161.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 251.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dharamshala-mcleodganj",
+    "originName": "Dharamshala & McLeod Ganj",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 147.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "nubra-valley",
+    "destinationName": "Nubra Valley",
+    "distanceKm": 298.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 28.2,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 247.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 41.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 232.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 260,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 218.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 290.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 72.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 239.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 243.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 234.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 139.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 239.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 269.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 232.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 97.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 56.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 72.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kasol-kheerganga",
+    "originName": "Kasol & Kheerganga",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 168.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "Munroe Island",
+    "destinationName": "Munroe Island",
+    "distanceKm": 64.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "Kabini",
+    "destinationName": "Kabini",
+    "distanceKm": 271.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "varkala",
+    "destinationName": "Varkala",
+    "distanceKm": 94.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "kovalam",
+    "destinationName": "Kovalam",
+    "distanceKm": 140.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 200.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 48.8,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 13.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 276.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 88.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 215.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 244.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 102.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 212.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Alleppey",
+    "originName": "Alleppey",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 275.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "varkala",
+    "destinationName": "Varkala",
+    "distanceKm": 29.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "kovalam",
+    "destinationName": "Kovalam",
+    "distanceKm": 76.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 194.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 111.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 69.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 64.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 78.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 268.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 131.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 263.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Munroe Island",
+    "originName": "Munroe Island",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 266.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "manali",
+    "destinationName": "Manali",
+    "distanceKm": 274.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 212.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 262.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 219.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 131.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 274.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 59.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 280.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 59.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 277.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 262.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nubra-valley",
+    "originName": "Nubra Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 150.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "chopta-tungnath",
+    "destinationName": "Chopta & Tungnath",
+    "distanceKm": 274.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 68.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 260.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 289,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 284.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 244.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 263.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 275.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 79.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 271.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 228.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 119.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 215.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 295,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 260.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 120.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 49.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 79.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "manali",
+    "originName": "Manali",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 141.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "mysore",
+    "destinationName": "Mysore",
+    "distanceKm": 56.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 223.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 262.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 271.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 15,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 291.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 75.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 32.2,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 223.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Kabini",
+    "originName": "Kabini",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 87.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "Ranthambore",
+    "destinationName": "Ranthambore",
+    "distanceKm": 86.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "Jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 165.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 165.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 287,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 151.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 216.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 160.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 165.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 107.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 1.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Bundi",
+    "originName": "Bundi",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 277.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "Delhi",
+    "destinationName": "Delhi",
+    "distanceKm": 284.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "Tirthan Valley",
+    "destinationName": "Tirthan Valley",
+    "distanceKm": 219.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 101.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 45.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 31.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 225.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 117.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 33.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 101.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 158.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 114.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 294.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "chopta-tungnath",
+    "originName": "Chopta & Tungnath",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 223.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "ratnagiri",
+    "destinationName": "Ratnagiri",
+    "distanceKm": 207.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "north-goa",
+    "destinationName": "North Goa",
+    "distanceKm": 52.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "hampi",
+    "destinationName": "Hampi",
+    "distanceKm": 250.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 17.2,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 55,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 87,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 107.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "South Goa",
+    "originName": "South Goa",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 102.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "Jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 108.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "orchha",
+    "destinationName": "Orchha",
+    "distanceKm": 253.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "golden_triangle",
+    "destinationName": "Golden Triangle Circuit",
+    "distanceKm": 222.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 108.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 237.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 164.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 298.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 174.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 108.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 28.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 86.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Ranthambore",
+    "originName": "Ranthambore",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 218.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 190.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 294.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "Jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 237.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "golden_triangle",
+    "destinationName": "Golden Triangle Circuit",
+    "distanceKm": 193.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 237.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 172.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 192,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 237.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 190.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 186.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Delhi",
+    "originName": "Delhi",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 145.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "sonamarg",
+    "destinationName": "Sonamarg",
+    "distanceKm": 88.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 38.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 86.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 170.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 272.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 223.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 38.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 236,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "Rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 237.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 192.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 94,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 280.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 203.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 234,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 163.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 280.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 244.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 193.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 86.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 271.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 74.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 92.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Tirthan Valley",
+    "originName": "Tirthan Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 209.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Varanasi",
+    "originName": "Varanasi",
+    "destinationId": "bodh-gaya",
+    "destinationName": "Bodh Gaya",
+    "distanceKm": 214.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Varanasi",
+    "originName": "Varanasi",
+    "destinationId": "bandhavgarh",
+    "destinationName": "Bandhavgarh National Park",
+    "distanceKm": 265.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "valley-of-flowers",
+    "destinationName": "Valley of Flowers",
+    "distanceKm": 146.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 105.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 241.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 18.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 134.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 173.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 78.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 263.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 238.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 294.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "kashmir-valley",
+    "destinationName": "Kashmir Valley",
+    "distanceKm": 51.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 88.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 31.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 82,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 210.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 299.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 205.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 210.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 283.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 51.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "sonamarg",
+    "originName": "Sonamarg",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 169.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "char-dham-uttarakhand",
+    "destinationName": "Char Dham Circuit (Uttarakhand)",
+    "distanceKm": 51.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 225.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 163.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 22.2,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 146.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 163.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 155.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "valley-of-flowers",
+    "originName": "Valley of Flowers",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 222.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "spiti-valley",
+    "destinationName": "Spiti Valley",
+    "distanceKm": 194.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 123.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 52.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 105.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 127.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 136.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 266.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "char-dham-uttarakhand",
+    "originName": "Char Dham Circuit (Uttarakhand)",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 191.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "gulmarg",
+    "destinationName": "Gulmarg",
+    "distanceKm": 38.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 48.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 133.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 272.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 203.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 288.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kashmir-valley",
+    "originName": "Kashmir Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 200.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jaisalmer",
+    "originName": "Jaisalmer",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 267.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jaisalmer",
+    "originName": "Jaisalmer",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "golden_triangle",
+    "destinationName": "Golden Triangle Circuit",
+    "distanceKm": 225.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 129.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 125.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 273.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 131.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 122.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 164.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "Jaipur",
+    "originName": "Jaipur",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 197.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "pahalgam",
+    "destinationName": "Pahalgam",
+    "distanceKm": 86.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 170.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 272.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 223.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 294.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 38.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "gulmarg",
+    "originName": "Gulmarg",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 236,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "kargil",
+    "destinationName": "Kargil",
+    "distanceKm": 96.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 208.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "amritsar",
+    "destinationName": "Amritsar",
+    "distanceKm": 268.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 175.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 208.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 255,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 48.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "pahalgam",
+    "originName": "Pahalgam",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 153.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 139.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 224.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 139.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 284,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 133.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kargil",
+    "originName": "Kargil",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 136.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "north-goa",
+    "destinationName": "North Goa",
+    "distanceKm": 161.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 203.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 258.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "mumbai",
+    "destinationName": "Mumbai",
+    "distanceKm": 236.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 293,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 107.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "ratnagiri",
+    "originName": "Ratnagiri",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 111.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "shillong",
+    "destinationName": "Shillong",
+    "distanceKm": 169.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "cherrapunji",
+    "destinationName": "Cherrapunji & Mawsynram",
+    "distanceKm": 204.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "mawlynnong",
+    "destinationName": "Mawlynnong",
+    "distanceKm": 198,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 193.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 107.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 138,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 127.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 171.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kaziranga",
+    "originName": "Kaziranga National Park",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 276.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pelling-yuksom",
+    "originName": "Pelling & Yuksom",
+    "destinationId": "yumthang-valley",
+    "destinationName": "Yumthang Valley",
+    "distanceKm": 71,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "pelling-yuksom",
+    "originName": "Pelling & Yuksom",
+    "destinationId": "gangtok",
+    "destinationName": "Gangtok",
+    "distanceKm": 36.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "pelling-yuksom",
+    "originName": "Pelling & Yuksom",
+    "destinationId": "darjeeling",
+    "destinationName": "Darjeeling",
+    "distanceKm": 31.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "yumthang-valley",
+    "originName": "Yumthang Valley",
+    "destinationId": "gangtok",
+    "destinationName": "Gangtok",
+    "distanceKm": 53.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "yumthang-valley",
+    "originName": "Yumthang Valley",
+    "destinationId": "darjeeling",
+    "destinationName": "Darjeeling",
+    "distanceKm": 96.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "kovalam",
+    "destinationName": "Kovalam",
+    "distanceKm": 47.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 204,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 141.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 99.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 94.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 94.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 297.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 155.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 291.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "varkala",
+    "originName": "Varkala",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 272.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "madurai",
+    "destinationName": "Madurai",
+    "distanceKm": 210.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 187.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 144.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 140.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 120.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 188,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kovalam",
+    "originName": "Kovalam",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 271.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "leh_ladakh_circuit",
+    "destinationName": "Leh-Ladakh Circuit",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "haridwar",
+    "destinationName": "Haridwar",
+    "distanceKm": 256.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 196.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 239.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 241.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 69.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 126.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 2.8,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "spiti-valley",
+    "originName": "Spiti Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 176.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "chennai",
+    "originName": "Chennai",
+    "destinationId": "mahabalipuram",
+    "destinationName": "Mahabalipuram (Mamallapuram)",
+    "distanceKm": 51.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "chennai",
+    "originName": "Chennai",
+    "destinationId": "tirupati",
+    "destinationName": "Tirupati",
+    "distanceKm": 110.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "chennai",
+    "originName": "Chennai",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 161,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "cherrapunji",
+    "destinationName": "Cherrapunji & Mawsynram",
+    "distanceKm": 37.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "mawlynnong",
+    "destinationName": "Mawlynnong",
+    "distanceKm": 42.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 45.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 273.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 222.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 292.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 223.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 140.9,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "shillong",
+    "originName": "Shillong",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 222.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "mawlynnong",
+    "destinationName": "Mawlynnong",
+    "distanceKm": 20,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 30.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 242.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 257.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 109.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "cherrapunji",
+    "originName": "Cherrapunji & Mawsynram",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 198.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "dawki",
+    "destinationName": "Dawki & Umngot River",
+    "distanceKm": 10.3,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 297.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 226.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 265.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 98.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "mawlynnong",
+    "originName": "Mawlynnong",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 182.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "hampi",
+    "destinationName": "Hampi",
+    "distanceKm": 292.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 43.1,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 97.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 132.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 56.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "north-goa",
+    "originName": "North Goa",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 52,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "dawki",
+    "originName": "Dawki & Umngot River",
+    "destinationId": "majuli",
+    "destinationName": "Majuli Island",
+    "distanceKm": 291.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dawki",
+    "originName": "Dawki & Umngot River",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 216.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dawki",
+    "originName": "Dawki & Umngot River",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 267.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "dawki",
+    "originName": "Dawki & Umngot River",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 96.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "dawki",
+    "originName": "Dawki & Umngot River",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 176.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "majuli",
+    "originName": "Majuli Island",
+    "destinationId": "nagaland_hornbill",
+    "destinationName": "Nagaland & Hornbill Festival",
+    "distanceKm": 143.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "majuli",
+    "originName": "Majuli Island",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 74.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "majuli",
+    "originName": "Majuli Island",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 238.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "nagaland_hornbill",
+    "originName": "Nagaland & Hornbill Festival",
+    "destinationId": "ziro-valley",
+    "destinationName": "Ziro Valley",
+    "distanceKm": 211.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "nagaland_hornbill",
+    "originName": "Nagaland & Hornbill Festival",
+    "destinationId": "unakoti",
+    "destinationName": "Unakoti",
+    "distanceKm": 258.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nagaland_hornbill",
+    "originName": "Nagaland & Hornbill Festival",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 257.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "hampi",
+    "originName": "Hampi",
+    "destinationId": "south-goa",
+    "destinationName": "South Goa",
+    "distanceKm": 267.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "hampi",
+    "originName": "Hampi",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 256.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "hampi",
+    "originName": "Hampi",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 246.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "khajuraho",
+    "originName": "Khajuraho",
+    "destinationId": "orchha",
+    "destinationName": "Orchha",
+    "distanceKm": 141.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "khajuraho",
+    "originName": "Khajuraho",
+    "destinationId": "bandhavgarh",
+    "destinationName": "Bandhavgarh National Park",
+    "distanceKm": 166.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "khajuraho",
+    "originName": "Khajuraho",
+    "destinationId": "kanha",
+    "destinationName": "Kanha National Park",
+    "distanceKm": 286.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jaisalmer",
+    "originName": "Jaisalmer",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 267.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jaisalmer",
+    "originName": "Jaisalmer",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "mahabalipuram",
+    "originName": "Mahabalipuram (Mamallapuram)",
+    "destinationId": "tirupati",
+    "destinationName": "Tirupati",
+    "distanceKm": 139.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "mahabalipuram",
+    "originName": "Mahabalipuram (Mamallapuram)",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 129.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "konark",
+    "originName": "Konark Sun Temple",
+    "destinationId": "puri",
+    "destinationName": "Puri",
+    "distanceKm": 28.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "ajanta_ellora",
+    "originName": "Ajanta & Ellora Caves",
+    "destinationId": "shirdi",
+    "destinationName": "Shirdi",
+    "distanceKm": 78.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "ajanta_ellora",
+    "originName": "Ajanta & Ellora Caves",
+    "destinationId": "mumbai",
+    "destinationName": "Mumbai",
+    "distanceKm": 263.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ajanta_ellora",
+    "originName": "Ajanta & Ellora Caves",
+    "destinationId": "lonar",
+    "destinationName": "Lonar Crater Lake",
+    "distanceKm": 139.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "ajanta_ellora",
+    "originName": "Ajanta & Ellora Caves",
+    "destinationId": "mandu",
+    "destinationName": "Mandu (Mandavgad)",
+    "distanceKm": 258.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "orchha",
+    "originName": "Orchha",
+    "destinationId": "golden_triangle",
+    "destinationName": "Golden Triangle Circuit",
+    "distanceKm": 211.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "orchha",
+    "originName": "Orchha",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 226.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "orchha",
+    "originName": "Orchha",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 256.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 202.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 189.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 200.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 118.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 226.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 292.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 117.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 214.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 276.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "madurai",
+    "originName": "Madurai",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 74.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "kochi",
+    "destinationName": "Kochi (Cochin)",
+    "distanceKm": 266,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 65.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 99.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 87.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 249.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 106.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "mysore",
+    "originName": "Mysore",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 264.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "rann-of-kutch",
+    "originName": "Rann of Kutch",
+    "destinationId": "dwarka_somnath",
+    "destinationName": "Dwarka & Somnath",
+    "distanceKm": 197.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "rann-of-kutch",
+    "originName": "Rann of Kutch",
+    "destinationId": "kutch",
+    "destinationName": "Kutch (Bhuj region)",
+    "distanceKm": 68,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "kumarakom",
+    "destinationName": "Kumarakom",
+    "distanceKm": 42.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 48.8,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 228,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 109,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 170.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 195.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 88.5,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 168.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kochi",
+    "originName": "Kochi (Cochin)",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 276.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "rajasthan_circuit",
+    "destinationName": "Rajasthan Circuit",
+    "distanceKm": 225.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 283.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 225.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 200,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 271.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "golden_triangle",
+    "originName": "Golden Triangle Circuit",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 50.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "shekhawati",
+    "destinationName": "Shekhawati Region",
+    "distanceKm": 129.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 125.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 273.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 131.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 122.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 164.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "rajasthan_circuit",
+    "originName": "Rajasthan Circuit",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 197.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 233.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 285.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 247.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 219,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "leh_ladakh_circuit",
+    "originName": "Leh-Ladakh Circuit",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 101.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "alleppey",
+    "destinationName": "Alleppey (Alappuzha)",
+    "distanceKm": 13.4,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 268.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 79.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 204.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 236,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 89.4,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 201,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kumarakom",
+    "originName": "Kumarakom",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 264.1,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "auli",
+    "destinationName": "Auli",
+    "distanceKm": 149.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 18.6,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 189.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 74.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 271.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 253.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "haridwar",
+    "originName": "Haridwar",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 277,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "ajmer",
+    "destinationName": "Ajmer",
+    "distanceKm": 184.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 196.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 183.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 129.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 249.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 285.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 299,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "shekhawati",
+    "originName": "Shekhawati Region",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 238.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "nagarhole_bandipur",
+    "destinationName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "distanceKm": 276.6,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 88.3,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 215.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 244.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 102.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 212.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "alleppey",
+    "originName": "Alleppey (Alappuzha)",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 275.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "amritsar",
+    "originName": "Amritsar",
+    "destinationId": "dalhousie",
+    "destinationName": "Dalhousie",
+    "distanceKm": 144.3,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "amritsar",
+    "originName": "Amritsar",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 180,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "amritsar",
+    "originName": "Amritsar",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 272.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "amritsar",
+    "originName": "Amritsar",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 275.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bodh-gaya",
+    "originName": "Bodh Gaya",
+    "destinationId": "varanasi",
+    "destinationName": "Varanasi",
+    "distanceKm": 214.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "tirupati",
+    "originName": "Tirupati",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 160.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "gangtok",
+    "originName": "Gangtok",
+    "destinationId": "darjeeling",
+    "destinationName": "Darjeeling",
+    "distanceKm": 47.9,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "south-goa",
+    "originName": "South Goa",
+    "destinationId": "karwar-dandeli",
+    "destinationName": "Karwar & Dandeli",
+    "distanceKm": 55.1,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "south-goa",
+    "originName": "South Goa",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 89.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "south-goa",
+    "originName": "South Goa",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 99.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "south-goa",
+    "originName": "South Goa",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 95,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "udaipur",
+    "destinationName": "Udaipur",
+    "distanceKm": 227.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "bikaner",
+    "destinationName": "Bikaner",
+    "distanceKm": 218.7,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "mount-abu",
+    "destinationName": "Mount Abu",
+    "distanceKm": 282.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 9.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 125.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 191.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 150.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "ajmer",
+    "originName": "Ajmer",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 162.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shirdi",
+    "originName": "Shirdi",
+    "destinationId": "mumbai",
+    "destinationName": "Mumbai",
+    "distanceKm": 184.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "shirdi",
+    "originName": "Shirdi",
+    "destinationId": "lonar",
+    "destinationName": "Lonar Crater Lake",
+    "distanceKm": 213.8,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "leh-ladakh",
+    "destinationName": "Leh – Ladakh",
+    "distanceKm": 233.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 237.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 88.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 197.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 203.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dalhousie",
+    "originName": "Dalhousie",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 131.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "udaipur",
+    "originName": "Udaipur",
+    "destinationId": "mount-abu",
+    "destinationName": "Mount Abu",
+    "distanceKm": 100.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "udaipur",
+    "originName": "Udaipur",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 227.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "udaipur",
+    "originName": "Udaipur",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 216.2,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "udaipur",
+    "originName": "Udaipur",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 196.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bikaner",
+    "originName": "Bikaner",
+    "destinationId": "thar-desert-circuit",
+    "destinationName": "Thar Desert Circuit",
+    "distanceKm": 267.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bikaner",
+    "originName": "Bikaner",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 210.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "bikaner",
+    "originName": "Bikaner",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 273.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bikaner",
+    "originName": "Bikaner",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 200.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "mount-abu",
+    "originName": "Mount Abu",
+    "destinationId": "pushkar",
+    "destinationName": "Pushkar",
+    "distanceKm": 279.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "mount-abu",
+    "originName": "Mount Abu",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 185.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "thar-desert-circuit",
+    "originName": "Thar Desert Circuit",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 223.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh-ladakh",
+    "originName": "Leh – Ladakh",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 285.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "leh-ladakh",
+    "originName": "Leh – Ladakh",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 247.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh-ladakh",
+    "originName": "Leh – Ladakh",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 219,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "leh-ladakh",
+    "originName": "Leh – Ladakh",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 256,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "leh-ladakh",
+    "originName": "Leh – Ladakh",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 101.8,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "karwar-dandeli",
+    "originName": "Karwar & Dandeli",
+    "destinationId": "gokarna",
+    "destinationName": "Gokarna",
+    "distanceKm": 35.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "karwar-dandeli",
+    "originName": "Karwar & Dandeli",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 154,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "karwar-dandeli",
+    "originName": "Karwar & Dandeli",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 149.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pushkar",
+    "originName": "Pushkar",
+    "destinationId": "jaipur",
+    "destinationName": "Jaipur",
+    "distanceKm": 131.6,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "pushkar",
+    "originName": "Pushkar",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 201.5,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "pushkar",
+    "originName": "Pushkar",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 159.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "pushkar",
+    "originName": "Pushkar",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 154.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jaipur",
+    "originName": "Jaipur",
+    "destinationId": "ranthambore",
+    "destinationName": "Ranthambore National Park",
+    "distanceKm": 122.4,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "jaipur",
+    "originName": "Jaipur",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 164.2,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "jaipur",
+    "originName": "Jaipur",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 284.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "jaipur",
+    "originName": "Jaipur",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 197.4,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "auli",
+    "originName": "Auli",
+    "destinationId": "rishikesh",
+    "destinationName": "Rishikesh",
+    "distanceKm": 134.2,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "auli",
+    "originName": "Auli",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 175.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "auli",
+    "originName": "Auli",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 135,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "auli",
+    "originName": "Auli",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 237.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "kinnaur-valley",
+    "destinationName": "Kinnaur Valley",
+    "distanceKm": 173.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 78.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 263.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 238.3,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "rishikesh",
+    "originName": "Rishikesh",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 294.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "varanasi",
+    "originName": "Varanasi",
+    "destinationId": "bandhavgarh",
+    "destinationName": "Bandhavgarh National Park",
+    "distanceKm": 265.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ranthambore",
+    "originName": "Ranthambore National Park",
+    "destinationId": "bundi",
+    "destinationName": "Bundi",
+    "distanceKm": 107.7,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "ranthambore",
+    "originName": "Ranthambore National Park",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 201.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "gir",
+    "originName": "Gir Forest National Park",
+    "destinationId": "dwarka_somnath",
+    "destinationName": "Dwarka & Somnath",
+    "distanceKm": 228.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "gir",
+    "originName": "Gir Forest National Park",
+    "destinationId": "kutch",
+    "destinationName": "Kutch (Bhuj region)",
+    "distanceKm": 263.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "sundarbans",
+    "originName": "Sundarbans",
+    "destinationId": "kolkata",
+    "destinationName": "Kolkata",
+    "distanceKm": 109.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "nagarhole_bandipur",
+    "originName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "destinationId": "periyar",
+    "destinationName": "Periyar Tiger Reserve",
+    "distanceKm": 299.9,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "nagarhole_bandipur",
+    "originName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 87.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "nagarhole_bandipur",
+    "originName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 32.5,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "nagarhole_bandipur",
+    "originName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 232.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "nagarhole_bandipur",
+    "originName": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 99.9,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "periyar",
+    "originName": "Periyar Tiger Reserve",
+    "destinationId": "ooty",
+    "destinationName": "Ooty (Udhagamandalam)",
+    "distanceKm": 221.1,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "periyar",
+    "originName": "Periyar Tiger Reserve",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 270.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "periyar",
+    "originName": "Periyar Tiger Reserve",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 69.7,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "periyar",
+    "originName": "Periyar Tiger Reserve",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 213,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "periyar",
+    "originName": "Periyar Tiger Reserve",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 192,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "ziro-valley",
+    "originName": "Ziro Valley",
+    "destinationId": "tawang",
+    "destinationName": "Tawang",
+    "distanceKm": 194.7,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kinnaur-valley",
+    "originName": "Kinnaur Valley",
+    "destinationId": "jim_corbett",
+    "destinationName": "Jim Corbett National Park",
+    "distanceKm": 240.9,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "kinnaur-valley",
+    "originName": "Kinnaur Valley",
+    "destinationId": "bir-billing",
+    "destinationName": "Bir Billing",
+    "distanceKm": 152.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kinnaur-valley",
+    "originName": "Kinnaur Valley",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 66.8,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "kinnaur-valley",
+    "originName": "Kinnaur Valley",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 242.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "jim_corbett",
+    "originName": "Jim Corbett National Park",
+    "destinationId": "vrindavan_mathura",
+    "destinationName": "Vrindavan & Mathura",
+    "distanceKm": 250.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ooty",
+    "originName": "Ooty (Udhagamandalam)",
+    "destinationId": "wayanad",
+    "destinationName": "Wayanad",
+    "distanceKm": 68.6,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "ooty",
+    "originName": "Ooty (Udhagamandalam)",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 151.9,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "ooty",
+    "originName": "Ooty (Udhagamandalam)",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 12.7,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "ooty",
+    "originName": "Ooty (Udhagamandalam)",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 274.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "ooty",
+    "originName": "Ooty (Udhagamandalam)",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 272.4,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "wayanad",
+    "originName": "Wayanad",
+    "destinationId": "munnar",
+    "destinationName": "Munnar",
+    "distanceKm": 204.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "wayanad",
+    "originName": "Wayanad",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 81.2,
+    "fatigueCost": 2
+  },
+  {
+    "originId": "bir-billing",
+    "originName": "Bir Billing",
+    "destinationId": "spiti_circuit",
+    "destinationName": "Spiti Circuit",
+    "distanceKm": 126.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "bir-billing",
+    "originName": "Bir Billing",
+    "destinationId": "kashmir_circuit",
+    "destinationName": "Kashmir Circuit",
+    "distanceKm": 288.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bir-billing",
+    "originName": "Bir Billing",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 159.1,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "gokarna",
+    "originName": "Gokarna",
+    "destinationId": "tarkarli-sindhudurg",
+    "destinationName": "Tarkarli & Sindhudurg",
+    "distanceKm": 189.3,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "gokarna",
+    "originName": "Gokarna",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 184.6,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tarkarli-sindhudurg",
+    "originName": "Tarkarli & Sindhudurg",
+    "destinationId": "konkan_coast_circuit",
+    "destinationName": "Konkan Coast Circuit",
+    "distanceKm": 4.8,
+    "fatigueCost": 1
+  },
+  {
+    "originId": "kolkata",
+    "originName": "Kolkata",
+    "destinationId": "sundarbans_region",
+    "destinationName": "Sundarbans Region",
+    "distanceKm": 109.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "bundi",
+    "originName": "Bundi",
+    "destinationId": "jodhpur",
+    "destinationName": "Jodhpur",
+    "distanceKm": 276.2,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "bandhavgarh",
+    "originName": "Bandhavgarh National Park",
+    "destinationId": "kanha",
+    "destinationName": "Kanha National Park",
+    "distanceKm": 160,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "bandhavgarh",
+    "originName": "Bandhavgarh National Park",
+    "destinationId": "pench",
+    "destinationName": "Pench National Park",
+    "distanceKm": 286.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "munnar",
+    "originName": "Munnar",
+    "destinationId": "coonoor",
+    "destinationName": "Coonoor",
+    "distanceKm": 143.5,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "munnar",
+    "originName": "Munnar",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 188.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "coonoor",
+    "originName": "Coonoor",
+    "destinationId": "tiruvannamalai",
+    "destinationName": "Tiruvannamalai",
+    "distanceKm": 266.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "coonoor",
+    "originName": "Coonoor",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 259.8,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "kanha",
+    "originName": "Kanha National Park",
+    "destinationId": "pench",
+    "destinationName": "Pench National Park",
+    "distanceKm": 150.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kanha",
+    "originName": "Kanha National Park",
+    "destinationId": "tadoba",
+    "destinationName": "Tadoba-Andhari Tiger Reserve",
+    "distanceKm": 269.3,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "pench",
+    "originName": "Pench National Park",
+    "destinationId": "tadoba",
+    "destinationName": "Tadoba-Andhari Tiger Reserve",
+    "distanceKm": 158.5,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "tadoba",
+    "originName": "Tadoba-Andhari Tiger Reserve",
+    "destinationId": "lonar",
+    "destinationName": "Lonar Crater Lake",
+    "distanceKm": 292.7,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "spiti_circuit",
+    "originName": "Spiti Circuit",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 178.8,
+    "fatigueCost": 4
+  },
+  {
+    "originId": "kashmir_circuit",
+    "originName": "Kashmir Circuit",
+    "destinationId": "zanskar_circuit",
+    "destinationName": "Zanskar Circuit",
+    "distanceKm": 200.4,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "dwarka_somnath",
+    "originName": "Dwarka & Somnath",
+    "destinationId": "kutch",
+    "destinationName": "Kutch (Bhuj region)",
+    "distanceKm": 132.1,
+    "fatigueCost": 3
+  },
+  {
+    "originId": "tiruvannamalai",
+    "originName": "Tiruvannamalai",
+    "destinationId": "chettinad",
+    "destinationName": "Chettinad",
+    "distanceKm": 241.6,
+    "fatigueCost": 5
+  },
+  {
+    "originId": "lonar",
+    "originName": "Lonar Crater Lake",
+    "destinationId": "mandu",
+    "destinationName": "Mandu (Mandavgad)",
+    "distanceKm": 286.5,
+    "fatigueCost": 6
+  },
+  {
+    "originId": "unakoti",
+    "originName": "Unakoti",
+    "destinationId": "aizawl_mizoram",
+    "destinationName": "Aizawl & Mizoram",
+    "distanceKm": 96.8,
+    "fatigueCost": 2
+  }
+]

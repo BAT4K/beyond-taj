@@ -2,68 +2,120 @@ import 'dotenv/config';
 import prisma from '../lib/prisma';
 import assert from 'node:assert/strict';
 import { evaluateTripFeasibility } from '../utils/routingEngine';
+import { calculateTripPacing, DestinationSchema } from '@shared/travel-rules';
+
+// Haversine formula to calculate distance between two lat/lng coordinates in km
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
+  const R = 6371; // Earth radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
 
 async function main() {
   console.log("Starting Automated Engine Fuzz Testing...");
   console.log("\n--- Phase 1: Static Graph Sweeper ---");
   
-  const destinations = await prisma.destination.findMany();
+  const destinations = await prisma.destination.findMany({ include: { Landscape: true } });
   const edges = await prisma.transitRoute.findMany();
   
-  let orphans = 0;
-  let symmetryViolations = 0;
-  
+  // Zod Batch Validation
+  const validationErrors: any[] = [];
+  for (const d of destinations) {
+    const rawData = {
+      ...d,
+      landscapes: d.Landscape ? d.Landscape.map(l => l.name) : []
+    };
+    const parseResult = DestinationSchema.safeParse(rawData);
+    if (!parseResult.success) {
+      validationErrors.push({ id: d.id, errors: parseResult.error.issues });
+    }
+  }
+
+  if (validationErrors.length > 0) {
+    console.error("Data Type Strictness Failed! Found Zod formatting errors in database destinations:");
+    console.error(JSON.stringify(validationErrors, null, 2));
+    process.exit(1);
+  }
+
+  // Orphan & Symmetry Check
   for (const d of destinations) {
     const hasIncoming = edges.some(e => e.destinationId === d.id);
     const hasOutgoing = edges.some(e => e.originId === d.id);
-    if (!hasIncoming || !hasOutgoing) {
-      console.warn(`Orphan Check Failed: ${d.id} is missing ${!hasIncoming ? 'incoming' : ''} ${!hasOutgoing ? 'outgoing' : ''} edges.`);
-      orphans++;
-    }
-
-    assert.ok(d.minRequiredDays !== null && d.minRequiredDays > 0, `Data Integrity: ${d.id} is missing a valid minRequiredDays.`);
-    assert.ok(Array.isArray(d.peakMonths), `Data Integrity: ${d.id} peakMonths is not an array.`);
-    assert.ok(Array.isArray(d.closedMonths), `Data Integrity: ${d.id} closedMonths is not an array.`);
+    
+    assert.ok(hasIncoming, `Orphan Check Failed: ${d.id} is missing incoming edges.`);
+    assert.ok(hasOutgoing, `Orphan Check Failed: ${d.id} is missing outgoing edges.`);
   }
   
   for (const edge of edges) {
     const returnEdge = edges.find(e => e.originId === edge.destinationId && e.destinationId === edge.originId);
-    if (!returnEdge) {
-      console.warn(`Symmetry Violation: Edge ${edge.originId} -> ${edge.destinationId} has no return path.`);
-      symmetryViolations++;
+    assert.ok(returnEdge, `Symmetry Violation: Edge ${edge.originId} -> ${edge.destinationId} has no return path.`);
+  }
+
+  // Proximity Law (Missing Edges)
+  const proximityWarnings: string[] = [];
+  for (let i = 0; i < destinations.length; i++) {
+    for (let j = i + 1; j < destinations.length; j++) {
+      const d1 = destinations[i];
+      const d2 = destinations[j];
+      if (d1.latitude && d1.longitude && d2.latitude && d2.longitude) {
+        const dist = calculateDistance(d1.latitude, d1.longitude, d2.latitude, d2.longitude);
+        if (dist <= 200) {
+          const hasEdge = edges.some(e => e.originId === d1.id && e.destinationId === d2.id);
+          if (!hasEdge) {
+            proximityWarnings.push(`Nodes ${d1.id} and ${d2.id} are ${Math.round(dist)}km apart but lack a transit edge.`);
+          }
+        }
+      }
     }
   }
   
-  assert.equal(orphans, 0, "Graph contains orphan nodes.");
-  // Warning: strict symmetry might fail if there are intentional one-way flights. For now we just log warnings or assert it.
-  // We won't strictly fail on symmetry unless requested, but we will fail on orphans.
-  
-  // BFS Global Reachability
-  let startNode = destinations.find(d => d.id === 'Delhi' || d.id === 'Mumbai');
-  if (!startNode) startNode = destinations[0];
+  if (proximityWarnings.length > 0) {
+    console.warn("\n[WARNING] Proximity Law: Found missing edges between geographically close destinations:");
+    proximityWarnings.forEach(w => console.warn("  - " + w));
+  }
 
-  const visited = new Set<string>();
-  const queue = [startNode.id];
-  visited.add(startNode.id);
+  // Hub Reachability Law (Reverse BFS)
+  const hubs = destinations.filter(d => d.isHub === true);
+  if (hubs.length === 0) {
+    console.error("Hub Reachability Failed! No hubs defined (isHub === true).");
+    process.exit(1);
+  }
 
-  while(queue.length > 0) {
-    const curr = queue.shift()!;
-    const neighbors = edges.filter(e => e.originId === curr).map(e => e.destinationId);
+  const hopsMap = new Map<string, number>();
+  const queue = hubs.map(h => ({ id: h.id, hops: 0 }));
+  queue.forEach(q => hopsMap.set(q.id, 0));
+
+  let head = 0;
+  while(head < queue.length) {
+    const curr = queue[head++];
+    if (curr.hops >= 3) continue; // Only propagate up to 3 hops
+
+    const neighbors = edges.filter(e => e.destinationId === curr.id).map(e => e.originId);
     for (const n of neighbors) {
-      if (!visited.has(n)) {
-        visited.add(n);
-        queue.push(n);
+      if (!hopsMap.has(n) || hopsMap.get(n)! > curr.hops + 1) {
+        hopsMap.set(n, curr.hops + 1);
+        queue.push({ id: n, hops: curr.hops + 1 });
       }
     }
   }
 
-  if (visited.size !== destinations.length) {
-    const unreached = destinations.filter(d => !visited.has(d.id)).map(d => d.id);
-    console.error("Global Reachability Failed! The following nodes are isolated islands:", unreached);
+  const unreachableOrFar = destinations.filter(d => {
+    const hops = hopsMap.get(d.id);
+    return hops === undefined || hops > 3;
+  });
+
+  if (unreachableOrFar.length > 0) {
+    console.error("Hub Reachability Failed! The following nodes are >3 hops from any hub or completely isolated:");
+    console.error(unreachableOrFar.map(d => ({ id: d.id, hops: hopsMap.get(d.id) ?? 'Infinite' })));
     process.exit(1);
   }
-  console.log("Phase 1 Passed: Graph is fully reachable and data integrity is verified.");
 
+  console.log("\nPhase 1 Passed: Graph is fully reachable, symmetric, strictly typed, and orphaned-free.");
 
   console.log("\n--- Phase 2: Chaos Monkey (Property-Based Fuzzer) ---");
   const iterations = 1000;
@@ -85,10 +137,10 @@ async function main() {
     const style = styles[Math.floor(Math.random() * styles.length)];
     const residency = residencies[Math.floor(Math.random() * residencies.length)];
     
-    // Map month number to name
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthName = monthNames[month - 1];
 
+    const startNode = hubs[Math.floor(Math.random() * hubs.length)];
     const payload = { destIds, days, monthName, style, residency, startLocation: startNode.name };
 
     try {
@@ -99,11 +151,12 @@ async function main() {
         payload.style,
         payload.residency,
         payload.startLocation,
-        [] // landscapes
+        []
       );
 
       // Boundary Law
       assert.ok(result.score >= 0 && result.score <= 100, "Boundary Law Violation: Score is out of bounds.");
+      assert.ok(!Number.isNaN(result.score), "Boundary Law Violation: Score is NaN.");
 
       // Weather Law
       const isClosed = selectedDests.some(d => d.closedMonths.includes(month));
@@ -111,18 +164,19 @@ async function main() {
         assert.equal(result.score, 0, "Weather Law Violation: Score must be 0 if month is closed.");
       }
 
-      // Time-Space Law
-      const sumMinDays = selectedDests.reduce((sum, d) => sum + (d.minRequiredDays || 2), 0);
-      if (sumMinDays > days) {
-        assert.equal(result.isValid, false, "Time-Space Law Violation: Trip is physically impossible but marked valid.");
-        const hasLogisticsWarning = result.warnings.some(w => w.category === 'logistics');
-        assert.ok(hasLogisticsWarning, "Time-Space Law Violation: Missing logistics warning.");
-      }
+      // Time-Space Law (Pacing)
+      const { isPhysicallyPossible, sumMinDays } = calculateTripPacing(selectedDests as any, days);
       
-    } catch (error) {
+      if (!isPhysicallyPossible) {
+        assert.equal(result.isValid, false, `Time-Space Law Violation: Trip is physically impossible but marked valid. Days: ${days}, MinRequired: ${sumMinDays}`);
+        const hasPacingWarning = result.warnings.some(w => w.category === 'pacing' || w.category === 'logistics');
+        assert.ok(hasPacingWarning, "Time-Space Law Violation: Missing logistics/pacing warning.");
+      }
+
+    } catch (error: any) {
       console.error("\n[CRITICAL FAILURE] Chaos Monkey uncovered an edge case!");
       console.error("Payload:", JSON.stringify(payload, null, 2));
-      console.error(error);
+      console.error(error.message || error);
       process.exit(1);
     }
 

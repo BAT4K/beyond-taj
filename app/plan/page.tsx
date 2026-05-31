@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import TravelWizard from "@/components/TravelWizard";
 import { unstable_cache } from "next/cache";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Cache the data and revalidate every hour
 
 const getDestinations = async () => {
   const dests = await prisma.destination.findMany({
@@ -10,6 +10,8 @@ const getDestinations = async () => {
       id: true,
       name: true,
       description: true,
+      shortPitch: true,
+      topHighlights: true,
       region: true,
       vibeTags: true,
       idealSeason: true,
@@ -17,6 +19,7 @@ const getDestinations = async () => {
       shoulderMonths: true,
       avoidMonths: true,
       closedMonths: true,
+      minRequiredDays: true,
       latitude: true,
       longitude: true,
       Landscape: { select: { name: true } },
@@ -48,6 +51,8 @@ export default async function Plan() {
     id: dest.id,
     name: dest.name,
     description: dest.description,
+    shortPitch: dest.shortPitch || "",
+    topHighlights: dest.topHighlights || [],
     region: dest.region,
     vibeTags: dest.vibeTags,
     idealSeason: dest.idealSeason,

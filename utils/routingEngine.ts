@@ -1,5 +1,6 @@
 import prisma from '../lib/prisma';
 import { Destination, TransitRoute } from '@prisma/client';
+import { MONTH_MAP, FATIGUE_BUDGETS, getWeatherReason } from '@shared/travel-rules';
 
 export type ExtendedDestination = Destination & {
   Cluster?: { id: string, name: string, compatibleClusters: string[] } | null;
@@ -100,7 +101,7 @@ function runDijkstra(startNode: string, endNode: string, edges: TransitRoute[], 
 }
 
 type WarningMessage = {
-  category: 'weather' | 'logistics' | 'vibe';
+  category: 'weather' | 'logistics' | 'vibe' | 'pacing';
   severity: 'critical' | 'warning' | 'info';
   message: string;
 };
@@ -120,7 +121,7 @@ export async function evaluateTripFeasibility(
   // 1. Fetch rich nodes and edges from Prisma
   const destinations = await prisma.destination.findMany({
     where: { id: { in: destinationIds } },
-    include: { Cluster: true }
+    include: { Cluster: true, Landscape: true }
   });
 
   const edges = await prisma.transitRoute.findMany();
@@ -138,56 +139,45 @@ export async function evaluateTripFeasibility(
   const allNodeIds = allDestinations.map(d => d.id);
 
   // --- Weather Aggregation Check ---
-  const monthMap: Record<string, number> = {
-    "January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6,
-    "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12
-  };
-  const mIndex = monthMap[travelMonth];
+  const mIndex = MONTH_MAP[travelMonth];
   let isWeatherClosed = false;
   if (mIndex) {
-    const closedDests: string[] = [];
-    const avoidDests: string[] = [];
+    const closedDests: any[] = [];
+    const avoidDests: any[] = [];
     
     destinations.forEach(d => {
-      if (d.closedMonths.includes(mIndex)) closedDests.push(d.name);
-      else if (d.avoidMonths.includes(mIndex)) avoidDests.push(d.name);
+      if (d.closedMonths.includes(mIndex)) closedDests.push(d);
+      else if (d.avoidMonths.includes(mIndex)) avoidDests.push(d);
     });
 
     if (closedDests.length > 0) {
       isWeatherClosed = true;
+      const names = closedDests.map(d => d.name);
       warnings.push({
         category: 'weather',
         severity: 'critical',
-        message: `Extreme Weather Alert: ${closedDests.join(" and ")} ${closedDests.length > 1 ? 'are' : 'is'} closed or completely inaccessible during ${travelMonth}.`
+        message: `Extreme Weather Alert: ${names.join(" and ")} ${names.length > 1 ? 'are' : 'is'} completely closed or inaccessible due to ${getWeatherReason(mIndex)} during ${travelMonth}.`
       });
     }
     if (avoidDests.length > 0) {
+      const names = avoidDests.map(d => d.name);
       warnings.push({
         category: 'weather',
         severity: 'warning',
-        message: `Off-Season Warning: ${avoidDests.join(" and ")} ${avoidDests.length > 1 ? 'experience' : 'experiences'} very poor weather (heavy monsoons or extreme heat) during ${travelMonth}.`
+        message: `Off-Season Warning: ${names.join(" and ")} ${names.length > 1 ? 'experience' : 'experiences'} ${getWeatherReason(mIndex)} during ${travelMonth}.`
       });
     }
   }
 
   // --- Vibe Thresholding (Anti-Nagging) ---
   if (requestedLandscapes && requestedLandscapes.length > 0) {
-    const combinedLandscapes = new Set(destinations.flatMap(d => d.vibeTags));
+    const combinedLandscapes = new Set(
+      destinations.flatMap(d => d.Landscape.map(l => l.name))
+    );
     let intersectionCount = 0;
     
-    const categoryMap: Record<string, string[]> = {
-      "Mountains": ["Himalayas", "Mountain Road", "Tea Estates", "Western Ghats", "mountains", "cold_desert"],
-      "Beaches": ["Beaches", "Coastal", "Backwaters", "beach"],
-      "Jungles": ["Wildlife", "Jungles", "Forests", "wildlife"],
-      "Deserts": ["Deserts", "Dunes", "desert"],
-      "Royal Cities": ["Royal Cities", "Palaces", "Heritage", "Forts", "royal", "historic"],
-      "Spiritual": ["Spiritual", "Temples", "Ghats", "spiritual"]
-    };
-
-    const requestedTags = requestedLandscapes.flatMap(label => categoryMap[label] || [label]);
-
-    requestedTags.forEach(tag => {
-      if (combinedLandscapes.has(tag)) intersectionCount++;
+    requestedLandscapes.forEach(req => {
+      if (combinedLandscapes.has(req)) intersectionCount++;
     });
 
     if (intersectionCount === 0) {
@@ -211,16 +201,38 @@ export async function evaluateTripFeasibility(
       severity: 'critical',
       message: `Critical Routing Alert: ${names.join(" and ")} ${names.length > 1 ? "are" : "is"} completely disconnected from your route. No transit options exist.`
     });
+  } else if (optimalPath.length > 1) {
+    let missingEdges = 0;
+    for (let i = 0; i < optimalPath.length - 1; i++) {
+      const from = optimalPath[i].id;
+      const to = optimalPath[i+1].id;
+      const direct = edges.find(e => 
+        (e.originId === from && e.destinationId === to) || 
+        (e.destinationId === from && e.originId === to)
+      );
+      if (!direct) missingEdges++;
+    }
+    
+    // Check startLocation to first node if they are different
+    const startObj = optimalPath[0];
+    if (startObj.name.toLowerCase() !== startLocation.toLowerCase() && startObj.id !== startLocation) {
+       const directFromStart = edges.find(e => 
+         (e.originId === startLocation && e.destinationId === startObj.id) ||
+         (e.destinationId === startLocation && e.originId === startObj.id)
+       );
+       if (!directFromStart) missingEdges++;
+    }
+
+    if (missingEdges > 0) {
+      warnings.push({
+        category: 'logistics',
+        severity: 'warning',
+        message: `Complex Transit: Your route requires transiting through major hubs. There are no direct connections for ${missingEdges} of your journey legs.`
+      });
+    }
   }
 
   // 3. Calculate Fatigue Budget based on User Residency & Style
-  const FATIGUE_BUDGETS: Record<string, number> = {
-    "luxury": 4,
-    "balanced": 6,
-    "backpacker": 8,
-    "adventure": 9
-  };
-  
   let baseBudgetPerDay = FATIGUE_BUDGETS[style.toLowerCase()] || 6;
   
   if (residency === "India") {
@@ -255,6 +267,24 @@ export async function evaluateTripFeasibility(
       category: 'logistics',
       severity: 'critical',
       message: `Pacing Alert: You only have ${days} days, but exploring these destinations properly requires an absolute minimum of ${totalMinDays} days (excluding transit time). You are trying to pack way too much in.`
+    });
+  }
+
+  // --- Validate Slack Days (Too few destinations for available time) ---
+  const slackDays = days - totalMinDays;
+  if (totalMinDays <= days && slackDays >= 5 && days >= totalMinDays * 2) {
+    const destNames = optimalPath.map(d => d.name).join(' and ');
+    const maxAllowed = Math.max(3, Math.floor(days / 1.5));
+    const isMaxReached = optimalPath.length >= maxAllowed;
+    
+    const suggestion = isMaxReached 
+      ? "reducing your trip length" 
+      : "adding more destinations or reducing your trip length";
+      
+    warnings.push({
+      category: 'pacing',
+      severity: 'warning',
+      message: `${destNames} ${optimalPath.length > 1 ? 'need' : 'needs'} roughly ${totalMinDays} days. You have ${days}. Consider ${suggestion} to keep the journey engaging.`
     });
   }
 

@@ -11,9 +11,9 @@ model DestinationCluster {
   name               String
   hubCities          String[]
   compatibleClusters String[]
-  destinations       Destination[]
   createdAt          DateTime      @default(now())
   updatedAt          DateTime      @updatedAt
+  destinations       Destination[]
 }
 
 model Destination {
@@ -23,10 +23,10 @@ model Destination {
   region                                               String
   idealSeason                                          String
   vibeTags                                             String[]
-  peakMonths                                           Int[]       @default([])
-  shoulderMonths                                       Int[]       @default([])
-  avoidMonths                                          Int[]       @default([])
-  closedMonths                                         Int[]       @default([])
+  peakMonths                                           Int[]               @default([])
+  shoulderMonths                                       Int[]               @default([])
+  avoidMonths                                          Int[]               @default([])
+  closedMonths                                         Int[]               @default([])
   minRequiredDays                                      Int
   latitude                                             Float
   longitude                                            Float
@@ -36,6 +36,9 @@ model Destination {
   altitude                                             Float?
   requiresAcclimatization                              Boolean             @default(false)
   metadata                                             Json?
+  isHub                                                Boolean             @default(false)
+  shortPitch                                           String              @default("")
+  topHighlights                                        String[]            @default([])
   Cluster                                              DestinationCluster? @relation(fields: [clusterId], references: [id])
   TransitRoute_TransitRoute_destinationIdToDestination TransitRoute[]      @relation("TransitRoute_destinationIdToDestination")
   TransitRoute_TransitRoute_originIdToDestination      TransitRoute[]      @relation("TransitRoute_originIdToDestination")
@@ -92,15 +95,14 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -123,10 +125,10 @@ model User {
   paymentStatus    String             @default("unpaid")
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
-  ItineraryRequest ItineraryRequest[]
   accounts         Account[]
-  sessions         Session[]
+  ItineraryRequest ItineraryRequest[]
   journeys         Journey[]
+  sessions         Session[]
 }
 
 model VerificationToken {

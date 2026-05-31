@@ -15,7 +15,7 @@ async function main() {
 
   for (const s of scenarios) {
     console.log(`\n--- Scenario: ${s.name} ---`);
-    const res = generateBespokeRoute(s.pref, destinations, transitRoutes);
+    const res = generateBespokeRoute(s.pref, destinations as any, transitRoutes);
     const names = res.destinationIds.map(id => destinations.find(d => d.id === id)?.name);
     console.log(`Itinerary: ${names.join(' -> ')}`);
     console.log(`Rationale: ${res.rationale}`);

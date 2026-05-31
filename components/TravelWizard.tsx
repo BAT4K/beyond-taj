@@ -1,34 +1,18 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Info, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2, Plane, Check } from "lucide-react";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import { X } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Info, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2, Plane, Check, CloudRain, Plus } from "lucide-react";
+import Spinner from "./Spinner";
+import FullscreenLoader from "./FullscreenLoader";
 import Link from "next/link";
 import Image from "next/image";
 import { generateBespokeRoute } from "@/utils/curationEngine";
-import { calculateMatchScore } from "@/utils/scoringEngine";
+import { calculateMatchScore, Destination } from "@shared/travel-rules";
+import DestinationCard from "./DestinationCard";
 
-
-export type Destination = {
-  id: string;
-  name: string;
-  description: string;
-  region: string;
-  vibeTags: string[];
-  idealSeason: string;
-  image: string;
-  landscapes: string[];
-  peakMonths: number[];
-  shoulderMonths: number[];
-  avoidMonths: number[];
-  closedMonths: number[];
-  minRequiredDays: number;
-  latitude: number;
-  longitude: number;
-  clusterId?: string | null;
-  compatibleClusters?: string[];
-  isHub?: boolean;
-};
 
 export type WarningMessage = {
   category: 'weather' | 'logistics' | 'vibe';
@@ -124,8 +108,117 @@ const categoryMap: Record<string, string[]> = {
   "Coastal & Islands": ["Beaches", "Islands"]
 };
 
+// ── VirtualizedGrid: Netflix-tier virtualized destination grid ──
+interface VirtualizedGridProps {
+  sortedDests: Destination[];
+  columns: number;
+  rowCount: number;
+  rowHeight: number;
+  currentTotalMinDays: number;
+  selectedDays: number;
+  selectedDestinations: string[];
+  isAutoCurated: boolean;
+  destinations: Destination[];
+  getTierAndReason: (dest: Destination) => { tier: number; reasons: string[]; originalTier: number };
+  theme: { bg: string; gold: string; cream: string; darker: string; border: string };
+  onCardClick: (id: string) => void;
+  onToggle: (id: string) => void;
+  gridScrollRef: React.RefObject<HTMLDivElement | null>;
+}
+
+function VirtualizedGrid({
+  sortedDests,
+  columns,
+  rowCount,
+  rowHeight,
+  currentTotalMinDays,
+  selectedDays,
+  selectedDestinations,
+  isAutoCurated,
+  destinations,
+  getTierAndReason,
+  theme,
+  onCardClick,
+  onToggle,
+  gridScrollRef,
+}: VirtualizedGridProps) {
+  const rowVirtualizer = useVirtualizer({
+    count: rowCount,
+    getScrollElement: () => gridScrollRef.current,
+    estimateSize: () => rowHeight,
+    overscan: 2, // Render 2 extra rows above/below viewport for smooth scrolling
+  });
+
+  return (
+    <div
+      id="destination-grid"
+      className="w-full"
+      style={{
+        height: `${rowVirtualizer.getTotalSize()}px`,
+        position: 'relative',
+      }}
+    >
+        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+          const rowStartIndex = virtualRow.index * columns;
+          const rowDests = sortedDests.slice(rowStartIndex, rowStartIndex + columns);
+
+          return (
+            <div
+              key={virtualRow.key}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: `${virtualRow.size}px`,
+                transform: `translateY(${virtualRow.start}px)`,
+                display: 'grid',
+                gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+                gap: '20px',
+              }}
+            >
+              {rowDests.map((dest, colIndex) => {
+                const globalIndex = rowStartIndex + colIndex;
+                const { reasons } = getTierAndReason(dest);
+                const isSelected = selectedDestinations.includes(dest.id);
+                const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
+                const isDisabled = (!isSelected && isAutoCurated) || notEnoughDays;
+
+                return (
+                  <DestinationCard
+                    key={dest.id}
+                    id={dest.id}
+                    name={dest.name}
+                    region={dest.region}
+                    imageSrc={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE}
+                    isSelected={isSelected}
+                    isDisabled={isDisabled}
+                    reasons={reasons}
+                    borderColor={isSelected ? theme.gold : theme.border}
+                    isPriority={globalIndex < 6}
+                    index={globalIndex}
+                    onCardClick={onCardClick}
+                    onToggle={onToggle}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+    </div>
+  );
+}
+
 export default function TravelWizard({ destinations, transitRoutes = [] }: TravelWizardProps) {
   const router = useRouter();
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
+  
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
   const [residency, setResidency] = useState<'International' | 'India'>('International');
@@ -147,40 +240,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   const [isValidating, setIsValidating] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
   const [validationMessages, setValidationMessages] = useState<WarningMessage[]>([]);
+  const [quickLookId, setQuickLookId] = useState<string | null>(null);
 
   // Generation States
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [loadingText, setLoadingText] = useState("Analyzing preferences...");
+  const [loadingAction, setLoadingAction] = useState<"curating" | "checkout" | null>(null);
 
-  useEffect(() => {
-    if (!isGenerating) return;
 
-    const phrases = [
-      "Analyzing preferences...",
-      "Cross-referencing seasonal matrices...",
-      "Calculating transit friction...",
-      "Optimizing bespoke route..."
-    ];
-    let index = 0;
-    
-    setLoadingText(phrases[0]); // Reset to first phrase immediately
-
-    const intervalId = setInterval(() => {
-      index = (index + 1) % phrases.length;
-      setLoadingText(phrases[index]);
-    }, 1500);
-
-    return () => clearInterval(intervalId);
-  }, [isGenerating]);
-
-  // Unified Synchronization Hook
-  useEffect(() => {
-    const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
-    if (selectedDestinations.length > maxAllowedDestinations) {
-      setSelectedDestinations(prev => prev.slice(0, maxAllowedDestinations));
-      return; 
-    }
-  }, [selectedDays, selectedDestinations]);
 
   // Void auto-curation if core preferences change
   useEffect(() => {
@@ -205,7 +270,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       const newSelection = prev.filter(id => {
         const d = destinations.find(dest => dest.id === id);
         if (!d) return false;
-        return matchedCategories.some(cat => d.landscapes.includes(cat));
+        return matchedCategories.some(cat => d.landscapes?.includes(cat as any));
       });
       
       if (newSelection.length !== prev.length) {
@@ -243,18 +308,24 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     // Step 2: Trigger Distance Validation
     if (step === 6) {
       // Only show loading state if we actually have enough to validate
-      if (selectedDestinations.length >= 2 && !isAutoCurated) {
+      if (selectedDestinations.length >= 1 && !isAutoCurated) {
         setIsValidating(true);
       }
+      
+      const controller = new AbortController();
       const handler = setTimeout(() => {
-        validateItinerary();
+        validateItinerary(controller.signal);
       }, 400); // 400ms debounce
-      return () => clearTimeout(handler);
+      
+      return () => {
+        clearTimeout(handler);
+        controller.abort();
+      };
     }
   }, [selectedDays, selectedDestinations, travelStyle, step]);
 
-  const validateItinerary = async () => {
-    if (selectedDestinations.length < 2 || isAutoCurated) {
+  const validateItinerary = async (signal?: AbortSignal) => {
+    if (selectedDestinations.length < 1 || isAutoCurated) {
       setWarnings([]);
       setIsValidating(false);
       return;
@@ -263,14 +334,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     setIsValidating(true);
     try {
       const selectedDestObjs = destinations.filter(d => selectedDestinations.includes(d.id));
-
-      // Note: We bypass clientWarnings since the server handles all complex validation now.
-      // We can just rely entirely on the API response.
       const clientWarnings: WarningMessage[] = [];
 
       const res = await fetch("/api/validate-route", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal,
         body: JSON.stringify({
           selectedDays,
           travelStyle,
@@ -286,15 +355,21 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       if (res.ok) {
         setWarnings([...clientWarnings, ...(data.warnings || [])]);
       }
-    } catch (err) {
+    } catch (err: any) {
+      if (err.name === 'AbortError') {
+        // Ignored, because it was cancelled
+        return;
+      }
       console.error(err);
     } finally {
-      setIsValidating(false);
+      if (!signal?.aborted) {
+        setIsValidating(false);
+      }
     }
   };
 
   const saveJourneyAndCheckout = async () => {
-    setIsGenerating(true);
+    setLoadingAction('checkout');
     try {
       const response = await fetch('/api/journeys', {
         method: 'POST',
@@ -313,11 +388,13 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const journey = await response.json();
         router.push(`/checkout/${journey.id}`);
       } else {
-        throw new Error("Failed to save journey");
+        const data = await response.json();
+        alert(data.error || 'Failed to save journey');
+        setLoadingAction(null);
       }
     } catch (err) {
       console.error(err);
-      setIsGenerating(false);
+      setLoadingAction(null);
     }
   };
 
@@ -370,12 +447,19 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
   const toggleAutoCuration = () => {
     if (!isAutoCurated) {
-      setIsGenerating(true);
+      setLoadingAction('curating');
       
       setTimeout(() => {
         setIsAutoCurated(true);
+        // Map travelStyle to vibe tags for the engine
+        const styleVibeMap: Record<string, string[]> = {
+          'Luxury Explorer': ['Luxury', 'Regal', 'Exclusive', 'Iconic', 'Historic'],
+          'Balanced': ['Authentic', 'Cultural', 'Scenic', 'Soulful', 'Vibrant'],
+        };
+        const selectedVibes = styleVibeMap[travelStyle] || styleVibeMap['Balanced'];
+        
         const result = generateBespokeRoute(
-          { travelMonth, selectedLandscapes, days: selectedDays }, 
+          { travelMonth, selectedLandscapes, selectedVibes, days: selectedDays }, 
           destinations,
           transitRoutes
         );
@@ -383,7 +467,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         setCurationRationale(result.rationale);
         setWarnings([]);
         setValidationMessages([]);
-        setIsGenerating(false);
+        setLoadingAction(null);
       }, 4000);
     } else {
       setIsAutoCurated(false);
@@ -392,7 +476,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     }
   };
 
-  const toggleDestination = (destId: string) => {
+  const toggleDestination = useCallback((destId: string) => {
     if (isAutoCurated) setIsAutoCurated(false);
     const maxAllowed = Math.max(3, Math.floor(selectedDays / 1.5));
 
@@ -420,7 +504,19 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         return [...prev, destId];
       }
     });
-  };
+  }, [isAutoCurated, selectedDays, step]);
+
+  // Stable callbacks for memoized DestinationCard
+  const handleCardClick = useCallback((id: string) => {
+    setQuickLookId(id);
+  }, []);
+
+  const handleToggleDestination = useCallback((id: string) => {
+    toggleDestination(id);
+  }, [toggleDestination]);
+
+  // Ref for the virtualized grid scroll container
+  const gridScrollRef = useRef<HTMLDivElement>(null);
 
   const theme = {
     bg: "#0a0806",
@@ -463,46 +559,28 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   };
 
 
-  if (isGenerating) {
+  if (loadingAction) {
+    const bespokePhrases = [
+      "Analyzing preferences...",
+      "Cross-referencing seasonal matrices...",
+      "Calculating transit friction...",
+      "Optimizing bespoke route..."
+    ];
+    const checkoutPhrases = [
+      "Securing your itinerary...",
+      "Reserving dates...",
+      "Preparing checkout..."
+    ];
+    
     return (
-      <div className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden" style={{ backgroundColor: theme.bg, color: theme.cream }}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex flex-col items-center z-10 text-center px-4"
-        >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="mb-10"
-          >
-            <Loader2 size={64} style={{ color: theme.gold }} className="opacity-80" />
-          </motion.div>
-
-          <div className="h-16 flex items-center justify-center" aria-live="polite">
-            <AnimatePresence mode="wait">
-              <motion.h3
-                key={loadingText}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="font-serif text-3xl md:text-4xl tracking-wide font-light"
-              >
-                {loadingText}
-              </motion.h3>
-            </AnimatePresence>
-          </div>
-          <p className="text-white/40 mt-4 tracking-widest uppercase text-xs">Please do not close this window</p>
-        </motion.div>
-      </div>
+      <FullscreenLoader 
+        title={loadingAction === 'checkout' ? checkoutPhrases : bespokePhrases} 
+        subtitle="PLEASE DO NOT CLOSE THIS WINDOW" 
+      />
     );
   }
 
-  const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
-  const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
-  const isDisabledGlobal = isMaxReached || isAutoCurated;
-
+  const isDisabledGlobal = isAutoCurated;
   const monthMap: Record<string, number> = {
     "January": 1, "February": 2, "March": 3, "April": 4,
     "May": 5, "June": 6, "July": 7, "August": 8,
@@ -566,8 +644,6 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   }
 
   const getTierAndReason = (dest: Destination) => {
-    if (selectedDestinations.includes(dest.id)) return { tier: 0 };
-    
     const userContext = {
       travelMonth,
       selectedLandscapes,
@@ -575,47 +651,56 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       selectedVibes: []
     };
 
-    const lastSelectedId = selectedDestinations[selectedDestinations.length - 1];
+    // To prevent a selected disconnected node from losing its disconnected status, 
+    // we use the node selected *before* it if it's currently selected
+    let lastSelectedId: string | undefined = selectedDestinations[selectedDestinations.length - 1];
+    if (selectedDestinations.includes(dest.id)) {
+       const index = selectedDestinations.indexOf(dest.id);
+       if (index > 0) {
+           lastSelectedId = selectedDestinations[index - 1];
+       } else {
+           lastSelectedId = undefined;
+       }
+    }
     
     // Use the AI Scoring Engine to determine true viability!
     const { weatherFactor, logisticsFactor } = calculateMatchScore(dest, userContext, lastSelectedId, transitRoutes || []);
 
+    let calculatedTier = 2;
+    let reasons: string[] = [];
+
     // 1. Evaluate Weather via AI Factor
     if (weatherFactor <= 0.1) {
-      return { tier: 3, reason: "Off-Season" };
+      calculatedTier = 3;
+      reasons.push("Off-Season");
     }
 
-    // 2. Evaluate Pacing (Time-Space Law)
-    const startNode = destinations.find(d => d.name.toLowerCase() === startLocation.toLowerCase() || d.id === startLocation);
-    const startNodeDays = startNode ? (startNode.minRequiredDays || 2) : 2;
-
-    const currentMinDays = selectedDestinations.reduce((sum, id) => {
-      const d = destinations.find(x => x.id === id);
-      return sum + (d?.minRequiredDays || 2);
-    }, 0);
-    
-    if (startNodeDays + currentMinDays + (dest.minRequiredDays || 2) > selectedDays) {
-      return { tier: 3, reason: "Not Enough Days" };
-    }
-
-    // 3. Evaluate Logistics via AI Factor (if a node is selected)
+    // 2. Evaluate Logistics via AI Factor (if a node is selected)
     if (lastSelectedId && transitRoutes && transitRoutes.length > 0) {
       // If logistics penalty is massive (meaning 0 direct connections and high fatigue)
       if (logisticsFactor <= 0.0) {
-         return { tier: 3, reason: "Disconnected" };
+         calculatedTier = 3;
+         reasons.push("Complex Transit");
       }
     } else if (selectedDestinations.length > 0) {
       // Fallback if no transit routes are loaded
       const activeRegions = new Set(selectedDestinations.map(id => destinations.find(d => d.id === id)?.region).filter(Boolean));
       if (!activeRegions.has(dest.region) && !nbdIds.has(dest.id)) {
-        return { tier: 3, reason: "Distant Region" };
+        calculatedTier = 3;
+        reasons.push("Distant Region");
       }
     }
     
-    // 3. AI Suggestions
-    if (nbdIds.has(dest.id) && !isDisabledGlobal) return { tier: 1 };
+    // 4. AI Suggestions
+    if (calculatedTier !== 3 && nbdIds.has(dest.id) && !isDisabledGlobal) {
+      return { tier: 1, reasons: ["Suggested"], originalTier: 1 };
+    }
     
-    return { tier: 2 };
+    if (selectedDestinations.includes(dest.id)) {
+      return { tier: 0, reasons, originalTier: calculatedTier };
+    }
+
+    return { tier: calculatedTier, reasons, originalTier: calculatedTier };
   };
 
   const filteredDestinations = destinations
@@ -623,7 +708,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       if (selectedDestinations.includes(d.id)) return true;
       if (selectedLandscapes.length === 0) return true;
       const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
-      return matchedCategories.some(cat => d.landscapes.includes(cat));
+      return matchedCategories.some(cat => d.landscapes?.includes(cat as any));
     })
     .sort((a, b) => {
       const tierA = getTierAndReason(a).tier;
@@ -631,8 +716,6 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       if (tierA !== tierB) return tierA - tierB;
       return a.region.localeCompare(b.region);
     });
-
-
 
   return (
     <div
@@ -726,7 +809,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     <div className="absolute top-full left-0 w-full mt-2 bg-[#1a1714] border border-[#2a241e] rounded-sm shadow-2xl z-50 overflow-hidden">
                       {isSearchingLocation ? (
                         <div className="p-4 text-white/50 text-sm flex items-center gap-3">
-                          <Loader2 className="animate-spin w-4 h-4" /> Searching...
+                          <Spinner size="sm" showLogo={false} /> Searching...
                         </div>
                       ) : locationResults.length > 0 ? (
                         <ul className="max-h-60 overflow-y-auto custom-scrollbar">
@@ -932,11 +1015,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             {step === 6 && (() => {
               const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
+              const showZeroState = selectedDestinations.length === 0 && !isAutoCurated;
 
               return (
-                <div className="space-y-10">
+                <div className="space-y-8 -mt-6">
                   <div className="text-center relative">
-                    <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Curate your canvas.</h2>
+                    <h2 className="font-serif text-4xl md:text-5xl font-light mb-2">Curate your canvas.</h2>
                     <p className="text-white/50 tracking-wide font-light">Select your preferred destinations. Our engine will handle the routing.</p>
                     <AnimatePresence>
                       {destinationError && (
@@ -951,111 +1035,396 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                       )}
                     </AnimatePresence>
                   </div>
-
                   <div className="flex flex-col lg:flex-row gap-8">
-                    <div 
-                      id="destination-grid"
-                      className={`flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar ${isGenerating ? 'pointer-events-none' : ''}`}
-                    >
-                      {/* Magic Card */}
-                      <button 
-                        onClick={toggleAutoCuration}
-                        disabled={isGenerating}
-                        className={`relative h-[260px] group rounded-sm overflow-hidden border transition-all duration-300 cursor-pointer active:scale-[0.98] touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed ${
-                          isAutoCurated 
-                            ? 'bg-gradient-to-br from-amber-900/60 to-zinc-900 border-[#c9a96e] shadow-[0_0_20px_rgba(201,169,110,0.3)]' 
-                            : 'bg-gradient-to-br from-amber-950/40 to-zinc-900 border-zinc-800 hover:border-white/20'
-                        }`}
-                      >
-                        <div className="absolute inset-0 p-6 flex flex-col items-center justify-center text-center z-20">
-                          <Sparkles className={`mb-4 ${isAutoCurated ? 'text-[#c9a96e]' : 'text-white/50 group-hover:text-white/80'} transition-colors`} size={32} />
-                          <h3 className={`font-serif text-xl md:text-2xl mb-2 ${isAutoCurated ? 'text-white' : 'text-white/90'}`}>Bespoke Curation</h3>
-                          <p className="text-xs text-white/60 leading-relaxed max-w-[90%]">
-                            Unsure where to begin? Let our deterministic matching engine effortlessly map the absolute best destinations tailored perfectly to your travel month, pace, and landscape preferences.
-                          </p>
-                        </div>
-                      </button>
+                    
+{/* Zero-State Lobby & Grid Container */}
+<div ref={gridScrollRef} className="flex-1 flex flex-col min-w-0 max-h-[70vh] overflow-y-auto custom-scrollbar" id="main-scroll-container">
+  <AnimatePresence mode="wait">
+    {(() => {
+      
+      if (showZeroState) {
+        const currentMonthIndex = travelMonth ? monthMap[travelMonth] : new Date().getMonth() + 1;
+        const monthMatch = filteredDestinations.filter(d => d.peakMonths?.includes(currentMonthIndex));
+        
+        let styleMatch: any[] = [];
+        let styleTitle = "";
+        if (travelStyle === "Luxury Explorer") {
+           styleTitle = "The Luxury Collection";
+           styleMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Luxury", "Regal", "Exclusive", "Iconic", "Historic", "Restorative"].includes(v as string)));
+        } else {
+           styleTitle = "The Balanced Collection";
+           styleMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Authentic", "Cultural", "Scenic", "Soulful", "Vibrant", "Rustic"].includes(v as string)));
+        }
 
-                      {[...filteredDestinations].sort((a, b) => getTierAndReason(a).tier - getTierAndReason(b).tier).map((dest) => {
-                          const { tier, reason } = getTierAndReason(dest);
-                          const isSelected = selectedDestinations.includes(dest.id);
-                          const isDisabled = (!isSelected && isMaxReached) || (!isSelected && isAutoCurated);
-                          const isTier3 = tier === 3;
-                          
-                          return (
-                            <div
-                              key={dest.id}
-                              onClick={() => { if (!isDisabled) toggleDestination(dest.id) }}
-                              onMouseEnter={() => setHoveredCard(dest.id)}
-                              onMouseLeave={() => setHoveredCard(null)}
-                              className={`relative h-[260px] group rounded-sm overflow-hidden border transition-colors duration-300 bg-zinc-800 touch-manipulation ${
-                                isDisabled 
-                                  ? 'opacity-20 cursor-not-allowed grayscale' 
-                                  : isTier3 
-                                    ? 'opacity-60 grayscale cursor-pointer hover:border-red-900/50 active:scale-[0.98]'
-                                    : 'cursor-pointer hover:border-white/20 active:scale-[0.98]'
-                              }`}
-                              style={{ borderColor: isSelected ? theme.gold : theme.border }}
-                            >
-                              <Image 
-                                src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
-                                alt={dest.name} 
-                                fill
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                placeholder="blur"
-                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                                className={`object-cover transition-transform duration-[1000ms] ease-out ${isSelected ? 'scale-110 opacity-100' : 'scale-100 group-hover:scale-110 opacity-60'}`} 
-                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                              />
+        const offPath = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Remote", "Untouched", "Hidden", "Pure", "Quiet", "Raw"].includes(v as string)));
+        
+        // Ensure lists aren't empty by falling back
+        const heroPool = monthMatch.length > 0 ? monthMatch : (styleMatch.length > 0 ? styleMatch : filteredDestinations);
+        // Deterministic but dynamic hero selection based on month + style to avoid jumping on hot reloads
+        const heroIndex = ((travelMonth?.length || 0) + travelStyle.length) % Math.max(heroPool.length, 1);
+        const heroItem = heroPool[heroIndex] || heroPool[0];
 
-                              <div className={`absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/60 to-transparent z-10 transition-colors duration-500 ${isSelected ? 'bg-transparent' : 'bg-transparent group-hover:bg-black/40'}`} />
+        const filterHero = (arr: any[]) => arr.filter(d => d.id !== heroItem?.id);
+        const seasonalRow = filterHero(monthMatch).slice(0, 8);
+        const styleRow = filterHero(styleMatch).slice(0, 8);
+        const offPathRow = filterHero(offPath).slice(0, 8);
+        
+        const landscapeRows = selectedLandscapes.map(landscape => {
+           const catList = categoryMap[landscape] || [landscape];
+           const match = filterHero(filteredDestinations).filter(d => catList.some(cat => d.landscapes?.includes(cat as any)));
+           return { title: landscape, items: match.slice(0, 8) };
+        });
 
-                              {isTier3 && reason && (
-                                <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[9px] text-white/90 flex items-center gap-1.5 border border-white/10 z-30 pointer-events-none">
-                                  <Plane className="w-3 h-3 text-white/70" />
-                                  <span className="uppercase tracking-widest font-medium">{reason}</span>
-                                </div>
-                              )}
-                              
-                              {tier === 1 && (
-                                <div className="absolute top-3 right-3 bg-[#c9a96e] px-2.5 py-1 rounded text-[9px] text-[#0a0806] flex items-center gap-1.5 z-30 pointer-events-none font-bold">
-                                  <span className="uppercase tracking-widest">Suggested</span>
-                                </div>
-                              )}
+        const renderRow = (title: string, items: any[]) => {
+          if (items.length === 0) return null;
+          return (
+            <motion.div variants={itemVariants} className="mb-12" key={title}>
+              <div className="flex items-center justify-between mb-6 px-2">
+                <h3 className="font-serif text-2xl md:text-3xl text-white/90">{title}</h3>
+                <div className="h-px bg-white/10 flex-1 ml-6"></div>
+              </div>
+              <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 custom-scrollbar px-2 -mx-2">
+                {items.map((dest: any, index: number) => {
+                  const { reasons } = getTierAndReason(dest);
+                  const isSelected = selectedDestinations.includes(dest.id);
+                  const currentTotalMinDays = selectedDestinations.reduce((sum, id) => sum + (destinations.find(x => x.id === id)?.minRequiredDays || 2), 0);
+                  const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
+                  const isDisabled = notEnoughDays;
 
-                            <div className="absolute inset-0 p-4 flex flex-col justify-end z-20">
-                              <div className="flex justify-between items-start mb-1">
-                                <div>
-                                  <p className="text-[0.6rem] uppercase tracking-widest mb-0.5" style={{ color: theme.gold }}>{dest.region}</p>
-                                  <h3 className="font-serif text-xl drop-shadow-md leading-tight">{dest.name}</h3>
-                                </div>
-                                <div
-                                  className={`w-5 h-5 mt-0.5 rounded-full flex-shrink-0 flex items-center justify-center border transition-all ${isSelected ? 'bg-[#c9a96e] border-[#c9a96e]' : 'border-white/30'}`}
-                                >
-                                  {isSelected && <CheckCircle size={12} className="text-black" />}
-                                </div>
-                              </div>
-
-                              <div className="flex flex-wrap justify-between items-start pt-2 mt-2 border-t border-white/10 text-[0.6rem] tracking-[0.12em] text-white/60 uppercase gap-1">
-                                <div className="flex-1 min-w-[80px] flex items-start gap-1">
-                                  <span style={{ color: theme.gold }} className="flex-shrink-0">✦</span>
-                                  <span>{dest.vibeTags.slice(0, 2).join(" • ")}</span>
-                                </div>
-                                <div className="flex-shrink-0 text-right">
-                                  {dest.idealSeason}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-
-                      {filteredDestinations.length === 0 && (
-                        <div className="col-span-1 md:col-span-2 xl:col-span-3 p-10 text-center border rounded-sm" style={{ borderColor: theme.border, backgroundColor: theme.darker }}>
-                          <p className="text-white/40 italic">No destinations match your selected landscapes. Try removing some filters.</p>
-                        </div>
-                      )}
+                  return (
+                    <div key={dest.id} className="shrink-0 w-[280px] snap-start">
+                      <DestinationCard
+                        id={dest.id}
+                        name={dest.name}
+                        region={dest.region}
+                        imageSrc={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE}
+                        isSelected={isSelected}
+                        isDisabled={isDisabled}
+                        reasons={reasons}
+                        borderColor={isSelected ? theme.gold : theme.border}
+                        isPriority={index < 3} // Prioritize first few items in the row
+                        index={index}
+                        onCardClick={handleCardClick}
+                        onToggle={handleToggleDestination}
+                      />
                     </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        };
+
+        return (
+          <motion.div 
+            key="zero-state"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            className="w-full pb-10"
+          >
+            {/* HERO ITEM */}
+            {heroItem && (
+              <motion.div variants={itemVariants} className="mb-14 px-2">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-serif text-2xl md:text-3xl text-white/90">
+                    {travelMonth ? `Perfect for ${travelMonth}` : "Featured Spotlight"}
+                  </h3>
+                  <div className="h-px bg-white/10 flex-1 ml-6"></div>
+                </div>
+                
+                <div 
+                  className="relative w-full h-[450px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer group border border-zinc-800/50 hover:border-[#c9a96e]/50 transition-all duration-500 hover:shadow-2xl active:scale-[0.98] touch-manipulation"
+                  onClick={() => setQuickLookId(heroItem.id)}
+                >
+                  <Image 
+                    src={DESTINATION_IMAGES[heroItem.name] || FALLBACK_IMAGE} 
+                    alt={heroItem.name} 
+                    fill
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/50 to-transparent z-10" />
+                  
+                  <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end z-20">
+                    <p className="text-xs uppercase tracking-widest text-[#c9a96e] mb-2">{heroItem.region}</p>
+                    <h2 className="font-serif text-4xl md:text-6xl mb-4 text-white drop-shadow-lg">{heroItem.name}</h2>
+                    <p className="text-white/80 font-light max-w-2xl text-sm md:text-base leading-relaxed italic line-clamp-2 md:line-clamp-none">
+                      "{heroItem.shortPitch || heroItem.description}"
+                    </p>
+                    <div className="mt-8 flex gap-4">
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); toggleDestination(heroItem.id); }}
+                        className="px-6 py-3 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold rounded-sm hover:bg-[#d4b47a] transition-all active:scale-95 touch-manipulation"
+                      >
+                        Add to Journey
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* BESPOKE CURATION BANNER */}
+            <motion.div variants={itemVariants} className="mb-14 px-2">
+              <button 
+                onClick={toggleAutoCuration}
+                disabled={loadingAction !== null}
+                className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-8 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
+              >
+                <div className="flex items-center gap-6 mb-6 md:mb-0 z-20">
+                  <div className="w-16 h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+                    <Sparkles className="text-[#c9a96e]" size={28} />
+                  </div>
+                  <div className="text-left">
+                    <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                    <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
+                  </div>
+                </div>
+                
+                <div className="z-20 w-full md:w-auto">
+                  <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3">
+                    Curate My Journey <ChevronRight size={16} />
+                  </div>
+                </div>
+                
+                {/* Subtle background glow */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-[#c9a96e]/5 to-transparent z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </button>
+            </motion.div>
+
+            {landscapeRows.length > 0 ? (
+              <>
+                {landscapeRows.map(row => renderRow(row.title, row.items))}
+              </>
+            ) : (
+              <>
+                {renderRow(styleTitle, styleRow)}
+                {renderRow("Off the Beaten Path", offPathRow)}
+                {seasonalRow.length > 0 && renderRow("Seasonal Alternatives", seasonalRow)}
+              </>
+            )}
+          </motion.div>
+        );
+      }
+
+      // Virtualized Grid
+      const sortedDests = [...filteredDestinations].sort((a, b) => getTierAndReason(a).tier - getTierAndReason(b).tier);
+      
+      // Compute columns based on a breakpoint heuristic (SSR-safe)
+      const CARD_HEIGHT = 360; // h-[360px] = 360px
+      const GAP = 20; // gap-5 = 1.25rem = 20px
+      const ROW_HEIGHT = CARD_HEIGHT + GAP;
+      
+      // We'll compute columns dynamically matching Tailwind's viewport breakpoints
+      const getColumns = () => {
+        if (windowWidth >= 1280) return 3; // xl
+        if (windowWidth >= 768) return 2;  // md
+        return 1;
+      };
+      
+      const columns = getColumns();
+      const rowCount = Math.ceil(sortedDests.length / columns);
+      const currentTotalMinDays = selectedDestinations.reduce((sum, id) => sum + (destinations.find(x => x.id === id)?.minRequiredDays || 2), 0);
+      
+      return (
+        <motion.div 
+          key="main-grid"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.4 } }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          className="flex flex-col gap-8 pr-4 pb-12"
+        >
+          {/* Top Banner for Bespoke AI */}
+          <button 
+            onClick={toggleAutoCuration}
+            disabled={loadingAction !== null}
+            className={`w-full relative overflow-hidden rounded-xl border transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-8 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation ${
+              isAutoCurated 
+                ? 'border-[#c9a96e]/60 bg-gradient-to-r from-amber-950/40 to-zinc-950 shadow-[0_0_30px_rgba(201,169,110,0.15)]' 
+                : 'border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60'
+            }`}
+          >
+            <div className="flex items-center gap-6 mb-6 md:mb-0 z-20">
+              <div className="w-16 h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+                <Sparkles className="text-[#c9a96e]" size={28} />
+              </div>
+              <div className="text-left">
+                <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
+              </div>
+            </div>
+            
+            <div className="z-20 w-full md:w-auto">
+              <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3">
+                {isAutoCurated ? 'Curated Mode Active' : 'Curate My Journey'} <ChevronRight size={16} />
+              </div>
+            </div>
+            {/* Subtle background glow */}
+            <div className={`absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-[#c9a96e]/5 to-transparent z-10 pointer-events-none transition-opacity duration-700 ${isAutoCurated ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+          </button>
+
+          {/* Virtualized Destination Grid */}
+          {sortedDests.length === 0 ? (
+            <div className="p-10 text-center border border-zinc-800 bg-zinc-900 rounded-sm">
+              <p className="text-white/40 italic">No destinations match your filters.</p>
+            </div>
+          ) : (
+            <VirtualizedGrid
+              sortedDests={sortedDests}
+              columns={columns}
+              rowCount={rowCount}
+              rowHeight={ROW_HEIGHT}
+              currentTotalMinDays={currentTotalMinDays}
+              selectedDays={selectedDays}
+              selectedDestinations={selectedDestinations}
+              isAutoCurated={isAutoCurated}
+              destinations={destinations}
+              getTierAndReason={getTierAndReason}
+              theme={theme}
+              onCardClick={handleCardClick}
+              onToggle={handleToggleDestination}
+              gridScrollRef={gridScrollRef}
+            />
+          )}
+        </motion.div>
+      );
+    })()}
+  </AnimatePresence>
+</div>
+
+{/* Quick Look Netflix-Style Modal */}
+<AnimatePresence>
+  {quickLookId && (() => {
+    const dest = destinations.find(d => d.id === quickLookId);
+    if (!dest) return null;
+    const isSelected = selectedDestinations.includes(dest.id);
+    
+    return (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="absolute inset-0 bg-black/80 backdrop-blur-md pointer-events-auto" 
+          onClick={() => setQuickLookId(null)} 
+        />
+        
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 10 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="relative w-full max-w-6xl max-h-[90dvh] h-[90dvh] md:h-[70vh] bg-[#0a0806] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
+        >
+          {/* Close Button */}
+          <button 
+            onClick={() => setQuickLookId(null)} 
+            className="absolute top-4 right-4 md:top-5 md:right-5 z-50 p-3 bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/10 rounded-full transition-colors duration-200 active:scale-90 touch-manipulation cursor-pointer"
+          >
+            <X size={18} className="text-white/70 hover:text-white" />
+          </button>
+
+          {/* Left Side: Static Image */}
+          <div className="relative w-full md:w-1/2 h-56 md:h-full shrink-0 bg-black">
+            <Image 
+              src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
+              alt={dest.name} 
+              fill 
+              className="object-cover opacity-90" 
+              priority
+            />
+            {/* Gradient blends */}
+            <div className="hidden md:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a0806] to-transparent z-10" />
+            <div className="md:hidden absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0806] to-transparent z-10" />
+            
+            {/* Region Badge overlay */}
+            <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/5 rounded-full">
+              <span className="text-[9px] uppercase tracking-widest text-[#c9a96e]">{dest.region}</span>
+            </div>
+          </div>
+          
+          {/* Right Side: Content */}
+          <div className="flex-1 flex flex-col h-full relative z-20">
+            <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10 md:pr-16 pb-32 md:pb-28">
+              <div className="mb-6 md:mb-8 pr-12 md:pr-0">
+                <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-3 md:mb-4 text-white/90">{dest.name}</h2>
+                <div className="flex flex-wrap gap-3 md:gap-4 text-[9px] md:text-[10px] uppercase tracking-widest text-white/40 border-b border-white/5 pb-4 md:pb-5">
+                  <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-[#c9a96e]" />{dest.minRequiredDays} Days Min</span>
+                  <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-[#c9a96e]" />{dest.idealSeason}</span>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-white/60 leading-relaxed font-light text-base italic mb-6">&ldquo;{(dest as any).shortPitch || dest.description}&rdquo;</p>
+                
+                {/* Vibe Tags */}
+                {(dest as any).vibeTags && (dest as any).vibeTags.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Character</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {(dest as any).vibeTags.map((tag: string, i: number) => (
+                        <span key={i} className="px-3 py-1.5 text-xs tracking-wider text-[#c9a96e]/80 border border-[#c9a96e]/20 rounded-full bg-[#c9a96e]/5">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Landscapes */}
+                {dest.landscapes && dest.landscapes.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Landscapes</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {dest.landscapes.map((l: string, i: number) => (
+                        <span key={i} className="px-3 py-1.5 text-xs tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5">{l}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Signature Experiences */}
+                <div>
+                  <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Signature Experiences</h3>
+                  <ul className="space-y-3">
+                    {((dest as any).topHighlights || []).map((hl: string, i: number) => (
+                      <li 
+                        key={i}
+                        className="flex gap-3 items-start"
+                      >
+                        <span className="text-[#c9a96e] mt-0.5 text-sm">✦</span>
+                        <span className="leading-relaxed text-zinc-300 text-sm font-light">{hl}</span>
+                      </li>
+                    ))}
+                    {(!(dest as any).topHighlights || (dest as any).topHighlights.length === 0) && (
+                      <li className="text-sm text-zinc-500 italic">No highlights available yet.</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* Sticky Action Footer */}
+            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 bg-gradient-to-t from-[#0a0806] via-[#0a0806] to-transparent pt-12 pointer-events-none">
+              <button 
+                onClick={() => { toggleDestination(dest.id); setQuickLookId(null); }}
+                className={`w-full py-4 text-xs font-bold uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-2 pointer-events-auto active:scale-95 touch-manipulation cursor-pointer ${
+                  isSelected 
+                    ? 'bg-white/5 text-white/80 hover:bg-white/10 hover:text-white border border-white/10 backdrop-blur-sm' 
+                    : 'bg-[#c9a96e] text-black hover:bg-[#d4b47a] shadow-[0_0_20px_rgba(201,169,110,0.15)] hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]'
+                }`}
+              >
+                {isSelected ? 'Remove from Itinerary' : 'Add to Itinerary'}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    );
+  })()}
+</AnimatePresence>
+
                     <div className="w-full lg:w-96 shrink-0 sticky top-8 h-fit bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 flex flex-col gap-6">
                       <div>
                         <h4 className="font-sans uppercase tracking-widest text-[10px] mb-4 text-white/50">Your Selection</h4>
@@ -1082,29 +1451,70 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           </ul>
                         )}
                       </div>
-                      {isValidating ? (
-                        <div className="flex gap-3 items-center text-white/40 p-4">
-                          <div className="w-3 h-3 border border-white/20 border-t-[#c9a96e] rounded-full animate-spin" />
-                          <span className="font-sans text-[11px] uppercase tracking-widest">Reviewing route...</span>
-                        </div>
-                      ) : warnings.length > 0 ? (
-                        <div className="space-y-3">
-                          {warnings.map((warn, idx) => (
-                            <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-4 rounded-r-sm">
-                              <div className="flex gap-2 items-center text-[#c9a96e] mb-2">
-                                {warn.category === 'vibe' ? <Info size={14} /> : <AlertTriangle size={14} />}
-                                <span className="text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
-                              </div>
-                              <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">{warn.message}</p>
+                      {(() => {
+                        // Compute slack days client-side for instant feedback
+                        const totalMinDays = selectedDestinations.reduce((sum, id) => {
+                          const d = destinations.find(x => x.id === id);
+                          return sum + (d?.minRequiredDays || 2);
+                        }, 0);
+                        const slackDays = selectedDays - totalMinDays;
+                        const hasSlack = selectedDestinations.length > 0 && totalMinDays <= selectedDays && slackDays >= 5 && selectedDays >= totalMinDays * 2;
+
+                        if (isValidating) {
+                          return (
+                            <div className="flex gap-3 items-center text-white/40 p-4">
+                              <Spinner size="sm" showLogo={false} />
+                              <span className="font-sans text-[11px] uppercase tracking-widest">Reviewing route...</span>
                             </div>
-                          ))}
-                        </div>
-                      ) : selectedDestinations.length > 1 ? (
-                        <div className="flex gap-3 items-center text-[#c9a96e]/70 bg-black/20 border-l-2 border-[#c9a96e]/30 p-4 rounded-r-sm">
-                          <CheckCircle size={14} />
-                          <p className="font-sans text-xs tracking-wide">Route optimized and feasible.</p>
-                        </div>
-                      ) : null}
+                          );
+                        }
+                        if (warnings.length > 0) {
+                          return (
+                            <div className="space-y-3">
+                              {warnings.map((warn, idx) => (
+                                <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-4 rounded-r-sm">
+                                  <div className="flex gap-2 items-center text-[#c9a96e] mb-2">
+                                    {warn.category === 'vibe' ? <Info size={14} /> : <AlertTriangle size={14} />}
+                                    <span className="text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
+                                  </div>
+                                  <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">{warn.message}</p>
+                                </div>
+                              ))}
+                            </div>
+                          );
+                        }
+                        if (hasSlack) {
+                          const maxAllowed = Math.max(3, Math.floor(selectedDays / 1.5));
+                          const isMaxReachedSlack = selectedDestinations.length >= maxAllowed;
+                          
+                          const singleSuggest = isMaxReachedSlack ? 'reduce your days' : 'add more stops or reduce your days';
+                          const multiSuggest = isMaxReachedSlack ? 'reducing your days' : 'adding more destinations to fill the time';
+                          
+                          return (
+                            <div className="bg-black/40 border-l-2 border-[#c9a96e]/50 p-4 rounded-r-sm">
+                              <div className="flex gap-2 items-center text-[#c9a96e]/80 mb-2">
+                                <Info size={14} />
+                                <span className="text-[10px] uppercase tracking-widest font-semibold">Pacing Note</span>
+                              </div>
+                              <p className="font-sans text-white/70 leading-relaxed text-xs">
+                                {selectedDestinations.length === 1 
+                                  ? `${destinations.find(d => d.id === selectedDestinations[0])?.name || 'This destination'} needs about ${totalMinDays} days. You have ${selectedDays}. Consider ${singleSuggest} for a tighter journey.`
+                                  : `Your selections need roughly ${totalMinDays} days. You have ${selectedDays}. Consider ${multiSuggest}.`
+                                }
+                              </p>
+                            </div>
+                          );
+                        }
+                        if (selectedDestinations.length > 1) {
+                          return (
+                            <div className="flex gap-3 items-center text-[#c9a96e]/70 bg-black/20 border-l-2 border-[#c9a96e]/30 p-4 rounded-r-sm">
+                              <CheckCircle size={14} />
+                              <p className="font-sans text-xs tracking-wide">Route optimized and feasible.</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      })()}
                       <button
                         onClick={() => {
                           if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;

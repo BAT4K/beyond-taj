@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Wallet, Lock, ShieldCheck, Mail, ArrowRight, Loader2 } from "lucide-react";
+import { Wallet, Lock, ShieldCheck, Mail, ArrowRight } from "lucide-react";
+import Spinner from "./Spinner";
 import Script from "next/script";
 import { useSession, signIn } from "next-auth/react";
 
@@ -220,7 +221,7 @@ export default function CheckoutClient({
 
             {status === "loading" ? (
               <div className="flex flex-col items-center justify-center py-6 gap-4 border border-white/5 rounded-sm" style={{ backgroundColor: theme.bg }}>
-                <Loader2 size={24} className="animate-spin text-white/40" />
+                <Spinner size="sm" showLogo={false} />
                 <span className="text-xs uppercase tracking-widest text-white/40">Verifying Identity...</span>
               </div>
             ) : status === "unauthenticated" ? (

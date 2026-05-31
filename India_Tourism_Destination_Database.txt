@@ -1,0 +1,3797 @@
+INDIA
+Tourism Destination Database
+Premium Travel Intelligence
+
+A comprehensive master database of India's tourism destinations covering mountains, coasts, deserts,
+wildlife reserves, spiritual centres, heritage towns, circuits, islands and hidden gems — curated for the
+world-class India travel recommendation engine.
+
+Total Destinations Documented: 115+
+Categories: Mountains · Coastal & Islands · Royal Cities · Desert · Backwaters Spirituality & Ghats · Wildlife & Safaris ·
+Tea Plantations · Metropolises · Northeast
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+How to Use This Database
+This database is designed as a master reference for India travel planning platforms, recommendation engines, and
+travel advisors. Each destination entry contains structured data fields for easy parsing and indexing.
+Fields included per destination:
+• Destination Name — canonical tourism name
+• Type — geographic/tourism classification (City / National Park / Circuit etc.)
+• State / UT — Indian state or Union Territory
+• Categories — all matching tourism categories (multi-valued)
+• Popularity — International / Domestic / Both
+• Tourism Importance — one-paragraph contextual overview
+• Key Attractions — 5 headline attractions
+• Tags — comma-separated keyword index for search/filter
+Destinations marked with multiple categories appear in their primary category section but are cross-referenced across
+all applicable categories.
+
+Contents
+1.
+
+Mountains
+Incl. Himalayas, Ladakh, Kashmir, Sikkim, Uttarakhand, Northeast
+
+2.
+
+Coastal & Islands
+Incl. Goa, Kerala Coast, Andaman, Lakshadweep, Konkan
+
+3.
+
+Royal Cities
+Incl. Rajasthan, Mysore, Hyderabad
+
+4.
+
+Desert
+Incl. Thar, Rann of Kutch
+
+5.
+
+Backwaters
+Incl. Kerala Backwaters, Alleppey, Kumarakom
+
+6.
+
+Spirituality & Ghats
+Incl. Varanasi, Rishikesh, Amritsar, Tirupati, Puri
+
+7.
+
+Wildlife & Safaris
+Incl. Tiger Reserves, National Parks, Sanctuaries
+
+8.
+
+Tea Plantations & Valleys
+Incl. Munnar, Darjeeling, Ooty, Wayanad
+
+9.
+
+Vibrant Metropolises
+Incl. Delhi, Mumbai, Bengaluru, Kolkata, Chennai
+
+10.
+
+Northeast & Living Roots
+Incl. Meghalaya, Assam, Sikkim, Nagaland
+
+—2—
+
+INDIA TOURISM DESTINATION DATABASE
+
+11.
+
+Premium Travel Intelligence
+
+Heritage Sites
+Incl. Hampi, Khajuraho, Mahabalipuram, Ajanta & Ellora
+
+12.
+
+Tourism Circuits
+Incl. Golden Triangle, Rajasthan, Ladakh, Spiti, Konkan, Kashmir
+
+13.
+
+Hidden Gems & Offbeat
+Incl. Orchha, Chettinad, Mandu, Unakoti, Mizoram
+
+—3—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+—4—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+MOUNTAINS
+Leh – Ladakh
+TYPE
+
+City / Region
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Leh is the gateway to the high-altitude cold desert of Ladakh, one of India's most dramatic landscapes. Situated at
+3,500 m, it draws adventure travellers, bikers, and spiritual seekers with its Buddhist monasteries, turquoise lakes, and
+stark Himalayan passes.
+KEY ATTRACTIONS
+
+→ Pangong Tso Lake
+→ Nubra Valley & Bactrian camels
+→ Thiksey & Hemis Monasteries
+→ Khardung La Pass (one of world's highest motorable roads)
+→ Shanti Stupa & Leh Palace
+Tags: high altitude, buddhist monasteries, motorbike, adventure, cold desert, lakes, passes
+
+Nubra Valley
+TYPE
+
+Valley
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Accessible via the legendary Khardung La pass, Nubra Valley is a serene high-altitude desert valley where sand
+dunes meet snow-capped peaks. The Shyok and Nubra rivers converge here, and double-humped Bactrian camels
+roam the dunes — an almost surreal landscape.
+KEY ATTRACTIONS
+
+→ Hunder sand dunes & Bactrian camel rides
+→ Diskit Monastery & giant Maitreya Buddha statue
+→ Panamik hot springs
+→ Turtuk village (near Pakistan border)
+→ Samstanling Monastery
+Tags: sand dunes, camels, monastery, high altitude, remote, river valley
+
+Pangong Tso
+TYPE
+
+Lake / Region
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Pangong Tso is a stunning high-altitude salt lake stretching 134 km across India and Tibet. Famous for shifting shades
+of blue and green, it became iconic after featuring in Bollywood blockbusters. Camping on the lakeshore under a
+star-filled Ladakhi sky is a bucket-list experience.
+KEY ATTRACTIONS
+
+→ Pangong Lake viewpoints & camping
+
+—5—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Spangmik village
+→ Chang La Pass
+→ Merak & Maan villages
+→ Winter ice skating (Dec–Feb)
+Tags: salt lake, blue water, camping, high altitude, photography, bollywood
+
+Zanskar Valley
+TYPE
+
+Valley / Region
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Mountains
+
+One of India's most remote and dramatic valleys, Zanskar is accessible for only a few months each year when roads
+are open. In winter the legendary Chadar Trek takes adventurers across the frozen Zanskar River through gorges of
+extraordinary beauty. A magnet for serious trekkers and Buddhist pilgrims.
+KEY ATTRACTIONS
+
+→ Chadar Trek (frozen river walk)
+→ Phugtal Monastery (cliffside cave monastery)
+→ Padum town
+→ Zanskar River rafting
+→ Drangdrung Glacier
+Tags: chadar trek, frozen river, remote, monastery, trekking, winter, adventure
+
+Spiti Valley
+TYPE
+
+Valley / Region
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Spiti — the 'Middle Land' — is a high-altitude cold desert valley at 3,800 m, dotted with ancient Buddhist monasteries
+perched on clifftops. The lunar landscape, prayer flags, and crystal-clear skies make it one of India's most photogenic
+and spiritually resonant destinations.
+KEY ATTRACTIONS
+
+→ Key Monastery
+→ Kaza town
+→ Chandratal Lake
+→ Pin Valley National Park
+→ Hikkim (world's highest post office)
+Tags: cold desert, buddhist, monastery, trekking, remote, himalayan, backpacker
+
+Manali
+TYPE
+
+Town
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Manali is the most popular hill station in Himachal Pradesh and a major hub for adventure activities. Sitting at the head
+of the Kullu Valley, it offers skiing, paragliding, white-water rafting and trekking, alongside the old Manali village with its
+apple orchards and colonial charm.
+KEY ATTRACTIONS
+
+→ Rohtang Pass & snow activities
+
+—6—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Solang Valley (skiing, zorbing)
+→ Hadimba Temple (old-growth deodar forest)
+→ Old Manali cafes & market
+→ Naggar Castle
+Tags: skiing, snow, adventure, Rohtang, backpacker, honeymoon, trekking, apple orchards
+
+Kasol & Kheerganga
+TYPE
+
+Village / Trekking Region
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Kasol is a tiny hamlet in the Parvati Valley that has become a cult backpacker destination, beloved for its Israeli cafes,
+riverside campsites and proximity to trekking trails. Kheerganga is the most popular overnight trek from Kasol, ending
+at natural hot springs with stunning valley views.
+KEY ATTRACTIONS
+
+→ Parvati River camping
+→ Kheerganga Trek & hot springs
+→ Chalal trek
+→ Malana village (unique democratic tradition)
+→ Manikaran Gurudwara & hot springs
+Tags: backpacker, parvati valley, trekking, hot springs, camping, hippie trail, hidden gem
+
+Tosh & Khajiaar
+TYPE
+
+Village
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Tosh is a remote Himalayan village near Kasol with sweeping glacier views and cosy guesthouses. Khajjiar, often
+called the 'Mini Switzerland of India', is a lush green meadow ringed by dense pine forests at 2,000 m above sea level,
+perfect for picnics and horseback rides.
+KEY ATTRACTIONS
+
+→ Tosh Glacier treks
+→ Khajjiar Lake & meadow
+→ Sunset views over Dhauladhar range
+→ Chamba town heritage walk
+Tags: village, meadow, trekking, mini switzerland, scenic, offbeat
+
+Jibhi & Tirthan Valley
+TYPE
+
+Village / Valley
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains, Wildlife & Safaris
+
+Jibhi and the Tirthan Valley are off-the-radar Himalayan gems offering wooden guesthouses, crystal trout streams and
+easy forest trails. The Great Himalayan National Park — a UNESCO World Heritage Site — begins here, sheltering
+snow leopards, Himalayan brown bears and over 375 bird species.
+KEY ATTRACTIONS
+
+→ Great Himalayan National Park treks
+
+—7—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Tirthan River fly-fishing & trout
+→ Jalori Pass
+→ Serolsar Lake
+→ Chhoi Waterfall
+Tags: UNESCO, national park, offbeat, trout fishing, hidden gem, nature, forest walks
+
+Dharamshala & McLeod Ganj
+TYPE
+
+Town
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Spirituality & Ghats
+
+Home of the Dalai Lama and the Tibetan government-in-exile, McLeod Ganj is a vibrant spiritual town beneath the
+Dhauladhar range. It blends Tibetan Buddhism, colonial-era architecture and lively cafes into one of India's most
+cosmopolitan hill towns, beloved by backpackers and spiritual travellers alike.
+KEY ATTRACTIONS
+
+→ Namgyal Monastery (Dalai Lama's temple)
+→ Triund Trek
+→ Bhagsu Nag Waterfall
+→ Tibet Museum
+→ Norbulingka Institute (Tibetan arts)
+Tags: dalai lama, tibetan, buddhism, trekking, backpacker, spirituality, dhauladhar
+
+Bir Billing
+TYPE
+
+Village / Region
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Bir Billing is acclaimed as one of the world's best paragliding sites, regularly hosting the Paragliding World Cup. The
+Tibetan colony at Bir gives the village a distinct character with monasteries and cafes, while the take-off site at Billing
+(2,400 m) affords breathtaking views of the Kangra Valley.
+KEY ATTRACTIONS
+
+→ Paragliding (tandem & solo)
+→ Bir Tibetan Colony & monasteries
+→ Sherab Ling Monastery
+→ Cycling trails
+→ Billing meadow camping
+Tags: paragliding, world cup, tibetan colony, adventure, camping, scenic valley
+
+Dalhousie
+TYPE
+
+Town / Hill Station
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains
+
+A charming Victorian-era hill station established by the British in 1854, Dalhousie offers colonial bungalows,
+snow-dusted pine forests and panoramic Himalayan vistas. It retains a peaceful, old-world character that sets it apart
+from busier Himachali resorts.
+KEY ATTRACTIONS
+
+→ Dainkund Peak
+
+—8—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Kalatop Wildlife Sanctuary
+→ Subhash Baoli
+→ Panchpula stream & picnic area
+→ Gandhi Chowk colonial walks
+Tags: colonial, british era, hill station, pine forest, peaceful, family, offbeat
+
+Auli
+TYPE
+
+Hill Station / Ski Resort
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Auli is India's premier ski destination, offering 500 m of ski runs between 2,500 m and 3,049 m with stunning views of
+Nanda Devi and the Garhwal Himalayas. In summer it transforms into a lush meadow base for treks into the Valley of
+Flowers and Kuari Pass.
+KEY ATTRACTIONS
+
+→ Skiing & snowboarding (Dec–Mar)
+→ Auli ropeway (India's longest)
+→ Kuari Pass trek
+→ Gorson Bugyal meadow
+→ Views of Nanda Devi (India's 2nd highest peak)
+Tags: skiing, snow, adventure, ropeway, himalayan views, trekking, meadow
+
+Chopta & Tungnath
+TYPE
+
+Village / Trek
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains, Spirituality & Ghats
+
+Dubbed the 'Mini Switzerland of Uttarakhand', Chopta is a serene alpine meadow leading to Tungnath — the world's
+highest Shiva temple at 3,680 m — and the Chandrashila peak with 360° Himalayan panoramas. Far less crowded
+than Kedarnath or Badrinath, it remains an unspoiled gem.
+KEY ATTRACTIONS
+
+→ Tungnath Temple trek
+→ Chandrashila summit (views of Nanda Devi, Trishul, Kedarnath)
+→ Deoria Tal Lake
+→ Ukhimath village
+→ Rhododendron forests in spring
+Tags: highest shiva temple, trekking, meadow, rhododendron, offbeat, snowfall, spiritual
+
+Rishikesh
+TYPE
+
+Town
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Spirituality & Ghats
+
+The Yoga Capital of the World, Rishikesh sits where the Ganges descends from the Himalayas onto the plains. It is
+both the world's most famous yoga retreat hub and India's adventure sports capital — offering white-water rafting,
+bungee jumping, trekking and cliff jumping alongside ashrams and morning Ganga aarti.
+KEY ATTRACTIONS
+
+→ Laxman Jhula & Ram Jhula suspension bridges
+
+—9—
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Ganga aarti at Triveni Ghat
+→ White-water rafting (Grade III–IV)
+→ Beatles Ashram (Maharishi Mahesh Yogi's)
+→ Yoga & meditation retreats
+Tags: yoga, adventure, rafting, spirituality, ganges, ashram, beatles, bungee, backpacker
+
+Valley of Flowers
+TYPE
+
+National Park / Trek
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Wildlife & Safaris
+
+A UNESCO World Heritage Site, the Valley of Flowers bursts into a riot of colour each monsoon (July–September) as
+over 500 species of wildflowers carpet the high-altitude meadow at 3,658 m. Combined with the Hemkund Sahib
+pilgrimage, it is one of India's most enchanting Himalayan journeys.
+KEY ATTRACTIONS
+
+→ Valley of Flowers bloom (Jul–Sep)
+→ Hemkund Sahib Gurudwara
+→ Ghangaria basecamp
+→ Rare Himalayan flora & fauna (snow leopard territory)
+→ Pulna to Ghangaria trail
+Tags: UNESCO, wildflowers, trek, monsoon, bloom, himalayan, hemkund, pilgrimage
+
+Char Dham Circuit (Uttarakhand)
+TYPE
+
+Circuit / Pilgrimage Route
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains, Spirituality & Ghats
+
+The Char Dham Yatra encompasses the four sacred shrines of Yamunotri, Gangotri, Kedarnath and Badrinath —
+among the most important Hindu pilgrimage sites in the world. Millions undertake this high-altitude circuit each year,
+which also passes through spectacular Himalayan scenery.
+KEY ATTRACTIONS
+
+→ Kedarnath Temple (Jyotirlinga shrine)
+→ Badrinath Temple (Vishnu shrine)
+→ Gangotri Glacier (source of Ganges)
+→ Yamunotri (source of Yamuna River)
+→ Helicopter services for Kedarnath
+Tags: pilgrimage, hinduism, four dhams, kedarnath, badrinath, gangotri, yamunotri, himalayan
+
+Kashmir Valley
+TYPE
+
+Region
+
+STATE / UT
+
+Jammu & Kashmir (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+The 'Paradise on Earth', Kashmir Valley is one of the most beautiful places in Asia. Its Dal Lake houseboats, saffron
+fields, Mughal gardens, apple orchards and snow-covered peaks make it a destination of legendary appeal. The Valley
+has an almost unmatched diversity of landscapes, from alpine meadows to tulip gardens.
+KEY ATTRACTIONS
+
+→ Dal Lake shikaras & houseboats
+
+— 10 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Shalimar & Nishat Mughal Gardens
+→ Gulmarg skiing & gondola
+→ Pahalgam meadows & Lidder River
+→ Sonamarg Thajiwas Glacier
+Tags: paradise, houseboat, mughal gardens, saffron, skiing, adventure, himalayan, scenic
+
+Gulmarg
+TYPE
+
+Town / Ski Resort
+
+STATE / UT
+
+Jammu & Kashmir (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Gulmarg — 'Meadow of Flowers' — is India's highest ski resort and one of Asia's finest, with the world's
+second-highest operating cable car (gondola) rising to 4,200 m. In summer, its lush meadows are perfect for golf on
+the world's highest golf course, pony rides, and Himalayan wildflower walks.
+KEY ATTRACTIONS
+
+→ Gulmarg Gondola (Apharwat Peak)
+→ Skiing & snowboarding (Dec–Mar)
+→ Highest golf course in the world
+→ Alpather Lake trek
+→ Strawberry Valley
+Tags: ski resort, gondola, snow, meadow, golf, cable car, adventure, honeymoon
+
+Pahalgam
+TYPE
+
+Town / Resort
+
+STATE / UT
+
+Jammu & Kashmir (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Spirituality & Ghats
+
+Pahalgam sits at the confluence of the Lidder River and Sheshnag streams, surrounded by pine forests and
+snow-capped peaks. It is both a premier trekking base and the starting point for the annual Amarnath Yatra pilgrimage
+— one of India's largest Hindu pilgrimages to the Amarnath ice Shiva lingam.
+KEY ATTRACTIONS
+
+→ Baisaran ('Mini Switzerland' meadow)
+→ Amarnath Yatra pilgrimage (Jun–Aug)
+→ Lidder River trout fishing
+→ Aru Valley & Betaab Valley
+→ Kolahoi Glacier trek
+Tags: meadow, amarnath, pilgrimage, trekking, river, pine forest, scenic, pony rides
+
+Sonamarg
+TYPE
+
+Town / Valley
+
+STATE / UT
+
+Jammu & Kashmir (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Sonamarg — 'Meadow of Gold' — lies at 2,730 m on the old Silk Road and serves as the gateway to Ladakh. Its
+glaciers, rivers and flower-strewn meadows are spectacular in summer, while it becomes a snow wonderland in winter.
+The Thajiwas Glacier is easily accessible and enormously popular.
+KEY ATTRACTIONS
+
+→ Thajiwas Glacier
+
+— 11 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Vishansar & Krishansar Lakes trek
+→ Gadsar Pass trek
+→ Zoji La Pass
+→ Ponies & sled rides
+Tags: glacier, meadow, silk road, trekking, snow, scenic, gateway to ladakh
+
+Tawang
+TYPE
+
+Town
+
+STATE / UT
+
+Arunachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Northeast & Living Roots,
+Spirituality & Ghats
+
+Tawang is home to the 400-year-old Tawang Monastery — the largest in India and the second-largest in the world
+after Lhasa — perched at 3,048 m with breathtaking views of the Himalayan ranges. The town is also significant as the
+birthplace of the 6th Dalai Lama and a living example of Tibetan Buddhist culture on Indian soil.
+KEY ATTRACTIONS
+
+→ Tawang Monastery (Galden Namgyal Lhatse)
+→ Sela Pass (4,176 m) & Sela Lake
+→ Bum La Pass (India–China border)
+→ Nuranang/Jung Waterfall
+→ Pt. Tawang War Memorial
+Tags: largest monastery india, buddhist, high altitude, arunachal, border, tibetan culture, scenic
+
+Ziro Valley
+TYPE
+
+Valley / Town
+
+STATE / UT
+
+Arunachal Pradesh
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Mountains, Northeast & Living Roots
+
+Ziro is a UNESCO World Heritage-listed valley renowned for its terraced paddy fields, pine hills and the unique
+Apatani tribal culture. The annual Ziro Music Festival draws indie music lovers from across Asia, making it India's most
+atmospheric open-air music event, set against a backdrop of misty mountains.
+KEY ATTRACTIONS
+
+→ Apatani tribal villages & culture
+→ Ziro Music Festival (September)
+→ Talley Valley Wildlife Sanctuary
+→ Kile Pakho viewpoint
+→ Pine Ridge viewpoint
+Tags: UNESCO, tribal, apatani, music festival, paddy fields, northeast, offbeat, indigenous
+
+Gangtok
+TYPE
+
+City
+
+STATE / UT
+
+Sikkim
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Northeast & Living Roots
+
+The capital of Sikkim, Gangtok is a vibrant hill city with Kanchenjunga — the world's third-highest peak — as its
+backdrop. It serves as the gateway to North Sikkim's remote high-altitude lakes, the revered Rumtek Monastery and
+the many trekking routes that wind through the Eastern Himalayas.
+KEY ATTRACTIONS
+
+→ Tsomgo (Changu) Lake
+
+— 12 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Rumtek Monastery
+→ Nathula Pass (India–China border)
+→ MG Marg pedestrian promenade
+→ Enchey Monastery
+Tags: kanchenjunga, monastery, himalayan, gateway, sikkim, trekking, scenic views
+
+Pelling & Yuksom
+TYPE
+
+Town / Village
+
+STATE / UT
+
+Sikkim
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains, Northeast & Living Roots,
+Spirituality & Ghats
+
+Pelling offers one of India's finest views of the Kanchenjunga massif, especially at dawn when the sunrise turns the
+snow peaks golden. Yuksom, the historic first capital of Sikkim, is the starting point for the classic Goecha La trek to
+the base of Kanchenjunga.
+KEY ATTRACTIONS
+
+→ Kanchenjunga sunrise views
+→ Pemayangtse Monastery (350 years old)
+→ Rabdentse ruins (ancient Sikkimese capital)
+→ Khecheopalri Lake (sacred wish-fulfilling lake)
+→ Goecha La Base Camp trek (from Yuksom)
+Tags: kanchenjunga views, monastery, historic, trekking, peaceful, sikkim, sunrise
+
+Yumthang Valley
+TYPE
+
+Valley
+
+STATE / UT
+
+Sikkim
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains, Northeast & Living Roots
+
+Yumthang — the 'Valley of Flowers of Sikkim' — lies at 3,564 m in North Sikkim and blooms with rhododendrons and
+primulas from March to May. The Zero Point beyond Yumthang at 4,800 m is the last accessible point near the
+Chinese border, offering spectacular snow and glacier views.
+KEY ATTRACTIONS
+
+→ Yumthang Valley rhododendron bloom (Mar–May)
+→ Zero Point (4,800 m)
+→ Shingba Rhododendron Sanctuary
+→ Yumthang hot springs
+→ Glacial streams & panoramic views
+Tags: rhododendron, valley of flowers, sikkim, high altitude, zero point, glaciers, scenic
+
+Kargil
+TYPE
+
+Town
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Mountains
+
+Kargil is the second-largest town in Ladakh, a strategic military hub known worldwide for the 1999 Kargil War. Today it
+draws history and adventure travellers en route between Leh and Srinagar, with access to remote valleys, ancient
+cave Buddhist monasteries and the towering Zoji La pass.
+KEY ATTRACTIONS
+
+→ Kargil War Memorial (Dras)
+
+— 13 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Mulbekh Monastery & Maitreya rock sculpture
+→ Suru Valley glaciers
+→ Rangdum Monastery
+→ Dras — Coldest inhabited place in India
+Tags: kargil war, history, military, monastery, remote, ladakh, suru valley, himalayan
+
+Kinnaur Valley
+TYPE
+
+Valley / Region
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+Kinnaur is famed for its apple orchards, terraced vineyards, ancient wooden temples and the stunning confluence of
+the Sutlej River with Himalayan peaks. The Hindustan–Tibet Highway passes through here, offering dramatic
+cliff-hanging roads, landslide-prone passes and a transition from Hindu to Buddhist culture.
+KEY ATTRACTIONS
+
+→ Chitkul village (last Indian village on Indo-Tibet border)
+→ Sarahan Bhimakali Temple
+→ Sangla Valley & Baspa River
+→ Reckong Peo orchards
+→ Kinnaur Kailash peak
+Tags: apple orchards, tribal, ancient temples, offbeat, himalayan highway, border village, scenic
+
+— 14 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+COASTAL & ISLANDS
+North Goa
+TYPE
+
+Region
+
+STATE / UT
+
+Goa
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Coastal & Islands
+
+North Goa is India's most famous beach destination — a heady mix of Portuguese colonial heritage, lively beach
+shacks, water sports, flea markets and an infectious party scene. Beaches from Calangute to Vagator each have
+distinct personalities ranging from family-friendly to bohemian.
+KEY ATTRACTIONS
+
+→ Anjuna Flea Market
+→ Baga & Calangute Beach
+→ Fort Aguada & Chapora Fort
+→ Vagator & Ozran cliffs
+→ Candolim beach promenade
+Tags: beach, party, flea market, colonial, portuguese, water sports, nightlife, backpacker
+
+South Goa
+TYPE
+
+Region
+
+STATE / UT
+
+Goa
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Coastal & Islands
+
+South Goa is quieter and more upscale than the north, with long empty stretches of white sand, luxury resorts, ancient
+spice plantations and the old Portuguese capital of Margao. Palolem's crescent-shaped bay and Agonda's pristine
+sands are among India's most beautiful beaches.
+KEY ATTRACTIONS
+
+→ Palolem Beach (crescent bay)
+→ Agonda Beach (quiet & pristine)
+→ Colva & Benaulim beaches
+→ Old Goa UNESCO churches & basilicas
+→ Dudhsagar Waterfalls
+Tags: luxury, quiet, white sand, colonial, portuguese churches, waterfalls, honeymoon, spa
+
+Gokarna
+TYPE
+
+Town
+
+STATE / UT
+
+Karnataka
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Coastal & Islands, Spirituality & Ghats
+
+Gokarna is a small temple town on the Karnataka coast that has evolved into a beloved backpacker beach destination.
+The pristine Om Beach — shaped like the Om symbol — and the quieter Half Moon and Paradise beaches attract
+travellers seeking a more authentic alternative to Goa, while the Mahabaleshwar Temple draws Hindu pilgrims.
+KEY ATTRACTIONS
+
+→ Om Beach
+
+— 15 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Half Moon & Paradise beaches
+→ Kudle Beach
+→ Mahabaleshwar Temple
+→ Sunset at Gokarna Fort
+Tags: backpacker, temple, om beach, peaceful, alternative goa, pilgrimage, sunset, konkan
+
+Andaman Islands
+TYPE
+
+Island Group / Region
+
+STATE / UT
+
+Andaman & Nicobar Islands (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Coastal & Islands
+
+The Andaman Islands are India's premier tropical island destination, boasting some of Asia's finest snorkelling and
+diving over pristine coral reefs. Port Blair is the gateway, while Havelock (Swaraj Dweep) and Neil (Shaheed Dweep)
+islands offer luminescent beaches of global renown.
+KEY ATTRACTIONS
+
+→ Radhanagar Beach (Havelock — Asia's best beach)
+→ Scuba diving at Havelock & Neil Island
+→ Cellular Jail (Kaala Pani) National Memorial
+→ North Bay Island
+→ Bioluminescent plankton kayaking
+Tags: tropical, coral reefs, scuba diving, pristine beaches, snorkelling, colonial history, island hopping
+
+Lakshadweep
+TYPE
+
+Island Group
+
+STATE / UT
+
+Lakshadweep (UT)
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Coastal & Islands
+
+India's only coral atoll archipelago in the Arabian Sea, Lakshadweep's 36 islands offer crystal-clear lagoons, vibrant
+coral reefs and an almost untouched marine ecosystem. Strict visitor limits have kept it remarkably pristine. Agatti
+Island has the main airport; Bangaram is a luxury resort island.
+KEY ATTRACTIONS
+
+→ Agatti Island lagoon
+→ Bangaram Island Resort
+→ Glass-bottom boat rides
+→ Scuba diving & snorkelling
+→ Minicoy Island lighthouse & local culture
+Tags: coral atoll, pristine, restricted, scuba, snorkelling, turquoise lagoon, luxury, secluded
+
+Varkala
+TYPE
+
+Town / Beach
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Coastal & Islands, Spirituality & Ghats
+
+Varkala is famous for its dramatic red cliffs dropping onto a golden beach — a setting unlike anywhere else in India.
+The clifftop North Cliff promenade is lined with yoga studios, Ayurveda centres, and beach restaurants. The ancient
+Janardhana Swami Temple adds a spiritual dimension to this unique coastal destination.
+KEY ATTRACTIONS
+
+→ North Cliff & Black Beach
+
+— 16 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Papanasam Beach
+→ Janardhana Swami Temple
+→ Cliff-top cafes & sunset viewing
+→ Ayurveda & yoga retreats
+Tags: cliff beach, yoga, ayurveda, temple, backpacker, sunset, kerala coast, serene
+
+Kovalam
+TYPE
+
+Town / Beach
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Coastal & Islands
+
+Kovalam, near Thiruvananthapuram, is Kerala's most developed beach resort town with a crescent of linked beaches
+known as Lighthouse Beach, Hawa Beach and Samudra Beach. It is the Ayurveda capital of Kerala's coast, drawing
+thousands annually for traditional Keralan massage and healing treatments.
+KEY ATTRACTIONS
+
+→ Lighthouse Beach
+→ Vizhinjam Fishing Harbour
+→ Kovalam Ayurveda resorts
+→ Samudra Beach
+→ Padmanabhapuram Palace (nearby)
+Tags: ayurveda, beach resort, lighthouse, kerala, fishing harbour, wellness, massage
+
+Karwar & Dandeli
+TYPE
+
+Town / Region
+
+STATE / UT
+
+Karnataka
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Coastal & Islands, Wildlife & Safaris
+
+Karwar is a pristine harbour town at the mouth of the Kali River on the northern Karnataka coast, offering unspoilt
+beaches largely untouched by mass tourism. Inland, Dandeli is Karnataka's adventure capital — a tiger reserve and
+white-water rafting hotspot on the Western Ghats rivers.
+KEY ATTRACTIONS
+
+→ Karwar beaches (Devbagh, Kurumgad Island)
+→ Dandeli White-water rafting (Kali River)
+→ Dandeli Wildlife Sanctuary (black panther, tigers)
+→ Supa Dam backwaters
+→ INS Chapal War Memorial Ship
+Tags: pristine beach, white water rafting, wildlife, black panther, offbeat, konkan, western ghats
+
+Tarkarli & Sindhudurg
+TYPE
+
+Town / Region
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Coastal & Islands
+
+Tarkarli on the Konkan coast is famous for the clearest waters in Maharashtra, excellent for scuba diving and
+snorkelling. The offshore Sindhudurg Fort — built by Chhatrapati Shivaji Maharaj — sits on a rocky island in the sea,
+accessible by boat, and is one of the finest sea forts in Asia.
+KEY ATTRACTIONS
+
+→ Tarkarli Beach & snorkelling
+
+— 17 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Sindhudurg Fort (sea fort island)
+→ Scuba diving at Malvan
+→ Devbagh Beach
+→ Konkan seafood cuisine
+Tags: sea fort, scuba, snorkelling, clear water, konkan, sindhudurg, maratha history
+
+Ratnagiri
+TYPE
+
+Town
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Coastal & Islands
+
+Ratnagiri on the Konkan coast is the birthplace of Bal Gangadhar Tilak and home to India's most prized Alphonso
+mangoes. Its red-laterite cliffs, ancient forts, pristine coves and Ganesh ghat make it a scenic and historically rich
+coastal destination largely undiscovered by international travellers.
+KEY ATTRACTIONS
+
+→ Ratnadurg Fort & lighthouse
+→ Bhatye Beach
+→ Thibaw Palace Museum
+→ Jaigad Fort
+→ Alphonso mango farms
+Tags: alphonso mangoes, fort, konkan, unspoilt, laterite cliffs, history, domestic gem
+
+— 18 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+ROYAL CITIES
+Jaipur
+TYPE
+
+City
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities
+
+The 'Pink City', Jaipur is the gateway to Rajasthan and one of India's most visited destinations. Its rose-pink buildings,
+magnificent forts, Mughal-Rajput palaces and vibrant bazaars combine to make it a UNESCO World Heritage-listed
+city of extraordinary colour and royal grandeur.
+KEY ATTRACTIONS
+
+→ Amber Fort & Sheesh Mahal (Mirror Palace)
+→ Hawa Mahal (Palace of Winds)
+→ City Palace & Diwan-i-Khas
+→ Jantar Mantar (UNESCO astronomical observatory)
+→ Nahargarh Fort sunset views
+Tags: pink city, UNESCO, fort, palace, rajput, bazaars, golden triangle, royal, heritage
+
+Udaipur
+TYPE
+
+City
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities
+
+Udaipur — the 'City of Lakes' — is widely considered India's most romantic city, its white marble palaces reflected in
+shimmering lakes against the backdrop of the Aravalli Hills. The Lake Palace hotel, appearing to float on Lake Pichola,
+is among the most photographed buildings in Asia.
+KEY ATTRACTIONS
+
+→ Lake Pichola boat ride
+→ City Palace complex (largest palace in Rajasthan)
+→ Jag Mandir Island Palace
+→ Sajjangarh (Monsoon Palace)
+→ Jagdish Temple
+Tags: city of lakes, romantic, lake palace, marble, rajput, wedding destination, luxury, heritage
+
+Jodhpur
+TYPE
+
+City
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Desert
+
+The 'Blue City', Jodhpur is dominated by the colossal Mehrangarh Fort rising 122 m from a rocky outcrop. The old city
+below is painted indigo blue, creating an iconic visual unlike any other in India. It serves as the western gateway to the
+Thar Desert and a hub for desert safaris and textile shopping.
+KEY ATTRACTIONS
+
+→ Mehrangarh Fort & museum
+
+— 19 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Jaswant Thada mausoleum
+→ Clock Tower & Sardar Market spice bazaar
+→ Umaid Bhawan Palace (still royal residence)
+→ Blue City old town walk
+Tags: blue city, fort, desert, rajput, spice market, palace hotel, royal, photography
+
+Jaisalmer
+TYPE
+
+City
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Desert
+
+The 'Golden City', Jaisalmer rises from the Thar Desert like a mirage — its honey-coloured sandstone fort and havelis
+(merchant mansions) glowing at sunset. It is India's quintessential desert city: camel safaris into the sand dunes of
+Sam and Khuri, folk music under the stars and intricately carved Jain temples await.
+KEY ATTRACTIONS
+
+→ Jaisalmer Fort (living fort, UNESCO-listed)
+→ Patwon Ki Haveli (5-storey merchant mansion)
+→ Sam Sand Dunes camel safari
+→ Gadisar Lake sunset
+→ Kuldhara abandoned village
+Tags: golden city, fort, sand dunes, camel safari, haveli, desert, folk music, living fort
+
+Bikaner
+TYPE
+
+City
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Desert
+
+Bikaner is a fascinating walled desert city famed for its medieval fort, ornate Jain havelis, camel breeding farm, and the
+extraordinary Karni Mata Temple (Rat Temple) at Deshnok. It is less touristed than Jaipur or Jodhpur but equally rich
+in royal architecture and desert heritage.
+KEY ATTRACTIONS
+
+→ Junagarh Fort
+→ Karni Mata Rat Temple (Deshnok)
+→ National Research Centre on Camel
+→ Laxmi Niwas Palace
+→ Bikaner Haveli trail
+Tags: fort, rat temple, camel, rajput, desert, walled city, offbeat, bikaneri bhujia
+
+Bundi
+TYPE
+
+Town
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Royal Cities
+
+Bundi is one of Rajasthan's best-kept secrets — a small medieval town with an impossibly photogenic palace covered
+in Rajput murals, a clifftop fort and step-wells (baoris) of exquisite craftsmanship. Rudyard Kipling lived here and wrote
+much of 'Kim' in the town. Backpackers adore it for its authenticity.
+KEY ATTRACTIONS
+
+→ Taragarh Fort
+
+— 20 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Bundi Palace (Chitrashala murals)
+→ 84-Pillar Cenotaph
+→ Raniji ki Baori (stepwell)
+→ Nawal Sagar Lake
+Tags: hidden gem, mural, fort, stepwell, kipling, offbeat, medieval, authentic rajasthan
+
+Pushkar
+TYPE
+
+Town
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Spirituality & Ghats,
+Desert
+
+Pushkar is one of Hinduism's holiest cities, built around the sacred Pushkar Lake with 52 bathing ghats and the rare
+Brahma Temple (one of very few in the world). Every November it hosts the Pushkar Camel Fair — the world's largest
+— a spectacular spectacle of thousands of camels, horses and cattle.
+KEY ATTRACTIONS
+
+→ Brahma Temple
+→ Pushkar Ghats (sacred lake bathing)
+→ Pushkar Camel Fair (November)
+→ Savitri Mata Temple hilltop
+→ Sunset at Sadar Bazaar
+Tags: holy lake, brahma temple, camel fair, pilgrimage, hindu, sunset, festival, backpacker
+
+Shekhawati Region
+TYPE
+
+Region
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Royal Cities
+
+Shekhawati is an open-air gallery of some of the finest painted havelis in the world, created by wealthy merchant
+families in the 18th–19th centuries. The towns of Mandawa, Nawalgarh, Fatehpur and Ramgarh contain thousands of
+buildings adorned with extraordinary frescoes — mythological, historical and fantastical.
+KEY ATTRACTIONS
+
+→ Mandawa Fort & painted havelis
+→ Nawalgarh fresco trail
+→ Fatehpur Shekhawati havelis
+→ Ramgarh cenotaphs
+→ Dundlod Fort
+Tags: fresco, painted havelis, open air gallery, heritage, offbeat, merchant culture, rajasthan
+
+Mount Abu
+TYPE
+
+Hill Station / Town
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Royal Cities, Spirituality & Ghats
+
+Mount Abu is Rajasthan's only hill station, rising to 1,220 m in the Aravalli Range. It is sacred to both Hindus and Jains
+— the Dilwara Temples here are considered among the finest examples of Jain marble craftsmanship anywhere in the
+world.
+KEY ATTRACTIONS
+
+→ Dilwara Jain Temples (11th–13th century marble carving)
+
+— 21 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Nakki Lake boating
+→ Guru Shikhar (highest peak in Rajasthan)
+→ Achalgarh Fort
+→ Sunset Point
+Tags: hill station, jain temple, marble, rajasthan, lake, sacred, aravalli, family
+
+Mysore
+TYPE
+
+City
+
+STATE / UT
+
+Karnataka
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Spirituality & Ghats
+
+Mysore — 'City of Palaces' — is famous for the stunning Mysore Palace, one of India's most visited buildings. It is the
+cultural capital of Karnataka, home to silk weaving, sandalwood crafts and a living Wadiyar royal tradition. The Dasara
+festival transforms Mysore into one of India's grandest royal spectacles.
+KEY ATTRACTIONS
+
+→ Mysore Palace (Dasara illuminated)
+→ Chamundeshwari Temple (Chamundi Hill)
+→ Brindavan Gardens (fountain & light show)
+→ Devaraja Market (silk & spices)
+→ Sri Jayachamarajendra Art Gallery
+Tags: palace, dasara, silk, sandalwood, royal, karnataka, heritage, festival
+
+— 22 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+DESERT
+Rann of Kutch
+TYPE
+
+Region / Seasonal Salt Marsh
+
+STATE / UT
+
+Gujarat
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Desert
+
+The Great Rann of Kutch is one of the world's largest salt deserts — a vast white expanse stretching 7,500 sq km that
+becomes submerged in monsoon and emerges as a spectral white plain under the full moon in winter. The Rann Utsav
+festival (Oct–Feb) celebrates the region's tribal crafts, folk music and flamingo colonies.
+KEY ATTRACTIONS
+
+→ White Rann full-moon night
+→ Rann Utsav festival
+→ Kala Dungar (Black Hill)
+→ Flamingo breeding colony (Little Rann)
+→ Dholavira (Harappan site, UNESCO)
+Tags: salt desert, white rann, full moon, flamingo, tribal crafts, festival, UNESCO, gujarat
+
+Thar Desert Circuit
+TYPE
+
+Circuit / Region
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Desert
+
+The Thar Desert — the Great Indian Desert — covers north-western Rajasthan and extends into Pakistan. The circuit
+through Jaisalmer, Barmer, Khuri and Longewala connects sand dune ecosystems, living villages, war memorials and
+authentic nomadic camps for an immersive desert experience.
+KEY ATTRACTIONS
+
+→ Sam & Khuri sand dunes
+→ Camel safari (overnight camping)
+→ Longewala War Memorial
+→ Barmer folk textiles & crafts
+→ Desert National Park (Great Indian Bustard habitat)
+Tags: thar desert, camel safari, sand dunes, stargazing, folk music, nomadic, rajasthan
+
+— 23 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+BACKWATERS
+Alleppey (Alappuzha)
+TYPE
+
+Town
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Backwaters
+
+Alleppey — the 'Venice of the East' — is the houseboat capital of India. Its intricate network of canals, lagoons and
+lakes formed by the Kerala Backwaters is navigated by traditional rice-barge houseboats (kettuvallams), offering one
+of the most unique and tranquil travel experiences in Asia.
+KEY ATTRACTIONS
+
+→ Houseboat cruise on backwaters
+→ Nehru Trophy Snake Boat Race (August)
+→ Alleppey Beach
+→ Kumarakom Bird Sanctuary (from boat)
+→ Pathiramanal Island
+Tags: houseboat, backwaters, venice of east, snake boat race, canal, kerala, tranquil, luxury
+
+Kumarakom
+TYPE
+
+Village / Resort Area
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Backwaters, Wildlife & Safaris
+
+Kumarakom on the shores of Vembanad Lake is Kerala's most luxurious backwater resort destination. The
+Kumarakom Bird Sanctuary is a haven for migratory birds including Siberian storks, and the village's lagoon-side
+Ayurveda resorts offer world-class wellness experiences.
+KEY ATTRACTIONS
+
+→ Kumarakom Bird Sanctuary
+→ Vembanad Lake houseboat cruises
+→ Ayurveda resort stays
+→ Kottayam heritage churches (nearby)
+→ Sunset over the lake
+Tags: luxury resort, bird sanctuary, vembanad lake, backwaters, ayurveda, wellness, migratory birds
+
+— 24 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+SPIRITUALITY & GHATS
+Varanasi
+TYPE
+
+City
+
+STATE / UT
+
+Uttar Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Varanasi is one of the world's oldest continuously inhabited cities and Hinduism's most sacred city. The ghats of the
+Ganga are a theatre of human existence — morning yoga, boat rides past burning ghats, temple rituals, sadhus and
+the evening Ganga Aarti fire ceremony make it an overwhelming, unmissable experience.
+KEY ATTRACTIONS
+
+→ Ganga Aarti at Dashashwamedh Ghat (evening)
+→ Dawn boat ride past 84 ghats
+→ Manikarnika & Harishchandra burning ghats
+→ Kashi Vishwanath Temple (Jyotirlinga)
+→ Sarnath (where Buddha gave first sermon)
+Tags: hinduism, ganges, ghat, aarti, oldest city, burning ghat, spiritual, buddhism, sarnath
+
+Haridwar
+TYPE
+
+City
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Haridwar — 'Gateway to God' — is where the Ganges descends from the Himalayas onto the plains, making it one of
+the seven holiest cities in Hinduism. The evening Ganga Aarti at Har Ki Pauri Ghat, where priests wave fire lamps over
+the river, is one of India's most moving spiritual spectacles.
+KEY ATTRACTIONS
+
+→ Har Ki Pauri Ghat & Ganga Aarti
+→ Mansa Devi Temple (ropeway)
+→ Chandi Devi Temple
+→ Kumbh Mela site (held every 12 years)
+→ Patanjali Yogpeeth Institute
+Tags: ganges, ghat, aarti, kumbh mela, pilgrimage, yoga, haridwar, sacred, holy city
+
+Amritsar
+TYPE
+
+City
+
+STATE / UT
+
+Punjab
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Amritsar is the spiritual and cultural capital of Sikhism, home to the Golden Temple (Harmandir Sahib) — the holiest
+shrine in Sikhism and one of the most visited places in the world. The Jallianwala Bagh massacre memorial and the
+Wagah Border flag ceremony add profound historical dimensions.
+KEY ATTRACTIONS
+
+→ Golden Temple (Harmandir Sahib)
+
+— 25 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Jallianwala Bagh Memorial
+→ Wagah Border Ceremony (sunset flag-lowering)
+→ Akal Takht
+→ Amritsari food trail (kulcha, lassi)
+Tags: golden temple, sikh, spiritual, jallianwala bagh, partition, wagah border, heritage, punjab
+
+Bodh Gaya
+TYPE
+
+Town
+
+STATE / UT
+
+Bihar
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Bodh Gaya is the most sacred site in Buddhism — the place where Siddhartha Gautama attained enlightenment under
+the Bodhi Tree. The Mahabodhi Temple complex (UNESCO World Heritage) attracts Buddhist pilgrims from Tibet,
+Thailand, Sri Lanka, Japan, and around the world.
+KEY ATTRACTIONS
+
+→ Mahabodhi Temple (UNESCO)
+→ Bodhi Tree (sacred fig under which Buddha meditated)
+→ Thai, Japanese, Chinese & Tibetan monasteries
+→ Buddha relics & meditation parks
+→ Great Buddha Statue (25 m)
+Tags: buddhism, enlightenment, bodhi tree, UNESCO, pilgrimage, meditation, monks, sacred
+
+Tirupati
+TYPE
+
+Town
+
+STATE / UT
+
+Andhra Pradesh
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+The Tirumala Venkateswara Temple at Tirupati is the richest and most visited place of worship in the world, receiving
+50,000–100,000 pilgrims daily. The main deity, Lord Venkateswara, is believed to grant all wishes, and the tradition of
+tonsuring (head shaving) as an offering is observed by millions.
+KEY ATTRACTIONS
+
+→ Tirumala Venkateswara Temple (world's richest temple)
+→ Chandragiri Fort
+→ Sri Padmavathi Ammavari Temple (Tiruchanur)
+→ Kapila Theertham waterfall
+→ ISKCON Temple
+Tags: richest temple, venkateswara, pilgrimage, tonsure, andhra, hinduism, world's most visited
+
+Puri
+TYPE
+
+Town
+
+STATE / UT
+
+Odisha
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats, Coastal & Islands
+
+Puri is one of Hinduism's four sacred Dhams and home to the Jagannath Temple — one of India's most important
+shrines. The annual Rath Yatra chariot festival draws millions and is the world's largest chariot procession. The
+adjacent beach is one of Odisha's most popular seaside resorts.
+KEY ATTRACTIONS
+
+→ Jagannath Temple
+
+— 26 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Rath Yatra Chariot Festival (June–July)
+→ Puri Beach & Swargadwar
+→ Chilika Lake (Asia's largest brackish lagoon)
+→ Konark Sun Temple (45 km)
+Tags: char dham, rath yatra, jagannath, chariot festival, pilgrimage, odisha, beach, chilika
+
+Ajmer & Pushkar
+TYPE
+
+Town
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Ajmer's Dargah Sharif — the shrine of Sufi saint Khwaja Moinuddin Chishti — is among the most important Muslim
+pilgrimage sites in South Asia, drawing devotees of all faiths. Just 11 km away, Pushkar is one of Hinduism's holiest
+sites, creating an extraordinary interfaith corridor.
+KEY ATTRACTIONS
+
+→ Dargah Sharif of Khwaja Moinuddin Chishti
+→ Qawwali music at the dargah
+→ Ana Sagar Lake
+→ Taragarh Fort
+→ Pushkar Brahma Temple
+Tags: sufi, dargah, pilgrimage, interfaith, qawwali, muslim shrine, rajasthan, spiritual
+
+Shirdi
+TYPE
+
+Town
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Shirdi is home to the Sai Baba Samadhi Mandir — one of the wealthiest temples in India and the most visited
+destination in Maharashtra. Millions of devotees from all religions visit annually to pay homage to Sai Baba, a saint
+revered by Hindus, Muslims and people of all faiths.
+KEY ATTRACTIONS
+
+→ Sai Baba Samadhi Mandir
+→ Dwarkamai Mosque (Sai Baba's dwelling)
+→ Chavadi (where Sai Baba slept alternate nights)
+→ Lendi Baugh (Sai Baba's garden)
+→ Gurusthan
+Tags: sai baba, pilgrimage, interfaith, maharashtra, temple, devotion, spiritual
+
+— 27 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+WILDLIFE & SAFARIS
+Jim Corbett National Park
+TYPE
+
+National Park
+
+STATE / UT
+
+Uttarakhand
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris, Mountains
+
+Jim Corbett is India's oldest and most famous national park, established in 1936 and the flagship of Project Tiger. The
+Ramganga River flows through its sal forests, grasslands and river-side terrains, creating a diverse habitat. It holds
+one of the highest densities of Bengal tigers in India.
+KEY ATTRACTIONS
+
+→ Dhikala zone tiger safaris
+→ Bijrani & Jhirna zone jeep safaris
+→ Ramganga River bird watching
+→ Asian elephant sightings
+→ Night sky & forest lodge stays
+Tags: tiger, bengal tiger, project tiger, elephant, safari, oldest park, uttarakhand, birdwatching
+
+Ranthambore National Park
+TYPE
+
+Tiger Reserve / National Park
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Ranthambore is India's most famous tiger reserve, where tigers are relatively habituated to vehicles — making it one
+of the best places in Asia for tiger photography. The dramatic backdrop of the 10th-century Ranthambore Fort rising
+above the jungle adds a unique historical dimension to wildlife safaris.
+KEY ATTRACTIONS
+
+→ Bengal tiger jeep & canter safaris
+→ Ranthambore Fort (inside the park)
+→ Padam Talao lake & crocodiles
+→ Leopard, sloth bear & sambar deer sightings
+→ Photography safaris
+Tags: tiger, best tiger sighting, fort, rajasthan, leopard, photography, safari, luxury lodge
+
+Kaziranga National Park
+TYPE
+
+National Park / UNESCO Site
+
+STATE / UT
+
+Assam
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris, Northeast & Living
+Roots
+
+Kaziranga is a UNESCO World Heritage Site holding two-thirds of the world's endangered one-horned rhinoceros
+population. Its vast floodplain grasslands along the Brahmaputra River also shelter the highest density of tigers in any
+protected area in the world, alongside wild elephants, water buffalo and swamp deer.
+KEY ATTRACTIONS
+
+→ One-horned rhino jeep safari
+
+— 28 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Elephant safari at dawn
+→ Boat safari on Brahmaputra
+→ Bird watching (over 470 species)
+→ Tea estate visits (nearby)
+Tags: UNESCO, one-horned rhino, tiger, elephant, assam, brahmaputra, grassland, endemic species
+
+Bandhavgarh National Park
+TYPE
+
+Tiger Reserve
+
+STATE / UT
+
+Madhya Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Bandhavgarh has one of the highest densities of Bengal tigers in India and is consistently rated among the best parks
+for tiger sightings. The ancient Bandhavgarh Fort with its giant reclining Vishnu statue adds an archaeological
+dimension to the wildlife experience.
+KEY ATTRACTIONS
+
+→ Tiger safari (highest sighting success rate)
+→ Bandhavgarh Fort & cave temples
+→ Leopard, sloth bear & gaur sightings
+→ White tiger heritage (the first captive white tiger came from here)
+→ Tala zone morning safaris
+Tags: tiger, high density, madhya pradesh, fort, leopard, safari, white tiger, photography
+
+Kanha National Park
+TYPE
+
+Tiger Reserve / National Park
+
+STATE / UT
+
+Madhya Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Kanha inspired Rudyard Kipling's 'The Jungle Book' and remains one of India's finest wildlife sanctuaries. Its vast
+meadows (maidans) dotted with sal and bamboo forests are prime tiger country, while Kanha is also credited with
+saving the barasingha (swamp deer) from extinction.
+KEY ATTRACTIONS
+
+→ Tiger & barasingha safaris
+→ Kanha meadows at dawn
+→ Jungle Book connections (Seeonee Hills)
+→ Wild dog (dhole) packs
+→ Bamni Dadar viewpoint (sunset)
+Tags: jungle book, tiger, barasingha, meadow, kipling, madhya pradesh, wild dog, safari
+
+Pench National Park
+TYPE
+
+Tiger Reserve
+
+STATE / UT
+
+Madhya Pradesh / Maharashtra
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Pench — another Jungle Book landscape — straddles Madhya Pradesh and Maharashtra, offering superb wildlife in
+less crowded conditions than Kanha or Bandhavgarh. It is famous for its leopards, wild dogs, and the tiger named
+'Collarwali' — one of the most prolific and studied tigresses in India.
+KEY ATTRACTIONS
+
+→ Tiger & leopard safaris
+
+— 29 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Pench River boat safaris
+→ Wild dog (dhole) pack hunts
+→ Birdwatching (280+ species)
+→ Luxury tented camps
+Tags: jungle book, tiger, leopard, wild dog, less crowded, luxury safari, madhya pradesh
+
+Tadoba-Andhari Tiger Reserve
+TYPE
+
+Tiger Reserve
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Tadoba is Maharashtra's oldest and largest national park, gaining fame as a tiger hotspot with excellent sighting rates.
+Its teak forests, bamboo groves and Tadoba Lake make it visually dramatic, and the resident tigers — including the
+celebrated Matkasur family — are well studied and habituated.
+KEY ATTRACTIONS
+
+→ Tiger safari (consistently good sightings)
+→ Tadoba Lake wildlife viewing
+→ Gaur (Indian bison) & sloth bear
+→ Chousingha (four-horned antelope)
+→ Moharli & Kolsa zone safaris
+Tags: tiger, maharashtra, teak forest, matkasur, gaur, leopard, safari, trending
+
+Gir Forest National Park
+TYPE
+
+National Park / Wildlife Sanctuary
+
+STATE / UT
+
+Gujarat
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+Gir is the last wild habitat of the Asiatic lion — found nowhere else on Earth outside Africa. The park's dry deciduous
+forests in Saurashtra shelter around 600 lions, plus leopards, hyenas and the largest population of crocodiles in
+Gujarat. Lion safari is among India's most exclusive wildlife experiences.
+KEY ATTRACTIONS
+
+→ Asiatic lion safari (open jeep)
+→ Kamleshwar Dam & crocodiles
+→ Leopard & hyena sightings
+→ Gir Interpretation Zone (Devalia)
+→ Somnath Temple (nearby)
+Tags: asiatic lion, unique, saurashtra, only place on earth, leopard, gujarat, wildlife
+
+Sundarbans
+TYPE
+
+National Park / UNESCO Site
+
+STATE / UT
+
+West Bengal
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+The Sundarbans is the world's largest mangrove forest (10,000 sq km) and a UNESCO World Heritage Site, straddling
+India and Bangladesh. It is the only place in the world where Bengal tigers live in a mangrove tidal delta ecosystem —
+these 'swimming tigers' are uniquely adapted to the saltwater environment.
+KEY ATTRACTIONS
+
+→ Royal Bengal tiger boat safaris
+
+— 30 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Mangrove creek exploration by boat
+→ Sajnekhali Tiger Reserve Watch Tower
+→ Dobanki Camp canopy walk
+→ Fishing villages & honey collectors (Mawali)
+Tags: UNESCO, mangrove, swimming tiger, bengal tiger, boat safari, delta, unique ecosystem
+
+Nagarhole & Bandipur (Nilgiri Biosphere)
+TYPE
+
+National Park / Tiger Reserve
+
+STATE / UT
+
+Karnataka / Tamil Nadu
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris, Tea Plantations &
+Valleys
+
+Nagarhole (Rajiv Gandhi National Park) and adjacent Bandipur together form the core of the Nilgiri Biosphere Reserve
+— India's largest tiger conservation area. The contiguous forests here hold the highest concentration of Asian
+elephants in the world, alongside tigers, leopards and the endemic Nilgiri tahr.
+KEY ATTRACTIONS
+
+→ Asian elephant safaris & herds
+→ Tiger & leopard sightings
+→ Kabini River sunset boat ride
+→ Kabini Dam backwaters
+→ Star gazing at wildlife lodges
+Tags: elephant, tiger, kabini, nilgiri biosphere, leopard, nature, karnataka, luxury lodge
+
+Periyar Tiger Reserve
+TYPE
+
+Tiger Reserve / National Park
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris, Tea Plantations &
+Valleys
+
+Periyar, in the heart of Thekkady's spice hills, is one of India's most accessible and scenic wildlife reserves. Boat rides
+on the Periyar Lake offer relaxed wildlife watching — herds of elephants, sambar deer and otters come to the water's
+edge — while the surrounding tea and cardamom estates perfume the air.
+KEY ATTRACTIONS
+
+→ Periyar Lake boat safari
+→ Bamboo rafting
+→ Elephant herds & otters
+→ Border hiking (with tribal guides)
+→ Kumily spice market
+Tags: periyar lake, elephant, boat safari, kerala, spices, cardamom, thekkady, accessible
+
+— 31 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+TEA PLANTATIONS & VALLEYS
+Munnar
+TYPE
+
+Town / Hill Station
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Tea Plantations & Valleys, Mountains
+
+Munnar is Kerala's premier hill station, its valleys blanketed in endless rolling tea estates at 1,600 m. The rare
+Neelakurinji flower — which blooms only once every 12 years, turning the hillsides purple — is Munnar's most
+celebrated natural phenomenon. Misty mornings, wildlife and cardamom forests add to its appeal.
+KEY ATTRACTIONS
+
+→ Rolling tea plantation drives
+→ Eravikulam National Park (Nilgiri tahr)
+→ Top Station viewpoint
+→ Mattupetty Dam & Echo Point
+→ Neelakurinji blooms (every 12 years)
+Tags: tea, hill station, kerala, neelakurinji, nilgiri tahr, mist, honey, cardamom, honeymoon
+
+Darjeeling
+TYPE
+
+Town / Hill Station
+
+STATE / UT
+
+West Bengal
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Tea Plantations & Valleys, Mountains
+
+Darjeeling, at 2,042 m in the Eastern Himalayas, is synonymous with the world's finest teas. The Toy Train (UNESCO
+World Heritage), views of the Kanchenjunga, colonial-era clubs and the famous sunrise from Tiger Hill make it India's
+most beloved hill station. Darjeeling's FTGFOP1 first-flush teas are liquid gold.
+KEY ATTRACTIONS
+
+→ Toy Train (Darjeeling Himalayan Railway, UNESCO)
+→ Tiger Hill sunrise with Kanchenjunga view
+→ Happy Valley Tea Estate tour
+→ Batasia Loop & War Memorial
+→ Himalayan Mountaineering Institute
+Tags: tea, toy train, UNESCO, kanchenjunga, sunrise, tiger hill, hill station, colonial, bengal
+
+Ooty (Udhagamandalam)
+TYPE
+
+Town / Hill Station
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Tea Plantations & Valleys, Mountains
+
+Ooty is the 'Queen of Hill Stations' — the most famous hill resort in South India. The Nilgiri Mountain Railway (Toy
+Train) UNESCO heritage line, botanical gardens, the Ooty Lake and surrounding eucalyptus and tea estates have
+drawn visitors since the British Raj.
+KEY ATTRACTIONS
+
+→ Nilgiri Mountain Railway (UNESCO Toy Train)
+
+— 32 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Ooty Botanical Gardens
+→ Doddabetta Peak (Nilgiris' highest point)
+→ Ooty Lake boating
+→ Tea Factory tour
+Tags: toy train, UNESCO, nilgiris, queen of hill stations, botanical garden, tea, tamil nadu
+
+Coonoor
+TYPE
+
+Town / Hill Station
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Tea Plantations & Valleys, Mountains
+
+Coonoor is quieter and less crowded than Ooty but equally beautiful, with terraced tea gardens cascading down the
+Nilgiri slopes. Sim's Park is a magnificent botanical garden, and the town serves as the main gateway for the Nilgiri
+Mountain Railway experience between Mettupalayam and Ooty.
+KEY ATTRACTIONS
+
+→ Sim's Park botanical garden
+→ Tea estate drives & factory tours
+→ Dolphin's Nose viewpoint
+→ Lamb's Rock viewpoint
+→ Nilgiri Mountain Railway (Coonoor station)
+Tags: tea, nilgiris, quiet, botanical garden, toy train, peaceful, offbeat, viewpoints
+
+Wayanad
+TYPE
+
+District / Region
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Tea Plantations & Valleys, Wildlife &
+Safaris, Mountains
+
+Wayanad is a lush highland district in Kerala's northern Western Ghats, blanketed with coffee, tea and spice
+plantations interspersed with tribal villages and wildlife corridors. Edakkal Caves contain Neolithic petroglyphs over
+6,000 years old, while Chembra Peak's heart-shaped lake is a trekking icon.
+KEY ATTRACTIONS
+
+→ Edakkal Caves (Neolithic carvings)
+→ Chembra Peak & heart-shaped lake trek
+→ Wayanad Wildlife Sanctuary
+→ Banasura Sagar Dam (India's largest earthen dam)
+→ Pookode Lake
+Tags: coffee, tea, spice, tribal, neolithic, trekking, wildlife, kerala, offbeat, waterfall
+
+— 33 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+VIBRANT METROPOLISES
+Delhi
+TYPE
+
+City
+
+STATE / UT
+
+Delhi (NCT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises, Royal Cities,
+Spirituality & Ghats
+
+Delhi, India's capital, layers 3,000 years of history from the Mughal Empire to the modern Republic. Old Delhi's lanes
+around the Red Fort and Jama Masjid contrast sharply with Lutyens' Delhi's grand colonial boulevards and New
+Delhi's diplomatic enclaves. It is the gateway for millions of international travellers.
+KEY ATTRACTIONS
+
+→ Red Fort (UNESCO)
+→ Qutub Minar complex (UNESCO)
+→ Humayun's Tomb (UNESCO)
+→ Chandni Chowk (Mughal-era spice & food market)
+→ India Gate & Rashtrapati Bhavan
+Tags: capital, mughal, UNESCO, red fort, qutub minar, old delhi, gateway of india, food, heritage
+
+Mumbai
+TYPE
+
+City
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises, Coastal &
+Islands
+
+Mumbai — the 'City of Dreams' — is India's financial capital, Bollywood's home and a city of extraordinary contrasts.
+Its Gothic colonial architecture, Art Deco seafront, island forts, bustling street food and Asia's largest slum Dharavi sit
+alongside luxury neighbourhoods and one of the world's most vibrant arts scenes.
+KEY ATTRACTIONS
+
+→ Gateway of India
+→ Marine Drive (Queen's Necklace)
+→ Elephanta Caves (UNESCO island)
+→ Dharavi Slum Tour
+→ Chhatrapati Shivaji Maharaj Terminus (UNESCO)
+Tags: bollywood, financial capital, colonial, art deco, gateway, dharavi, marine drive, UNESCO
+
+Bengaluru (Bangalore)
+TYPE
+
+City
+
+STATE / UT
+
+Karnataka
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises
+
+Bengaluru is India's Silicon Valley and the fastest-growing major city in Asia. Known for its pleasant climate, startup
+culture, craft beer scene, colonial parks and vibrant arts communities, it is the modern face of India's economic rise —
+a cosmopolitan city that blends technology, tradition and progressive culture.
+KEY ATTRACTIONS
+
+→ Lalbagh Botanical Garden
+
+— 34 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Cubbon Park
+→ ISKCON Temple (one of world's largest)
+→ Bengaluru Palace
+→ Brigade Road & MG Road nightlife & dining
+Tags: silicon valley, startup, craft beer, colonial parks, tech, cosmopolitan, modern india
+
+Kolkata
+TYPE
+
+City
+
+STATE / UT
+
+West Bengal
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises
+
+Kolkata — the 'City of Joy' and former British capital of India — is the cultural and intellectual heart of the nation. Its
+crumbling colonial grandeur, world-class art scene, Durga Puja festival, hand-pulled rickshaws, Tagore's Rabindranath
+heritage and legendary Bengali cuisine make it one of India's most richly textured cities.
+KEY ATTRACTIONS
+
+→ Howrah Bridge & Hooghly River
+→ Victoria Memorial
+→ Durga Puja (October festival)
+→ College Street (world's largest secondhand book market)
+→ Kumartuli (clay idol sculptors' quarter)
+Tags: colonial, durga puja, culture, howrah bridge, tagore, bengali cuisine, books, festival
+
+Chennai
+TYPE
+
+City
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises, Coastal &
+Islands, Spirituality & Ghats
+
+Chennai is the capital of Tamil Nadu and the gateway to South India. It is India's fourth-largest city and the centre of
+classical Carnatic music, Bharatanatyam dance, ancient Dravidian temple architecture and South Indian cinema.
+Marina Beach — the world's second-longest urban beach — runs the length of the city.
+KEY ATTRACTIONS
+
+→ Marina Beach (world's 2nd longest)
+→ Kapaleeshwarar Temple (Mylapore)
+→ Fort St George & St Mary's Church
+→ Mahabalipuram (UNESCO, 60 km south)
+→ Kalakshetra (classical arts academy)
+Tags: carnatic music, bharatanatyam, dravidian, marina beach, temple, tamil culture, gateway south india
+
+Hyderabad
+TYPE
+
+City
+
+STATE / UT
+
+Telangana
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises, Royal Cities
+
+Hyderabad — the 'City of Pearls' — blends Mughal grandeur with modern IT prosperity. The Charminar, Golconda
+Fort, pearl and bangles bazaars, dum biryani and the Nizam's lavish palaces create a city of extraordinary historical
+depth and culinary richness.
+KEY ATTRACTIONS
+
+→ Charminar (400-year-old monument)
+
+— 35 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Golconda Fort & Sound & Light Show
+→ Chowmahalla Palace (Nizam's palace)
+→ Laad Bazaar (bangles & pearls)
+→ Ramoji Film City (world's largest)
+Tags: nizam, biryani, charminar, pearls, mughal, hyderabadi cuisine, ramoji, telangana, IT hub
+
+— 36 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+NORTHEAST & LIVING ROOTS
+Shillong
+TYPE
+
+City
+
+STATE / UT
+
+Meghalaya
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots, Mountains
+
+Shillong — the 'Scotland of the East' — is the capital of Meghalaya and the cultural hub of the Northeast, famous for
+its pine-covered rolling hills, British-era architecture, thriving music scene and proximity to Cherrapunji. It is one of
+India's few cities where rock music is a cultural institution.
+KEY ATTRACTIONS
+
+→ Ward's Lake
+→ Shillong Peak & Air Force viewpoint
+→ Police Bazaar
+→ Don Bosco Museum (Northeast tribal culture)
+→ Umiam Lake (Barapani)
+Tags: scotland of east, rock music, meghalaya, colonial, lake, tribal culture, misty, music
+
+Cherrapunji & Mawsynram
+TYPE
+
+Town / Region
+
+STATE / UT
+
+Meghalaya
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots, Mountains
+
+Cherrapunji (Sohra) and nearby Mawsynram are the wettest places on Earth — receiving over 11,000 mm of rainfall
+annually. The result is a world of extraordinary waterfalls, living root bridges grown by the Khasi people over centuries,
+emerald gorges and mist-shrouded forests of unparalleled lushness.
+KEY ATTRACTIONS
+
+→ Living Root Bridges (double-decker at Nongriat)
+→ Nohkalikai Falls (4th highest in world)
+→ Seven Sisters Falls (Mawsmai)
+→ Mawsmai Caves
+→ Dainthlen Falls
+Tags: wettest place, living root bridges, waterfall, khasi tribal, UNESCO candidate, trekking, meghalaya
+
+Mawlynnong
+TYPE
+
+Village
+
+STATE / UT
+
+Meghalaya
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots
+
+Mawlynnong is known as the 'Cleanest Village in Asia' — a title it has held with extraordinary pride. This Khasi village,
+near the Bangladesh border, is famous for its immaculate bamboo paths, sky-view tree platforms, community spirit
+and the nearby Dawki River's impossibly transparent water.
+KEY ATTRACTIONS
+
+→ Village cleanliness walk & eco-tourism
+
+— 37 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Sky Walk bamboo tree platform
+→ Living root bridge (15 min walk)
+→ Dawki River (transparent water & boating)
+→ Bangladesh border viewpoint
+Tags: cleanest village, khasi, eco-tourism, community, living root bridge, meghalaya, dawki
+
+Dawki & Umngot River
+TYPE
+
+Town / River
+
+STATE / UT
+
+Meghalaya
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots
+
+Dawki on the Umngot River is one of India's most photographed destinations — the river's extraordinary clarity makes
+boats appear to float on glass. The annual Dawki boat race is a colourful Khasi tradition, and the Bangladesh border
+bridge is a fascinating cultural crossing point.
+KEY ATTRACTIONS
+
+→ Umngot River boating (crystal clear water)
+→ Dawki Suspension Bridge
+→ Bangladesh border at Tamabil
+→ Annual boat race
+→ Surrounding limestone cave systems
+Tags: crystal clear river, transparent water, boating, khasi, meghalaya, border, instagram, photography
+
+Kaziranga (Assam)
+TYPE
+
+National Park / UNESCO
+
+STATE / UT
+
+Assam
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots, Wildlife &
+Safaris
+
+See Wildlife section — listed here for Northeast coverage. Kaziranga is Assam's crown jewel and the Northeast's most
+visited national park, combining the UNESCO world heritage experience with proximity to the tea estates of upper
+Assam.
+KEY ATTRACTIONS
+
+→ One-horned rhino
+→ Elephant safari
+→ Tiger sighting
+→ Brahmaputra river
+→ Tea estates (Jorhat & Dibrugarh)
+Tags: UNESCO, rhino, assam, northeast, tea, brahmaputra, elephant, world heritage
+
+Majuli Island
+TYPE
+
+Island / Town
+
+STATE / UT
+
+Assam
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Northeast & Living Roots
+
+Majuli is the world's largest river island (on the Brahmaputra River) and a UNESCO World Heritage candidate. It is the
+spiritual and cultural heartland of Assamese Neo-Vaishnavism, with ancient Satras (monasteries) preserving
+mask-making, classical dance and weaving traditions unique to Assam.
+KEY ATTRACTIONS
+
+→ Satras (Vaishnavite monasteries): Auniati, Kamalabari, Garamur
+
+— 38 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Mask-making & dance traditions
+→ Bird watching (migratory birds on river)
+→ Mishing tribal villages
+→ Brahmaputra river ferry
+Tags: river island, world's largest, satra, vaishnavism, mask, tribal, assam, cultural heritage
+
+Nagaland & Hornbill Festival
+TYPE
+
+State / Festival Destination
+
+STATE / UT
+
+Nagaland
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Northeast & Living Roots
+
+Nagaland's Hornbill Festival — held every December in Kisama — is the most vibrant tribal cultural festival in India,
+showcasing the traditions of 17 Naga tribes in one breathtaking venue. Warrior dances, traditional foods, log drums,
+indigenous crafts and headhunting history make Nagaland utterly unique.
+KEY ATTRACTIONS
+
+→ Hornbill Festival (1st week December)
+→ Kohima War Cemetery (WWII)
+→ Dzükou Valley Trek (Nagaland–Manipur border)
+→ Touphema Tourist Village (traditional Naga village)
+→ Khonoma Green Village
+Tags: hornbill festival, naga tribe, warrior, cultural, WWII, dzukou valley, tribal, headhunting history
+
+Gangtok & Sikkim Circuit
+TYPE
+
+Circuit / State
+
+STATE / UT
+
+Sikkim
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Northeast & Living Roots, Mountains
+
+See Mountains section — Sikkim Circuit covers Gangtok, Pelling, Yuksom and North Sikkim
+(Lachen/Lachung/Yumthang). Sikkim is India's first fully organic state and a biodiversity hotspot, with the
+Kanchenjunga Biosphere Reserve and living Buddhist monastery culture.
+KEY ATTRACTIONS
+
+→ Nathu La Pass
+→ Gurudongmar Lake (North Sikkim)
+→ Tsomgo Lake
+→ Kanchenjunga trek
+→ Rumtek Monastery
+Tags: organic state, kanchenjunga, monastery, north sikkim, himalayan, biodiversity, circuit
+
+— 39 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+HERITAGE
+Hampi
+TYPE
+
+Heritage Town / UNESCO Site
+
+STATE / UT
+
+Karnataka
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities
+
+Hampi is one of India's most extraordinary archaeological sites — the ruined capital of the Vijayanagara Empire
+(14th–16th century) scattered across a surreal landscape of giant boulders, banana plantations and the Tungabhadra
+River. Corinthian temples, elephant stables and market streets speak of a civilisation of immense wealth and
+sophistication.
+KEY ATTRACTIONS
+
+→ Virupaksha Temple (still active place of worship)
+→ Vittala Temple & Stone Chariot (UNESCO)
+→ Hampi Bazaar & Hemakuta Hill
+→ Matanga Hill sunrise
+→ Hippie Island (Virupapur Gadde) across the river
+Tags: UNESCO, vijayanagara empire, boulder landscape, temple, backpacker, ruins, karnataka, ancient
+
+Khajuraho
+TYPE
+
+Town / UNESCO Site
+
+STATE / UT
+
+Madhya Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities
+
+Khajuraho's Chandela temples (10th–11th century) are among the finest medieval temple complexes in the world,
+celebrated for their exquisite erotic sculptures representing all aspects of human life. The UNESCO World Heritage
+temples are masterpieces of Nagara-style architecture.
+KEY ATTRACTIONS
+
+→ Western Temple Group (UNESCO) — Kandariya Mahadeva Temple
+→ Eastern & Southern Temple groups
+→ Sound & Light Show (temple gardens)
+→ Panna National Park (tigers, nearby)
+→ Local tribal villages
+Tags: UNESCO, erotic sculpture, chandela, medieval temple, nagara architecture, madhya pradesh
+
+Mahabalipuram (Mamallapuram)
+TYPE
+
+Town / UNESCO Site
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Coastal & Islands
+
+Mahabalipuram on the Coromandel Coast is a UNESCO World Heritage Site containing some of the finest examples
+of Pallava rock-cut and structural architecture. The Shore Temple, the Five Rathas and the giant bas-relief of Arjuna's
+Penance are masterpieces carved directly from coastal rock faces 1,300 years ago.
+KEY ATTRACTIONS
+
+→ Shore Temple (UNESCO)
+
+— 40 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Arjuna's Penance (world's largest bas-relief)
+→ Five Rathas (Pancha Rathas)
+→ Varaha Cave Temple
+→ Mahabalipuram Beach
+Tags: UNESCO, pallava, shore temple, rock cut, sculpture, coastal heritage, tamil, ancient
+
+Konark Sun Temple
+TYPE
+
+Temple / UNESCO Site
+
+STATE / UT
+
+Odisha
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats
+
+The Konark Sun Temple is one of India's greatest architectural achievements — a 13th-century stone chariot for the
+Sun God with 24 elaborately carved wheels and 7 galloping horses, built on an enormous scale. The temple's erotic
+sculptures, Odishan dance festival and coastal location make it a remarkable destination.
+KEY ATTRACTIONS
+
+→ Sun Temple main structure (UNESCO)
+→ Konark Dance Festival (December)
+→ Archaeological Museum
+→ Chandrabhaga Beach
+→ Ramachandi Beach
+Tags: UNESCO, sun temple, chariot, orissa, sculpture, konark dance festival, 13th century
+
+Ajanta & Ellora Caves
+TYPE
+
+UNESCO Site / Archaeological
+Complex
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Ajanta's 29 Buddhist cave monasteries (2nd century BC–6th century AD) contain the finest surviving examples of
+ancient Indian painting in the world. Ellora's 34 caves encompass Buddhist, Hindu and Jain temples carved from
+volcanic rock — including the monolithic Kailasa Temple, the world's largest rock-cut structure.
+KEY ATTRACTIONS
+
+→ Ajanta paintings (UNESCO)
+→ Ellora's Kailasa Temple (Cave 16)
+→ Ellora Hindu, Buddhist & Jain cave groups
+→ Daulatabad Fort (nearby)
+→ Aurangabad city & Bibi Ka Maqbara (Taj replica)
+Tags: UNESCO, cave paintings, kailasa temple, rock cut, buddhism, jainism, hinduism, ancient, aurangabad
+
+Orchha
+TYPE
+
+Town / Heritage Site
+
+STATE / UT
+
+Madhya Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities
+
+Orchha is a remarkably well-preserved medieval Bundela capital on the Betwa River, whose temples, cenotaphs,
+palaces and chhatris rise from the banks like a forgotten dream. Less visited than Rajasthan's forts yet equally
+beautiful, Orchha is a top recommendation for heritage travellers seeking an authentic, uncrowded experience.
+KEY ATTRACTIONS
+
+→ Raj Mahal & Jehangir Mahal (palace complex)
+
+— 41 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Ram Raja Temple (unique palace-temple)
+→ Chatturbhuj Temple
+→ Chhatris (cenotaphs) on Betwa River
+→ Orchha Wildlife Sanctuary (vultures)
+Tags: hidden gem, bundela, medieval, cenotaphs, temple, betwa river, offbeat, heritage, rajasthan adjacent
+
+Madurai
+TYPE
+
+City
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Spirituality & Ghats, Royal Cities
+
+Madurai is one of the oldest continuously inhabited cities in the world and the temple city of Tamil Nadu. The
+Meenakshi Amman Temple — with its soaring gopurams encrusted in thousands of sculptures — is among the most
+spectacular religious complexes in Asia, active 24 hours a day.
+KEY ATTRACTIONS
+
+→ Meenakshi Amman Temple (gopurams, corridors, tank)
+→ Thirumalai Nayak Palace
+→ Madurai Gandhi Memorial Museum
+→ Alagar Koil (Vishnu temple in hills)
+→ Vaigai River & bazaars
+Tags: meenakshi temple, gopuram, ancient city, tamil, dravidian, 24 hour temple, corridor, sculpture
+
+Kochi (Cochin)
+TYPE
+
+City
+
+STATE / UT
+
+Kerala
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Vibrant Metropolises, Coastal &
+Islands
+
+Kochi is Kerala's most cosmopolitan city — a multicultural port with Chinese fishing nets, a 500-year-old synagogue,
+Portuguese churches, Dutch palaces, colonial bungalows and one of India's most exciting contemporary art scenes
+(Kochi-Muziris Biennale). Fort Kochi's waterfront is quintessential romantic India.
+KEY ATTRACTIONS
+
+→ Chinese Fishing Nets (Cheena vala)
+→ Fort Kochi & Mattancherry heritage walk
+→ Jewish Synagogue (1568, Mattancherry)
+→ Dutch Palace (Mattancherry Palace)
+→ Kochi-Muziris Biennale (contemporary art)
+Tags: multicultural, port, chinese fishing nets, synagogue, biennale, kerala, colonial, backwaters gateway
+
+— 42 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+CIRCUIT
+Golden Triangle Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Delhi / Rajasthan / Uttar Pradesh
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Royal Cities, Vibrant Metropolises,
+Spirituality & Ghats
+
+The Golden Triangle — Delhi, Agra, Jaipur — is the world's most visited tourism circuit in India, connecting the nation's
+capital, the Taj Mahal and the Pink City in a convenient triangle easily covered in 5–7 days. It is the default first India
+itinerary for most international travellers.
+KEY ATTRACTIONS
+
+→ Taj Mahal (UNESCO, Agra)
+→ Red Fort Delhi (UNESCO)
+→ Agra Fort (UNESCO)
+→ Fatehpur Sikri (UNESCO)
+→ Amber Fort (Jaipur)
+Tags: golden triangle, taj mahal, agra, delhi, jaipur, international, first india trip, circuit, UNESCO
+
+Rajasthan Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Rajasthan
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Royal Cities, Desert
+
+The classic Rajasthan Circuit connects the royal cities of Jaipur, Jodhpur, Jaisalmer, Udaipur and Pushkar in a grand
+loop through the desert kingdom. It is India's most complete royal heritage experience — forts, palaces, sand dunes,
+camel safaris, folk music and the finest Indian cuisine all in one state.
+KEY ATTRACTIONS
+
+→ Jaipur Amber Fort
+→ Jodhpur Mehrangarh Fort
+→ Jaisalmer Sam Dunes
+→ Udaipur City Palace
+→ Pushkar Brahma Temple
+Tags: rajasthan circuit, royal, fort, desert, camel, palace, heritage, folk music, full circuit
+
+Leh-Ladakh Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+The Leh-Ladakh Circuit is India's most spectacular road journey, covering Leh, Nubra Valley, Pangong Lake, Tso
+Moriri and the Zanskar Valley across high-altitude desert terrain. The circuit can be entered from Srinagar (NH1) or
+Manali (Rohtang–Baralacha), creating a legendary motorbike and road-trip destination.
+KEY ATTRACTIONS
+
+→ Leh Palace & monasteries
+
+— 43 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Nubra Valley sand dunes
+→ Pangong Tso Lake
+→ Khardung La & other high passes
+→ Tso Moriri Lake (no-permit zone open to all)
+Tags: motorbike, road trip, high passes, monastery, cold desert, adventure, himalayan, circuit
+
+Spiti Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Himachal Pradesh
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+The Spiti Circuit loops from Shimla through Kinnaur and Spiti Valley to Manali (or vice versa), crossing some of India's
+most dramatic mountain terrain. Pin Parbati Pass and Rohtang Pass are epic highlights of this 700 km route through
+Buddhist monasteries and high-altitude villages.
+KEY ATTRACTIONS
+
+→ Key Monastery & Kibber village
+→ Chandratal Lake
+→ Pin Valley National Park
+→ Tabo Monastery (UNESCO-listed)
+→ Hikkim post office
+Tags: road trip, circuit, cold desert, monastery, chandratal, himalayan, himachal, spiti, adventure
+
+Konkan Coast Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Maharashtra / Goa / Karnataka
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Coastal & Islands
+
+The Konkan Coast stretches 700 km from Mumbai to Goa along Maharashtra and Karnataka's western coastline — a
+largely undiscovered treasure of pristine beaches, sea forts, mango groves, fish cuisine and colonial ports. The
+Konkan Railway makes it accessible for scenic journeys through tunnels and bridges.
+KEY ATTRACTIONS
+
+→ Sindhudurg Fort
+→ Tarkarli & Malvan beaches
+→ Gokarna Om Beach
+→ Murudeshwar Temple & Shiva statue
+→ Konkan Railway scenic journey
+Tags: konkan railway, sea fort, pristine, mango, fish curry, offbeat, coastal, maharashtra, goa, karnataka
+
+Kashmir Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Jammu & Kashmir (UT)
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Mountains
+
+The Kashmir Circuit covers Srinagar, Gulmarg, Pahalgam, Sonamarg and Sonmarg — India's most scenically diverse
+mountain circuit, from Dal Lake houseboats to alpine ski slopes to glacier meadows. The circuit passes through some
+of the most photographed landscapes in Asia.
+KEY ATTRACTIONS
+
+→ Dal Lake Srinagar
+
+— 44 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Gulmarg skiing & gondola
+→ Pahalgam meadows
+→ Sonamarg glacier
+→ Mughal Gardens
+Tags: kashmir circuit, srinagar, gulmarg, pahalgam, sonamarg, houseboat, skiing, circuit, panoramic
+
+Sundarbans Region
+TYPE
+
+Region / Circuit
+
+STATE / UT
+
+West Bengal
+
+POPULARITY
+
+Both
+
+CATEGORIES
+
+Wildlife & Safaris
+
+The Sundarbans mangrove delta at the mouth of the Ganges spans India and Bangladesh. The Indian side's
+Sundarbans National Park is a UNESCO World Heritage Site and home to the Bengal tiger, Irrawaddy dolphin,
+saltwater crocodile and Olive Ridley sea turtles. Village tourism and community-run boat safaris are emerging.
+KEY ATTRACTIONS
+
+→ Royal Bengal tiger boat safari
+→ Sundarbans National Park (UNESCO)
+→ Sajnekhali Watch Tower
+→ Dobanki camp walk
+→ Gosaba village community tourism
+Tags: UNESCO, mangrove, tiger, kolkata day trip, boat, crocodile, delta, community tourism
+
+— 45 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+SPIRITUALITY & GHATS
+Dwarka & Somnath
+TYPE
+
+Town / Pilgrimage Site
+
+STATE / UT
+
+Gujarat
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats, Coastal & Islands
+
+Dwarka is one of the four sacred Hindu Dhams and the legendary kingdom of Lord Krishna. The Dwarkadhish Temple
+sits at the edge of the Arabian Sea. Nearby Somnath holds the first of 12 Jyotirlinga shrines of Lord Shiva, rebuilt
+numerous times after Islamic invasions and now a symbol of Hindu resilience.
+KEY ATTRACTIONS
+
+→ Dwarkadhish Temple
+→ Bet Dwarka Island (ferry from Okha)
+→ Somnath Jyotirlinga Temple
+→ Nageshwar Jyotirlinga Temple
+→ Rukmini Devi Temple
+Tags: char dham, jyotirlinga, krishna, gujarat, pilgrimage, coastal, arabian sea, hindu
+
+Tiruvannamalai
+TYPE
+
+Town
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Tiruvannamalai is one of Tamil Nadu's most spiritually potent destinations — home to Arunachaleswarar Temple
+(dedicated to Shiva as fire element) and the sacred Arunachala Hill. The Girivalam — a barefoot circumambulation of
+the hill — is performed by hundreds of thousands every full moon night.
+KEY ATTRACTIONS
+
+→ Arunachaleswarar Temple (one of Tamil Nadu's largest)
+→ Arunachala Hill Girivalam (full moon circuit)
+→ Sri Ramana Maharshi Ashram
+→ Skandashram
+→ Virupaksha Cave
+Tags: arunachala, shiva, girivalam, ramana maharshi, advaita, full moon, spiritual, south india
+
+Vrindavan & Mathura
+TYPE
+
+Town / Circuit
+
+STATE / UT
+
+Uttar Pradesh
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats
+
+Mathura is the birthplace of Lord Krishna and Vrindavan the place of his childhood divine play (leela). The twin cities
+on the Yamuna River are among Hinduism's most sacred sites, with hundreds of colourful temples, the Holi festival
+(celebrated most exuberantly here) and year-round pilgrimage traffic.
+KEY ATTRACTIONS
+
+→ Krishna Janmabhoomi Temple (birthplace)
+
+— 46 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Banke Bihari Temple (Vrindavan)
+→ ISKCON Temple (Vrindavan)
+→ Yamuna River ghats
+→ Holi celebrations (most spectacular in India)
+Tags: krishna, holi, pilgrimage, yamuna, mathura, vrindavan, ISKCON, temples, festivals
+
+— 47 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+HIDDEN GEMS
+Kutch (Bhuj region)
+TYPE
+
+Region / Town
+
+STATE / UT
+
+Gujarat
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Desert
+
+Kutch is Gujarat's most distinctive cultural landscape — a semi-arid region of extraordinary artisan traditions. Bhuj, its
+capital, is the hub for embroidery, bandhani tie-dye, copper-bell making and Ahir mirror-work produced by
+communities that have preserved craft techniques for centuries. The Rann of Kutch salt desert lies on its edge.
+KEY ATTRACTIONS
+
+→ White Rann of Kutch
+→ Craft villages: Nirona, Hodka, Ajrakhpur
+→ Bhuj Kutch Museum
+→ Aina Mahal (Palace of Mirrors)
+→ Dholavira Harappan city (UNESCO)
+Tags: craft, embroidery, rann, salt desert, tribal, gujarat, UNESCO, artisan, textiles
+
+Lonar Crater Lake
+TYPE
+
+Natural Landmark
+
+STATE / UT
+
+Maharashtra
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+—
+
+Lonar is a meteor-impact crater lake 50,000 years old — the third largest natural saline crater lake in the world. The
+lake's hyper-saline alkaline waters harbour unique pink algae and rare micro-organisms, while ancient temples ring the
+crater rim in a hauntingly beautiful forest setting.
+KEY ATTRACTIONS
+
+→ Lonar Crater lake walk
+→ Daitya Sudan Temple (11th century)
+→ Kamalja Devi Temple
+→ Flamingo & migratory bird viewing
+→ Lonar Wildlife Sanctuary
+Tags: meteor crater, saline lake, offbeat, pink lake, ancient temples, wildlife, maharashtra, geological wonder
+
+Chettinad
+TYPE
+
+Region
+
+STATE / UT
+
+Tamil Nadu
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+—
+
+Chettinad is the homeland of the Nattukotai Chettiar merchant community, famous for their palatial mansions (with
+Burma teak, Italian marble and Athangudi tiles), the most complex regional cuisine in India, and antique collecting
+traditions. The crumbling palaces of Karaikudi and Kanadukathan are a singular architectural heritage.
+KEY ATTRACTIONS
+
+→ Nattukotai Chettiar mansions (Kanadukathan)
+
+— 48 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Athangudi tile factory visits
+→ Chettinad cuisine trail (Chettinad chicken, kuzhambu)
+→ Antique shops
+→ Pillaiyarpatti Temple
+Tags: mansion, cuisine, antique, athangudi tiles, merchant, offbeat, tamil, unique architecture
+
+Mandu (Mandavgad)
+TYPE
+
+Town / Heritage Site
+
+STATE / UT
+
+Madhya Pradesh
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Royal Cities
+
+Mandu is a plateau fort-city of the 15th-century Malwa Sultanate, where the love story of Sultan Baz Bahadur and his
+singer queen Rani Roopmati still echoes through the ruins. Dozens of Afghan-style palaces, mosques, pavilions and
+step-wells are scattered across a lush jungle plateau with dramatic gorge views.
+KEY ATTRACTIONS
+
+→ Jahaz Mahal (Ship Palace)
+→ Rani Roopmati's Pavilion
+→ Hindola Mahal (Swing Palace)
+→ Jami Masjid
+→ Hoshang Shah's Tomb (white marble)
+Tags: medieval, afghan architecture, romantic, fort city, madhya pradesh, hidden gem, offbeat, ruins
+
+Zanskar Circuit
+TYPE
+
+Tourism Circuit
+
+STATE / UT
+
+Ladakh (UT)
+
+POPULARITY
+
+International Tourists
+
+CATEGORIES
+
+Mountains
+
+The Zanskar Circuit — accessed via Kargil or Manali — is India's most adventurous mountain circuit, through one of
+the world's most remote valleys. The legendary Chadar Trek (frozen river), Phugtal Monastery and Zanskar River
+rafting attract only the most committed adventurers.
+KEY ATTRACTIONS
+
+→ Chadar Trek (frozen Zanskar River)
+→ Phugtal Monastery
+→ Padum village
+→ Zanskar River rafting
+→ Stongdey Monastery
+Tags: chadar trek, extreme, frozen river, remote, monastery, ladakh, winter trek, adventure
+
+Unakoti
+TYPE
+
+Archaeological Site
+
+STATE / UT
+
+Tripura
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Spirituality & Ghats, Northeast &
+Living Roots
+
+Unakoti — meaning 'one less than a crore' — is a stunning hillside complex of giant rock carvings and sculptures
+dating to the 7th–9th centuries, hidden deep in the forests of Tripura. The massive 30-foot Shiva heads emerging from
+the jungle are among the most dramatic archaeological discoveries in Northeast India.
+KEY ATTRACTIONS
+
+→ Giant rock-cut Shiva sculptures
+
+— 49 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+→ Unakoti waterfall
+→ Archaeological Museum
+→ Forest trek through sculpture trail
+→ Pilgrimage on Shivratri
+Tags: rock sculpture, shiva, ancient, archaeological, northeast, tripura, hidden gem, jungle temple
+
+Aizawl & Mizoram
+TYPE
+
+City / State
+
+STATE / UT
+
+Mizoram
+
+POPULARITY
+
+Domestic Tourists
+
+CATEGORIES
+
+Northeast & Living Roots
+
+Mizoram — one of India's least visited states — is a land of rolling bamboo-covered hills, deeply Christian culture,
+thriving choir traditions and one of India's highest literacy rates. Aizawl perches dramatically on a ridge at 1,132 m, and
+the Mizo people are among the most hospitable and unique communities in the subcontinent.
+KEY ATTRACTIONS
+
+→ Aizawl city & Durtlang Hills
+→ Phawngpui (Blue Mountain — highest peak)
+→ Vantawng Falls (highest in Mizoram)
+→ Tam Dil Lake
+→ Chapchar Kut Festival (spring bamboo festival)
+Tags: least visited, bamboo, christian, choir, hills, offbeat, northeast, hospitable, mizoram
+
+— 50 —
+
+INDIA TOURISM DESTINATION DATABASE
+
+Premium Travel Intelligence
+
+India Tourism Destination Database
+This database is a living document. India's tourism landscape evolves continuously — new trekking routes are
+discovered, eco-lodges open in remote valleys, festivals gain international recognition and previously inaccessible
+regions open to visitors.
+The destinations documented here represent the most comprehensive mapping of India's tourism geography available
+for travel platform development.
+
+— 51 —
+
+

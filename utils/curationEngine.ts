@@ -1,17 +1,6 @@
-import { calculateMatchScore, TransitRouteEdge } from './scoringEngine';
+import { calculateMatchScore, TransitRouteEdge } from '@shared/travel-rules';
 
-export type EngineDestination = {
-  id: string;
-  name: string;
-  clusterId?: string | null;
-  region?: string;
-  landscapes?: string[];
-  peakMonths: number[];
-  shoulderMonths: number[];
-  avoidMonths: number[];
-  closedMonths: number[];
-  vibeTags: string[];
-};
+import { Destination as EngineDestination } from '@shared/travel-rules';
 
 export type EnginePreferences = {
   travelMonth: string; // "January", "February", etc.
@@ -28,7 +17,6 @@ export function generateBespokeRoute(
   transitRoutes?: TransitRouteEdge[]
 ) {
   // 1. Pick the best Hub Anchor to start
-  // Dynamically calculate hubs based on graph degree (connectivity)
   let hubs: EngineDestination[] = [];
   if (transitRoutes && transitRoutes.length > 0) {
     const connectionCounts: Record<string, number> = {};
@@ -37,21 +25,14 @@ export function generateBespokeRoute(
       connectionCounts[r.destinationId] = (connectionCounts[r.destinationId] || 0) + 1;
     });
 
-    // Find the max connections any node has
     const maxConns = Math.max(...Object.values(connectionCounts));
-    // Any node with connections >= maxConns - 1 is considered a major Hub
     const dynamicHubIds = Object.keys(connectionCounts).filter(id => connectionCounts[id] >= Math.max(3, maxConns - 2));
-    
     hubs = destinations.filter(d => dynamicHubIds.includes(d.id));
   }
   
-  // Fallback if no routes exist
   if (hubs.length === 0) hubs = [...destinations];
-  
-  // Shuffle to prevent deterministic tie-breaks
   hubs = hubs.sort(() => Math.random() - 0.5);
   
-  // Score hubs without a lastSelectedNode (no logistics factor)
   let bestHub = hubs[0];
   let maxHubScore = -1;
 
@@ -62,63 +43,138 @@ export function generateBespokeRoute(
       bestHub = hub;
     }
   }
+  if (!bestHub) bestHub = destinations[0];
 
-  // Fallback if no hub somehow
-  if (!bestHub) {
-    bestHub = destinations[0];
-  }
+  const selectedDests: EngineDestination[] = [bestHub];
+  let remainingDays = preferences.days;
+  remainingDays -= (bestHub.minRequiredDays || 2);
 
-  const selectedDests: string[] = [bestHub.id];
-  const pacingN = Math.max(1, Math.ceil(preferences.days / 3));
+  const accumulatedVibes = new Set<string>();
+  bestHub.vibeTags?.forEach(v => accumulatedVibes.add(v));
 
-  // 2. Pathfinding Loop
-  while (selectedDests.length < pacingN) {
-    const lastNodeId = selectedDests[selectedDests.length - 1];
+  let fatigueAccumulator = 0;
+  let stayedInSameCluster = true;
+  const initialCluster = bestHub.clusterId;
+
+  // 2. Pathfinding Loop: The Time-Pool with BFS Look-Ahead
+  while (remainingDays >= 1) {
+    const lastNode = selectedDests[selectedDests.length - 1];
     
-    let nextNodeId: string | null = null;
+    let nextNode: EngineDestination | null = null;
     let nextMaxScore = -1;
+    let chosenTransitPenalty = 0;
 
     for (const d of destinations) {
-      if (selectedDests.includes(d.id)) continue;
+      if (selectedDests.some(s => s.id === d.id)) continue;
       
-      let { score, isDeadEnd } = calculateMatchScore(d, preferences, lastNodeId, transitRoutes);
-      
+      let { score, isDeadEnd } = calculateMatchScore(d, preferences, lastNode.id, transitRoutes);
       if (isDeadEnd) continue;
 
-      // Regional Continuity Bonus: strongly prefer staying in the same cluster/region
-      const lastDestObj = destinations.find(x => x.id === lastNodeId);
-      if (lastDestObj) {
-        if (d.clusterId && d.clusterId === lastDestObj.clusterId) {
-          score += 20; // Massive boost for same cluster
-        } else if (d.region && d.region === lastDestObj.region) {
-          score += 10; // Moderate boost for same region
+      // Find edge for dynamic transit penalty
+      const edge = transitRoutes?.find(r => 
+        (r.originId === lastNode.id && r.destinationId === d.id) ||
+        (r.destinationId === lastNode.id && r.originId === d.id)
+      );
+
+      // Depth-2 Look-Ahead (BFS)
+      let lookAheadBonus = 0;
+      const neighbors = destinations.filter(nd => 
+        !selectedDests.some(s => s.id === nd.id) && nd.id !== d.id &&
+        transitRoutes?.some(r => 
+          (r.originId === d.id && r.destinationId === nd.id) || 
+          (r.destinationId === d.id && r.originId === nd.id)
+        )
+      );
+      
+      if (neighbors.length > 0) {
+        let bestNeighborScore = -1;
+        for (const n of neighbors.slice(0, 5)) { // Bounded to 5 neighbors to save CPU
+          const { score: ns } = calculateMatchScore(n, preferences, d.id, transitRoutes);
+          if (ns > bestNeighborScore) bestNeighborScore = ns;
         }
+        lookAheadBonus = bestNeighborScore * 0.3; // 30% weight to best neighbor
+        score = (score * 0.7) + lookAheadBonus;
+      }
+
+      // Regional Continuity Bonus
+      if (d.clusterId && d.clusterId === lastNode.clusterId) {
+        score += 20; 
+      } else if (d.region && d.region === lastNode.region) {
+        score += 10; 
+      } else {
+        stayedInSameCluster = false;
+      }
+
+      // Diversity Penalty (Vibe Fatigue)
+      let duplicateVibeCount = 0;
+      if (d.vibeTags) {
+        for (const v of d.vibeTags) {
+          if (accumulatedVibes.has(v)) duplicateVibeCount++;
+        }
+      }
+      if (duplicateVibeCount > 0) {
+        // If it's monsoon season (July/August) and the destination is in the North (Himalayas),
+        // reduce the diversity penalty since weather safety supersedes vibe diversity.
+        let penaltyMultiplier = 5;
+        if ((preferences.travelMonth === 'July' || preferences.travelMonth === 'August') && d.region === 'North') {
+          penaltyMultiplier = 1;
+        }
+        score -= (duplicateVibeCount * penaltyMultiplier);
+      }
+
+      // Scale score by time efficiency (penalize if it requires more days than we have)
+      const reqDays = d.minRequiredDays || 2;
+      let transitDayCost = 0.5; // fallback
+      if (edge) {
+        if (edge.fatigueCost <= 2) transitDayCost = 0.25;
+        else if (edge.fatigueCost === 3 || edge.fatigueCost === 4) transitDayCost = 0.5;
+        else if (edge.fatigueCost === 5) transitDayCost = 0.75;
+        else if (edge.fatigueCost >= 6) transitDayCost = 1.0;
+      }
+      
+      if (reqDays + transitDayCost > remainingDays + 1) {
+        score *= 0.5; // Heavy penalty if it exceeds remaining time
       }
 
       if (score > nextMaxScore) {
         nextMaxScore = score;
-        nextNodeId = d.id;
+        nextNode = d;
+        chosenTransitPenalty = transitDayCost;
       }
     }
 
-    if (!nextNodeId || nextMaxScore === 0) {
-      // Dead-End Protection: break loop early if no valid nodes left
+    if (!nextNode || nextMaxScore <= 0) {
       break; 
     }
 
-    selectedDests.push(nextNodeId);
+    // Apply Time-Pool Subtractions
+    selectedDests.push(nextNode);
+    remainingDays -= ((nextNode.minRequiredDays || 2) + chosenTransitPenalty);
+    fatigueAccumulator += chosenTransitPenalty;
+    nextNode.vibeTags?.forEach(v => accumulatedVibes.add(v));
   }
 
-  // Rationale Generation
+  // 3. Dynamic Rationale Generation
   const hubName = bestHub.name;
-  let rationale = `Based on your selected vibe and pacing, we've dynamically generated a ${preferences.days}-day optimal path starting from ${hubName}.`;
-  
-  if (selectedDests.length < pacingN) {
-    rationale += ` Note: Your itinerary is slightly shorter than requested to avoid extreme weather or exhausting transit times.`;
+  let rationale = `We anchored your ${preferences.days}-day journey in ${hubName} for optimal connectivity. `;
+
+  if (stayedInSameCluster) {
+    rationale += `To minimize travel fatigue, we designed a route strictly within the ${bestHub.region} region. `;
+  } else if (fatigueAccumulator > 3) {
+    rationale += `This is an ambitious cross-regional route covering diverse landscapes, balanced with strategic pacing. `;
+  } else {
+    rationale += `The route blends popular hubs with diverse regional experiences. `;
+  }
+
+  if (preferences.selectedVibes && preferences.selectedVibes.length > 0) {
+    const v = preferences.selectedVibes[0];
+    rationale += `We specifically prioritized stops to match your preference for ${v} vibes, while ensuring the pacing leaves you ample time to actually experience each location without rushing.`;
+  } else {
+    rationale += `We balanced the pacing to ensure you have time to actually experience each location without rushing.`;
   }
 
   return {
-    destinationIds: selectedDests,
+    destinationIds: selectedDests.map(d => d.id),
     rationale
   };
 }

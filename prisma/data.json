@@ -1,0 +1,4791 @@
+[
+  {
+    "id": "leh-ladakh",
+    "name": "Leh – Ladakh",
+    "description": "Leh is the gateway to the high-altitude cold desert of Ladakh, one of India's most dramatic landscapes. Situated at 3,500 m, it draws adventure travellers, bikers, and spiritual seekers with its Buddhist monasteries, turquoise lakes, and stark Himalayan passes.",
+    "shortPitch": "Leh is the spectacular gateway to the high-altitude cold desert of Ladakh, a dramatic landscape of stark Himalayan passes and turquoise lakes. At 3,500m, it captivates adventure travellers and spiritual seekers alike with its ancient Buddhist monasteries.",
+    "topHighlights": [
+      "Pangong Tso Lake and Nubra Valley excursions",
+      "Khardung La Pass, one of the world's highest motorable roads",
+      "Ancient Buddhist monasteries including Thiksey and Hemis"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Otherworldly",
+      "Remote",
+      "Spiritual"
+    ],
+    "idealSeason": "May–Sep",
+    "landscapes": [
+      "Mountains",
+      "Cold Desert"
+    ],
+    "peakMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      4,
+      10
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 4,
+    "latitude": 34.1526,
+    "longitude": 77.5771,
+    "requiresAcclimatization": true,
+    "isHub": true
+  },
+  {
+    "id": "nubra-valley",
+    "name": "Nubra Valley",
+    "description": "Accessible via the legendary Khardung La pass, Nubra Valley is a serene high-altitude desert valley where sand dunes meet snow-capped peaks. The Shyok and Nubra rivers converge here, and double-humped Bactrian camels roam the dunes — an almost surreal landscape.",
+    "shortPitch": "Accessible via the legendary Khardung La pass, Nubra Valley is a serene high-altitude desert where sand dunes meet snow-capped peaks. Explore an almost surreal landscape where the Shyok and Nubra rivers converge amidst double-humped Bactrian camels.",
+    "topHighlights": [
+      "Hunder sand dunes and Bactrian camel rides",
+      "Diskit Monastery and giant Maitreya Buddha statue",
+      "Panamik hot springs and Turtuk village"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Otherworldly",
+      "Remote",
+      "Raw"
+    ],
+    "idealSeason": "May–Sep",
+    "landscapes": [
+      "Mountains",
+      "Cold Desert"
+    ],
+    "peakMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      4,
+      10
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 34.6863,
+    "longitude": 77.5673,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "pangong-tso",
+    "name": "Pangong Tso",
+    "description": "Pangong Tso is a stunning high-altitude salt lake stretching 134 km across India and Tibet. Famous for shifting shades of blue and green, it became iconic after featuring in Bollywood blockbusters. Camping on the lakeshore under a star-filled Ladakhi sky is a bucket-list experience.",
+    "shortPitch": "Pangong Tso is a stunning high-altitude salt lake stretching across India and Tibet, famous for its ever-shifting shades of blue and green. Camping on the lakeshore under a brilliant, star-filled Ladakhi sky is a true bucket-list experience.",
+    "topHighlights": [
+      "Spectacular lakeside viewpoints and photography",
+      "Lakeside camping under star-filled skies",
+      "Journey via the formidable Chang La Pass"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Otherworldly",
+      "Remote",
+      "Scenic"
+    ],
+    "idealSeason": "May–Sep",
+    "landscapes": [
+      "Mountains",
+      "Cold Desert"
+    ],
+    "peakMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      4,
+      10
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 33.7595,
+    "longitude": 78.6674,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "zanskar-valley",
+    "name": "Zanskar Valley",
+    "description": "One of India's most remote and dramatic valleys, Zanskar is accessible for only a few months each year when roads are open. In winter the legendary Chadar Trek takes adventurers across the frozen Zanskar River through gorges of extraordinary beauty. A magnet for serious trekkers and Buddhist pilgrims.",
+    "shortPitch": "Zanskar is one of India's most remote and dramatic valleys, opening its roads to the world for only a few fleeting months each year. It is a legendary magnet for serious trekkers and Buddhist pilgrims, offering the extraordinary frozen Chadar Trek in winter.",
+    "topHighlights": [
+      "Winter Chadar Trek across the frozen Zanskar River",
+      "Phugtal Monastery built into a cliffside cave",
+      "Thrilling white-water rafting on the Zanskar River"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Remote",
+      "Exhilarating",
+      "Wild"
+    ],
+    "idealSeason": "Jul–Sep",
+    "landscapes": [
+      "Mountains",
+      "Cold Desert"
+    ],
+    "peakMonths": [
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      6,
+      10
+    ],
+    "avoidMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      11,
+      12
+    ],
+    "closedMonths": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "minRequiredDays": 3,
+    "latitude": 33.4634,
+    "longitude": 76.9823,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "spiti-valley",
+    "name": "Spiti Valley",
+    "description": "Spiti — the 'Middle Land' — is a high-altitude cold desert valley at 3,800 m, dotted with ancient Buddhist monasteries perched on clifftops. The lunar landscape, prayer flags, and crystal-clear skies make it one of India's most photogenic and spiritually resonant destinations.",
+    "shortPitch": "Known as the 'Middle Land', Spiti is a high-altitude cold desert valley dotted with ancient Buddhist monasteries perched on dramatic clifftops. Its lunar landscape, fluttering prayer flags, and crystal-clear skies create a profoundly photogenic and spiritual atmosphere.",
+    "topHighlights": [
+      "Key Monastery and Kibber village exploration",
+      "The pristine waters of Chandratal Lake",
+      "Hikkim, home to the world's highest post office"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Remote",
+      "Spiritual",
+      "Authentic"
+    ],
+    "idealSeason": "May–Oct",
+    "landscapes": [
+      "Mountains",
+      "Cold Desert"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      5,
+      10
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "closedMonths": [
+      12,
+      1,
+      2
+    ],
+    "minRequiredDays": 4,
+    "latitude": 32.2461,
+    "longitude": 78.0349,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "manali",
+    "name": "Manali",
+    "description": "Manali is the most popular hill station in Himachal Pradesh and a major hub for adventure activities. Sitting at the head of the Kullu Valley, it offers skiing, paragliding, white-water rafting and trekking, alongside the old Manali village with its apple orchards and colonial charm.",
+    "shortPitch": "Sitting at the head of the Kullu Valley, Manali is Himachal's premier hub for thrilling mountain adventures. From skiing and paragliding to the colonial charm and apple orchards of Old Manali, it perfectly balances adrenaline and alpine serenity.",
+    "topHighlights": [
+      "Rohtang Pass excursions and snow activities",
+      "Solang Valley skiing and zorbing",
+      "Old-growth deodar forests at Hadimba Temple"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Vibrant",
+      "Scenic",
+      "Exhilarating"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      12,
+      1
+    ],
+    "shoulderMonths": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 32.2396,
+    "longitude": 77.1887,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "kasol-kheerganga",
+    "name": "Kasol & Kheerganga",
+    "description": "Kasol is a tiny hamlet in the Parvati Valley that has become a cult backpacker destination, beloved for its Israeli cafes, riverside campsites and proximity to trekking trails. Kheerganga is the most popular overnight trek from Kasol, ending at natural hot springs with stunning valley views.",
+    "shortPitch": "Kasol is a cult backpacker hamlet in the Parvati Valley, famous for its riverside campsites and thriving Israeli cafe culture. It serves as the base for the iconic Kheerganga trek, rewarding hikers with natural hot springs overlooking stunning mountain vistas.",
+    "topHighlights": [
+      "Kheerganga Trek culminating in natural hot springs",
+      "Parvati River camping and cafe-hopping",
+      "Exploration of the ancient Malana village"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Bohemian",
+      "Relaxed",
+      "Scenic"
+    ],
+    "idealSeason": "Mar–Jun, Oct–Nov",
+    "landscapes": [
+      "Mountains",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      3,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 32.0098,
+    "longitude": 77.315,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tosh-khajjiar",
+    "name": "Tosh & Khajjiar",
+    "description": "Tosh is a remote Himalayan village near Kasol with sweeping glacier views and cosy guesthouses. Khajjiar, often called the 'Mini Switzerland of India', is a lush green meadow ringed by dense pine forests at 2,000 m above sea level, perfect for picnics and horseback rides.",
+    "shortPitch": "Discover Tosh, a remote Himalayan village offering sweeping glacier views, and Khajjiar, celebrated as the 'Mini Switzerland of India'. These destinations combine lush green meadows ringed by dense pines with pristine, offbeat mountain trails.",
+    "topHighlights": [
+      "Sweeping views of Tosh Glacier",
+      "Picnics and horseback riding at Khajjiar Lake meadow",
+      "Sunset viewpoints over the dramatic Dhauladhar range"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Scenic",
+      "Quiet",
+      "Hidden"
+    ],
+    "idealSeason": "Mar–Jun",
+    "landscapes": [
+      "Mountains",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 32.5558,
+    "longitude": 76.0656,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "jibhi-tirthan",
+    "name": "Jibhi & Tirthan Valley",
+    "description": "Jibhi and the Tirthan Valley are off-the-radar Himalayan gems offering wooden guesthouses, crystal trout streams and easy forest trails. The Great Himalayan National Park — a UNESCO World Heritage Site — begins here, sheltering snow leopards, Himalayan brown bears and over 375 bird species.",
+    "shortPitch": "Jibhi and the Tirthan Valley are serene, off-the-radar Himalayan gems defined by crystal trout streams and traditional wooden architecture. Serving as the gateway to the Great Himalayan National Park, they offer unmatched tranquility and wildlife trekking.",
+    "topHighlights": [
+      "Trekking in the UNESCO Great Himalayan National Park",
+      "Tirthan River fly-fishing for rainbow trout",
+      "Scenic hikes to Jalori Pass and Serolsar Lake"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Hidden",
+      "Rustic",
+      "Peaceful"
+    ],
+    "idealSeason": "Mar–Jun",
+    "landscapes": [
+      "Mountains",
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 31.6358,
+    "longitude": 77.3486,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "dharamshala-mcleodganj",
+    "name": "Dharamshala & McLeod Ganj",
+    "description": "Home of the Dalai Lama and the Tibetan government-in-exile, McLeod Ganj is a vibrant spiritual town beneath the Dhauladhar range. It blends Tibetan Buddhism, colonial-era architecture and lively cafes into one of India's most cosmopolitan hill towns, beloved by backpackers and spiritual travellers alike.",
+    "shortPitch": "As the home of the Dalai Lama, McLeod Ganj is a vibrant spiritual sanctuary nestled beautifully beneath the Dhauladhar range. It seamlessly blends Tibetan Buddhism, colonial-era architecture, and a lively cosmopolitan cafe culture.",
+    "topHighlights": [
+      "Visits to the Namgyal Monastery and Dalai Lama's temple",
+      "The scenic and rewarding Triund Trek",
+      "Tibetan arts at the Norbulingka Institute"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Spiritual",
+      "Soulful",
+      "Cultural"
+    ],
+    "idealSeason": "Mar–Jun, Sep–Nov",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 32.219,
+    "longitude": 76.3234,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "bir-billing",
+    "name": "Bir Billing",
+    "description": "Bir Billing is acclaimed as one of the world's best paragliding sites, regularly hosting the Paragliding World Cup. The Tibetan colony at Bir gives the village a distinct character with monasteries and cafes, while the take-off site at Billing (2,400 m) affords breathtaking views of the Kangra Valley.",
+    "shortPitch": "Acclaimed globally as a premier paragliding destination, Bir Billing offers breathtaking flights over the lush Kangra Valley. The village below thrives with a distinct Tibetan colony, blending extreme adventure with deep monastic peace.",
+    "topHighlights": [
+      "Tandem and solo paragliding from the Billing take-off site",
+      "Exploring the Bir Tibetan Colony and Sherab Ling Monastery",
+      "Mountain cycling and scenic meadow camping"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Exhilarating",
+      "Scenic",
+      "Relaxed"
+    ],
+    "idealSeason": "Mar–Jun, Oct–Nov",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      10,
+      11
+    ],
+    "shoulderMonths": [
+      6,
+      9
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 32.0461,
+    "longitude": 76.7147,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "dalhousie",
+    "name": "Dalhousie",
+    "description": "A charming Victorian-era hill station established by the British in 1854, Dalhousie offers colonial bungalows, snow-dusted pine forests and panoramic Himalayan vistas. It retains a peaceful, old-world character that sets it apart from busier Himachali resorts.",
+    "shortPitch": "Established by the British in 1854, Dalhousie is a charming Victorian-era hill station wrapped in snow-dusted pine forests. It retains a peaceful, old-world character that offers panoramic Himalayan vistas away from the bustling crowds.",
+    "topHighlights": [
+      "Hikes to Dainkund Peak for sweeping views",
+      "Walks through the Kalatop Wildlife Sanctuary",
+      "Colonial heritage walks around Gandhi Chowk"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Nostalgic",
+      "Quiet",
+      "Scenic"
+    ],
+    "idealSeason": "Mar–Jun",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 32.5387,
+    "longitude": 75.971,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "auli",
+    "name": "Auli",
+    "description": "Auli is India's premier ski destination, offering 500 m of ski runs between 2,500 m and 3,049 m with stunning views of Nanda Devi and the Garhwal Himalayas. In summer it transforms into a lush meadow base for treks into the Valley of Flowers and Kuari Pass.",
+    "shortPitch": "Auli is India's premier alpine ski destination, boasting dramatic runs and sweeping views of Nanda Devi. When the snow melts, it transforms into a lush meadow base perfect for trekking deep into the Garhwal Himalayas.",
+    "topHighlights": [
+      "Winter skiing and snowboarding",
+      "Riding India's longest ropeway for panoramic views",
+      "Trekking to Kuari Pass and Gorson Bugyal meadow"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Winter Wonderland",
+      "Exhilarating",
+      "Scenic"
+    ],
+    "idealSeason": "Dec–Mar",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      4,
+      5,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 30.5314,
+    "longitude": 79.5668,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "chopta-tungnath",
+    "name": "Chopta & Tungnath",
+    "description": "Dubbed the 'Mini Switzerland of Uttarakhand', Chopta is a serene alpine meadow leading to Tungnath — the world's highest Shiva temple at 3,680 m — and the Chandrashila peak with 360° Himalayan panoramas. Far less crowded than Kedarnath or Badrinath, it remains an unspoiled gem.",
+    "shortPitch": "Dubbed the 'Mini Switzerland of Uttarakhand', Chopta is a pristine alpine meadow that leads to the world's highest Shiva temple. Free from heavy crowds, it rewards trekkers with breathtaking 360-degree panoramas of the Himalayas.",
+    "topHighlights": [
+      "Trekking to the ancient Tungnath Temple",
+      "Summiting Chandrashila for views of Nanda Devi",
+      "Spring hikes through vibrant rhododendron forests"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Spiritual",
+      "Pristine",
+      "Remote"
+    ],
+    "idealSeason": "Apr–Nov",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      9,
+      10,
+      11
+    ],
+    "shoulderMonths": [
+      3,
+      12
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [
+      1,
+      2
+    ],
+    "minRequiredDays": 2,
+    "latitude": 30.4851,
+    "longitude": 79.2173,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "rishikesh",
+    "name": "Rishikesh",
+    "description": "The Yoga Capital of the World, Rishikesh sits where the Ganges descends from the Himalayas onto the plains. It is both the world's most famous yoga retreat hub and India's adventure sports capital — offering white-water rafting, bungee jumping, trekking and cliff jumping alongside ashrams and morning Ganga aarti.",
+    "shortPitch": "As the global capital of Yoga, Rishikesh is a profound spiritual retreat nestled where the Ganges flows from the Himalayas. It perfectly bridges deep meditation and ashram life with adrenaline-pumping river rafting and bungee jumping.",
+    "topHighlights": [
+      "Grade III-IV white-water rafting on the Ganges",
+      "Attending the mesmerising evening Ganga Aarti",
+      "Yoga retreats and exploring the historic Beatles Ashram"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Spiritual",
+      "Zen",
+      "Awakening"
+    ],
+    "idealSeason": "Sep–Nov, Feb–May",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      2,
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "shoulderMonths": [
+      12,
+      1
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 30.0869,
+    "longitude": 78.2676,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "valley-of-flowers",
+    "name": "Valley of Flowers",
+    "description": "A UNESCO World Heritage Site, the Valley of Flowers bursts into a riot of colour each monsoon (July–September) as over 500 species of wildflowers carpet the high-altitude meadow at 3,658 m. Combined with the Hemkund Sahib pilgrimage, it is one of India's most enchanting Himalayan journeys.",
+    "shortPitch": "A UNESCO World Heritage Site, this high-altitude meadow bursts into a spectacular riot of colour during the monsoon. Blanketed by over 500 species of wildflowers, it remains one of the most enchanting and pristine treks in the Himalayas.",
+    "topHighlights": [
+      "Witnessing the monsoon wildflower bloom (Jul-Sep)",
+      "Trekking to the sacred Hemkund Sahib Gurudwara",
+      "Spotting rare Himalayan flora and fauna"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Magical",
+      "Lush",
+      "Pristine"
+    ],
+    "idealSeason": "Jul–Sep",
+    "landscapes": [
+      "Mountains",
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      7,
+      8
+    ],
+    "shoulderMonths": [
+      6,
+      9
+    ],
+    "avoidMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "closedMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "minRequiredDays": 3,
+    "latitude": 30.728,
+    "longitude": 79.6053,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "kashmir-valley",
+    "name": "Kashmir Valley",
+    "description": "The 'Paradise on Earth', Kashmir Valley is one of the most beautiful places in Asia. Its Dal Lake houseboats, saffron fields, Mughal gardens, apple orchards and snow-covered peaks make it a destination of legendary appeal. The Valley has an almost unmatched diversity of landscapes, from alpine meadows to tulip gardens.",
+    "shortPitch": "Legendary as the 'Paradise on Earth', the Kashmir Valley offers an almost unmatched diversity of alpine landscapes. Its tranquil houseboats, vibrant Mughal gardens, and snow-covered peaks have drawn travellers for centuries.",
+    "topHighlights": [
+      "Staying on a traditional Dal Lake houseboat",
+      "Strolling the historic Shalimar and Nishat Mughal Gardens",
+      "Exploring saffron fields and tulip gardens"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Romantic",
+      "Scenic",
+      "Dreamy"
+    ],
+    "idealSeason": "Mar–Oct",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      3,
+      11
+    ],
+    "avoidMonths": [
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 5,
+    "latitude": 34.0837,
+    "longitude": 74.7973,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "gulmarg",
+    "name": "Gulmarg",
+    "description": "Gulmarg — 'Meadow of Flowers' — is India's highest ski resort and one of Asia's finest, with the world's second-highest operating cable car (gondola) rising to 4,200 m. In summer, its lush meadows are perfect for golf on the world's highest golf course, pony rides, and Himalayan wildflower walks.",
+    "shortPitch": "Gulmarg is Asia's premier winter sports destination, famed for its world-class skiing and the colossal Apharwat gondola. When summer arrives, the snow yields to a breathtaking 'Meadow of Flowers' perfect for alpine trekking and golf.",
+    "topHighlights": [
+      "World-class winter skiing and snowboarding",
+      "Riding the Gulmarg Gondola to 4,200m",
+      "Trekking to Alpather Lake through lush summer meadows"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Winter Wonderland",
+      "Romantic",
+      "Exhilarating"
+    ],
+    "idealSeason": "Dec–Mar",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      6,
+      10,
+      11
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 34.0484,
+    "longitude": 74.3805,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "pahalgam",
+    "name": "Pahalgam",
+    "description": "Pahalgam sits at the confluence of the Lidder River and Sheshnag streams, surrounded by pine forests and snow-capped peaks. It is both a premier trekking base and the starting point for the annual Amarnath Yatra pilgrimage — one of India's largest Hindu pilgrimages to the Amarnath ice Shiva lingam.",
+    "shortPitch": "Surrounded by pine forests and snow-capped peaks, Pahalgam sits beautifully at the confluence of alpine rivers. It serves as a premier base for both adventurous treks and the deeply sacred Amarnath Yatra pilgrimage.",
+    "topHighlights": [
+      "Relaxing in the 'Mini Switzerland' meadow of Baisaran",
+      "Trout fishing and walking along the Lidder River",
+      "Trekking to the Kolahoi Glacier"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Scenic",
+      "Peaceful",
+      "Sacred"
+    ],
+    "idealSeason": "Mar–Nov",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      3,
+      11
+    ],
+    "avoidMonths": [
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 34.0163,
+    "longitude": 75.3155,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "sonamarg",
+    "name": "Sonamarg",
+    "description": "Sonamarg — 'Meadow of Gold' — lies at 2,730 m on the old Silk Road and serves as the gateway to Ladakh. Its glaciers, rivers and flower-strewn meadows are spectacular in summer, while it becomes a snow wonderland in winter. The Thajiwas Glacier is easily accessible and enormously popular.",
+    "shortPitch": "Known as the 'Meadow of Gold', Sonamarg lies on the ancient Silk Road serving as the stunning alpine gateway to Ladakh. Its flower-strewn meadows and dramatic glaciers transform into a pristine snow wonderland during the winter.",
+    "topHighlights": [
+      "Thajiwas Glacier treks and sled rides",
+      "Gateway to the high-altitude Vishansar & Krishansar Lakes",
+      "Crossing the legendary Zoji La Pass"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Scenic",
+      "Peaceful",
+      "Pristine"
+    ],
+    "idealSeason": "Apr–Oct",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      3,
+      11
+    ],
+    "avoidMonths": [
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 34.3005,
+    "longitude": 75.2952,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tawang",
+    "name": "Tawang",
+    "description": "Tawang is home to the 400-year-old Tawang Monastery — the largest in India and the second-largest in the world after Lhasa — perched at 3,048 m with breathtaking views of the Himalayan ranges. The town is also significant as the birthplace of the 6th Dalai Lama and a living example of Tibetan Buddhist culture on Indian soil.",
+    "shortPitch": "Perched at 3,048m, Tawang is a deeply spiritual frontier town home to India's largest and the world's second-largest Tibetan Buddhist monastery. It offers breathtaking Himalayan vistas and stands as a living testament to vibrant Tibetan culture on Indian soil.",
+    "topHighlights": [
+      "The majestic 400-year-old Tawang Monastery",
+      "Crossing the dramatic Sela Pass and Sela Lake",
+      "Exploring the historic Bum La Pass at the India-China border"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Spiritual",
+      "Remote",
+      "Cultural"
+    ],
+    "idealSeason": "Mar–Oct",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      6,
+      7,
+      8
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.5861,
+    "longitude": 91.8594,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "ziro-valley",
+    "name": "Ziro Valley",
+    "description": "Ziro is a UNESCO World Heritage-listed valley renowned for its terraced paddy fields, pine hills and the unique Apatani tribal culture. The annual Ziro Music Festival draws indie music lovers from across Asia, making it India's most atmospheric open-air music event, set against a backdrop of misty mountains.",
+    "shortPitch": "Ziro Valley is a UNESCO-listed haven renowned for its terraced paddy fields, mist-covered pine hills, and the unique Apatani tribal culture. Every September, it transforms into Asia's most atmospheric indie music destination with the renowned Ziro Music Festival.",
+    "topHighlights": [
+      "Immersive experiences with the indigenous Apatani tribe",
+      "The spectacular outdoor Ziro Music Festival (September)",
+      "Trekking in the Talley Valley Wildlife Sanctuary"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Tribal",
+      "Cultural",
+      "Scenic"
+    ],
+    "idealSeason": "Mar–Oct",
+    "landscapes": [
+      "Mountains",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      6,
+      7,
+      8
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.5562,
+    "longitude": 93.834,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "gangtok",
+    "name": "Gangtok",
+    "description": "The capital of Sikkim, Gangtok is a vibrant hill city with Kanchenjunga — the world's third-highest peak — as its backdrop. It serves as the gateway to North Sikkim's remote high-altitude lakes, the revered Rumtek Monastery and the many trekking routes that wind through the Eastern Himalayas.",
+    "shortPitch": "Gangtok is the vibrant capital of Sikkim, perched dramatically with sweeping views of Kanchenjunga, the world's third-highest peak. It perfectly balances a thriving mountain-city culture with access to deep Eastern Himalayan treks and revered monasteries.",
+    "topHighlights": [
+      "The stunning high-altitude Tsomgo (Changu) Lake",
+      "Visits to the revered Rumtek Monastery",
+      "Nathula Pass at the historic India-China border"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Scenic",
+      "Cultural",
+      "Bustling"
+    ],
+    "idealSeason": "Sep–Jun",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "shoulderMonths": [
+      12,
+      1,
+      2,
+      6
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.3389,
+    "longitude": 88.6065,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "pelling-yuksom",
+    "name": "Pelling & Yuksom",
+    "description": "Pelling offers one of India's finest views of the Kanchenjunga massif, especially at dawn when the sunrise turns the snow peaks golden. Yuksom, the historic first capital of Sikkim, is the starting point for the classic Goecha La trek to the base of Kanchenjunga.",
+    "shortPitch": "Pelling offers arguably the finest dawn views of the Kanchenjunga massif in all of India. Nearby, the historic village of Yuksom serves as the rugged starting point for the iconic Goecha La trek.",
+    "topHighlights": [
+      "Unmatched sunrise views over Kanchenjunga",
+      "The 350-year-old Pemayangtse Monastery",
+      "Trekking to the sacred Khecheopalri Lake"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Scenic",
+      "Peaceful",
+      "Spiritual"
+    ],
+    "idealSeason": "Sep–May",
+    "landscapes": [
+      "Mountains",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "shoulderMonths": [
+      12,
+      1,
+      2
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.3168,
+    "longitude": 88.2384,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "yumthang-valley",
+    "name": "Yumthang Valley",
+    "description": "Yumthang — the 'Valley of Flowers of Sikkim' — lies at 3,564 m in North Sikkim and blooms with rhododendrons and primulas from March to May. The Zero Point beyond Yumthang at 4,800 m is the last accessible point near the Chinese border, offering spectacular snow and glacier views.",
+    "shortPitch": "Known as the 'Valley of Flowers of Sikkim', Yumthang sits at 3,564m and explodes with vibrant rhododendrons every spring. Further up lies Zero Point, a spectacular glacial frontier offering panoramic snowy vistas near the border.",
+    "topHighlights": [
+      "Rhododendron sanctuary spring blooms (Mar-May)",
+      "Glacier views from Zero Point (4,800m)",
+      "Natural hot springs amidst alpine terrain"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Lush",
+      "Pristine",
+      "Remote"
+    ],
+    "idealSeason": "Mar–May",
+    "landscapes": [
+      "Mountains",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      10,
+      11
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      12,
+      1,
+      2
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 27.8105,
+    "longitude": 88.6946,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "kargil",
+    "name": "Kargil",
+    "description": "Kargil is the second-largest town in Ladakh, a strategic military hub known worldwide for the 1999 Kargil War. Today it draws history and adventure travellers en route between Leh and Srinagar, with access to remote valleys, ancient cave Buddhist monasteries and the towering Zoji La pass.",
+    "shortPitch": "Kargil is a deeply historic military hub set against a backdrop of stark, towering mountain passes. It acts as a rugged stepping stone to remote valleys, ancient cave monasteries, and the breathtaking Zoji La pass.",
+    "topHighlights": [
+      "Paying respects at the Kargil War Memorial in Dras",
+      "Exploring the ancient Mulbekh Monastery rock sculptures",
+      "Discovering the remote glaciers of Suru Valley"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Historic",
+      "Remote",
+      "Raw"
+    ],
+    "idealSeason": "May–Sep",
+    "landscapes": [
+      "Mountains"
+    ],
+    "peakMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shoulderMonths": [
+      4,
+      10
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "closedMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "minRequiredDays": 2,
+    "latitude": 34.5539,
+    "longitude": 76.1349,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "kinnaur-valley",
+    "name": "Kinnaur Valley",
+    "description": "Kinnaur is famed for its apple orchards, terraced vineyards, ancient wooden temples and the stunning confluence of the Sutlej River with Himalayan peaks. The Hindustan–Tibet Highway passes through here, offering dramatic cliff-hanging roads, landslide-prone passes and a transition from Hindu to Buddhist culture.",
+    "shortPitch": "Kinnaur Valley is a cultural bridge between Hinduism and Buddhism, famed for its terraced apple orchards and ancient wooden temples. The dramatic Hindustan-Tibet Highway cuts through its cliff-hanging passes, offering an unforgettable adventure.",
+    "topHighlights": [
+      "Chitkul, the last Indian village on the Indo-Tibet border",
+      "The ancient Bhimakali Temple in Sarahan",
+      "Spectacular views of the Kinnaur Kailash peak"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Scenic",
+      "Cultural",
+      "Raw"
+    ],
+    "idealSeason": "Apr–Oct",
+    "landscapes": [
+      "Mountains",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      4,
+      5,
+      6,
+      9,
+      10
+    ],
+    "shoulderMonths": [
+      7,
+      8
+    ],
+    "avoidMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "closedMonths": [
+      12,
+      1,
+      2
+    ],
+    "minRequiredDays": 3,
+    "latitude": 31.651,
+    "longitude": 78.2618,
+    "requiresAcclimatization": true,
+    "isHub": false
+  },
+  {
+    "id": "north-goa",
+    "name": "North Goa",
+    "description": "North Goa is India's most famous beach destination — a heady mix of Portuguese colonial heritage, lively beach shacks, water sports, flea markets and an infectious party scene. Beaches from Calangute to Vagator each have distinct personalities ranging from family-friendly to bohemian.",
+    "shortPitch": "North Goa is India's premier coastal playground, offering a heady mix of Portuguese colonial heritage and an infectious party scene. Its legendary beaches feature lively shacks, water sports, and iconic flea markets.",
+    "topHighlights": [
+      "Vibrant nightlife and the Anjuna Flea Market",
+      "Water sports at Baga and Calangute beaches",
+      "Sunset views from the cliff-top Fort Aguada and Chapora Fort"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Vibrant",
+      "Bohemian",
+      "Fast-paced"
+    ],
+    "idealSeason": "Nov–Mar",
+    "landscapes": [
+      "Beaches",
+      "Modern Cities"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      10,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 15.5937,
+    "longitude": 73.7402,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "south-goa",
+    "name": "South Goa",
+    "description": "South Goa is quieter and more upscale than the north, with long empty stretches of white sand, luxury resorts, ancient spice plantations and the old Portuguese capital of Margao. Palolem's crescent-shaped bay and Agonda's pristine sands are among India's most beautiful beaches.",
+    "shortPitch": "Quieter and more upscale than its northern counterpart, South Goa boasts long, empty stretches of pristine white sand and luxury resorts. It is a tranquil retreat surrounded by ancient spice plantations and grand Portuguese cathedrals.",
+    "topHighlights": [
+      "The stunning crescent-shaped bay of Palolem Beach",
+      "UNESCO-listed churches and basilicas of Old Goa",
+      "Day trips to the majestic Dudhsagar Waterfalls"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Relaxed",
+      "Luxury",
+      "Romantic"
+    ],
+    "idealSeason": "Nov–Mar",
+    "landscapes": [
+      "Beaches",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      10,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 15.2736,
+    "longitude": 73.9663,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "gokarna",
+    "name": "Gokarna",
+    "description": "Gokarna is a small temple town on the Karnataka coast that has evolved into a beloved backpacker beach destination. The pristine Om Beach — shaped like the Om symbol — and the quieter Half Moon and Paradise beaches attract travellers seeking a more authentic alternative to Goa, while the Mahabaleshwar Temple draws Hindu pilgrims.",
+    "shortPitch": "Gokarna is a deeply spiritual coastal temple town that has evolved into a beloved, laid-back backpacker haven. Its pristine, symbol-shaped beaches offer a quieter, highly authentic alternative to the bustle of Goa.",
+    "topHighlights": [
+      "Beach-hopping between Om, Half Moon, and Paradise beaches",
+      "Pilgrimage to the ancient Mahabaleshwar Temple",
+      "Serene sunset viewpoints from the Gokarna Fort cliffs"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Bohemian",
+      "Spiritual",
+      "Peaceful"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Beaches",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 14.5398,
+    "longitude": 74.318,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "andaman-islands",
+    "name": "Andaman Islands",
+    "description": "The Andaman Islands are India's premier tropical island destination, boasting some of Asia's finest snorkelling and diving over pristine coral reefs. Port Blair is the gateway, while Havelock (Swaraj Dweep) and Neil (Shaheed Dweep) islands offer luminescent beaches of global renown.",
+    "shortPitch": "The Andaman Islands stand as India's premier tropical archipelago, boasting luminescent white-sand beaches and world-class scuba diving. Its pristine coral reefs and dense mangrove forests create an unparalleled oceanic escape.",
+    "topHighlights": [
+      "Relaxing on Radhanagar Beach, consistently rated Asia's best",
+      "Scuba diving over pristine coral reefs at Havelock and Neil Islands",
+      "Historical tours of the Cellular Jail National Memorial"
+    ],
+    "region": "Islands",
+    "vibeTags": [
+      "Tropical",
+      "Pristine",
+      "Romantic"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Islands",
+      "Beaches"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 6,
+    "latitude": 11.9761,
+    "longitude": 92.9876,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "lakshadweep",
+    "name": "Lakshadweep",
+    "description": "India's only coral atoll archipelago in the Arabian Sea, Lakshadweep's 36 islands offer crystal-clear lagoons, vibrant coral reefs and an almost untouched marine ecosystem. Strict visitor limits have kept it remarkably pristine. Agatti Island has the main airport; Bangaram is a luxury resort island.",
+    "shortPitch": "As India's only coral atoll archipelago, Lakshadweep offers a hyper-exclusive island escape with crystal-clear lagoons and an untouched marine ecosystem. Strict visitor limits have preserved its staggering natural beauty.",
+    "topHighlights": [
+      "Snorkelling and scuba diving in vibrant, untouched coral reefs",
+      "Luxury stays on the secluded Bangaram Island",
+      "Glass-bottom boat rides in the turquoise Agatti lagoon"
+    ],
+    "region": "Islands",
+    "vibeTags": [
+      "Pristine",
+      "Exclusive",
+      "Remote"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Islands",
+      "Beaches"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 4,
+    "latitude": 10.5667,
+    "longitude": 72.6417,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "varkala",
+    "name": "Varkala",
+    "description": "Varkala is famous for its dramatic red cliffs dropping onto a golden beach — a setting unlike anywhere else in India. The clifftop North Cliff promenade is lined with yoga studios, Ayurveda centres, and beach restaurants. The ancient Janardhana Swami Temple adds a spiritual dimension to this unique coastal destination.",
+    "shortPitch": "Varkala is visually dramatic, famous for its towering red cliffs that drop sheer into the Arabian Sea. It is a soulful coastal retreat blending clifftop yoga, Ayurvedic healing, and ancient temple spirituality.",
+    "topHighlights": [
+      "Sunset views from the bustling North Cliff promenade",
+      "Ayurveda wellness retreats and beachfront yoga",
+      "Visiting the ancient Janardhana Swami Temple"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Soulful",
+      "Bohemian",
+      "Relaxed"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Beaches",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 8.7338,
+    "longitude": 76.7059,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "kovalam",
+    "name": "Kovalam",
+    "description": "Kovalam, near Thiruvananthapuram, is Kerala's most developed beach resort town with a crescent of linked beaches known as Lighthouse Beach, Hawa Beach and Samudra Beach. It is the Ayurveda capital of Kerala's coast, drawing thousands annually for traditional Keralan massage and healing treatments.",
+    "shortPitch": "Kovalam is Kerala's premier coastal resort, defined by its iconic crescent of linked beaches and towering lighthouse. It stands globally recognized as a restorative capital for traditional Ayurvedic massage and holistic healing.",
+    "topHighlights": [
+      "Relaxing at the iconic crescent-shaped Lighthouse Beach",
+      "World-class traditional Ayurvedic healing treatments",
+      "Exploring the nearby Vizhinjam Fishing Harbour"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Relaxed",
+      "Restorative",
+      "Soulful"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Beaches"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      8,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 8.4004,
+    "longitude": 76.9787,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "karwar-dandeli",
+    "name": "Karwar & Dandeli",
+    "description": "Karwar is a pristine harbour town at the mouth of the Kali River on the northern Karnataka coast, offering unspoilt beaches largely untouched by mass tourism. Inland, Dandeli is Karnataka's adventure capital — a tiger reserve and white-water rafting hotspot on the Western Ghats rivers.",
+    "shortPitch": "Combining untouched coastal beauty with deep forest adventure, this twin destination offers the best of both worlds. Enjoy pristine harbour beaches in Karwar before heading inland to Dandeli for white-water rafting and tiger safaris.",
+    "topHighlights": [
+      "White-water rafting on the Kali River in Dandeli",
+      "Wildlife safaris spotting elusive black panthers",
+      "Unspoiled beach retreats at Devbagh and Kurumgad Island"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Raw",
+      "Pristine",
+      "Exhilarating"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Beaches",
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 14.8048,
+    "longitude": 74.1333,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tarkarli-sindhudurg",
+    "name": "Tarkarli & Sindhudurg",
+    "description": "Tarkarli on the Konkan coast is famous for the clearest waters in Maharashtra, excellent for scuba diving and snorkelling. The offshore Sindhudurg Fort — built by Chhatrapati Shivaji Maharaj — sits on a rocky island in the sea, accessible by boat, and is one of the finest sea forts in Asia.",
+    "shortPitch": "Tarkarli boasts the clearest waters on the Konkan coast, making it a spectacular hub for scuba diving and snorkelling. Just offshore lies Sindhudurg Fort, a magnificent 17th-century sea fortress built on a rocky island.",
+    "topHighlights": [
+      "Scuba diving and snorkelling in crystal-clear coastal waters",
+      "Boat trips to explore the historic offshore Sindhudurg Fort",
+      "Savouring authentic, spicy Konkan seafood cuisine"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Pristine",
+      "Historic",
+      "Scenic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Beaches",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 16.0401,
+    "longitude": 73.4839,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "ratnagiri",
+    "name": "Ratnagiri",
+    "description": "Ratnagiri on the Konkan coast is the birthplace of Bal Gangadhar Tilak and home to India's most prized Alphonso mangoes. Its red-laterite cliffs, ancient forts, pristine coves and Ganesh ghat make it a scenic and historically rich coastal destination largely undiscovered by international travellers.",
+    "shortPitch": "Ratnagiri is an undiscovered gem on the Konkan coast, defined by dramatic red-laterite cliffs and pristine ocean coves. Historically rich, it is also globally renowned as the heartland of the prized Alphonso mango.",
+    "topHighlights": [
+      "Tours of organic Alphonso mango farms",
+      "Exploring Ratnadurg Fort and its historic lighthouse",
+      "Discovering the royal Thibaw Palace Museum"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Authentic",
+      "Quiet",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Beaches",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 16.9902,
+    "longitude": 73.312,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "jaipur",
+    "name": "Jaipur",
+    "description": "The 'Pink City', Jaipur is the gateway to Rajasthan and one of India's most visited destinations. Its rose-pink buildings, magnificent forts, Mughal-Rajput palaces and vibrant bazaars combine to make it a UNESCO World Heritage-listed city of extraordinary colour and royal grandeur.",
+    "shortPitch": "The famed 'Pink City' is a UNESCO World Heritage marvel of royal grandeur and extraordinary colour. Jaipur enchants visitors with its majestic hilltop forts, opulent Mughal-Rajput palaces, and bustling artisan bazaars.",
+    "topHighlights": [
+      "The colossal Amber Fort and its intricate Mirror Palace",
+      "The iconic, lattice-windowed Hawa Mahal (Palace of Winds)",
+      "The astronomical wonders of the Jantar Mantar observatory"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Regal",
+      "Historic",
+      "Vibrant"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Modern Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 26.9124,
+    "longitude": 75.7873,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "udaipur",
+    "name": "Udaipur",
+    "description": "Udaipur — the 'City of Lakes' — is widely considered India's most romantic city, its white marble palaces reflected in shimmering lakes against the backdrop of the Aravalli Hills. The Lake Palace hotel, appearing to float on Lake Pichola, is among the most photographed buildings in Asia.",
+    "shortPitch": "Widely considered India's most romantic destination, Udaipur is a stunning 'City of Lakes' framed by the Aravalli Hills. Its ethereal white marble palaces appear to float magically upon shimmering, serene waters.",
+    "topHighlights": [
+      "Romantic boat rides across the serene Lake Pichola",
+      "Exploring the massive, ornate City Palace complex",
+      "Sunset views from the hilltop Sajjangarh (Monsoon Palace)"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Romantic",
+      "Regal",
+      "Luxury"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 24.5854,
+    "longitude": 73.7125,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "jodhpur",
+    "name": "Jodhpur",
+    "description": "The 'Blue City', Jodhpur is dominated by the colossal Mehrangarh Fort rising 122 m from a rocky outcrop. The old city below is painted indigo blue, creating an iconic visual unlike any other in India. It serves as the western gateway to the Thar Desert and a hub for desert safaris and textile shopping.",
+    "shortPitch": "The famed 'Blue City' of Jodhpur is visually iconic, defined by its sea of indigo houses resting beneath the colossal Mehrangarh Fort. It acts as the majestic western gateway to the Thar Desert, offering a rich tapestry of history and artisanal crafts.",
+    "topHighlights": [
+      "The colossal Mehrangarh Fort and Museum",
+      "Wandering the vibrant Blue City old town",
+      "Shopping for spices and textiles at Sardar Market"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Historic",
+      "Vibrant",
+      "Iconic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Desert"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 26.2389,
+    "longitude": 73.0243,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "jaisalmer",
+    "name": "Jaisalmer",
+    "description": "The 'Golden City', Jaisalmer rises from the Thar Desert like a mirage — its honey-coloured sandstone fort and havelis (merchant mansions) glowing at sunset. It is India's quintessential desert city: camel safaris into the sand dunes of Sam and Khuri, folk music under the stars and intricately carved Jain temples await.",
+    "shortPitch": "Rising like a mirage from the Thar Desert, the 'Golden City' of Jaisalmer glows beautifully at sunset from its honey-coloured sandstone fort. It is India's quintessential desert experience, offering starry camel safaris and intricately carved living forts.",
+    "topHighlights": [
+      "Exploring the UNESCO-listed, living Jaisalmer Fort",
+      "Camel safaris through the Sam Sand Dunes",
+      "Intricately carved merchant mansions like Patwon Ki Haveli"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Golden",
+      "Romantic",
+      "Rustic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Desert"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 26.9157,
+    "longitude": 70.9083,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "bikaner",
+    "name": "Bikaner",
+    "description": "Bikaner is a fascinating walled desert city famed for its medieval fort, ornate Jain havelis, camel breeding farm, and the extraordinary Karni Mata Temple (Rat Temple) at Deshnok. It is less touristed than Jaipur or Jodhpur but equally rich in royal architecture and desert heritage.",
+    "shortPitch": "Bikaner is a deeply authentic walled desert city boasting exquisite royal architecture and ornate Jain havelis without the heavy crowds. It offers unique cultural sites like a national camel breeding farm and the extraordinary Karni Mata Temple.",
+    "topHighlights": [
+      "The magnificent Junagarh Fort complex",
+      "The extraordinary Karni Mata Rat Temple at Deshnok",
+      "Guided camel encounters at the National Research Centre on Camel"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Historic",
+      "Quiet",
+      "Authentic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Desert"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 28.0229,
+    "longitude": 73.3119,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "bundi",
+    "name": "Bundi",
+    "description": "Bundi is one of Rajasthan's best-kept secrets — a small medieval town with an impossibly photogenic palace covered in Rajput murals, a clifftop fort and step-wells (baoris) of exquisite craftsmanship. Rudyard Kipling lived here and wrote much of 'Kim' in the town. Backpackers adore it for its authenticity.",
+    "shortPitch": "One of Rajasthan's best-kept secrets, Bundi is a medieval town renowned for its impossibly photogenic palace, exquisite Rajput murals, and grand step-wells. It retains an unspoiled authenticity that inspired writers like Rudyard Kipling.",
+    "topHighlights": [
+      "The intricate Chitrashala murals at Bundi Palace",
+      "Historic step-wells including the grand Raniji ki Baori",
+      "Hikes up to the clifftop Taragarh Fort"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Hidden",
+      "Romantic",
+      "Authentic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 25.4415,
+    "longitude": 75.6385,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "pushkar",
+    "name": "Pushkar",
+    "description": "Pushkar is one of Hinduism's holiest cities, built around the sacred Pushkar Lake with 52 bathing ghats and the rare Brahma Temple (one of very few in the world). Every November it hosts the Pushkar Camel Fair — the world's largest — a spectacular spectacle of thousands of camels, horses and cattle.",
+    "shortPitch": "Built around a deeply sacred lake with 52 bathing ghats, Pushkar is an ancient holy city renowned for its rare Brahma Temple. It is world-famous for its spectacular annual Camel Fair that transforms the desert into a riot of colour and energy.",
+    "topHighlights": [
+      "Visiting the sacred Brahma Temple",
+      "Attending sunset rituals at the Pushkar Lake ghats",
+      "Experiencing the vibrant Pushkar Camel Fair (November)"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Spiritual",
+      "Bohemian",
+      "Vibrant"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Spiritual India",
+      "Desert"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 26.4862,
+    "longitude": 74.5513,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "shekhawati",
+    "name": "Shekhawati Region",
+    "description": "Shekhawati is an open-air gallery of some of the finest painted havelis in the world, created by wealthy merchant families in the 18th–19th centuries. The towns of Mandawa, Nawalgarh, Fatehpur and Ramgarh contain thousands of buildings adorned with extraordinary frescoes — mythological, historical and fantastical.",
+    "shortPitch": "Shekhawati is an extraordinary open-air gallery of ornate painted havelis commissioned by wealthy 18th-century merchants. Towns like Mandawa and Nawalgarh are adorned with thousands of vibrant frescoes depicting mythological and historical tales.",
+    "topHighlights": [
+      "Exploring the painted havelis of Mandawa",
+      "The Nawalgarh fresco architectural trail",
+      "Discovering the grand cenotaphs of Ramgarh"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Historic",
+      "Quiet",
+      "Cultural"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.9944,
+    "longitude": 75.3134,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "mount-abu",
+    "name": "Mount Abu",
+    "description": "Mount Abu is Rajasthan's only hill station, rising to 1,220 m in the Aravalli Range. It is sacred to both Hindus and Jains — the Dilwara Temples here are considered among the finest examples of Jain marble craftsmanship anywhere in the world.",
+    "shortPitch": "Rising high in the Aravalli Range, Mount Abu is Rajasthan's only hill station and a profoundly spiritual sanctuary. It is famed worldwide for the exquisite 11th-century marble carvings of the sacred Dilwara Jain Temples.",
+    "topHighlights": [
+      "The unparalleled marble carvings of Dilwara Jain Temples",
+      "Boating at the scenic Nakki Lake",
+      "Sunset viewpoints from Guru Shikhar, Rajasthan's highest peak"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Peaceful",
+      "Spiritual",
+      "Scenic"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      8,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 24.5926,
+    "longitude": 72.7156,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "mysore",
+    "name": "Mysore",
+    "description": "Mysore — 'City of Palaces' — is famous for the stunning Mysore Palace, one of India's most visited buildings. It is the cultural capital of Karnataka, home to silk weaving, sandalwood crafts and a living Wadiyar royal tradition. The Dasara festival transforms Mysore into one of India's grandest royal spectacles.",
+    "shortPitch": "Known as the 'City of Palaces', Mysore is Karnataka's regal cultural capital celebrated for silk, sandalwood, and a vibrant Wadiyar royal tradition. The spectacularly illuminated Mysore Palace is a breathtaking architectural marvel.",
+    "topHighlights": [
+      "The stunningly illuminated Mysore Palace",
+      "Ascending Chamundi Hill to the Chamundeshwari Temple",
+      "Exploring traditional silk and spice stalls at Devaraja Market"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Regal",
+      "Cultural",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 12.2958,
+    "longitude": 76.6394,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "rann-of-kutch",
+    "name": "Rann of Kutch",
+    "description": "The Great Rann of Kutch is one of the world's largest salt deserts — a vast white expanse stretching 7,500 sq km that becomes submerged in monsoon and emerges as a spectral white plain under the full moon in winter. The Rann Utsav festival (Oct–Feb) celebrates the region's tribal crafts, folk music and flamingo colonies.",
+    "shortPitch": "The Great Rann of Kutch is a vast, spectral white salt desert stretching endlessly towards the horizon. Emerging in winter, it hosts the vibrant Rann Utsav festival celebrating rich tribal crafts and folk music under a full moon.",
+    "topHighlights": [
+      "Experiencing the vast White Rann on a full moon night",
+      "Attending the cultural Rann Utsav festival",
+      "Exploring the ancient Harappan ruins at Dholavira"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Otherworldly",
+      "Surreal",
+      "Cultural"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Desert"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 23.8322,
+    "longitude": 69.8398,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "alleppey",
+    "name": "Alleppey (Alappuzha)",
+    "description": "Alleppey — the 'Venice of the East' — is the houseboat capital of India. Its intricate network of canals, lagoons and lakes formed by the Kerala Backwaters is navigated by traditional rice-barge houseboats (kettuvallams), offering one of the most unique and tranquil travel experiences in Asia.",
+    "shortPitch": "Often called the 'Venice of the East', Alleppey is the undisputed houseboat capital of India. Cruising its intricate, lush network of canals and lagoons on a traditional rice-barge offers unparalleled tropical tranquility.",
+    "topHighlights": [
+      "Overnight stays on traditional Kerala houseboats",
+      "Navigating the serene backwater canals",
+      "Witnessing the spectacular Nehru Trophy Snake Boat Race (August)"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Dreamy",
+      "Romantic",
+      "Relaxed"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Backwaters"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      8,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 9.4981,
+    "longitude": 76.3388,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "kumarakom",
+    "name": "Kumarakom",
+    "description": "Kumarakom on the shores of Vembanad Lake is Kerala's most luxurious backwater resort destination. The Kumarakom Bird Sanctuary is a haven for migratory birds including Siberian storks, and the village's lagoon-side Ayurveda resorts offer world-class wellness experiences.",
+    "shortPitch": "Set majestically on the shores of Vembanad Lake, Kumarakom is Kerala's most luxurious backwater retreat. It is a haven for exotic migratory birds and boasts world-class lagoon-side Ayurveda wellness resorts.",
+    "topHighlights": [
+      "Luxury wellness resorts and Ayurvedic treatments",
+      "Houseboat cruises across Vembanad Lake",
+      "Birdwatching at the renowned Kumarakom Bird Sanctuary"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Luxury",
+      "Peaceful",
+      "Restorative"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Backwaters",
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      8,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 9.5828,
+    "longitude": 76.4255,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "description": "Varanasi is one of the world's oldest continuously inhabited cities and Hinduism's most sacred city. The ghats of the Ganga are a theatre of human existence — morning yoga, boat rides past burning ghats, temple rituals, sadhus and the evening Ganga Aarti fire ceremony make it an overwhelming, unmissable experience.",
+    "shortPitch": "As Hinduism's most sacred site, Varanasi is one of the world's oldest and most intense continuously inhabited cities. The ghats of the Ganges River serve as a raw, overwhelming theatre of spiritual existence and ancient ritual.",
+    "topHighlights": [
+      "The mesmerising evening Ganga Aarti at Dashashwamedh Ghat",
+      "Dawn boat rides past ancient riverside ghats",
+      "Paying respects at the sacred Kashi Vishwanath Temple"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Intense",
+      "Sacred",
+      "Spiritual"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 25.3176,
+    "longitude": 82.9739,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "haridwar",
+    "name": "Haridwar",
+    "description": "Haridwar — 'Gateway to God' — is where the Ganges descends from the Himalayas onto the plains, making it one of the seven holiest cities in Hinduism. The evening Ganga Aarti at Har Ki Pauri Ghat, where priests wave fire lamps over the river, is one of India's most moving spiritual spectacles.",
+    "shortPitch": "Translating to 'Gateway to God', Haridwar marks the point where the Ganges descends from the Himalayas. It is a profoundly spiritual destination renowned for its evening river rituals and ancient temple traditions.",
+    "topHighlights": [
+      "The grand evening Ganga Aarti at Har Ki Pauri Ghat",
+      "Ropeway trips to the hilltop Mansa Devi Temple",
+      "Witnessing the site of the legendary Kumbh Mela"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Sacred",
+      "Spiritual",
+      "Bustling"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 29.9457,
+    "longitude": 78.1642,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "amritsar",
+    "name": "Amritsar",
+    "description": "Amritsar is the spiritual and cultural capital of Sikhism, home to the Golden Temple (Harmandir Sahib) — the holiest shrine in Sikhism and one of the most visited places in the world. The Jallianwala Bagh massacre memorial and the Wagah Border flag ceremony add profound historical dimensions.",
+    "shortPitch": "Amritsar is the vibrant spiritual and cultural capital of Sikhism, universally famed for the radiant Golden Temple. It offers visitors profound historical depth, iconic ceremonies, and legendary Punjabi hospitality.",
+    "topHighlights": [
+      "The awe-inspiring Golden Temple (Harmandir Sahib)",
+      "The deeply moving Jallianwala Bagh Memorial",
+      "The electric daily sunset ceremony at the Wagah Border"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Spiritual",
+      "Cultural",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 31.634,
+    "longitude": 74.8723,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "bodh-gaya",
+    "name": "Bodh Gaya",
+    "description": "Bodh Gaya is the most sacred site in Buddhism — the place where Siddhartha Gautama attained enlightenment under the Bodhi Tree. The Mahabodhi Temple complex (UNESCO World Heritage) attracts Buddhist pilgrims from Tibet, Thailand, Sri Lanka, Japan, and around the world.",
+    "shortPitch": "Bodh Gaya is revered globally as the most sacred site in Buddhism, where Siddhartha Gautama achieved enlightenment. The UNESCO-listed temple complex draws monks and pilgrims from across the world into deep, peaceful meditation.",
+    "topHighlights": [
+      "The magnificent Mahabodhi Temple",
+      "Meditating beneath the descendant of the original Bodhi Tree",
+      "Exploring international monasteries from Japan, Tibet, and Thailand"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Sacred",
+      "Peaceful",
+      "Spiritual"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 24.6961,
+    "longitude": 84.9869,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tirupati",
+    "name": "Tirupati",
+    "description": "The Tirumala Venkateswara Temple at Tirupati is the richest and most visited place of worship in the world, receiving 50,000–100,000 pilgrims daily. The main deity, Lord Venkateswara, is believed to grant all wishes, and the tradition of tonsuring (head shaving) as an offering is observed by millions.",
+    "shortPitch": "Tirupati is home to the Tirumala Venkateswara Temple, renowned as the richest and most visited place of worship in the world. Ascending its sacred hills is an intense, awe-inspiring display of unwavering faith and devotion.",
+    "topHighlights": [
+      "Darshan at the majestic Tirumala Venkateswara Temple",
+      "Historic visits to the nearby Chandragiri Fort",
+      "The beautiful cascading waters of Kapila Theertham"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Sacred",
+      "Bustling",
+      "Spiritual"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      8,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 13.6288,
+    "longitude": 79.4192,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "puri",
+    "name": "Puri",
+    "description": "Puri is one of Hinduism's four sacred Dhams and home to the Jagannath Temple — one of India's most important shrines. The annual Rath Yatra chariot festival draws millions and is the world's largest chariot procession. The adjacent beach is one of Odisha's most popular seaside resorts.",
+    "shortPitch": "Puri is an ancient coastal Dham deeply revered for the monumental Jagannath Temple. Alongside its vibrant spiritual rituals and the massive annual Rath Yatra, it offers expansive sandy beaches along the Bay of Bengal.",
+    "topHighlights": [
+      "The highly sacred Jagannath Temple",
+      "Witnessing the colossal Rath Yatra Chariot Festival",
+      "Relaxing at the popular Puri Beach"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Sacred",
+      "Vibrant",
+      "Spiritual"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India",
+      "Beaches"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 19.8135,
+    "longitude": 85.8312,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "ajmer",
+    "name": "Ajmer",
+    "description": "Ajmer's Dargah Sharif — the shrine of Sufi saint Khwaja Moinuddin Chishti — is among the most important Muslim pilgrimage sites in South Asia, drawing devotees of all faiths. Just 11 km away, Pushkar is one of Hinduism's holiest sites, creating an extraordinary interfaith corridor.",
+    "shortPitch": "Set in the Aravalli mountains, Ajmer is a deeply historic city and home to the universally revered Dargah Sharif shrine. Its beautiful lakes and Sufi heritage create a profound sense of interfaith devotion.",
+    "topHighlights": [
+      "The sacred Dargah Sharif of Khwaja Moinuddin Chishti",
+      "Live Qawwali music performances at the dargah",
+      "Relaxing by the shores of Ana Sagar Lake"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Sacred",
+      "Cultural",
+      "Spiritual"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 26.4499,
+    "longitude": 74.6399,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "shirdi",
+    "name": "Shirdi",
+    "description": "Shirdi is home to the Sai Baba Samadhi Mandir — one of the wealthiest temples in India and the most visited destination in Maharashtra. Millions of devotees from all religions visit annually to pay homage to Sai Baba, a saint revered by Hindus, Muslims and people of all faiths.",
+    "shortPitch": "Shirdi is the sacred spiritual home of the widely revered saint Sai Baba. Drawing millions of devotees from every faith, the serene temple complex offers a deeply peaceful atmosphere centered around universal devotion.",
+    "topHighlights": [
+      "Darshan at the main Sai Baba Samadhi Mandir",
+      "Visiting the historic Dwarkamai Mosque",
+      "Strolling through the peaceful Lendi Baugh garden"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Sacred",
+      "Spiritual",
+      "Peaceful"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 19.7645,
+    "longitude": 74.4762,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "jim_corbett",
+    "name": "Jim Corbett National Park",
+    "description": "Jim Corbett is India's oldest and most famous national park, established in 1936 and the flagship of Project Tiger. The Ramganga River flows through its sal forests, grasslands and river-side terrains, creating a diverse habitat. It holds one of the highest densities of Bengal tigers in India.",
+    "shortPitch": "Established in 1936, Jim Corbett is India's oldest and most celebrated national park, serving as the pioneering flagship of Project Tiger. Its diverse landscape of sal forests and the Ramganga River provides thrilling safari experiences and incredible wildlife encounters.",
+    "topHighlights": [
+      "Thrilling tiger safaris in the Dhikala and Bijrani zones",
+      "Birdwatching along the Ramganga River",
+      "Overnight stays in exclusive forest lodges under the stars"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Surreal",
+      "Pure",
+      "Exhilarating"
+    ],
+    "idealSeason": "Nov–May",
+    "landscapes": [
+      "Wildlife & Jungle",
+      "Mountains"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      10,
+      6
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 3,
+    "latitude": 29.53,
+    "longitude": 78.7747,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "ranthambore",
+    "name": "Ranthambore National Park",
+    "description": "Ranthambore is India's most famous tiger reserve, where tigers are relatively habituated to vehicles — making it one of the best places in Asia for tiger photography. The dramatic backdrop of the 10th-century Ranthambore Fort rising above the jungle adds a unique historical dimension to wildlife safaris.",
+    "shortPitch": "Set against the dramatic backdrop of a 10th-century fort, Ranthambore is renowned for its habituated tigers, making it Asia's premier destination for wildlife photography. It offers an unparalleled blend of ancient history and thrilling jungle safaris.",
+    "topHighlights": [
+      "Unforgettable tiger sightings in an open jeep or canter",
+      "Exploring the ancient, UNESCO-listed Ranthambore Fort inside the park",
+      "Spotting crocodiles and birds at Padam Talao lake"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Surreal",
+      "Historic",
+      "Exhilarating"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      4,
+      5,
+      6
+    ],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 2,
+    "latitude": 26.0173,
+    "longitude": 76.5026,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "kaziranga",
+    "name": "Kaziranga National Park",
+    "description": "Kaziranga is a UNESCO World Heritage Site holding two-thirds of the world's endangered one-horned rhinoceros population. Its vast floodplain grasslands along the Brahmaputra River also shelter the highest density of tigers in any protected area in the world, alongside wild elephants, water buffalo and swamp deer.",
+    "shortPitch": "This UNESCO World Heritage Site is a vast floodplain along the Brahmaputra River, proudly sheltering two-thirds of the world's endangered one-horned rhinos. It promises an extraordinary safari experience with incredible densities of tigers, elephants, and unique endemic species.",
+    "topHighlights": [
+      "Spotting the majestic one-horned rhinoceros on jeep safaris",
+      "Early morning elephant safaris through the tall grasslands",
+      "Boat safaris along the Brahmaputra spotting diverse birdlife"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Surreal",
+      "Surreal",
+      "Unique"
+    ],
+    "idealSeason": "Nov–Apr",
+    "landscapes": [
+      "Wildlife & Jungle",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "shoulderMonths": [
+      10,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 3,
+    "latitude": 26.5775,
+    "longitude": 93.1711,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "bandhavgarh",
+    "name": "Bandhavgarh National Park",
+    "description": "Bandhavgarh has one of the highest densities of Bengal tigers in India and is consistently rated among the best parks for tiger sightings. The ancient Bandhavgarh Fort with its giant reclining Vishnu statue adds an archaeological dimension to the wildlife experience.",
+    "shortPitch": "Boasting one of India's highest Bengal tiger densities, Bandhavgarh consistently offers some of the best big cat sightings in the world. The experience is elevated by ancient cave temples and a majestic fort hidden deep within the lush jungle.",
+    "topHighlights": [
+      "Exceptional tiger tracking safaris in the Tala zone",
+      "Discovering the ancient Bandhavgarh Fort and cave shrines",
+      "Searching for leopards, sloth bears, and rich birdlife"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Surreal",
+      "Mystical",
+      "Exhilarating"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 3,
+    "latitude": 23.7225,
+    "longitude": 81.0245,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "kanha",
+    "name": "Kanha National Park",
+    "description": "Kanha inspired Rudyard Kipling's 'The Jungle Book' and remains one of India's finest wildlife sanctuaries. Its vast meadows (maidans) dotted with sal and bamboo forests are prime tiger country, while Kanha is also credited with saving the barasingha (swamp deer) from extinction.",
+    "shortPitch": "The majestic inspiration behind 'The Jungle Book', Kanha's sprawling meadows and dense sal forests are a quintessential Indian wildlife experience. It is a premier tiger habitat and famously the last stronghold of the rare barasingha swamp deer.",
+    "topHighlights": [
+      "Tiger and barasingha spotting in the iconic Kanha meadows",
+      "Witnessing stunning sunsets from the Bamni Dadar viewpoint",
+      "Immersing in the real-life landscapes of 'The Jungle Book'"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Surreal",
+      "Surreal",
+      "Scenic"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 3,
+    "latitude": 22.3345,
+    "longitude": 80.6115,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "pench",
+    "name": "Pench National Park",
+    "description": "Pench — another Jungle Book landscape — straddles Madhya Pradesh and Maharashtra, offering superb wildlife in less crowded conditions than Kanha or Bandhavgarh. It is famous for its leopards, wild dogs, and the tiger named 'Collarwali' — one of the most prolific and studied tigresses in India.",
+    "shortPitch": "Straddling two states, Pench offers incredible, less-crowded wildlife safaris through teak forests immortalized in Kipling's tales. It is celebrated for its thriving populations of leopards, wild dogs, and legendary tigers.",
+    "topHighlights": [
+      "Tracking tigers and elusive leopards on guided jeep safaris",
+      "Scenic boat safaris along the peaceful Pench River",
+      "Observing wild dog packs in their natural habitat"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Surreal",
+      "Peaceful",
+      "Surreal"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 2,
+    "latitude": 21.6702,
+    "longitude": 79.3364,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tadoba",
+    "name": "Tadoba-Andhari Tiger Reserve",
+    "description": "Tadoba is Maharashtra's oldest and largest national park, gaining fame as a tiger hotspot with excellent sighting rates. Its teak forests, bamboo groves and Tadoba Lake make it visually dramatic, and the resident tigers — including the celebrated Matkasur family — are well studied and habituated.",
+    "shortPitch": "Maharashtra's oldest national park is a rising star in Indian wildlife, offering phenomenal tiger sighting rates amidst dramatic teak and bamboo forests. The beautiful Tadoba Lake acts as an oasis for leopards, gaur, and crocodiles.",
+    "topHighlights": [
+      "Consistent and thrilling tiger sightings on guided safaris",
+      "Wildlife viewing by the scenic Tadoba Lake",
+      "Spotting Indian bison (gaur) and sloth bears in the dense forests"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Surreal",
+      "Exhilarating",
+      "Wild"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 2,
+    "latitude": 20.2449,
+    "longitude": 79.2974,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "gir",
+    "name": "Gir Forest National Park",
+    "description": "Gir is the last wild habitat of the Asiatic lion — found nowhere else on Earth outside Africa. The park's dry deciduous forests in Saurashtra shelter around 600 lions, plus leopards, hyenas and the largest population of crocodiles in Gujarat. Lion safari is among India's most exclusive wildlife experiences.",
+    "shortPitch": "Gir is globally unique as the absolute last refuge on Earth for the majestic Asiatic lion. Its dry deciduous forests offer an incredibly exclusive safari experience, alongside rich populations of leopards, hyenas, and crocodiles.",
+    "topHighlights": [
+      "Exclusive open-jeep safaris to spot the rare Asiatic lion",
+      "Birdwatching and wildlife photography in dry deciduous forests",
+      "Spotting marsh crocodiles at Kamleshwar Dam"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Surreal",
+      "Unique",
+      "Exclusive"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minRequiredDays": 2,
+    "latitude": 21.1243,
+    "longitude": 70.8242,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "sundarbans",
+    "name": "Sundarbans",
+    "description": "The Sundarbans is the world's largest mangrove forest (10,000 sq km) and a UNESCO World Heritage Site, straddling India and Bangladesh. It is the only place in the world where Bengal tigers live in a mangrove tidal delta ecosystem — these 'swimming tigers' are uniquely adapted to the saltwater environment.",
+    "shortPitch": "The world's largest mangrove forest is a mystical UNESCO World Heritage Site, famous for its elusive, swimming Bengal tigers. Exploring its intricate tidal waterways by boat offers a hauntingly beautiful and totally unique wildlife experience.",
+    "topHighlights": [
+      "Boat safaris through winding, mysterious mangrove creeks",
+      "Seeking the legendary 'swimming tigers' from watchtowers",
+      "Experiencing the Dobsonki Camp canopy walk"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Surreal",
+      "Mysterious",
+      "Surreal"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Wildlife & Jungle"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 21.9497,
+    "longitude": 89.1833,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "nagarhole_bandipur",
+    "name": "Nagarhole & Bandipur (Nilgiri Biosphere)",
+    "description": "Nagarhole (Rajiv Gandhi National Park) and adjacent Bandipur together form the core of the Nilgiri Biosphere Reserve — India's largest tiger conservation area. The contiguous forests here hold the highest concentration of Asian elephants in the world, alongside tigers, leopards and the endemic Nilgiri tahr.",
+    "shortPitch": "Forming the heart of the Nilgiri Biosphere, these contiguous forests hold the world's highest concentration of Asian elephants. The lush landscape, framed by the Kabini River, provides world-class sightings of tigers, leopards, and wild dog packs.",
+    "topHighlights": [
+      "Witnessing massive herds of Asian elephants on safari",
+      "Sunset boat rides and wildlife viewing on the Kabini River",
+      "Luxury stays at eco-lodges beneath the starry forest sky"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Surreal",
+      "Lush",
+      "Luxury"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Wildlife & Jungle",
+      "Tea Plantations"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      6,
+      9
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 11.9774,
+    "longitude": 76.1362,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "periyar",
+    "name": "Periyar Tiger Reserve",
+    "description": "Periyar, in the heart of Thekkady's spice hills, is one of India's most accessible and scenic wildlife reserves. Boat rides on the Periyar Lake offer relaxed wildlife watching — herds of elephants, sambar deer and otters come to the water's edge — while the surrounding tea and cardamom estates perfume the air.",
+    "shortPitch": "Nestled in Kerala's fragrant spice hills, Periyar offers exceptionally scenic and relaxed wildlife viewing from the waters of its central lake. It is a haven for elephant herds, lush nature walks, and nearby aromatic cardamom estates.",
+    "topHighlights": [
+      "Relaxing boat safaris on Periyar Lake watching wild elephants",
+      "Bamboo rafting and guided tribal border hikes",
+      "Exploring the nearby vibrant Kumily spice markets"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Surreal",
+      "Scenic",
+      "Spiritual"
+    ],
+    "idealSeason": "Sep–Apr",
+    "landscapes": [
+      "Wildlife & Jungle",
+      "Tea Plantations"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "shoulderMonths": [
+      5,
+      8
+    ],
+    "avoidMonths": [
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 9.4679,
+    "longitude": 77.1433,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "munnar",
+    "name": "Munnar",
+    "description": "Munnar is Kerala's premier hill station, its valleys blanketed in endless rolling tea estates at 1,600 m. The rare Neelakurinji flower — which blooms only once every 12 years, turning the hillsides purple — is Munnar's most celebrated natural phenomenon. Misty mornings, wildlife and cardamom forests add to its appeal.",
+    "shortPitch": "Kerala's premier hill station is a breathtaking canvas of endless rolling tea estates wrapped in cool mountain mists. It offers serene plantation walks, spectacular viewpoints, and tranquil escapes into high-altitude nature.",
+    "topHighlights": [
+      "Driving through endless, meticulously manicured tea plantations",
+      "Spotting the endangered Nilgiri tahr at Eravikulam National Park",
+      "Enjoying panoramic views from Top Station and Echo Point"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Surreal",
+      "Lush",
+      "Romantic"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Tea Plantations",
+      "Mountains"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 10.0889,
+    "longitude": 77.0595,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "darjeeling",
+    "name": "Darjeeling",
+    "description": "Darjeeling, at 2,042 m in the Eastern Himalayas, is synonymous with the world's finest teas. The Toy Train (UNESCO World Heritage), views of the Kanchenjunga, colonial-era clubs and the famous sunrise from Tiger Hill make it India's most beloved hill station. Darjeeling's FTGFOP1 first-flush teas are liquid gold.",
+    "shortPitch": "Synonymous with the world's finest teas, Darjeeling is a timeless Himalayan retreat offering majestic views of Mount Kanchenjunga. The vintage UNESCO Toy Train and colonial-era charm make it deeply nostalgic and romantic.",
+    "topHighlights": [
+      "Watching the sunrise over Kanchenjunga from Tiger Hill",
+      "Riding the historic UNESCO Darjeeling Himalayan Railway",
+      "Touring legendary tea estates and tasting first-flush brews"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Nostalgic",
+      "Scenic",
+      "Romantic"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Tea Plantations",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 27.036,
+    "longitude": 88.2627,
+    "requiresAcclimatization": true,
+    "isHub": true
+  },
+  {
+    "id": "ooty",
+    "name": "Ooty (Udhagamandalam)",
+    "description": "Ooty is the 'Queen of Hill Stations' — the most famous hill resort in South India. The Nilgiri Mountain Railway (Toy Train) UNESCO heritage line, botanical gardens, the Ooty Lake and surrounding eucalyptus and tea estates have drawn visitors since the British Raj.",
+    "shortPitch": "The undisputed 'Queen of Hill Stations', Ooty enchants with its sprawling botanical gardens, scenic lakes, and crisp eucalyptus air. The nostalgic ride on its UNESCO-listed mountain railway remains a quintessential Indian experience.",
+    "topHighlights": [
+      "Riding the UNESCO Nilgiri Mountain Railway toy train",
+      "Strolling through the meticulously maintained Ooty Botanical Gardens",
+      "Boating on the serene waters of Ooty Lake"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Surreal",
+      "Nostalgic",
+      "Lush"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Tea Plantations",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 11.4064,
+    "longitude": 76.6932,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "coonoor",
+    "name": "Coonoor",
+    "description": "Coonoor is quieter and less crowded than Ooty but equally beautiful, with terraced tea gardens cascading down the Nilgiri slopes. Sim's Park is a magnificent botanical garden, and the town serves as the main gateway for the Nilgiri Mountain Railway experience between Mettupalayam and Ooty.",
+    "shortPitch": "A quieter, more intimate neighbor to Ooty, Coonoor features breathtaking terraced tea gardens cascading down the Nilgiri hills. It offers stunning viewpoints, peaceful botanical parks, and a slower, deeply relaxing pace of life.",
+    "topHighlights": [
+      "Wandering through the rare flora at Sim's Park",
+      "Taking in valley panoramas from Dolphin's Nose viewpoint",
+      "Enjoying peaceful drives through cascading tea estates"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Peaceful",
+      "Lush",
+      "Scenic"
+    ],
+    "idealSeason": "Oct–Jun",
+    "landscapes": [
+      "Tea Plantations",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 11.353,
+    "longitude": 76.7959,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "wayanad",
+    "name": "Wayanad",
+    "description": "Wayanad is a lush highland district in Kerala's northern Western Ghats, blanketed with coffee, tea and spice plantations interspersed with tribal villages and wildlife corridors. Edakkal Caves contain Neolithic petroglyphs over 6,000 years old, while Chembra Peak's heart-shaped lake is a trekking icon.",
+    "shortPitch": "Nestled in the Western Ghats, Wayanad is a pristine highland woven with coffee, tea, and spice plantations. It seamlessly blends ancient history, vibrant tribal culture, and stunning nature treks into one lush escape.",
+    "topHighlights": [
+      "Discovering ancient Neolithic rock carvings at Edakkal Caves",
+      "Trekking to the iconic heart-shaped lake at Chembra Peak",
+      "Wildlife spotting at the Wayanad Wildlife Sanctuary"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Lush",
+      "Surreal",
+      "Exhilarating"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Tea Plantations",
+      "Wildlife & Jungle",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 11.6854,
+    "longitude": 76.132,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "delhi",
+    "name": "Delhi",
+    "description": "Delhi, India's capital, layers 3,000 years of history from the Mughal Empire to the modern Republic. Old Delhi's lanes around the Red Fort and Jama Masjid contrast sharply with Lutyens' Delhi's grand colonial boulevards and New Delhi's diplomatic enclaves. It is the gateway for millions of international travellers.",
+    "shortPitch": "India's pulsing capital perfectly bridges the ancient and the modern, layering 3,000 years of history alongside cutting-edge culture. From the chaotic charm of Old Delhi to grand colonial boulevards, it is a city of extraordinary depth.",
+    "topHighlights": [
+      "Exploring UNESCO heritage at the Red Fort and Qutub Minar",
+      "Navigating the vibrant, spice-scented lanes of Chandni Chowk",
+      "Admiring the Mughal architectural perfection of Humayun's Tomb"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Historic",
+      "Vibrant",
+      "Cosmopolitan"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Modern Cities",
+      "Royal Cities",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 28.6139,
+    "longitude": 77.209,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "mumbai",
+    "name": "Mumbai",
+    "description": "Mumbai — the 'City of Dreams' — is India's financial capital, Bollywood's home and a city of extraordinary contrasts. Its Gothic colonial architecture, Art Deco seafront, island forts, bustling street food and Asia's largest slum Dharavi sit alongside luxury neighbourhoods and one of the world's most vibrant arts scenes.",
+    "shortPitch": "The relentless 'City of Dreams' is India's financial and entertainment powerhouse, offering a dizzying mix of Bollywood glamour and street-level grit. Its stunning Gothic architecture and seaside promenades define its iconic coastal skyline.",
+    "topHighlights": [
+      "Strolling the seafront promenade of Marine Drive at sunset",
+      "Marveling at the Gateway of India and taking a ferry to Elephanta Caves",
+      "Taking an insightful, community-led walking tour of Dharavi"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Fast-paced",
+      "Iconic",
+      "Cosmopolitan"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Modern Cities",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      4,
+      5
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 19.076,
+    "longitude": 72.8777,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "bengaluru",
+    "name": "Bengaluru (Bangalore)",
+    "description": "Bengaluru is India's Silicon Valley and the fastest-growing major city in Asia. Known for its pleasant climate, startup culture, craft beer scene, colonial parks and vibrant arts communities, it is the modern face of India's economic rise — a cosmopolitan city that blends technology, tradition and progressive culture.",
+    "shortPitch": "India's thriving Silicon Valley blends cutting-edge startup culture with magnificent colonial parks and a world-class craft beer scene. Blessed with a perpetually pleasant climate, it is the progressive, modern face of the nation.",
+    "topHighlights": [
+      "Relaxing among ancient trees in Lalbagh Botanical Garden",
+      "Exploring the city's famous craft brewery and nightlife scene",
+      "Visiting the majestic, Tudor-style Bengaluru Palace"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Cosmopolitan",
+      "Fast-paced",
+      "Cosmopolitan"
+    ],
+    "idealSeason": "Sep–May",
+    "landscapes": [
+      "Modern Cities"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      6,
+      7,
+      8
+    ],
+    "avoidMonths": [],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 12.9716,
+    "longitude": 77.5946,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "kolkata",
+    "name": "Kolkata",
+    "description": "Kolkata — the 'City of Joy' and former British capital of India — is the cultural and intellectual heart of the nation. Its crumbling colonial grandeur, world-class art scene, Durga Puja festival, hand-pulled rickshaws, Tagore's Rabindranath heritage and legendary Bengali cuisine make it one of India's most richly textured cities.",
+    "shortPitch": "The former British capital remains India's profound intellectual and cultural heart, radiating old-world colonial grandeur. Famous for its literary heritage and legendary street food, Kolkata is a deeply soulful and textured 'City of Joy'.",
+    "topHighlights": [
+      "Admiring the imposing marble grandeur of the Victoria Memorial",
+      "Crossing the iconic Howrah Bridge over the Hooghly River",
+      "Experiencing the unparalleled energy of the Durga Puja festival"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Cultural",
+      "Nostalgic",
+      "Soulful"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Modern Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 22.5726,
+    "longitude": 88.3639,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "chennai",
+    "name": "Chennai",
+    "description": "Chennai is the capital of Tamil Nadu and the gateway to South India. It is India's fourth-largest city and the centre of classical Carnatic music, Bharatanatyam dance, ancient Dravidian temple architecture and South Indian cinema. Marina Beach — the world's second-longest urban beach — runs the length of the city.",
+    "shortPitch": "The cultural gateway to South India, Chennai beautifully balances deep-rooted Dravidian traditions with the energy of a massive metropolis. It is the heart of classical Carnatic music, ancient temples, and the sprawling sands of Marina Beach.",
+    "topHighlights": [
+      "Strolling along the incredibly vast Marina Beach",
+      "Marveling at the ancient, towering Kapaleeshwarar Temple",
+      "Experiencing an authentic Bharatanatyam classical dance performance"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Cultural",
+      "Vibrant",
+      "Historic"
+    ],
+    "idealSeason": "Nov–Feb",
+    "landscapes": [
+      "Modern Cities",
+      "Beaches",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
+    "shoulderMonths": [
+      10,
+      3
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "hyderabad",
+    "name": "Hyderabad",
+    "description": "Hyderabad — the 'City of Pearls' — blends Mughal grandeur with modern IT prosperity. The Charminar, Golconda Fort, pearl and bangles bazaars, dum biryani and the Nizam's lavish palaces create a city of extraordinary historical depth and culinary richness.",
+    "shortPitch": "The dynamic 'City of Pearls' seamlessly fuses Mughal royal grandeur with booming modern prosperity. It offers world-famous culinary delights like dum biryani, set against the backdrop of iconic monuments like the Charminar and Golconda Fort.",
+    "topHighlights": [
+      "Admiring the 400-year-old architectural marvel, the Charminar",
+      "Exploring the imposing ruins and acoustics of Golconda Fort",
+      "Shopping for pearls and bangles at the bustling Laad Bazaar"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Regal",
+      "Cosmopolitan",
+      "Bustling"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Modern Cities",
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 17.385,
+    "longitude": 78.4867,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "shillong",
+    "name": "Shillong",
+    "description": "Shillong — the 'Scotland of the East' — is the capital of Meghalaya and the cultural hub of the Northeast, famous for its pine-covered rolling hills, British-era architecture, thriving music scene and proximity to Cherrapunji. It is one of India's few cities where rock music is a cultural institution.",
+    "shortPitch": "Affectionately dubbed the 'Scotland of the East', Shillong is a misty, pine-covered hill station that serves as the cultural heart of the Northeast. It boasts a thriving rock music scene, colonial-era charm, and incredibly hospitable locals.",
+    "topHighlights": [
+      "Enjoying a boat ride on the scenic, serene Ward's Lake",
+      "Taking in panoramic valley views from Shillong Peak",
+      "Experiencing the city's legendary live indie and rock music scene"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Nostalgic",
+      "Vibrant",
+      "Scenic"
+    ],
+    "idealSeason": "Sep–May",
+    "landscapes": [
+      "Hidden Villages",
+      "Mountains"
+    ],
+    "peakMonths": [
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 25.5788,
+    "longitude": 91.8933,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "cherrapunji",
+    "name": "Cherrapunji & Mawsynram",
+    "description": "Cherrapunji (Sohra) and nearby Mawsynram are the wettest places on Earth — receiving over 11,000 mm of rainfall annually. The result is a world of extraordinary waterfalls, living root bridges grown by the Khasi people over centuries, emerald gorges and mist-shrouded forests of unparalleled lushness.",
+    "shortPitch": "Officially the wettest places on Earth, this region is a breathtaking wonderland of emerald gorges and plunging waterfalls. It is famous for the ingenious, centuries-old living root bridges woven by the indigenous Khasi people.",
+    "topHighlights": [
+      "Trekking to the astonishing Double-Decker Living Root Bridge",
+      "Marveling at the colossal Nohkalikai Falls plunging into the gorge",
+      "Exploring the deep, mystical limestone networks of Mawsmai Caves"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Surreal",
+      "Lush",
+      "Tribal"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Hidden Villages",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 25.2702,
+    "longitude": 91.7323,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "mawlynnong",
+    "name": "Mawlynnong",
+    "description": "Mawlynnong is known as the 'Cleanest Village in Asia' — a title it has held with extraordinary pride. This Khasi village, near the Bangladesh border, is famous for its immaculate bamboo paths, sky-view tree platforms, community spirit and the nearby Dawki River's impossibly transparent water.",
+    "shortPitch": "Proudly recognized as the 'Cleanest Village in Asia', this immaculate Khasi settlement is a triumph of community-driven eco-tourism. Visitors wander bamboo-lined paths, scale sky-view treehouse platforms, and experience perfect harmony with nature.",
+    "topHighlights": [
+      "Strolling the impeccably clean, flower-lined village pathways",
+      "Climbing the bamboo Sky Walk for views into Bangladesh",
+      "Experiencing authentic local Khasi meals and community hospitality"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Pristine",
+      "Tribal",
+      "Peaceful"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 25.201,
+    "longitude": 91.916,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "dawki",
+    "name": "Dawki & Umngot River",
+    "description": "Dawki on the Umngot River is one of India's most photographed destinations — the river's extraordinary clarity makes boats appear to float on glass. The annual Dawki boat race is a colourful Khasi tradition, and the Bangladesh border bridge is a fascinating cultural crossing point.",
+    "shortPitch": "Dawki is home to the phenomenally clear Umngot River, where the waters are so transparent that boats appear to be floating on thin air. This stunning border town offers surreal photography opportunities and peaceful river escapes.",
+    "topHighlights": [
+      "Gliding on a traditional wooden boat over the crystal-clear Umngot River",
+      "Crossing the historic Dawki Suspension Bridge built by the British",
+      "Visiting the fascinating India-Bangladesh border crossing at Tamabil"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Magical",
+      "Surreal",
+      "Scenic"
+    ],
+    "idealSeason": "Nov–May",
+    "landscapes": [
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      10
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 25.1843,
+    "longitude": 92.0163,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "majuli",
+    "name": "Majuli Island",
+    "description": "Majuli is the world's largest river island (on the Brahmaputra River) and a UNESCO World Heritage candidate. It is the spiritual and cultural heartland of Assamese Neo-Vaishnavism, with ancient Satras (monasteries) preserving mask-making, classical dance and weaving traditions unique to Assam.",
+    "shortPitch": "Resting on the mighty Brahmaputra, Majuli is the world's largest river island and the spiritual epicenter of Assamese culture. It is a tranquil sanctuary of ancient monasteries, unique mask-making artisans, and incredible migratory birdlife.",
+    "topHighlights": [
+      "Visiting the ancient Satras (Vaishnavite monasteries) and monks",
+      "Witnessing the intricate, traditional Assamese mask-making crafts",
+      "Cycling through peaceful, scenic Mishing tribal farming villages"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Cultural",
+      "Peaceful",
+      "Tribal"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Hidden Villages",
+      "Islands"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 26.9535,
+    "longitude": 94.1685,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "nagaland_hornbill",
+    "name": "Nagaland & Hornbill Festival",
+    "description": "Nagaland's Hornbill Festival — held every December in Kisama — is the most vibrant tribal cultural festival in India, showcasing the traditions of 17 Naga tribes in one breathtaking venue. Warrior dances, traditional foods, log drums, indigenous crafts and headhunting history make Nagaland utterly unique.",
+    "shortPitch": "The host of the legendary Hornbill Festival, Nagaland is a breathtaking tapestry of indigenous warrior culture and untamed nature. Its incredibly vibrant festivals, log drum beats, and fascinating headhunting history offer an unparalleled cultural immersion.",
+    "topHighlights": [
+      "Witnessing the mesmerizing dances and costumes at the Hornbill Festival",
+      "Paying respects at the meticulously maintained WWII Kohima War Cemetery",
+      "Trekking the rolling, emerald-green hills of the Dzükou Valley"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Tribal",
+      "Vibrant",
+      "Wild"
+    ],
+    "idealSeason": "Oct–May",
+    "landscapes": [
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      12,
+      10,
+      11,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 4,
+    "latitude": 25.666,
+    "longitude": 94.1086,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "hampi",
+    "name": "Hampi",
+    "description": "Hampi is one of India's most extraordinary archaeological sites — the ruined capital of the Vijayanagara Empire (14th–16th century) scattered across a surreal landscape of giant boulders, banana plantations and the Tungabhadra River. Corinthian temples, elephant stables and market streets speak of a civilisation of immense wealth and sophistication.",
+    "shortPitch": "Set amidst a surreal, otherworldly landscape of giant balancing boulders and lush banana plantations, Hampi is the spectacular ruined capital of the Vijayanagara Empire. These UNESCO-listed stone temples and palaces feel like stepping onto another planet.",
+    "topHighlights": [
+      "Exploring the intricate musical pillars of the Vittala Temple",
+      "Hiking up Matanga Hill for an unforgettable boulder-strewn sunrise",
+      "Cycling past ancient elephant stables and bustling medieval bazaars"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Otherworldly",
+      "Historic",
+      "Bohemian"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 15.335,
+    "longitude": 76.46,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "khajuraho",
+    "name": "Khajuraho",
+    "description": "Khajuraho's Chandela temples (10th–11th century) are among the finest medieval temple complexes in the world, celebrated for their exquisite erotic sculptures representing all aspects of human life. The UNESCO World Heritage temples are masterpieces of Nagara-style architecture.",
+    "shortPitch": "Renowned globally for its astonishingly intricate and sensuous sculptures, Khajuraho is a masterpiece of 10th-century Chandela temple architecture. This UNESCO World Heritage site is a stunning celebration of medieval art, spirituality, and human life.",
+    "topHighlights": [
+      "Admiring the incredibly detailed carvings of the Western Temple Group",
+      "Attending the enchanting evening Sound & Light Show in the temple gardens",
+      "Combining culture with wildlife by visiting the nearby Panna Tiger Reserve"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Historic",
+      "Sacred",
+      "Cultural"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 24.8318,
+    "longitude": 79.9199,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "mahabalipuram",
+    "name": "Mahabalipuram (Mamallapuram)",
+    "description": "Mahabalipuram on the Coromandel Coast is a UNESCO World Heritage Site containing some of the finest examples of Pallava rock-cut and structural architecture. The Shore Temple, the Five Rathas and the giant bas-relief of Arjuna's Penance are masterpieces carved directly from coastal rock faces 1,300 years ago.",
+    "shortPitch": "Perched on the breezy Coromandel Coast, this UNESCO World Heritage town showcases absolute masterworks of 7th-century Pallava rock-cut architecture. It perfectly blends dramatic oceanside ruins, monumental bas-reliefs, and a relaxed beachside atmosphere.",
+    "topHighlights": [
+      "Visiting the iconic Shore Temple, standing majestically against the ocean",
+      "Marveling at Arjuna's Penance, the world's largest open-air bas-relief",
+      "Exploring the incredible monolithic rock-cut shrines of the Five Rathas"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Historic",
+      "Relaxed",
+      "Scenic"
+    ],
+    "idealSeason": "Nov–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Beaches"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      10
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 12.6269,
+    "longitude": 80.1927,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "konark",
+    "name": "Konark Sun Temple",
+    "description": "The Konark Sun Temple is one of India's greatest architectural achievements — a 13th-century stone chariot for the Sun God with 24 elaborately carved wheels and 7 galloping horses, built on an enormous scale. The temple's erotic sculptures, Odishan dance festival and coastal location make it a remarkable destination.",
+    "shortPitch": "Conceived as a colossal, 13th-century stone chariot for the Sun God, Konark is one of India's most staggering architectural triumphs. The intricately carved gigantic stone wheels and the incredible scale of this UNESCO site leave visitors awestruck.",
+    "topHighlights": [
+      "Studying the incredibly detailed stone wheels and erotic sculptures",
+      "Attending the vibrant Konark Dance Festival held against the ruins",
+      "Relaxing on the nearby serene shores of Chandrabhaga Beach"
+    ],
+    "region": "East",
+    "vibeTags": [
+      "Historic",
+      "Sacred",
+      "Iconic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 19.8876,
+    "longitude": 86.0945,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "ajanta_ellora",
+    "name": "Ajanta & Ellora Caves",
+    "description": "Ajanta's 29 Buddhist cave monasteries (2nd century BC–6th century AD) contain the finest surviving examples of ancient Indian painting in the world. Ellora's 34 caves encompass Buddhist, Hindu and Jain temples carved from volcanic rock — including the monolithic Kailasa Temple, the world's largest rock-cut structure.",
+    "shortPitch": "Carved directly into solid volcanic cliffs, these dual UNESCO World Heritage sites represent the pinnacle of ancient Indian rock-cut architecture. While Ajanta harbors the world's finest ancient Buddhist murals, Ellora boasts the mind-boggling monolithic Kailasa Temple.",
+    "topHighlights": [
+      "Standing awestruck inside the monolithic Kailasa Temple at Ellora",
+      "Viewing the exquisitely preserved ancient Buddhist frescoes at Ajanta",
+      "Exploring the fascinating mix of Hindu, Buddhist, and Jain cave shrines"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Historic",
+      "Mysterious",
+      "Sacred"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 20.0258,
+    "longitude": 75.178,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "orchha",
+    "name": "Orchha",
+    "description": "Orchha is a remarkably well-preserved medieval Bundela capital on the Betwa River, whose temples, cenotaphs, palaces and chhatris rise from the banks like a forgotten dream. Less visited than Rajasthan's forts yet equally beautiful, Orchha is a top recommendation for heritage travellers seeking an authentic, uncrowded experience.",
+    "shortPitch": "Rising like a forgotten dream from the banks of the Betwa River, Orchha is a perfectly preserved, atmospheric medieval capital. Free from mass tourism crowds, its towering palaces and riverside cenotaphs offer a deeply romantic and authentic heritage experience.",
+    "topHighlights": [
+      "Wandering through the magnificent empty courtyards of Jehangir Mahal",
+      "Watching the sunset over the riverside royal chhatris (cenotaphs)",
+      "Experiencing the evening aarti at the unique Ram Raja Palace-Temple"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Hidden",
+      "Romantic",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 25.3499,
+    "longitude": 78.6385,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "madurai",
+    "name": "Madurai",
+    "description": "Madurai is one of the oldest continuously inhabited cities in the world and the temple city of Tamil Nadu. The Meenakshi Amman Temple — with its soaring gopurams encrusted in thousands of sculptures — is among the most spectacular religious complexes in Asia, active 24 hours a day.",
+    "shortPitch": "One of the oldest continuously inhabited cities on Earth, Madurai is the beating, spiritual heart of Tamil Nadu. Its epicenter is the colossal Meenakshi Amman Temple, a breathtaking labyrinth of wildly colorful, sculpture-encrusted towers.",
+    "topHighlights": [
+      "Getting lost in the mesmerizing, 24-hour Meenakshi Amman Temple complex",
+      "Admiring the Indo-Saracenic grandeur of the Thirumalai Nayak Palace",
+      "Exploring the vibrant, chaotic, and ancient temple bazaars"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Intense",
+      "Sacred",
+      "Vibrant"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India",
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 9.9252,
+    "longitude": 78.1198,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "kochi",
+    "name": "Kochi (Cochin)",
+    "description": "Kochi is Kerala's most cosmopolitan city — a multicultural port with Chinese fishing nets, a 500-year-old synagogue, Portuguese churches, Dutch palaces, colonial bungalows and one of India's most exciting contemporary art scenes (Kochi-Muziris Biennale). Fort Kochi's waterfront is quintessential romantic India.",
+    "shortPitch": "Kerala's most cosmopolitan port city is an incredibly romantic mosaic of Portuguese, Dutch, Jewish, and British colonial heritage. The atmospheric streets of Fort Kochi buzz with trendy cafes, antique shops, and a thriving contemporary arts scene.",
+    "topHighlights": [
+      "Watching the sunset through the iconic, cantilevered Chinese Fishing Nets",
+      "Strolling the quaint, heritage-rich streets of Jewish Town in Mattancherry",
+      "Experiencing the vibrant, world-class Kochi-Muziris Biennale arts festival"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Cosmopolitan",
+      "Romantic",
+      "Cultural"
+    ],
+    "idealSeason": "Sep–Mar",
+    "landscapes": [
+      "Modern Cities",
+      "Beaches",
+      "Backwaters"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9,
+      4
+    ],
+    "avoidMonths": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 9.9312,
+    "longitude": 76.2673,
+    "requiresAcclimatization": false,
+    "isHub": true
+  },
+  {
+    "id": "dwarka_somnath",
+    "name": "Dwarka & Somnath",
+    "description": "Dwarka is one of the four sacred Hindu Dhams and the legendary kingdom of Lord Krishna. The Dwarkadhish Temple sits at the edge of the Arabian Sea. Nearby Somnath holds the first of 12 Jyotirlinga shrines of Lord Shiva, rebuilt numerous times after Islamic invasions and now a symbol of Hindu resilience.",
+    "shortPitch": "Perched dramatically on the Arabian Sea, this deeply sacred coastal circuit links Lord Krishna's legendary kingdom of Dwarka with Somnath. Somnath's towering oceanfront temple is a breathtaking symbol of architectural resilience and spiritual devotion.",
+    "topHighlights": [
+      "Witnessing the powerful crashing waves against the Somnath Jyotirlinga Temple",
+      "Taking a ferry across the sea to the ancient island of Bet Dwarka",
+      "Experiencing the vibrant evening aarti at the Dwarkadhish Temple"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Sacred",
+      "Historic",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India",
+      "Beaches"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 22.2442,
+    "longitude": 68.9685,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "tiruvannamalai",
+    "name": "Tiruvannamalai",
+    "description": "Tiruvannamalai is one of Tamil Nadu's most spiritually potent destinations — home to Arunachaleswarar Temple (dedicated to Shiva as fire element) and the sacred Arunachala Hill. The Girivalam — a barefoot circumambulation of the hill — is performed by hundreds of thousands every full moon night.",
+    "shortPitch": "A deeply potent spiritual epicenter in South India, Tiruvannamalai is dominated by the sacred Arunachala Hill and its colossal Shiva temple. It draws seekers from around the world to meditate in the ashram of Ramana Maharshi.",
+    "topHighlights": [
+      "Walking the sacred Girivalam barefoot path around Arunachala Hill",
+      "Meditating in the peaceful, globally renowned Ramana Maharshi Ashram",
+      "Exploring the massive courtyards of the Arunachaleswarar Temple"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Spiritual",
+      "Zen",
+      "Awakening"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 12.2253,
+    "longitude": 79.0747,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "vrindavan_mathura",
+    "name": "Vrindavan & Mathura",
+    "description": "Mathura is the birthplace of Lord Krishna and Vrindavan the place of his childhood divine play (leela). The twin cities on the Yamuna River are among Hinduism's most sacred sites, with hundreds of colourful temples, the Holi festival (celebrated most exuberantly here) and year-round pilgrimage traffic.",
+    "shortPitch": "The vibrant twin cities on the Yamuna River are the joyful epicenters of Krishna devotion. Boasting hundreds of colourful temples, this sacred corridor famously erupts into the most spectacular, exuberant Holi festival celebration in the world.",
+    "topHighlights": [
+      "Experiencing the intensely colorful and chaotic Holi festival (in spring)",
+      "Visiting the sacred birthplace of Krishna at the Janmabhoomi Temple",
+      "Attending the mesmerizing evening aarti at the Banke Bihari Temple"
+    ],
+    "region": "North",
+    "vibeTags": [
+      "Vibrant",
+      "Sacred",
+      "Intense"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 27.4924,
+    "longitude": 77.6737,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "lonar",
+    "name": "Lonar Crater Lake",
+    "description": "Lonar is a meteor-impact crater lake 50,000 years old — the third largest natural saline crater lake in the world. The lake's hyper-saline alkaline waters harbour unique pink algae and rare micro-organisms, while ancient temples ring the crater rim in a hauntingly beautiful forest setting.",
+    "shortPitch": "Formed by a massive meteor impact 50,000 years ago, Lonar is a hauntingly beautiful, hyper-saline crater lake. Ringed by a lush forest and ancient, forgotten temples, it is a uniquely fascinating geological and historical wonder.",
+    "topHighlights": [
+      "Trekking down into the 50,000-year-old meteor impact crater",
+      "Discovering the ancient, intricately carved Daitya Sudan Temple",
+      "Spotting migratory flamingos on the lake's unique pinkish waters"
+    ],
+    "region": "West",
+    "vibeTags": [
+      "Mysterious",
+      "Unique",
+      "Historic"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 19.9765,
+    "longitude": 76.5085,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "chettinad",
+    "name": "Chettinad",
+    "description": "Chettinad is the homeland of the Nattukotai Chettiar merchant community, famous for their palatial mansions (with Burma teak, Italian marble and Athangudi tiles), the most complex regional cuisine in India, and antique collecting traditions. The crumbling palaces of Karaikudi and Kanadukathan are a singular architectural heritage.",
+    "shortPitch": "Once the homeland of incredibly wealthy merchants, Chettinad is a surreal landscape of crumbling, palatial mansions built with Burmese teak and Italian marble. It is a haven for architecture lovers, antique collectors, and gourmands.",
+    "topHighlights": [
+      "Wandering through massive, extravagantly decorated 19th-century mansions",
+      "Tasting the intensely flavorful, world-renowned authentic Chettinad cuisine",
+      "Hunting for unique vintage treasures in Karaikudi's antique markets"
+    ],
+    "region": "South",
+    "vibeTags": [
+      "Historic",
+      "Nostalgic",
+      "Luxury"
+    ],
+    "idealSeason": "Nov–Feb",
+    "landscapes": [
+      "Hidden Villages",
+      "Royal Cities"
+    ],
+    "peakMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
+    "shoulderMonths": [
+      10,
+      3
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 10.0716,
+    "longitude": 78.7844,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "mandu",
+    "name": "Mandu (Mandavgad)",
+    "description": "Mandu is a plateau fort-city of the 15th-century Malwa Sultanate, where the love story of Sultan Baz Bahadur and his singer queen Rani Roopmati still echoes through the ruins. Dozens of Afghan-style palaces, mosques, pavilions and step-wells are scattered across a lush jungle plateau with dramatic gorge views.",
+    "shortPitch": "Perched on a dramatic jungle plateau, Mandu is a vast, wildly romantic ruined city of the 15th-century Malwa Sultanate. Its Afghan-style palaces, step-wells, and pavilions offer an incredibly atmospheric, uncrowded heritage experience.",
+    "topHighlights": [
+      "Exploring the astonishing, boat-shaped Jahaz Mahal (Ship Palace)",
+      "Enjoying dramatic gorge views from Rani Roopmati's Pavilion",
+      "Wandering the peaceful, white-marble Hoshang Shah's Tomb"
+    ],
+    "region": "Central",
+    "vibeTags": [
+      "Romantic",
+      "Historic",
+      "Quiet"
+    ],
+    "idealSeason": "Jul–Mar",
+    "landscapes": [
+      "Royal Cities",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      4,
+      5,
+      6
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 22.3377,
+    "longitude": 75.4023,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "unakoti",
+    "name": "Unakoti",
+    "description": "Unakoti — meaning 'one less than a crore' — is a stunning hillside complex of giant rock carvings and sculptures dating to the 7th–9th centuries, hidden deep in the forests of Tripura. The massive 30-foot Shiva heads emerging from the jungle are among the most dramatic archaeological discoveries in Northeast India.",
+    "shortPitch": "Hidden deep in the jungles of Tripura, Unakoti is a stunning, mysterious hillside covered in massive rock carvings from the 7th century. The giant, 30-foot stone faces of Shiva emerging from the forest are a dramatic, undiscovered marvel.",
+    "topHighlights": [
+      "Hiking through the lush jungle trail to discover giant rock-cut sculptures",
+      "Standing in awe before the massive, 30-foot central Shiva head",
+      "Cooling off by the picturesque, cascading Unakoti waterfall"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Mysterious",
+      "Historic",
+      "Untouched"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Spiritual India",
+      "Hidden Villages"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 1,
+    "latitude": 24.3168,
+    "longitude": 92.0163,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "aizawl_mizoram",
+    "name": "Aizawl & Mizoram",
+    "description": "Mizoram — one of India's least visited states — is a land of rolling bamboo-covered hills, deeply Christian culture, thriving choir traditions and one of India's highest literacy rates. Aizawl perches dramatically on a ridge at 1,132 m, and the Mizo people are among the most hospitable and unique communities in the subcontinent.",
+    "shortPitch": "One of India's most remote and least-visited states, Mizoram is a rolling landscape of bamboo forests and deeply hospitable, choir-singing communities. The capital Aizawl sits dramatically on a high ridge, offering incredible serenity and cultural immersion.",
+    "topHighlights": [
+      "Enjoying sweeping, panoramic views from the high-ridge city of Aizawl",
+      "Attending the vibrant, bamboo-focused Chapchar Kut spring festival",
+      "Exploring the pristine, untamed forests of Phawngpui (Blue Mountain)"
+    ],
+    "region": "Northeast",
+    "vibeTags": [
+      "Untouched",
+      "Peaceful",
+      "Tribal"
+    ],
+    "idealSeason": "Oct–Mar",
+    "landscapes": [
+      "Hidden Villages",
+      "Mountains"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [
+      9
+    ],
+    "avoidMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 3,
+    "latitude": 23.7271,
+    "longitude": 92.7176,
+    "requiresAcclimatization": false,
+    "isHub": false
+  },
+  {
+    "id": "jawai",
+    "name": "Jawai",
+    "description": "Exclusive luxury leopard safaris amidst striking granite hills.",
+    "region": "West",
+    "idealSeason": "Sep–May",
+    "vibeTags": [
+      "Exclusive",
+      "Raw"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      5,
+      6
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 25.1054,
+    "longitude": 73.1491,
+    "shortPitch": "A stark, dramatic landscape in Rajasthan where leopards roam freely among massive granite boulders. Jawai offers a unique, luxurious wilderness experience intertwined with local Rabari herdsmen.",
+    "topHighlights": [
+      "Tracking wild leopards thriving in the rocky granite hills",
+      "Staying in ultra-luxury, sustainable wilderness camps",
+      "Interacting with the indigenous Rabari pastoralists"
+    ],
+    "createdAt": "2026-05-30T11:51:47.565Z",
+    "updatedAt": "2026-05-31T04:50:10.075Z",
+    "clusterId": null,
+    "altitude": null,
+    "requiresAcclimatization": false,
+    "isHub": false,
+    "metadata": null
+  },
+  {
+    "id": "munroe-island",
+    "name": "Munroe Island",
+    "description": "Untouched backwater network, perfect for quiet canoe explorations.",
+    "region": "South",
+    "idealSeason": "Oct–Mar",
+    "vibeTags": [
+      "Hidden",
+      "Tranquil"
+    ],
+    "peakMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "shoulderMonths": [],
+    "avoidMonths": [
+      6,
+      7
+    ],
+    "closedMonths": [],
+    "minRequiredDays": 2,
+    "latitude": 8.9892,
+    "longitude": 76.6196,
+    "shortPitch": "A hidden gem in the Kerala backwaters, Munroe Island offers an intimate, untouched network of narrow canals. It is perfect for quiet canoe explorations away from the commercial houseboat routes.",
+    "topHighlights": [
+      "Taking a silent, sunrise canoe ride through narrow mangrove canals",
+      "Watching traditional coir weaving in a local village",
+      "Enjoying the absolute tranquility of untouched backwaters"
+    ],
+    "createdAt": "2026-05-30T11:51:44.288Z",
+    "updatedAt": "2026-05-31T04:50:10.586Z",
+    "clusterId": null,
+    "altitude": null,
+    "requiresAcclimatization": false,
+    "isHub": false,
+    "metadata": null
+  }
+]
