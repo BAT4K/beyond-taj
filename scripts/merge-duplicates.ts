@@ -65,7 +65,6 @@ async function main() {
             region: legacyRecord.region,
             vibeTags: legacyRecord.vibeTags,
             idealSeason: legacyRecord.idealSeason,
-            landscapes: legacyRecord.landscapes,
             peakMonths: legacyRecord.peakMonths,
             shoulderMonths: legacyRecord.shoulderMonths,
             avoidMonths: legacyRecord.avoidMonths,
