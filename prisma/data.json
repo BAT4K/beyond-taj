@@ -43,7 +43,8 @@
     "latitude": 34.1526,
     "longitude": 77.5771,
     "requiresAcclimatization": true,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/leh-ladakh.webp"
   },
   {
     "id": "nubra-valley",
@@ -89,53 +90,8 @@
     "latitude": 34.6863,
     "longitude": 77.5673,
     "requiresAcclimatization": true,
-    "isHub": false
-  },
-  {
-    "id": "pangong-tso",
-    "name": "Pangong Tso",
-    "description": "Pangong Tso is a stunning high-altitude salt lake stretching 134 km across India and Tibet. Famous for shifting shades of blue and green, it became iconic after featuring in Bollywood blockbusters. Camping on the lakeshore under a star-filled Ladakhi sky is a bucket-list experience.",
-    "shortPitch": "Pangong Tso is a stunning high-altitude salt lake stretching across India and Tibet, famous for its ever-shifting shades of blue and green. Camping on the lakeshore under a brilliant, star-filled Ladakhi sky is a true bucket-list experience.",
-    "topHighlights": [
-      "Spectacular lakeside viewpoints and photography",
-      "Lakeside camping under star-filled skies",
-      "Journey via the formidable Chang La Pass"
-    ],
-    "region": "North",
-    "vibeTags": [
-      "Otherworldly",
-      "Remote",
-      "Scenic"
-    ],
-    "idealSeason": "May–Sep",
-    "landscapes": [
-      "Mountains",
-      "Cold Desert"
-    ],
-    "peakMonths": [
-      5,
-      6,
-      7,
-      8,
-      9
-    ],
-    "shoulderMonths": [
-      4,
-      10
-    ],
-    "avoidMonths": [
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 33.7595,
-    "longitude": 78.6674,
-    "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/nubra-valley.webp"
   },
   {
     "id": "zanskar-valley",
@@ -186,7 +142,8 @@
     "latitude": 33.4634,
     "longitude": 76.9823,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/zanskar-valley.webp"
   },
   {
     "id": "spiti-valley",
@@ -236,7 +193,8 @@
     "latitude": 32.2461,
     "longitude": 78.0349,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/spiti-valley.webp"
   },
   {
     "id": "manali",
@@ -281,7 +239,8 @@
     "latitude": 32.2396,
     "longitude": 77.1887,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/manali.webp"
   },
   {
     "id": "kasol-kheerganga",
@@ -326,7 +285,8 @@
     "latitude": 32.0098,
     "longitude": 77.315,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/kasol-kheerganga.webp"
   },
   {
     "id": "tosh-khajjiar",
@@ -372,7 +332,8 @@
     "latitude": 32.5558,
     "longitude": 76.0656,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/tosh-khajjiar.webp"
   },
   {
     "id": "jibhi-tirthan",
@@ -418,7 +379,8 @@
     "latitude": 31.6358,
     "longitude": 77.3486,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/jibhi-tirthan.webp"
   },
   {
     "id": "dharamshala-mcleodganj",
@@ -464,7 +426,8 @@
     "latitude": 32.219,
     "longitude": 76.3234,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/dharamshala-mcleodganj.webp"
   },
   {
     "id": "bir-billing",
@@ -509,7 +472,8 @@
     "latitude": 32.0461,
     "longitude": 76.7147,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/bir-billing.webp"
   },
   {
     "id": "dalhousie",
@@ -554,7 +518,8 @@
     "latitude": 32.5387,
     "longitude": 75.971,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/dalhousie.webp"
   },
   {
     "id": "auli",
@@ -597,7 +562,8 @@
     "latitude": 30.5314,
     "longitude": 79.5668,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/auli.webp"
   },
   {
     "id": "chopta-tungnath",
@@ -644,7 +610,8 @@
     "latitude": 30.4851,
     "longitude": 79.2173,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/chopta-tungnath.webp"
   },
   {
     "id": "rishikesh",
@@ -690,7 +657,8 @@
     "latitude": 30.0869,
     "longitude": 78.2676,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/rishikesh.webp"
   },
   {
     "id": "valley-of-flowers",
@@ -744,7 +712,8 @@
     "latitude": 30.728,
     "longitude": 79.6053,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/valley-of-flowers.webp"
   },
   {
     "id": "kashmir-valley",
@@ -789,143 +758,8 @@
     "latitude": 34.0837,
     "longitude": 74.7973,
     "requiresAcclimatization": false,
-    "isHub": true
-  },
-  {
-    "id": "gulmarg",
-    "name": "Gulmarg",
-    "description": "Gulmarg — 'Meadow of Flowers' — is India's highest ski resort and one of Asia's finest, with the world's second-highest operating cable car (gondola) rising to 4,200 m. In summer, its lush meadows are perfect for golf on the world's highest golf course, pony rides, and Himalayan wildflower walks.",
-    "shortPitch": "Gulmarg is Asia's premier winter sports destination, famed for its world-class skiing and the colossal Apharwat gondola. When summer arrives, the snow yields to a breathtaking 'Meadow of Flowers' perfect for alpine trekking and golf.",
-    "topHighlights": [
-      "World-class winter skiing and snowboarding",
-      "Riding the Gulmarg Gondola to 4,200m",
-      "Trekking to Alpather Lake through lush summer meadows"
-    ],
-    "region": "North",
-    "vibeTags": [
-      "Winter Wonderland",
-      "Romantic",
-      "Exhilarating"
-    ],
-    "idealSeason": "Dec–Mar",
-    "landscapes": [
-      "Mountains"
-    ],
-    "peakMonths": [
-      12,
-      1,
-      2,
-      3,
-      4,
-      5
-    ],
-    "shoulderMonths": [
-      6,
-      10,
-      11
-    ],
-    "avoidMonths": [
-      7,
-      8,
-      9
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 34.0484,
-    "longitude": 74.3805,
-    "requiresAcclimatization": true,
-    "isHub": false
-  },
-  {
-    "id": "pahalgam",
-    "name": "Pahalgam",
-    "description": "Pahalgam sits at the confluence of the Lidder River and Sheshnag streams, surrounded by pine forests and snow-capped peaks. It is both a premier trekking base and the starting point for the annual Amarnath Yatra pilgrimage — one of India's largest Hindu pilgrimages to the Amarnath ice Shiva lingam.",
-    "shortPitch": "Surrounded by pine forests and snow-capped peaks, Pahalgam sits beautifully at the confluence of alpine rivers. It serves as a premier base for both adventurous treks and the deeply sacred Amarnath Yatra pilgrimage.",
-    "topHighlights": [
-      "Relaxing in the 'Mini Switzerland' meadow of Baisaran",
-      "Trout fishing and walking along the Lidder River",
-      "Trekking to the Kolahoi Glacier"
-    ],
-    "region": "North",
-    "vibeTags": [
-      "Scenic",
-      "Peaceful",
-      "Sacred"
-    ],
-    "idealSeason": "Mar–Nov",
-    "landscapes": [
-      "Mountains",
-      "Spiritual India"
-    ],
-    "peakMonths": [
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ],
-    "shoulderMonths": [
-      3,
-      11
-    ],
-    "avoidMonths": [
-      12,
-      1,
-      2
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 34.0163,
-    "longitude": 75.3155,
-    "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "sonamarg",
-    "name": "Sonamarg",
-    "description": "Sonamarg — 'Meadow of Gold' — lies at 2,730 m on the old Silk Road and serves as the gateway to Ladakh. Its glaciers, rivers and flower-strewn meadows are spectacular in summer, while it becomes a snow wonderland in winter. The Thajiwas Glacier is easily accessible and enormously popular.",
-    "shortPitch": "Known as the 'Meadow of Gold', Sonamarg lies on the ancient Silk Road serving as the stunning alpine gateway to Ladakh. Its flower-strewn meadows and dramatic glaciers transform into a pristine snow wonderland during the winter.",
-    "topHighlights": [
-      "Thajiwas Glacier treks and sled rides",
-      "Gateway to the high-altitude Vishansar & Krishansar Lakes",
-      "Crossing the legendary Zoji La Pass"
-    ],
-    "region": "North",
-    "vibeTags": [
-      "Scenic",
-      "Peaceful",
-      "Pristine"
-    ],
-    "idealSeason": "Apr–Oct",
-    "landscapes": [
-      "Mountains"
-    ],
-    "peakMonths": [
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ],
-    "shoulderMonths": [
-      3,
-      11
-    ],
-    "avoidMonths": [
-      12,
-      1,
-      2
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 34.3005,
-    "longitude": 75.2952,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": true,
+    "imageUrl": "/destinations/kashmir-valley.webp"
   },
   {
     "id": "tawang",
@@ -972,7 +806,8 @@
     "latitude": 27.5861,
     "longitude": 91.8594,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/tawang.webp"
   },
   {
     "id": "ziro-valley",
@@ -1018,7 +853,8 @@
     "latitude": 27.5562,
     "longitude": 93.834,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/ziro-valley.webp"
   },
   {
     "id": "gangtok",
@@ -1064,53 +900,8 @@
     "latitude": 27.3389,
     "longitude": 88.6065,
     "requiresAcclimatization": false,
-    "isHub": true
-  },
-  {
-    "id": "pelling-yuksom",
-    "name": "Pelling & Yuksom",
-    "description": "Pelling offers one of India's finest views of the Kanchenjunga massif, especially at dawn when the sunrise turns the snow peaks golden. Yuksom, the historic first capital of Sikkim, is the starting point for the classic Goecha La trek to the base of Kanchenjunga.",
-    "shortPitch": "Pelling offers arguably the finest dawn views of the Kanchenjunga massif in all of India. Nearby, the historic village of Yuksom serves as the rugged starting point for the iconic Goecha La trek.",
-    "topHighlights": [
-      "Unmatched sunrise views over Kanchenjunga",
-      "The 350-year-old Pemayangtse Monastery",
-      "Trekking to the sacred Khecheopalri Lake"
-    ],
-    "region": "Northeast",
-    "vibeTags": [
-      "Scenic",
-      "Peaceful",
-      "Spiritual"
-    ],
-    "idealSeason": "Sep–May",
-    "landscapes": [
-      "Mountains",
-      "Spiritual India"
-    ],
-    "peakMonths": [
-      3,
-      4,
-      5,
-      9,
-      10,
-      11
-    ],
-    "shoulderMonths": [
-      12,
-      1,
-      2
-    ],
-    "avoidMonths": [
-      6,
-      7,
-      8
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 3,
-    "latitude": 27.3168,
-    "longitude": 88.2384,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": true,
+    "imageUrl": "/destinations/gangtok.webp"
   },
   {
     "id": "yumthang-valley",
@@ -1155,7 +946,8 @@
     "latitude": 27.8105,
     "longitude": 88.6946,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/yumthang-valley.webp"
   },
   {
     "id": "kargil",
@@ -1205,7 +997,8 @@
     "latitude": 34.5539,
     "longitude": 76.1349,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/kargil.webp"
   },
   {
     "id": "kinnaur-valley",
@@ -1255,7 +1048,8 @@
     "latitude": 31.651,
     "longitude": 78.2618,
     "requiresAcclimatization": true,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/kinnaur-valley.webp"
   },
   {
     "id": "north-goa",
@@ -1301,7 +1095,8 @@
     "latitude": 15.5937,
     "longitude": 73.7402,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/north-goa.webp"
   },
   {
     "id": "south-goa",
@@ -1347,7 +1142,8 @@
     "latitude": 15.2736,
     "longitude": 73.9663,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/south-goa.webp"
   },
   {
     "id": "gokarna",
@@ -1393,7 +1189,8 @@
     "latitude": 14.5398,
     "longitude": 74.318,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/gokarna.webp"
   },
   {
     "id": "andaman-islands",
@@ -1439,7 +1236,8 @@
     "latitude": 11.9761,
     "longitude": 92.9876,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/andaman-islands.webp"
   },
   {
     "id": "lakshadweep",
@@ -1485,7 +1283,8 @@
     "latitude": 10.5667,
     "longitude": 72.6417,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/lakshadweep.webp"
   },
   {
     "id": "varkala",
@@ -1531,52 +1330,8 @@
     "latitude": 8.7338,
     "longitude": 76.7059,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "kovalam",
-    "name": "Kovalam",
-    "description": "Kovalam, near Thiruvananthapuram, is Kerala's most developed beach resort town with a crescent of linked beaches known as Lighthouse Beach, Hawa Beach and Samudra Beach. It is the Ayurveda capital of Kerala's coast, drawing thousands annually for traditional Keralan massage and healing treatments.",
-    "shortPitch": "Kovalam is Kerala's premier coastal resort, defined by its iconic crescent of linked beaches and towering lighthouse. It stands globally recognized as a restorative capital for traditional Ayurvedic massage and holistic healing.",
-    "topHighlights": [
-      "Relaxing at the iconic crescent-shaped Lighthouse Beach",
-      "World-class traditional Ayurvedic healing treatments",
-      "Exploring the nearby Vizhinjam Fishing Harbour"
-    ],
-    "region": "South",
-    "vibeTags": [
-      "Relaxed",
-      "Restorative",
-      "Soulful"
-    ],
-    "idealSeason": "Sep–Mar",
-    "landscapes": [
-      "Beaches"
-    ],
-    "peakMonths": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "shoulderMonths": [
-      8,
-      4,
-      5
-    ],
-    "avoidMonths": [
-      6,
-      7
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 3,
-    "latitude": 8.4004,
-    "longitude": 76.9787,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/varkala.webp"
   },
   {
     "id": "karwar-dandeli",
@@ -1622,53 +1377,8 @@
     "latitude": 14.8048,
     "longitude": 74.1333,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "tarkarli-sindhudurg",
-    "name": "Tarkarli & Sindhudurg",
-    "description": "Tarkarli on the Konkan coast is famous for the clearest waters in Maharashtra, excellent for scuba diving and snorkelling. The offshore Sindhudurg Fort — built by Chhatrapati Shivaji Maharaj — sits on a rocky island in the sea, accessible by boat, and is one of the finest sea forts in Asia.",
-    "shortPitch": "Tarkarli boasts the clearest waters on the Konkan coast, making it a spectacular hub for scuba diving and snorkelling. Just offshore lies Sindhudurg Fort, a magnificent 17th-century sea fortress built on a rocky island.",
-    "topHighlights": [
-      "Scuba diving and snorkelling in crystal-clear coastal waters",
-      "Boat trips to explore the historic offshore Sindhudurg Fort",
-      "Savouring authentic, spicy Konkan seafood cuisine"
-    ],
-    "region": "West",
-    "vibeTags": [
-      "Pristine",
-      "Historic",
-      "Scenic"
-    ],
-    "idealSeason": "Oct–Mar",
-    "landscapes": [
-      "Beaches",
-      "Hidden Villages"
-    ],
-    "peakMonths": [
-      10,
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "shoulderMonths": [
-      9,
-      4,
-      5
-    ],
-    "avoidMonths": [
-      6,
-      7,
-      8
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 3,
-    "latitude": 16.0401,
-    "longitude": 73.4839,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/karwar-dandeli.webp"
   },
   {
     "id": "ratnagiri",
@@ -1714,7 +1424,8 @@
     "latitude": 16.9902,
     "longitude": 73.312,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/ratnagiri.webp"
   },
   {
     "id": "jaipur",
@@ -1760,7 +1471,8 @@
     "latitude": 26.9124,
     "longitude": 75.7873,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/jaipur.webp"
   },
   {
     "id": "udaipur",
@@ -1805,7 +1517,8 @@
     "latitude": 24.5854,
     "longitude": 73.7125,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/udaipur.webp"
   },
   {
     "id": "jodhpur",
@@ -1851,7 +1564,8 @@
     "latitude": 26.2389,
     "longitude": 73.0243,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/jodhpur.webp"
   },
   {
     "id": "jaisalmer",
@@ -1897,7 +1611,8 @@
     "latitude": 26.9157,
     "longitude": 70.9083,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/jaisalmer.webp"
   },
   {
     "id": "bikaner",
@@ -1943,7 +1658,8 @@
     "latitude": 28.0229,
     "longitude": 73.3119,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/bikaner.webp"
   },
   {
     "id": "bundi",
@@ -1988,7 +1704,8 @@
     "latitude": 25.4415,
     "longitude": 75.6385,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/bundi.webp"
   },
   {
     "id": "pushkar",
@@ -2035,7 +1752,8 @@
     "latitude": 26.4862,
     "longitude": 74.5513,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/pushkar.webp"
   },
   {
     "id": "shekhawati",
@@ -2080,53 +1798,8 @@
     "latitude": 27.9944,
     "longitude": 75.3134,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "mount-abu",
-    "name": "Mount Abu",
-    "description": "Mount Abu is Rajasthan's only hill station, rising to 1,220 m in the Aravalli Range. It is sacred to both Hindus and Jains — the Dilwara Temples here are considered among the finest examples of Jain marble craftsmanship anywhere in the world.",
-    "shortPitch": "Rising high in the Aravalli Range, Mount Abu is Rajasthan's only hill station and a profoundly spiritual sanctuary. It is famed worldwide for the exquisite 11th-century marble carvings of the sacred Dilwara Jain Temples.",
-    "topHighlights": [
-      "The unparalleled marble carvings of Dilwara Jain Temples",
-      "Boating at the scenic Nakki Lake",
-      "Sunset viewpoints from Guru Shikhar, Rajasthan's highest peak"
-    ],
-    "region": "West",
-    "vibeTags": [
-      "Peaceful",
-      "Spiritual",
-      "Scenic"
-    ],
-    "idealSeason": "Sep–Mar",
-    "landscapes": [
-      "Royal Cities",
-      "Spiritual India"
-    ],
-    "peakMonths": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "shoulderMonths": [
-      8,
-      4
-    ],
-    "avoidMonths": [
-      5,
-      6,
-      7
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 24.5926,
-    "longitude": 72.7156,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/shekhawati.webp"
   },
   {
     "id": "mysore",
@@ -2172,7 +1845,8 @@
     "latitude": 12.2958,
     "longitude": 76.6394,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/mysore.webp"
   },
   {
     "id": "rann-of-kutch",
@@ -2217,7 +1891,8 @@
     "latitude": 23.8322,
     "longitude": 69.8398,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/rann-of-kutch.webp"
   },
   {
     "id": "alleppey",
@@ -2262,53 +1937,8 @@
     "latitude": 9.4981,
     "longitude": 76.3388,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "kumarakom",
-    "name": "Kumarakom",
-    "description": "Kumarakom on the shores of Vembanad Lake is Kerala's most luxurious backwater resort destination. The Kumarakom Bird Sanctuary is a haven for migratory birds including Siberian storks, and the village's lagoon-side Ayurveda resorts offer world-class wellness experiences.",
-    "shortPitch": "Set majestically on the shores of Vembanad Lake, Kumarakom is Kerala's most luxurious backwater retreat. It is a haven for exotic migratory birds and boasts world-class lagoon-side Ayurveda wellness resorts.",
-    "topHighlights": [
-      "Luxury wellness resorts and Ayurvedic treatments",
-      "Houseboat cruises across Vembanad Lake",
-      "Birdwatching at the renowned Kumarakom Bird Sanctuary"
-    ],
-    "region": "South",
-    "vibeTags": [
-      "Luxury",
-      "Peaceful",
-      "Restorative"
-    ],
-    "idealSeason": "Sep–Mar",
-    "landscapes": [
-      "Backwaters",
-      "Wildlife & Jungle"
-    ],
-    "peakMonths": [
-      9,
-      10,
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "shoulderMonths": [
-      8,
-      4
-    ],
-    "avoidMonths": [
-      5,
-      6,
-      7
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 9.5828,
-    "longitude": 76.4255,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/alleppey.webp"
   },
   {
     "id": "varanasi",
@@ -2353,7 +1983,8 @@
     "latitude": 25.3176,
     "longitude": 82.9739,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/varanasi.webp"
   },
   {
     "id": "haridwar",
@@ -2398,7 +2029,8 @@
     "latitude": 29.9457,
     "longitude": 78.1642,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/haridwar.webp"
   },
   {
     "id": "amritsar",
@@ -2443,7 +2075,8 @@
     "latitude": 31.634,
     "longitude": 74.8723,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/amritsar.webp"
   },
   {
     "id": "bodh-gaya",
@@ -2488,7 +2121,8 @@
     "latitude": 24.6961,
     "longitude": 84.9869,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/bodh-gaya.webp"
   },
   {
     "id": "tirupati",
@@ -2533,7 +2167,8 @@
     "latitude": 13.6288,
     "longitude": 79.4192,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/tirupati.webp"
   },
   {
     "id": "puri",
@@ -2579,7 +2214,8 @@
     "latitude": 19.8135,
     "longitude": 85.8312,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/puri.webp"
   },
   {
     "id": "ajmer",
@@ -2624,7 +2260,8 @@
     "latitude": 26.4499,
     "longitude": 74.6399,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/ajmer.webp"
   },
   {
     "id": "shirdi",
@@ -2669,7 +2306,8 @@
     "latitude": 19.7645,
     "longitude": 74.4762,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/shirdi.webp"
   },
   {
     "id": "jim_corbett",
@@ -2719,7 +2357,8 @@
     "latitude": 29.53,
     "longitude": 78.7747,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/jim_corbett.webp"
   },
   {
     "id": "ranthambore",
@@ -2768,7 +2407,8 @@
     "latitude": 26.0173,
     "longitude": 76.5026,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/ranthambore.webp"
   },
   {
     "id": "kaziranga",
@@ -2819,7 +2459,8 @@
     "latitude": 26.5775,
     "longitude": 93.1711,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/kaziranga.webp"
   },
   {
     "id": "bandhavgarh",
@@ -2867,7 +2508,8 @@
     "latitude": 23.7225,
     "longitude": 81.0245,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/bandhavgarh.webp"
   },
   {
     "id": "kanha",
@@ -2915,7 +2557,8 @@
     "latitude": 22.3345,
     "longitude": 80.6115,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/kanha.webp"
   },
   {
     "id": "pench",
@@ -2963,7 +2606,8 @@
     "latitude": 21.6702,
     "longitude": 79.3364,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/pench.webp"
   },
   {
     "id": "tadoba",
@@ -3011,7 +2655,8 @@
     "latitude": 20.2449,
     "longitude": 79.2974,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/tadoba.webp"
   },
   {
     "id": "gir",
@@ -3060,7 +2705,8 @@
     "latitude": 21.1243,
     "longitude": 70.8242,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/gir.webp"
   },
   {
     "id": "sundarbans",
@@ -3105,7 +2751,8 @@
     "latitude": 21.9497,
     "longitude": 89.1833,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/sundarbans.webp"
   },
   {
     "id": "nagarhole_bandipur",
@@ -3151,7 +2798,8 @@
     "latitude": 11.9774,
     "longitude": 76.1362,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/nagarhole_bandipur.webp"
   },
   {
     "id": "periyar",
@@ -3197,7 +2845,8 @@
     "latitude": 9.4679,
     "longitude": 77.1433,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/periyar.webp"
   },
   {
     "id": "munnar",
@@ -3243,7 +2892,8 @@
     "latitude": 10.0889,
     "longitude": 77.0595,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/munnar.webp"
   },
   {
     "id": "darjeeling",
@@ -3289,7 +2939,8 @@
     "latitude": 27.036,
     "longitude": 88.2627,
     "requiresAcclimatization": true,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/darjeeling.webp"
   },
   {
     "id": "ooty",
@@ -3335,7 +2986,8 @@
     "latitude": 11.4064,
     "longitude": 76.6932,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/ooty.webp"
   },
   {
     "id": "coonoor",
@@ -3381,54 +3033,8 @@
     "latitude": 11.353,
     "longitude": 76.7959,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "wayanad",
-    "name": "Wayanad",
-    "description": "Wayanad is a lush highland district in Kerala's northern Western Ghats, blanketed with coffee, tea and spice plantations interspersed with tribal villages and wildlife corridors. Edakkal Caves contain Neolithic petroglyphs over 6,000 years old, while Chembra Peak's heart-shaped lake is a trekking icon.",
-    "shortPitch": "Nestled in the Western Ghats, Wayanad is a pristine highland woven with coffee, tea, and spice plantations. It seamlessly blends ancient history, vibrant tribal culture, and stunning nature treks into one lush escape.",
-    "topHighlights": [
-      "Discovering ancient Neolithic rock carvings at Edakkal Caves",
-      "Trekking to the iconic heart-shaped lake at Chembra Peak",
-      "Wildlife spotting at the Wayanad Wildlife Sanctuary"
-    ],
-    "region": "South",
-    "vibeTags": [
-      "Lush",
-      "Surreal",
-      "Exhilarating"
-    ],
-    "idealSeason": "Oct–May",
-    "landscapes": [
-      "Tea Plantations",
-      "Wildlife & Jungle",
-      "Mountains"
-    ],
-    "peakMonths": [
-      10,
-      11,
-      12,
-      1,
-      2,
-      3,
-      4,
-      5
-    ],
-    "shoulderMonths": [
-      9
-    ],
-    "avoidMonths": [
-      6,
-      7,
-      8
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 3,
-    "latitude": 11.6854,
-    "longitude": 76.132,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/coonoor.webp"
   },
   {
     "id": "delhi",
@@ -3475,7 +3081,8 @@
     "latitude": 28.6139,
     "longitude": 77.209,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/delhi.webp"
   },
   {
     "id": "mumbai",
@@ -3521,7 +3128,8 @@
     "latitude": 19.076,
     "longitude": 72.8777,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/mumbai.webp"
   },
   {
     "id": "bengaluru",
@@ -3565,7 +3173,8 @@
     "latitude": 12.9716,
     "longitude": 77.5946,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/bengaluru.webp"
   },
   {
     "id": "kolkata",
@@ -3610,7 +3219,8 @@
     "latitude": 22.5726,
     "longitude": 88.3639,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/kolkata.webp"
   },
   {
     "id": "chennai",
@@ -3657,7 +3267,8 @@
     "latitude": 13.0827,
     "longitude": 80.2707,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/chennai.webp"
   },
   {
     "id": "hyderabad",
@@ -3703,7 +3314,8 @@
     "latitude": 17.385,
     "longitude": 78.4867,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/hyderabad.webp"
   },
   {
     "id": "shillong",
@@ -3748,7 +3360,8 @@
     "latitude": 25.5788,
     "longitude": 91.8933,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/shillong.webp"
   },
   {
     "id": "cherrapunji",
@@ -3794,7 +3407,8 @@
     "latitude": 25.2702,
     "longitude": 91.7323,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/cherrapunji.webp"
   },
   {
     "id": "mawlynnong",
@@ -3839,7 +3453,8 @@
     "latitude": 25.201,
     "longitude": 91.916,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/mawlynnong.webp"
   },
   {
     "id": "dawki",
@@ -3884,7 +3499,8 @@
     "latitude": 25.1843,
     "longitude": 92.0163,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/dawki.webp"
   },
   {
     "id": "majuli",
@@ -3930,7 +3546,8 @@
     "latitude": 26.9535,
     "longitude": 94.1685,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/majuli.webp"
   },
   {
     "id": "nagaland_hornbill",
@@ -3975,7 +3592,8 @@
     "latitude": 25.666,
     "longitude": 94.1086,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/nagaland_hornbill.webp"
   },
   {
     "id": "hampi",
@@ -4020,7 +3638,8 @@
     "latitude": 15.335,
     "longitude": 76.46,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/hampi.webp"
   },
   {
     "id": "khajuraho",
@@ -4066,7 +3685,8 @@
     "latitude": 24.8318,
     "longitude": 79.9199,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/khajuraho.webp"
   },
   {
     "id": "mahabalipuram",
@@ -4112,7 +3732,8 @@
     "latitude": 12.6269,
     "longitude": 80.1927,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/mahabalipuram.webp"
   },
   {
     "id": "konark",
@@ -4157,7 +3778,8 @@
     "latitude": 19.8876,
     "longitude": 86.0945,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/konark.webp"
   },
   {
     "id": "ajanta_ellora",
@@ -4202,7 +3824,8 @@
     "latitude": 20.0258,
     "longitude": 75.178,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/ajanta_ellora.webp"
   },
   {
     "id": "orchha",
@@ -4247,7 +3870,8 @@
     "latitude": 25.3499,
     "longitude": 78.6385,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/orchha.webp"
   },
   {
     "id": "madurai",
@@ -4293,7 +3917,8 @@
     "latitude": 9.9252,
     "longitude": 78.1198,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/madurai.webp"
   },
   {
     "id": "kochi",
@@ -4340,7 +3965,8 @@
     "latitude": 9.9312,
     "longitude": 76.2673,
     "requiresAcclimatization": false,
-    "isHub": true
+    "isHub": true,
+    "imageUrl": "/destinations/kochi.webp"
   },
   {
     "id": "dwarka_somnath",
@@ -4386,7 +4012,8 @@
     "latitude": 22.2442,
     "longitude": 68.9685,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/dwarka_somnath.webp"
   },
   {
     "id": "tiruvannamalai",
@@ -4431,7 +4058,8 @@
     "latitude": 12.2253,
     "longitude": 79.0747,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/tiruvannamalai.webp"
   },
   {
     "id": "vrindavan_mathura",
@@ -4476,7 +4104,8 @@
     "latitude": 27.4924,
     "longitude": 77.6737,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/vrindavan_mathura.webp"
   },
   {
     "id": "lonar",
@@ -4521,7 +4150,8 @@
     "latitude": 19.9765,
     "longitude": 76.5085,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/lonar.webp"
   },
   {
     "id": "chettinad",
@@ -4567,52 +4197,8 @@
     "latitude": 10.0716,
     "longitude": 78.7844,
     "requiresAcclimatization": false,
-    "isHub": false
-  },
-  {
-    "id": "mandu",
-    "name": "Mandu (Mandavgad)",
-    "description": "Mandu is a plateau fort-city of the 15th-century Malwa Sultanate, where the love story of Sultan Baz Bahadur and his singer queen Rani Roopmati still echoes through the ruins. Dozens of Afghan-style palaces, mosques, pavilions and step-wells are scattered across a lush jungle plateau with dramatic gorge views.",
-    "shortPitch": "Perched on a dramatic jungle plateau, Mandu is a vast, wildly romantic ruined city of the 15th-century Malwa Sultanate. Its Afghan-style palaces, step-wells, and pavilions offer an incredibly atmospheric, uncrowded heritage experience.",
-    "topHighlights": [
-      "Exploring the astonishing, boat-shaped Jahaz Mahal (Ship Palace)",
-      "Enjoying dramatic gorge views from Rani Roopmati's Pavilion",
-      "Wandering the peaceful, white-marble Hoshang Shah's Tomb"
-    ],
-    "region": "Central",
-    "vibeTags": [
-      "Romantic",
-      "Historic",
-      "Quiet"
-    ],
-    "idealSeason": "Jul–Mar",
-    "landscapes": [
-      "Royal Cities",
-      "Hidden Villages"
-    ],
-    "peakMonths": [
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      1,
-      2,
-      3
-    ],
-    "shoulderMonths": [],
-    "avoidMonths": [
-      4,
-      5,
-      6
-    ],
-    "closedMonths": [],
-    "minRequiredDays": 2,
-    "latitude": 22.3377,
-    "longitude": 75.4023,
-    "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/chettinad.webp"
   },
   {
     "id": "unakoti",
@@ -4658,7 +4244,8 @@
     "latitude": 24.3168,
     "longitude": 92.0163,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/unakoti.webp"
   },
   {
     "id": "aizawl_mizoram",
@@ -4704,7 +4291,8 @@
     "latitude": 23.7271,
     "longitude": 92.7176,
     "requiresAcclimatization": false,
-    "isHub": false
+    "isHub": false,
+    "imageUrl": "/destinations/aizawl_mizoram.webp"
   },
   {
     "id": "jawai",
@@ -4745,7 +4333,8 @@
     "altitude": null,
     "requiresAcclimatization": false,
     "isHub": false,
-    "metadata": null
+    "metadata": null,
+    "imageUrl": "/destinations/jawai.webp"
   },
   {
     "id": "munroe-island",
@@ -4786,6 +4375,7 @@
     "altitude": null,
     "requiresAcclimatization": false,
     "isHub": false,
-    "metadata": null
+    "metadata": null,
+    "imageUrl": "/destinations/munroe-island.webp"
   }
 ]

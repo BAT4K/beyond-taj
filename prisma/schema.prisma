@@ -39,6 +39,7 @@ model Destination {
   isHub                                                Boolean             @default(false)
   shortPitch                                           String              @default("")
   topHighlights                                        String[]            @default([])
+  imageUrl                                             String?
   Cluster                                              DestinationCluster? @relation(fields: [clusterId], references: [id])
   TransitRoute_TransitRoute_destinationIdToDestination TransitRoute[]      @relation("TransitRoute_destinationIdToDestination")
   TransitRoute_TransitRoute_originIdToDestination      TransitRoute[]      @relation("TransitRoute_originIdToDestination")

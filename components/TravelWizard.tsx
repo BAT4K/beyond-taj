@@ -26,43 +26,12 @@ interface TravelWizardProps {
 }
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
-const DESTINATION_IMAGES: Record<string, string> = {
-  "Alleppey": "/destinations/alleppey.webp",
-  "Bundi": "/destinations/bundi.webp",
-  "Darjeeling": "/destinations/darjeeling.webp",
-  "Delhi": "/destinations/delhi.webp",
-  "Gokarna": "/destinations/gokarna.webp",
-  "Gulmarg": "/destinations/gulmarg.webp",
-  "Hampi": "/destinations/hampi.webp",
-  "Havelock Island (Swaraj Dweep)": "/destinations/havelock.webp",
-  "Jaipur": "/destinations/jaipur.webp",
-  "Jaisalmer": "/destinations/jaisalmer.webp",
-  "Jawai": "/destinations/jawai.webp",
-  "Jodhpur": "/destinations/jodhpur.webp",
-  "Kabini": "/destinations/kabini.webp",
-  "Kaziranga": "/destinations/kaziranga.webp",
-  "Leh-Ladakh": "/destinations/leh.webp",
-  "Manali": "/destinations/manali.webp",
-  "Meghalaya (Shillong & Sohra)": "/destinations/meghalaya.webp",
-  "Mumbai": "/destinations/mumbai.webp",
-  "Munnar": "/destinations/munnar.webp",
-  "Munroe Island": "/destinations/munroe.webp",
-  "Mysore": "/destinations/mysore.webp",
-  "Ranthambore": "/destinations/ranthambore.webp",
-  "Rishikesh": "/destinations/rishikesh.webp",
-  "South Goa": "/destinations/southgoa.webp",
-  "Spiti Valley": "/destinations/spiti.webp",
-  "Tirthan Valley": "/destinations/tirthan.webp",
-  "Udaipur": "/destinations/udaipur.webp",
-  "Varanasi": "/destinations/varanasi.webp",
-  "Varkala": "/destinations/varkala.webp",
-  "Ziro Valley": "/destinations/ziro.webp",
-};
+const DESTINATION_IMAGES: Record<string, string> = {};
 
 
 const LANDSCAPE_IMAGES: Record<string, string> = {
-  "Mountains": "/destinations/leh.webp",
-  "Coastal & Islands": "/destinations/havelock.webp",
+  "Mountains": "/destinations/leh-ladakh.webp",
+  "Coastal & Islands": "/destinations/andaman-islands.webp",
   "Royal Cities": "/destinations/jaipur.webp",
   "Desert": "/destinations/jaisalmer.webp",
   "Backwaters": "/destinations/alleppey.webp",
@@ -70,7 +39,7 @@ const LANDSCAPE_IMAGES: Record<string, string> = {
   "Wildlife & Safaris": "/destinations/ranthambore.webp",
   "Tea Plantations & Valleys": "/destinations/munnar.webp",
   "Vibrant Metropolises": "/destinations/mumbai.webp",
-  "Northeast & Living Roots": "/destinations/meghalaya.webp",
+  "Northeast & Living Roots": "/destinations/shillong.webp",
 };
 
 
@@ -190,7 +159,7 @@ function VirtualizedGrid({
                     id={dest.id}
                     name={dest.name}
                     region={dest.region}
-                    imageSrc={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE}
+                    imageSrc={dest.imageUrl || FALLBACK_IMAGE}
                     isSelected={isSelected}
                     isDisabled={isDisabled}
                     reasons={reasons}
@@ -1065,14 +1034,14 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const heroItem = heroPool[heroIndex] || heroPool[0];
 
         const filterHero = (arr: any[]) => arr.filter(d => d.id !== heroItem?.id);
-        const seasonalRow = filterHero(monthMatch).slice(0, 8);
-        const styleRow = filterHero(styleMatch).slice(0, 8);
-        const offPathRow = filterHero(offPath).slice(0, 8);
+        const seasonalRow = filterHero(monthMatch);
+        const styleRow = filterHero(styleMatch);
+        const offPathRow = filterHero(offPath);
         
         const landscapeRows = selectedLandscapes.map(landscape => {
            const catList = categoryMap[landscape] || [landscape];
            const match = filterHero(filteredDestinations).filter(d => catList.some(cat => d.landscapes?.includes(cat as any)));
-           return { title: landscape, items: match.slice(0, 8) };
+           return { title: landscape, items: match };
         });
 
         const renderRow = (title: string, items: any[]) => {
@@ -1097,7 +1066,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         id={dest.id}
                         name={dest.name}
                         region={dest.region}
-                        imageSrc={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE}
+                        imageSrc={dest.imageUrl || FALLBACK_IMAGE}
                         isSelected={isSelected}
                         isDisabled={isDisabled}
                         reasons={reasons}
@@ -1139,7 +1108,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   onClick={() => setQuickLookId(heroItem.id)}
                 >
                   <Image 
-                    src={DESTINATION_IMAGES[heroItem.name] || FALLBACK_IMAGE} 
+                    src={heroItem.imageUrl || FALLBACK_IMAGE} 
                     alt={heroItem.name} 
                     fill
                     sizes="(max-width: 1200px) 100vw, 1200px"
@@ -1330,9 +1299,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           {/* Left Side: Static Image */}
           <div className="relative w-full md:w-1/2 h-56 md:h-full shrink-0 bg-black">
             <Image 
-              src={DESTINATION_IMAGES[dest.name] || FALLBACK_IMAGE} 
+              src={dest.imageUrl || FALLBACK_IMAGE} 
               alt={dest.name} 
               fill 
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover opacity-90" 
               priority
             />

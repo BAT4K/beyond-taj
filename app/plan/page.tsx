@@ -22,6 +22,7 @@ const getDestinations = async () => {
       minRequiredDays: true,
       latitude: true,
       longitude: true,
+      imageUrl: true,
       Landscape: { select: { name: true } },
       clusterId: true,
       Cluster: {
@@ -63,8 +64,8 @@ export default async function Plan() {
     minRequiredDays: dest.minRequiredDays,
     latitude: dest.latitude,
     longitude: dest.longitude,
+    imageUrl: dest.imageUrl,
     landscapes: dest.Landscape.map((l: any) => l.name),
-    image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
     clusterId: dest.clusterId,
     compatibleClusters: dest.Cluster?.compatibleClusters || [],
     isHub: dest.Cluster?.id === 'transit_hub',

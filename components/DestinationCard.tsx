@@ -56,7 +56,7 @@ const DestinationCard = React.memo(function DestinationCard({
         alt={name}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={`object-cover transition-all duration-700 ease-out ${
+        className={`object-cover w-full h-full transition-all duration-700 ease-out ${
           isSelected ? 'opacity-100' : 'opacity-70 group-hover:opacity-100 group-hover:scale-105'
         }`}
         priority={isPriority}

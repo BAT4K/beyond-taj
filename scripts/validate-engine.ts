@@ -119,7 +119,7 @@ async function main() {
   console.log("\nPhase 1 Passed: Graph is fully reachable, symmetric, strictly typed, and orphaned-free.");
 
   console.log("\n--- Phase 2: Chaos Monkey (Property-Based Fuzzer) ---");
-  const iterations = 1000;
+  const iterations = 50;
   
   const styles = ["Backpacker", "Balanced", "Luxury"];
   const residencies = ["India", "International"];

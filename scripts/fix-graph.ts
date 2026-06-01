@@ -45,7 +45,13 @@ async function main() {
     { o: 'hyderabad', d: 'mumbai', dist: 710, dur: 14, fatigue: 6 },
     { o: 'hyderabad', d: 'hampi', dist: 380, dur: 8, fatigue: 4 },
     { o: 'lakshadweep', d: 'kochi', dist: 400, dur: 1.5, fatigue: 2, flight: true },
-    { o: 'rann-of-kutch', d: 'gir', dist: 380, dur: 8, fatigue: 5 }
+    // Re-connect Gujarat (lost Ahmedabad)
+    { o: 'rann-of-kutch', d: 'gir', dist: 380, dur: 8, fatigue: 5 },
+    { o: 'gir', d: 'dwarka_somnath', dist: 230, dur: 5, fatigue: 4 },
+    { o: 'gir', d: 'mumbai', dist: 800, dur: 2, fatigue: 2, flight: true },
+    // Re-connect Odisha (lost Bhubaneswar)
+    { o: 'puri', d: 'konark', dist: 35, dur: 1, fatigue: 1 },
+    { o: 'puri', d: 'kolkata', dist: 500, dur: 1.5, fatigue: 2, flight: true },
   ];
 
   for (const conn of manualConnections) {
