@@ -259,7 +259,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       try {
         const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
         const countryParam = residency === 'India' ? '&country=in' : '';
-        const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(locationQuery)}.json?access_token=${token}&types=place,locality,region${countryParam}`);
+        const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(locationQuery)}.json?access_token=${token}&types=place,region${countryParam}`);
         const data = await res.json();
         if (data.features) {
           setLocationResults(data.features);
@@ -641,7 +641,6 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     // 1. Evaluate Weather via AI Factor
     if (weatherFactor <= 0.1) {
       calculatedTier = 3;
-      reasons.push("Off-Season");
     }
 
     // 2. Evaluate Logistics via AI Factor (if a node is selected)
@@ -649,14 +648,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       // If logistics penalty is massive (meaning 0 direct connections and high fatigue)
       if (logisticsFactor <= 0.0) {
          calculatedTier = 3;
-         reasons.push("Complex Transit");
       }
     } else if (selectedDestinations.length > 0) {
       // Fallback if no transit routes are loaded
       const activeRegions = new Set(selectedDestinations.map(id => destinations.find(d => d.id === id)?.region).filter(Boolean));
       if (!activeRegions.has(dest.region) && !nbdIds.has(dest.id)) {
         calculatedTier = 3;
-        reasons.push("Distant Region");
       }
     }
     
@@ -802,8 +799,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     </div>
                   )}
                   {startLocation && !showLocationDropdown && (
-                    <p className="absolute -bottom-6 left-0 text-xs text-[#25D366] flex items-center gap-1">
-                      <CheckCircle size={12} /> Confirmed Location
+                    <p className="absolute -bottom-6 left-0 text-[9px] uppercase tracking-widest text-[#c9a96e]/80 flex items-center gap-1.5 font-semibold">
+                      <Compass size={11} className="opacity-70" /> Origin Selected
                     </p>
                   )}
                 </div>
