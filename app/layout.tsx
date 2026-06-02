@@ -16,12 +16,16 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 export const metadata: Metadata = {
   title: "Beyond Taj | Bespoke Itinerary",
   description: "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
-
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function RootLayout({
   children,
@@ -39,6 +43,30 @@ export default function RootLayout({
           {children}
           <SpeedInsights />
         </Providers>
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Beyond Taj",
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com",
+              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com"}/icon.png`,
+              "description": "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN"
+              }
+            })
+          }}
+        />
+        
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );

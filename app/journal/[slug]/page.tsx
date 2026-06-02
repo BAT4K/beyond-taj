@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export async function generateStaticParams() {
   const blogs = getAllBlogs();
@@ -72,7 +73,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     readNext = allBlogs.find(b => b.slug !== blog.slug);
   }
 
-  const jsonLd = {
+  const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: blog.title,
@@ -83,14 +84,40 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     },
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Journal',
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'}/journal`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: blog.title,
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'}/journal/${blog.slug}`
+      }
+    ]
+  };
+
   return (
     <article className="min-h-screen bg-[#0a0806] text-white pt-32 pb-32 px-6 md:px-12 selection:bg-[#c9a96e]/30">
+      <ScrollToTop />
       <div className="max-w-3xl mx-auto">
         
         {/* Navigation Back */}
         <Link 
           href="/journal" 
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 hover:text-[#c9a96e] transition-colors mb-12 md:mb-16 group"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 hover:text-[#c9a96e] transition-all active:scale-95 active:opacity-50 active:duration-150 mb-12 md:mb-16 group py-2"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
           Back to Journal
@@ -100,7 +127,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <header className="mb-16 text-center md:text-left">
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
           />
           <h1 className="font-serif text-4xl md:text-6xl font-light text-white/90 leading-tight mb-8">
             {blog.title}

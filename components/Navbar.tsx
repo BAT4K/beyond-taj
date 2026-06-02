@@ -2,68 +2,142 @@
 
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { status } = useSession();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Automatically close mobile menu when pathname changes (navigation completes)
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   const theme = {
     gold: "#c9a96e",
   };
 
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   return (
-    <header className="w-full px-4 md:px-10 py-4 md:py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
-      <div>
-        <Link href="/" className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-all active:scale-95 active:opacity-50 active:duration-150">
-          <img
-            src="/logo.png"
-            alt="Beyond Taj Emblem"
-            className="h-10 md:h-11 w-auto object-contain"
-          />
-          <span className="hidden sm:block font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
-        </Link>
-      </div>
+    <>
+      <header className="w-full px-4 md:px-10 py-4 md:py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
+        <div className="flex items-center gap-12">
+          <Link href="/" onClick={closeMenu} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-all active:scale-95 active:opacity-50 active:duration-150">
+            <img
+              src="/logo.png"
+              alt="Beyond Taj Emblem"
+              className="h-10 md:h-11 w-auto object-contain"
+            />
+            <span className="font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
+          </Link>
+          
+          {/* Desktop Links */}
+          <div className="hidden lg:flex gap-8 items-center text-xs tracking-widest font-sans font-light uppercase mt-1">
+            <Link href="/destinations" className="text-white/60 hover:text-[#c9a96e] transition-colors">Destinations</Link>
+            <Link href="/journal" className="text-white/60 hover:text-[#c9a96e] transition-colors">The Journal</Link>
+            <Link href="/about" className="text-white/60 hover:text-[#c9a96e] transition-colors">About</Link>
+          </div>
+        </div>
 
-      <div className="flex items-center gap-3 sm:gap-6">
-        <Link
-          href="/journal"
-          className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-[#c9a96e] hover:text-[#d4b47a] transition-all active:scale-95 active:opacity-50 active:duration-150"
-        >
-          The Journal
-        </Link>
-        <Link
-          href="/review"
-          className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all active:scale-95 active:opacity-50 active:duration-150"
-        >
-          Review Us
-        </Link>
-
-        {status === "unauthenticated" && (
-          <button
-            onClick={() => signIn()}
-            className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
+        {/* Desktop Right Side */}
+        <div className="hidden lg:flex items-center gap-6">
+          <Link
+            href="/review"
+            className="whitespace-nowrap text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all active:scale-95 active:opacity-50 active:duration-150"
           >
-            Client Login
-          </button>
-        )}
+            Review Us
+          </Link>
 
-        {status === "authenticated" && (
-          <>
-            <Link
-              href="/dashboard"
-              className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all hover:opacity-80 active:scale-95 active:opacity-50 active:duration-150"
-              style={{ color: theme.gold }}
-            >
-              My Dossiers
-            </Link>
+          {status === "unauthenticated" && (
             <button
-              onClick={() => signOut({ callbackUrl: '/' })}
-              className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/50 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
+              onClick={() => signIn()}
+              className="whitespace-nowrap text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
             >
-              Sign Out
+              Client Login
             </button>
-          </>
+          )}
+
+          {status === "authenticated" && (
+            <>
+              <Link
+                href="/dashboard"
+                className="whitespace-nowrap text-xs uppercase tracking-widest font-bold transition-all hover:opacity-80 active:scale-95 active:opacity-50 active:duration-150"
+                style={{ color: theme.gold }}
+              >
+                My Dossiers
+              </Link>
+              <button
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="whitespace-nowrap text-xs uppercase tracking-widest text-white/50 hover:text-white transition-all cursor-pointer active:scale-95 active:opacity-50 active:duration-150"
+              >
+                Sign Out
+              </button>
+            </>
+          )}
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button 
+          className="lg:hidden p-2 text-white/80 hover:text-white transition-colors active:scale-95 active:opacity-50"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-[#0a0806] pt-28 px-6 pb-6 flex flex-col lg:hidden"
+          >
+            <nav className="flex flex-col gap-8 text-center mt-12">
+              <Link href="/destinations" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition-all duration-150">Destinations</Link>
+              <Link href="/journal" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition-all duration-150">The Journal</Link>
+              <Link href="/about" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition-all duration-150">About Us</Link>
+              <Link href="/review" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition-all duration-150">Review Us</Link>
+              
+              <div className="w-12 h-px bg-white/10 mx-auto my-4" />
+              
+              {status === "unauthenticated" && (
+                <button
+                  onClick={() => { setIsMobileMenuOpen(false); signIn(); }}
+                  className="text-sm uppercase tracking-widest text-[#c9a96e] hover:text-[#d4b47a] active:scale-95 active:opacity-50 transition-all duration-150"
+                >
+                  Client Login
+                </button>
+              )}
+
+              {status === "authenticated" && (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="text-sm uppercase tracking-widest font-bold active:scale-95 active:opacity-50 transition-all duration-150"
+                    style={{ color: theme.gold }}
+                  >
+                    My Dossiers
+                  </Link>
+                  <button
+                    onClick={() => { setIsMobileMenuOpen(false); signOut({ callbackUrl: '/' }); }}
+                    className="text-sm uppercase tracking-widest text-white/50 hover:text-white active:scale-95 active:opacity-50 transition-all duration-150 mt-4"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              )}
+            </nav>
+          </motion.div>
         )}
-      </div>
-    </header>
+      </AnimatePresence>
+    </>
   );
 }
