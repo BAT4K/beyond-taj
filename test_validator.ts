@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { evaluateTripFeasibility } from './utils/routingEngine';
+import { evaluateTripFeasibility } from './lib/routingEngine';
 
 async function main() {
   // Test a crazy trip: 6 days, starting in Delhi, but going to South Goa and Leh

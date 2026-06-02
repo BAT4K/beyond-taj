@@ -2,8 +2,8 @@
 import 'dotenv/config';
 import prisma from '../lib/prisma';
 import assert from 'node:assert/strict';
-import { evaluateTripFeasibility } from '../utils/routingEngine';
-import { generateBespokeRoute } from '../utils/curationEngine';
+import { evaluateTripFeasibility } from '../lib/routingEngine';
+import { generateBespokeRoute } from '../lib/curationEngine';
 import { calculateTripPacing, DestinationSchema, VALID_VIBES, VALID_LANDSCAPES } from '@shared/travel-rules';
 
 // Haversine formula to calculate distance between two lat/lng coordinates in km

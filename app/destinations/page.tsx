@@ -12,6 +12,12 @@ const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf059
 export default async function DestinationsIndex() {
   const destinations = await prisma.destination.findMany({
     orderBy: { region: 'asc' },
+    select: {
+      id: true,
+      region: true,
+      name: true,
+      imageUrl: true,
+    }
   });
 
   const groupedDestinations = destinations.reduce((acc, dest) => {

@@ -1,4 +1,4 @@
-import { generateBespokeRoute } from './utils/curationEngine';
+import { generateBespokeRoute } from './lib/curationEngine';
 import { Destination } from '@shared/travel-rules';
 import * as fs from 'fs';
 import * as path from 'path';

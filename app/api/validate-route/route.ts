@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { evaluateTripFeasibility } from '@/utils/routingEngine';
+import { evaluateTripFeasibility } from '@/lib/routingEngine';
 
 export async function POST(request: Request) {
   try {
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       warnings: result.warnings,
       optimalPath: result.optimalPath
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Validation API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

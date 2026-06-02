@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import TravelWizard from "@/components/TravelWizard";
+import TravelWizard, { MappedDestination } from "@/components/TravelWizard";
 import { unstable_cache } from "next/cache";
 
 export const revalidate = 3600; // Cache the data and revalidate every hour
@@ -22,6 +22,7 @@ const getDestinations = async () => {
       minRequiredDays: true,
       latitude: true,
       longitude: true,
+      requiresAcclimatization: true,
       imageUrl: true,
       Landscape: { select: { name: true } },
       clusterId: true,
@@ -48,7 +49,7 @@ const getDestinations = async () => {
 export default async function Plan() {
   const { dbDestinations, transitRoutes } = await getDestinations();
 
-  const liveDestinations = dbDestinations.map((dest: any) => ({
+  const liveDestinations = dbDestinations.map((dest: any): MappedDestination => ({
     id: dest.id,
     name: dest.name,
     description: dest.description,
@@ -69,6 +70,7 @@ export default async function Plan() {
     clusterId: dest.clusterId,
     compatibleClusters: dest.Cluster?.compatibleClusters || [],
     isHub: dest.Cluster?.id === 'transit_hub',
+    requiresAcclimatization: dest.requiresAcclimatization,
   }));
 
   return (

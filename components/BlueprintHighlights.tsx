@@ -59,7 +59,7 @@ export default function BlueprintHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-all duration-500 relative overflow-hidden"
+                className="group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-colors duration-500 relative overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity" />
                 

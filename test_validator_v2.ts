@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { evaluateTripFeasibility } from './utils/routingEngine';
+import { evaluateTripFeasibility } from './lib/routingEngine';
 
 async function main() {
   console.log("=========================================");

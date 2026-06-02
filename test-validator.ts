@@ -1,4 +1,4 @@
-import { validateItinerary } from './utils/travelValidator';
+import { validateItinerary } from './lib/travelValidator';
 
 const destinations = [
   { name: 'Delhi', latitude: 28.6139, longitude: 77.2090 },

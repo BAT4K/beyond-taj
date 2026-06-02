@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const theme = {
   bg: "#0a0806",
@@ -18,6 +19,14 @@ export default function Hero() {
       style={{ backgroundColor: theme.bg, color: theme.cream }}
     >
       <div className="absolute inset-0 z-0">
+        <Image 
+          src="/master-hero-poster.webp"
+          alt="Hero background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <video
           suppressHydrationWarning
           autoPlay

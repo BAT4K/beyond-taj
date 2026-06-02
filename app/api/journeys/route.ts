@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     });
     
     return NextResponse.json(journey);
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error creating journey:', error);
     return NextResponse.json({ error: 'Failed to create journey' }, { status: 500 });
   }

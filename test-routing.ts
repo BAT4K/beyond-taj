@@ -1,5 +1,5 @@
 import prisma from './lib/prisma';
-import { evaluateTripFeasibility } from './utils/routingEngine';
+import { evaluateTripFeasibility } from './lib/routingEngine';
 
 async function main() {
   const result = await evaluateTripFeasibility(

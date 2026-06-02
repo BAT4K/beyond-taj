@@ -1,6 +1,6 @@
 // @ts-nocheck
 import 'dotenv/config';
-import { evaluateTripFeasibility } from '../utils/routingEngine';
+import { evaluateTripFeasibility } from '../lib/routingEngine';
 import prisma from '../lib/prisma';
 
 async function runTests() {

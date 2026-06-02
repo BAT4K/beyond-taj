@@ -9,8 +9,17 @@ import Spinner from "./Spinner";
 import FullscreenLoader from "./FullscreenLoader";
 import Link from "next/link";
 import Image from "next/image";
-import { generateBespokeRoute } from "@/utils/curationEngine";
+import { generateBespokeRoute } from "@/lib/curationEngine";
 import { calculateMatchScore, Destination } from "@shared/travel-rules";
+
+export type MappedDestination = Destination & {
+  imageUrl: string | null;
+  landscapes: string[];
+  clusterId: string | null;
+  compatibleClusters: string[];
+  isHub: boolean;
+};
+
 import DestinationCard from "./DestinationCard";
 
 
@@ -20,8 +29,11 @@ export type WarningMessage = {
   message: string;
 };
 
+
+
+
 interface TravelWizardProps {
-  destinations: Destination[];
+  destinations: MappedDestination[];
   transitRoutes?: { originId: string; destinationId: string; fatigueCost: number }[];
 }
 
@@ -44,7 +56,7 @@ const LANDSCAPE_IMAGES: Record<string, string> = {
 
 
 import { useRouter } from "next/navigation";
-import { validateItinerary as performValidation } from "@/utils/travelValidator";
+import { validateItinerary as performValidation } from "@/lib/travelValidator";
 
 // ... existing imports/types
 
@@ -326,12 +338,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       if (res.ok) {
         setWarnings([...clientWarnings, ...(data.warnings || [])]);
       }
-    } catch (err: any) {
-      if (err.name === 'AbortError') {
+    } catch (error: unknown) {
+      if (error instanceof Error && error.name === 'AbortError') {
         // Ignored, because it was cancelled
         return;
       }
-      console.error(err);
+      console.error(error);
     } finally {
       if (!signal?.aborted) {
         setIsValidating(false);
@@ -654,7 +666,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       }
     } else if (companions === "Romantic Getaway") {
       // Boost romantic destinations
-      if (dest.vibeTags?.includes('Luxury' as any) || dest.vibeTags?.includes('Romantic' as any) || ['Udaipur', 'Kumarakom', 'Kochi'].includes(dest.name)) {
+      if (dest.vibeTags?.includes('Luxury') || dest.vibeTags?.includes('Romantic') || ['Udaipur', 'Kumarakom', 'Kochi'].includes(dest.name)) {
         calculatedTier = 1;
       }
     }
@@ -800,7 +812,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         </div>
                       ) : locationResults.length > 0 ? (
                         <ul className="max-h-60 overflow-y-auto custom-scrollbar">
-                          {locationResults.map((result: any) => (
+                          {locationResults.map((result: MappedDestination) => (
                             <li 
                               key={result.id}
                               onClick={() => {
@@ -1077,7 +1089,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const currentMonthIndex = travelMonth ? monthMap[travelMonth] : new Date().getMonth() + 1;
         const monthMatch = filteredDestinations.filter(d => d.peakMonths?.includes(currentMonthIndex));
         
-        let styleMatch: any[] = [];
+        let styleMatch: MappedDestination[] = [];
         let styleTitle = "";
         if (travelStyle === "Luxury Explorer") {
            styleTitle = "The Luxury Collection";
@@ -1089,7 +1101,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
         const offPath = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Remote", "Untouched", "Hidden", "Pure", "Quiet", "Raw"].includes(v as string)));
         
-        let companionMatch: any[] = [];
+        let companionMatch: MappedDestination[] = [];
         let companionTitle = "";
         
         if (companions === "Romantic Getaway") {
@@ -1115,7 +1127,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const heroIndex = ((travelMonth?.length || 0) + travelStyle.length) % Math.max(heroPool.length, 1);
         const heroItem = heroPool[heroIndex] || heroPool[0];
 
-        const filterHero = (arr: any[]) => arr.filter(d => d.id !== heroItem?.id);
+        const filterHero = (arr: MappedDestination[]) => arr.filter(d => d.id !== heroItem?.id);
         const seasonalRow = filterHero(monthMatch);
         const styleRow = filterHero(styleMatch);
         const offPathRow = filterHero(offPath);
@@ -1127,7 +1139,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
            return { title: landscape, items: match };
         });
 
-        const renderRow = (title: string, items: any[]) => {
+        const renderRow = (title: string, items: MappedDestination[]) => {
           if (items.length === 0) return null;
           return (
             <motion.div variants={itemVariants} className="mb-12" key={title}>
@@ -1136,7 +1148,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 <div className="h-px bg-white/10 flex-1 ml-6"></div>
               </div>
               <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 custom-scrollbar px-2 -mx-2">
-                {items.map((dest: any, index: number) => {
+                {items.map((dest: MappedDestination, index: number) => {
                   const { reasons } = getTierAndReason(dest);
                   const isSelected = selectedDestinations.includes(dest.id);
                   const currentTotalMinDays = selectedDestinations.reduce((sum, id) => sum + (destinations.find(x => x.id === id)?.minRequiredDays || 2), 0);
@@ -1422,7 +1434,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
               </div>
 
               <div>
-                <p className="text-white/60 leading-relaxed md:leading-loose font-light text-xs md:text-base italic mb-5 md:mb-6">&ldquo;{(dest as any).shortPitch || dest.description}&rdquo;</p>
+                <p className="text-white/60 leading-relaxed md:leading-loose font-light text-xs md:text-base italic mb-5 md:mb-6">&ldquo;{dest.shortPitch || dest.description}&rdquo;</p>
                 
                 {/* Vibe Tags */}
                 {(dest as any).vibeTags && (dest as any).vibeTags.length > 0 && (

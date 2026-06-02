@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import prisma from '../lib/prisma';
-import { generateBespokeRoute } from '../utils/curationEngine';
+import { generateBespokeRoute } from '../lib/curationEngine';
 
 async function main() {
   console.log("Loading graph...");

@@ -1,7 +1,7 @@
 import nextDynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import ShowcaseVideo from "@/components/ShowcaseVideo";
-import FeaturedBlogWidget from "@/components/FeaturedBlogWidget";
+
 import { getAllBlogs, BlogPost } from '@/lib/blogs';
 
 export const dynamic = 'force-static';
@@ -12,6 +12,7 @@ const Manifesto = nextDynamic(() => import("@/components/Manifesto"));
 const BlueprintHighlights = nextDynamic(() => import("@/components/BlueprintHighlights"));
 const FAQ = nextDynamic(() => import("@/components/FAQ"));
 const FloatingReviewTicker = nextDynamic(() => import("@/components/FloatingReviewTicker"));
+const FeaturedBlogWidget = nextDynamic(() => import("@/components/FeaturedBlogWidget"));
 
 export default function Home() {
   const allBlogs = getAllBlogs();
