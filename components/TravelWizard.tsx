@@ -701,7 +701,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         />
       </div>
 
-      <header className="pt-32 px-6 md:px-10 pb-6 flex justify-between items-center relative z-40">
+      <header className="pt-32 px-6 md:px-10 pb-6 flex justify-between items-center relative z-20">
         <button
           onClick={prevStep}
           className={`group flex items-center gap-2 uppercase tracking-widest text-xs transition-all cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation`}
@@ -853,7 +853,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             {step === 3 && (
               <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-8">When are you planning to travel?</h2>
-                <div className="grid grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div className="grid grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4 max-w-3xl mx-auto">
                   {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, idx) => (
                     <button
                       key={month}
@@ -863,7 +863,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         backgroundColor: travelMonth === month ? theme.gold + '1A' : theme.darker,
                         color: travelMonth === month ? theme.gold : theme.cream
                       }}
-                      className="p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-xs md:text-sm cursor-pointer active:scale-[0.98] active:opacity-80 touch-manipulation"
+                      className="p-3 md:p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-[10px] sm:text-xs md:text-sm cursor-pointer active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       {month}
                     </button>
@@ -1061,7 +1061,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   const isDisabled = notEnoughDays;
 
                   return (
-                    <div key={dest.id} className="shrink-0 w-[280px] snap-start">
+                    <div key={dest.id} className="shrink-0 w-[200px] md:w-[280px] snap-start">
                       <DestinationCard
                         id={dest.id}
                         name={dest.name}
@@ -1104,7 +1104,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 </div>
                 
                 <div 
-                  className="relative w-full h-[450px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer group border border-zinc-800/50 hover:border-[#c9a96e]/50 transition-all duration-500 hover:shadow-2xl active:scale-[0.98] touch-manipulation"
+                  className="relative w-full h-[280px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer group border border-zinc-800/50 hover:border-[#c9a96e]/50 transition-all duration-500 hover:shadow-2xl active:scale-[0.98] touch-manipulation"
                   onClick={() => setQuickLookId(heroItem.id)}
                 >
                   <Image 
@@ -1116,9 +1116,9 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/50 to-transparent z-10" />
                   
-                  <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end z-20">
-                    <p className="text-xs uppercase tracking-widest text-[#c9a96e] mb-2">{heroItem.region}</p>
-                    <h2 className="font-serif text-4xl md:text-6xl mb-4 text-white drop-shadow-lg">{heroItem.name}</h2>
+                  <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end z-20">
+                    <p className="text-[10px] md:text-xs uppercase tracking-widest text-[#c9a96e] mb-1.5 md:mb-2">{heroItem.region}</p>
+                    <h2 className="font-serif text-2xl md:text-6xl mb-2 md:mb-4 text-white drop-shadow-lg">{heroItem.name}</h2>
                     <p className="text-white/80 font-light max-w-2xl text-sm md:text-base leading-relaxed italic line-clamp-2 md:line-clamp-none">
                       "{heroItem.shortPitch || heroItem.description}"
                     </p>
@@ -1140,14 +1140,14 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
               <button 
                 onClick={toggleAutoCuration}
                 disabled={loadingAction !== null}
-                className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-8 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
+                className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
               >
-                <div className="flex items-center gap-6 mb-6 md:mb-0 z-20">
-                  <div className="w-16 h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
-                    <Sparkles className="text-[#c9a96e]" size={28} />
+                <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
+                  <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+                    <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                    <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
                     <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
                   </div>
                 </div>
@@ -1182,7 +1182,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       const sortedDests = [...filteredDestinations].sort((a, b) => getTierAndReason(a).tier - getTierAndReason(b).tier);
       
       // Compute columns based on a breakpoint heuristic (SSR-safe)
-      const CARD_HEIGHT = 360; // h-[360px] = 360px
+      const isMobile = windowWidth < 768;
+      const CARD_HEIGHT = isMobile ? 220 : 360; 
       const GAP = 20; // gap-5 = 1.25rem = 20px
       const ROW_HEIGHT = CARD_HEIGHT + GAP;
       
@@ -1190,7 +1191,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       const getColumns = () => {
         if (windowWidth >= 1280) return 3; // xl
         if (windowWidth >= 768) return 2;  // md
-        return 1;
+        return 2; // Force 2 columns on mobile
       };
       
       const columns = getColumns();
@@ -1209,18 +1210,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           <button 
             onClick={toggleAutoCuration}
             disabled={loadingAction !== null}
-            className={`w-full relative overflow-hidden rounded-xl border transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-8 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation ${
+            className={`w-full relative overflow-hidden rounded-xl border transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation ${
               isAutoCurated 
                 ? 'border-[#c9a96e]/60 bg-gradient-to-r from-amber-950/40 to-zinc-950 shadow-[0_0_30px_rgba(201,169,110,0.15)]' 
                 : 'border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60'
             }`}
           >
-            <div className="flex items-center gap-6 mb-6 md:mb-0 z-20">
-              <div className="w-16 h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
-                <Sparkles className="text-[#c9a96e]" size={28} />
+            <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
+              <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+                <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div className="text-left">
-                <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
                 <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
               </div>
             </div>
@@ -1271,7 +1272,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     const isSelected = selectedDestinations.includes(dest.id);
     
     return (
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 pointer-events-none">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 md:p-10 pointer-events-none">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1286,18 +1287,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-full max-w-6xl max-h-[90dvh] h-[90dvh] md:h-[70vh] bg-[#0a0806] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
+          className="relative w-[92vw] md:w-full max-w-6xl max-h-[80dvh] h-auto md:h-[70vh] bg-[#0a0806] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
         >
           {/* Close Button */}
           <button 
             onClick={() => setQuickLookId(null)} 
-            className="absolute top-4 right-4 md:top-5 md:right-5 z-50 p-3 bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/10 rounded-full transition-colors duration-200 active:scale-90 touch-manipulation cursor-pointer"
+            className="absolute top-3 right-3 md:top-5 md:right-5 z-50 p-3 bg-black/40 hover:bg-black/80 backdrop-blur-md border border-white/10 rounded-full transition-colors duration-200 active:scale-90 touch-manipulation cursor-pointer"
           >
             <X size={18} className="text-white/70 hover:text-white" />
           </button>
 
           {/* Left Side: Static Image */}
-          <div className="relative w-full md:w-1/2 h-56 md:h-full shrink-0 bg-black">
+          <div className="relative w-full md:w-1/2 h-48 md:h-full shrink-0 bg-black">
             <Image 
               src={dest.imageUrl || FALLBACK_IMAGE} 
               alt={dest.name} 
@@ -1311,32 +1312,32 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             <div className="md:hidden absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0806] to-transparent z-10" />
             
             {/* Region Badge overlay */}
-            <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/5 rounded-full">
-              <span className="text-[9px] uppercase tracking-widest text-[#c9a96e]">{dest.region}</span>
+            <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20 px-2 py-0.5 md:px-3 md:py-1 bg-black/60 backdrop-blur-md border border-white/5 rounded-full">
+              <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#c9a96e]">{dest.region}</span>
             </div>
           </div>
           
           {/* Right Side: Content */}
-          <div className="flex-1 flex flex-col h-full relative z-20">
-            <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-10 md:pr-16 pb-32 md:pb-28">
-              <div className="mb-6 md:mb-8 pr-12 md:pr-0">
-                <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-3 md:mb-4 text-white/90">{dest.name}</h2>
-                <div className="flex flex-wrap gap-3 md:gap-4 text-[9px] md:text-[10px] uppercase tracking-widest text-white/40 border-b border-white/5 pb-4 md:pb-5">
+          <div className="flex-1 flex flex-col min-h-0 relative z-20">
+            <div className="flex-1 overflow-y-auto custom-scrollbar p-3 px-4 md:p-10 md:pr-16 pb-24 md:pb-28">
+              <div className="mb-3 md:mb-8 pr-10 md:pr-0">
+                <h2 className="font-serif text-lg md:text-4xl leading-tight mb-2 md:mb-4 text-white/90">{dest.name}</h2>
+                <div className="flex flex-wrap gap-2.5 md:gap-4 text-[8px] md:text-[10px] uppercase tracking-widest text-white/40 border-b border-white/5 pb-3 md:pb-5">
                   <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-[#c9a96e]" />{dest.minRequiredDays} Days Min</span>
                   <span className="flex items-center gap-1.5"><div className="w-1 h-1 rounded-full bg-[#c9a96e]" />{dest.idealSeason}</span>
                 </div>
               </div>
 
               <div>
-                <p className="text-white/60 leading-relaxed font-light text-base italic mb-6">&ldquo;{(dest as any).shortPitch || dest.description}&rdquo;</p>
+                <p className="text-white/60 leading-relaxed md:leading-loose font-light text-xs md:text-base italic mb-5 md:mb-6">&ldquo;{(dest as any).shortPitch || dest.description}&rdquo;</p>
                 
                 {/* Vibe Tags */}
                 {(dest as any).vibeTags && (dest as any).vibeTags.length > 0 && (
-                  <div className="mb-6">
-                    <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Character</h3>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-5 md:mb-6">
+                    <h3 className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 mb-2 md:mb-3">Character</h3>
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {(dest as any).vibeTags.map((tag: string, i: number) => (
-                        <span key={i} className="px-3 py-1.5 text-xs tracking-wider text-[#c9a96e]/80 border border-[#c9a96e]/20 rounded-full bg-[#c9a96e]/5">{tag}</span>
+                        <span key={i} className="px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] md:text-xs tracking-wider text-[#c9a96e]/80 border border-[#c9a96e]/20 rounded-full bg-[#c9a96e]/5">{tag}</span>
                       ))}
                     </div>
                   </div>
@@ -1344,11 +1345,11 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
                 {/* Landscapes */}
                 {dest.landscapes && dest.landscapes.length > 0 && (
-                  <div className="mb-6">
-                    <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Landscapes</h3>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-5 md:mb-6">
+                    <h3 className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 mb-2 md:mb-3">Landscapes</h3>
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {dest.landscapes.map((l: string, i: number) => (
-                        <span key={i} className="px-3 py-1.5 text-xs tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5">{l}</span>
+                        <span key={i} className="px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] md:text-xs tracking-wider text-white/50 border border-white/10 rounded-full bg-white/5">{l}</span>
                       ))}
                     </div>
                   </div>
@@ -1356,15 +1357,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
                 {/* Signature Experiences */}
                 <div>
-                  <h3 className="text-[10px] uppercase tracking-widest text-white/30 mb-3">Signature Experiences</h3>
-                  <ul className="space-y-3">
+                  <h3 className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 mb-2 md:mb-3">Signature Experiences</h3>
+                  <ul className="space-y-2 md:space-y-3">
                     {((dest as any).topHighlights || []).map((hl: string, i: number) => (
                       <li 
                         key={i}
-                        className="flex gap-3 items-start"
+                        className="flex gap-2.5 md:gap-3 items-start"
                       >
-                        <span className="text-[#c9a96e] mt-0.5 text-sm">✦</span>
-                        <span className="leading-relaxed text-zinc-300 text-sm font-light">{hl}</span>
+                        <span className="text-[#c9a96e] mt-0.5 text-xs md:text-sm">✦</span>
+                        <span className="leading-relaxed text-zinc-300 text-xs md:text-sm font-light">{hl}</span>
                       </li>
                     ))}
                     {(!(dest as any).topHighlights || (dest as any).topHighlights.length === 0) && (
@@ -1376,10 +1377,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             </div>
             
             {/* Sticky Action Footer */}
-            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 bg-gradient-to-t from-[#0a0806] via-[#0a0806] to-transparent pt-12 pointer-events-none">
+            <div className="absolute bottom-0 inset-x-0 p-4 md:p-10 bg-gradient-to-t from-[#0a0806] via-[#0a0806] to-transparent pt-10 md:pt-12 pointer-events-none">
               <button 
                 onClick={() => { toggleDestination(dest.id); setQuickLookId(null); }}
-                className={`w-full py-4 text-xs font-bold uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-2 pointer-events-auto active:scale-95 touch-manipulation cursor-pointer ${
+                className={`w-full py-3 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-2 pointer-events-auto active:scale-95 touch-manipulation cursor-pointer ${
                   isSelected 
                     ? 'bg-white/5 text-white/80 hover:bg-white/10 hover:text-white border border-white/10 backdrop-blur-sm' 
                     : 'bg-[#c9a96e] text-black hover:bg-[#d4b47a] shadow-[0_0_20px_rgba(201,169,110,0.15)] hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]'
@@ -1442,10 +1443,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           return (
                             <div className="space-y-3">
                               {warnings.map((warn, idx) => (
-                                <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-4 rounded-r-sm">
-                                  <div className="flex gap-2 items-center text-[#c9a96e] mb-2">
-                                    {warn.category === 'vibe' ? <Info size={14} /> : <AlertTriangle size={14} />}
-                                    <span className="text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
+                                <div key={idx} className="bg-black/40 border-l-2 border-[#c9a96e] p-3 md:p-4 rounded-r-sm">
+                                  <div className="flex gap-2 items-center text-[#c9a96e] mb-1.5 md:mb-2">
+                                    {warn.category === 'vibe' ? <Info size={12} className="md:w-[14px] md:h-[14px]" /> : <AlertTriangle size={12} className="md:w-[14px] md:h-[14px]" />}
+                                    <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
                                   </div>
                                   <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">{warn.message}</p>
                                 </div>
@@ -1461,10 +1462,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           const multiSuggest = isMaxReachedSlack ? 'reducing your days' : 'adding more destinations to fill the time';
                           
                           return (
-                            <div className="bg-black/40 border-l-2 border-[#c9a96e]/50 p-4 rounded-r-sm">
-                              <div className="flex gap-2 items-center text-[#c9a96e]/80 mb-2">
-                                <Info size={14} />
-                                <span className="text-[10px] uppercase tracking-widest font-semibold">Pacing Note</span>
+                            <div className="bg-black/40 border-l-2 border-[#c9a96e]/50 p-3 md:p-4 rounded-r-sm">
+                              <div className="flex gap-2 items-center text-[#c9a96e]/80 mb-1.5 md:mb-2">
+                                <Info size={12} className="md:w-[14px] md:h-[14px]" />
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">Pacing Note</span>
                               </div>
                               <p className="font-sans text-white/70 leading-relaxed text-xs">
                                 {selectedDestinations.length === 1 
@@ -1477,9 +1478,9 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         }
                         if (selectedDestinations.length > 1) {
                           return (
-                            <div className="flex gap-3 items-center text-[#c9a96e]/70 bg-black/20 border-l-2 border-[#c9a96e]/30 p-4 rounded-r-sm">
-                              <CheckCircle size={14} />
-                              <p className="font-sans text-xs tracking-wide">Route optimized and feasible.</p>
+                            <div className="flex gap-2.5 items-center text-[#c9a96e]/70 bg-black/20 border-l-2 border-[#c9a96e]/30 p-3 md:p-4 rounded-r-sm">
+                              <CheckCircle size={12} className="md:w-[14px] md:h-[14px]" />
+                              <p className="font-sans text-[11px] md:text-xs tracking-wide">Route optimized and feasible.</p>
                             </div>
                           );
                         }
@@ -1515,7 +1516,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       {step < 6 && (() => {
         const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && !travelMonth);
         return (
-          <footer className="p-6 md:p-10 flex justify-end relative z-40">
+          <footer className="p-6 md:p-10 flex justify-end relative z-20">
             <button
               suppressHydrationWarning
               disabled={isNextDisabled}
