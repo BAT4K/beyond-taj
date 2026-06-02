@@ -42,7 +42,8 @@ export const TripRequestSchema = z.object({
   travelMonth: z.string().optional(),
   selectedLandscapes: z.array(z.string()).optional(),
   days: z.number().default(7),
-  selectedVibes: z.array(z.string()).optional()
+  selectedVibes: z.array(z.string()).optional(),
+  companions: z.string().optional()
 }).catchall(z.any());
 
 export type TripRequest = z.infer<typeof TripRequestSchema>;
@@ -132,7 +133,7 @@ export function calculateMatchScore(
   lastSelectedNode?: string | null,
   transitRoutes?: TransitRouteEdge[]
 ) {
-  const vibeFactor = calculateVibeFactor(destination, userContext.selectedVibes);
+  let vibeFactor = calculateVibeFactor(destination, userContext.selectedVibes);
   const weatherFactor = calculateWeatherFactor(destination, userContext.travelMonth);
   const landscapeFactor = calculateLandscapeFactor(destination, userContext.selectedLandscapes);
   
@@ -168,6 +169,19 @@ export function calculateMatchScore(
     }
   }
 
+  // Inject Companions Logic for Bespoke Curation
+  if (userContext.companions === "Family Vacation") {
+    if (hasLogistics && logisticsFactor <= 0.2) logisticsFactor *= 0.25; // Massive penalty, but not zero
+  } else if (userContext.companions === "Romantic Getaway") {
+    if (destination.vibeTags?.includes('Luxury' as any) || destination.vibeTags?.includes('Romantic' as any) || ['Udaipur', 'Kumarakom', 'Kochi'].includes(destination.name)) {
+      vibeFactor = Math.max(vibeFactor, 1.2);
+    }
+  } else if (userContext.companions === "Solo Female Journey") {
+    if (['Delhi', 'Agra'].includes(destination.name)) {
+      logisticsFactor *= 0.25; // Aggressive safety penalty, but allows routing if forced
+    }
+  }
+
   const score = (
     (vibeFactor * vibeWeight) +
     (weatherFactor * weatherWeight) +
@@ -176,7 +190,7 @@ export function calculateMatchScore(
   );
 
   return {
-    score: score * 100,
+    score: Math.min(100, score * 100),
     isDeadEnd: hasLogistics && logisticsFactor <= 0.0,
     weatherFactor,
     logisticsFactor

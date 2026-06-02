@@ -3,7 +3,8 @@ import 'dotenv/config';
 import prisma from '../lib/prisma';
 import assert from 'node:assert/strict';
 import { evaluateTripFeasibility } from '../utils/routingEngine';
-import { calculateTripPacing, DestinationSchema } from '@shared/travel-rules';
+import { generateBespokeRoute } from '../utils/curationEngine';
+import { calculateTripPacing, DestinationSchema, VALID_VIBES, VALID_LANDSCAPES } from '@shared/travel-rules';
 
 // Haversine formula to calculate distance between two lat/lng coordinates in km
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
@@ -121,8 +122,9 @@ async function main() {
   console.log("\n--- Phase 2: Chaos Monkey (Property-Based Fuzzer) ---");
   const iterations = 50;
   
-  const styles = ["Backpacker", "Balanced", "Luxury"];
+  const styles = ["Luxury Explorer", "Balanced"];
   const residencies = ["India", "International"];
+  const companionsList = ["Solo Expedition", "Solo Female Journey", "Romantic Getaway", "Family Vacation", "Traveling with Friends"];
   
   for (let i = 1; i <= iterations; i++) {
     const numDests = Math.floor(Math.random() * 5) + 1; // 1 to 5
@@ -137,12 +139,13 @@ async function main() {
     const month = Math.floor(Math.random() * 12) + 1; // 1 to 12
     const style = styles[Math.floor(Math.random() * styles.length)];
     const residency = residencies[Math.floor(Math.random() * residencies.length)];
+    const companion = companionsList[Math.floor(Math.random() * companionsList.length)];
     
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthName = monthNames[month - 1];
 
     const startNode = hubs[Math.floor(Math.random() * hubs.length)];
-    const payload = { destIds, days, monthName, style, residency, startLocation: startNode.name };
+    const payload = { destIds, days, monthName, style, residency, startLocation: startNode.name, companion };
 
     try {
       const result = await evaluateTripFeasibility(
@@ -152,7 +155,8 @@ async function main() {
         payload.style,
         payload.residency,
         payload.startLocation,
-        []
+        [],
+        payload.companion
       );
 
       // Boundary Law
@@ -186,7 +190,45 @@ async function main() {
     }
   }
   
-  console.log("\n✅ All 1,000 Chaos Monkey simulations passed flawlessly.");
+  console.log("\n✅ All Chaos Monkey simulations passed flawlessly.");
+
+  console.log("\n--- Phase 3: Bespoke Auto-Curation Fuzzer ---");
+  for (let i = 1; i <= iterations; i++) {
+    const days = Math.floor(Math.random() * 21) + 3; // 3 to 24
+    const month = Math.floor(Math.random() * 12) + 1;
+    const companion = companionsList[Math.floor(Math.random() * companionsList.length)];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    // Pick 2 random landscapes and 2 random vibes
+    const selectedLandscapes = [
+      VALID_LANDSCAPES[Math.floor(Math.random() * VALID_LANDSCAPES.length)],
+      VALID_LANDSCAPES[Math.floor(Math.random() * VALID_LANDSCAPES.length)]
+    ];
+    const selectedVibes = [
+      VALID_VIBES[Math.floor(Math.random() * VALID_VIBES.length)],
+      VALID_VIBES[Math.floor(Math.random() * VALID_VIBES.length)]
+    ];
+
+    try {
+      const result = generateBespokeRoute({
+        travelMonth: monthNames[month - 1],
+        selectedLandscapes,
+        selectedVibes,
+        days,
+        companions: companion
+      }, destinations as any, edges);
+
+      assert.ok(Array.isArray(result.destinationIds), "Bespoke Result destinationIds must be an array");
+      assert.ok(result.destinationIds.length > 0, "Bespoke Result must return at least 1 destination (the hub fallback)");
+      assert.ok(typeof result.rationale === 'string' && result.rationale.length > 0, "Bespoke Result must contain a rationale");
+    } catch (e: any) {
+      console.error("\n[CRITICAL FAILURE] Bespoke Auto-Curation crashed on edge case!");
+      console.error(e.message || e);
+      process.exit(1);
+    }
+  }
+  
+  console.log("\n✅ Bespoke Auto-Curation passed 100% of permutation tests.");
 }
 
 main().catch(error => {

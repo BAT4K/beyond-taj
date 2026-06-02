@@ -7,6 +7,7 @@ export type EnginePreferences = {
   selectedLandscapes: string[];
   selectedVibes?: string[]; // Added this to interface
   days: number;
+  companions?: string;
 };
 
 // Removed hardcoded HUB_ANCHORS, we now calculate graph connectivity dynamically

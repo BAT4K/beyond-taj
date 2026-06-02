@@ -199,6 +199,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   const [selectedDays, setSelectedDays] = useState(14);
   const [travelMonth, setTravelMonth] = useState("");
   const [travelStyle, setTravelStyle] = useState("Balanced");
+  const [companions, setCompanions] = useState("");
   const [selectedLandscapes, setSelectedLandscapes] = useState<string[]>([]);
   const [selectedDestinations, setSelectedDestinations] = useState<string[]>([]);
   const [destinationError, setDestinationError] = useState<string | null>(null);
@@ -275,7 +276,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
   useEffect(() => {
     // Step 2: Trigger Distance Validation
-    if (step === 6) {
+    if (step === 7) {
       // Only show loading state if we actually have enough to validate
       if (selectedDestinations.length >= 1 && !isAutoCurated) {
         setIsValidating(true);
@@ -317,6 +318,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           startLocation,
           destinationIds: selectedDestObjs.map(d => d.id),
           selectedLandscapes,
+          companions,
         }),
       });
 
@@ -351,6 +353,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           landscapes: selectedLandscapes,
           destinations: selectedDestinations,
           isAutoCurated,
+          companions,
         }),
       });
       if (response.ok) {
@@ -368,7 +371,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   };
 
   const nextStep = async () => {
-    if (step === 6) {
+    if (step === 7) {
       if (selectedDestinations.length === 0 && !isAutoCurated) return;
       if (isAutoCurated) {
         saveJourneyAndCheckout();
@@ -391,7 +394,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         return;
       }
       setDirection(1);
-      setStep((s) => Math.min(s + 1, 6));
+      setStep((s) => Math.min(s + 1, 7));
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -428,7 +431,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const selectedVibes = styleVibeMap[travelStyle] || styleVibeMap['Balanced'];
         
         const result = generateBespokeRoute(
-          { travelMonth, selectedLandscapes, selectedVibes, days: selectedDays }, 
+          { travelMonth, selectedLandscapes, selectedVibes, days: selectedDays, companions: companions || undefined }, 
           destinations,
           transitRoutes
         );
@@ -465,7 +468,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         }
         setDestinationError(null);
         // If this will be the 2nd+ dest, show spinner immediately (no flash of stale state)
-        if (prev.length >= 1 && step === 6) {
+        if (prev.length >= 1 && step === 7) {
           setWarnings([]);
           setIsValidating(true);
         }
@@ -638,6 +641,24 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     let calculatedTier = 2;
     let reasons: string[] = [];
 
+    // Apply Companions Adjustments
+    if (companions === "Solo Female Journey") {
+      // Heavily penalize specific high-hassle hubs for solo females if they don't have dedicated safety tags
+      if (['Delhi', 'Agra'].includes(dest.name)) {
+        calculatedTier = 3;
+      }
+    } else if (companions === "Family Vacation") {
+      // Family wants easy transit, penalize high fatigue
+      if (logisticsFactor <= 0.2) {
+        calculatedTier = 3;
+      }
+    } else if (companions === "Romantic Getaway") {
+      // Boost romantic destinations
+      if (dest.vibeTags?.includes('Luxury' as any) || dest.vibeTags?.includes('Romantic' as any) || ['Udaipur', 'Kumarakom', 'Kochi'].includes(dest.name)) {
+        calculatedTier = 1;
+      }
+    }
+
     // 1. Evaluate Weather via AI Factor
     if (weatherFactor <= 0.1) {
       calculatedTier = 3;
@@ -698,10 +719,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         />
       </div>
 
-      <header className="pt-32 px-6 md:px-10 pb-6 flex justify-between items-center relative z-20">
+      <header className="pt-20 md:pt-32 px-6 md:px-10 pb-2 md:pb-6 flex justify-start relative z-20 w-full">
         <button
           onClick={prevStep}
-          className={`group flex items-center gap-2 uppercase tracking-widest text-xs transition-all cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation`}
+          className={`group inline-flex items-center gap-2 uppercase tracking-widest text-[10px] md:text-xs transition-all cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation w-fit py-2 pr-4`}
           style={{ color: theme.gold }}
         >
           <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back
@@ -718,7 +739,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             animate="center"
             exit="exit"
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 6 ? 'max-w-[1600px]' : 'max-w-4xl min-h-[60vh] flex flex-col justify-center'}`}
+            className={`framer-motion-print-fix w-full mx-auto px-4 lg:px-12 ${step === 7 ? 'max-w-[1600px]' : 'max-w-4xl min-h-[60vh] flex flex-col justify-center'}`}
           >
             {step === 1 && (
               <div className="text-center space-y-12">
@@ -871,6 +892,50 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
             {step === 4 && (
               <div className="text-center space-y-12">
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-12">
+                  Who are you traveling with?
+                </h2>
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
+                  {[
+                    { name: "Solo Expedition", icon: Compass, desc: "Unbound freedom, spontaneous exploration, and complete independence." },
+                    { name: "Solo Female Journey", icon: ShieldCheck, desc: "Prioritizes verified safety, curated experiences, and vetted accommodations." },
+                    { name: "Romantic Getaway", icon: Diamond, desc: "Intimate heritage stays, secluded landscapes, and slower pacing." },
+                    { name: "Family Vacation", icon: Castle, desc: "Easy transit, spacious resorts, and engaging activities for all ages." },
+                    { name: "Traveling with Friends", icon: Palmtree, desc: "Vibrant culture, nightlife, adventure, and shared memories." }
+                  ].map(({ name, icon: Icon, desc }) => (
+                    <button
+                      key={name}
+                      onClick={() => setCompanions(name)}
+                      style={{
+                        borderColor: companions === name ? theme.gold : theme.border,
+                        backgroundColor: companions === name ? theme.gold + '0D' : theme.darker,
+                        boxShadow: companions === name ? '0 0 30px rgba(201,169,110,0.15)' : 'none'
+                      }}
+                      className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] p-4 md:p-5 text-left border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
+                    >
+                      {companions === name && (
+                        <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: theme.gold }} />
+                      )}
+                      <div className="flex justify-between items-start w-full mb-3 md:mb-4">
+                        <Icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: companions === name ? theme.gold : 'rgba(255,255,255,0.4)' }} strokeWidth={1.5} />
+                        <div className="w-4 h-4 md:w-4 md:h-4 rounded-full border flex items-center justify-center transition-all duration-300" style={{ borderColor: companions === name ? theme.gold : 'rgba(255,255,255,0.2)' }}>
+                          {companions === name && <div className="w-2 h-2 md:w-2 md:h-2 rounded-full" style={{ backgroundColor: theme.gold }} />}
+                        </div>
+                      </div>
+                      <h3 className="font-serif text-lg md:text-xl font-light tracking-wide mb-1.5 md:mb-2" style={{ color: companions === name ? theme.gold : 'rgba(255,255,255,0.9)' }}>
+                        {name}
+                      </h3>
+                      <p className="font-sans text-[10px] sm:text-[11px] md:text-xs leading-relaxed" style={{ color: companions === name ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.5)' }}>
+                        {desc}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {step === 5 && (
+              <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-12">Define your aesthetic</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {[
@@ -916,7 +981,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
               </div>
             )}
 
-            {step === 5 && (
+            {step === 6 && (
               <div className="text-center">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-4">What moves you?</h2>
                 <p className="text-white/50 text-sm italic tracking-wide mb-12">Select the landscapes that resonate with your soul.</p>
@@ -978,7 +1043,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
               </div>
             )}
 
-            {step === 6 && (() => {
+            {step === 7 && (() => {
               const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
               const showZeroState = selectedDestinations.length === 0 && !isAutoCurated;
@@ -1024,6 +1089,26 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
         const offPath = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Remote", "Untouched", "Hidden", "Pure", "Quiet", "Raw"].includes(v as string)));
         
+        let companionMatch: any[] = [];
+        let companionTitle = "";
+        
+        if (companions === "Romantic Getaway") {
+           companionTitle = "The Romantic Collection";
+           companionMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Romantic", "Luxury", "Dreamy", "Restorative"].includes(v as string)) || ['Udaipur', 'Kumarakom', 'Kochi'].includes(d.name));
+        } else if (companions === "Family Vacation") {
+           companionTitle = "The Family Edit";
+           companionMatch = filteredDestinations.filter(d => d.isHub || d.vibeTags?.some(v => ["Iconic", "Relaxed", "Scenic"].includes(v as string)));
+        } else if (companions === "Solo Female Journey") {
+           companionTitle = "The Solo Female Edit";
+           companionMatch = filteredDestinations.filter(d => !['Delhi', 'Agra'].includes(d.name) && d.vibeTags?.some(v => ["Spiritual", "Peaceful", "Soulful", "Authentic"].includes(v as string)));
+        } else if (companions === "Solo Expedition") {
+           companionTitle = "The Intrepid Collection";
+           companionMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Remote", "Exhilarating", "Wild", "Raw", "Untouched"].includes(v as string)));
+        } else if (companions === "Traveling with Friends") {
+           companionTitle = "The Group Adventure";
+           companionMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Vibrant", "Fast-paced", "Bohemian", "Cosmopolitan", "Bustling"].includes(v as string)));
+        }
+        
         // Ensure lists aren't empty by falling back
         const heroPool = monthMatch.length > 0 ? monthMatch : (styleMatch.length > 0 ? styleMatch : filteredDestinations);
         // Deterministic but dynamic hero selection based on month + style to avoid jumping on hot reloads
@@ -1034,6 +1119,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const seasonalRow = filterHero(monthMatch);
         const styleRow = filterHero(styleMatch);
         const offPathRow = filterHero(offPath);
+        const companionRow = filterHero(companionMatch);
         
         const landscapeRows = selectedLandscapes.map(landscape => {
            const catList = categoryMap[landscape] || [landscape];
@@ -1162,10 +1248,20 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
             {landscapeRows.length > 0 ? (
               <>
-                {landscapeRows.map(row => renderRow(row.title, row.items))}
+                {renderRow(travelMonth ? `Peak in ${travelMonth}` : "In Season Right Now", seasonalRow)}
+              
+              {/* COMPANION MATCH */}
+              {renderRow(companionTitle, companionRow)}
+
+              {/* STYLE MATCH */}
+              {renderRow(styleTitle, styleRow)}
+
+              {/* LANDSCAPES */}
+              {landscapeRows.map(row => renderRow(row.title, row.items))}
               </>
             ) : (
               <>
+                {renderRow(companionTitle, companionRow)}
                 {renderRow(styleTitle, styleRow)}
                 {renderRow("Off the Beaten Path", offPathRow)}
                 {seasonalRow.length > 0 && renderRow("Seasonal Alternatives", seasonalRow)}
@@ -1485,7 +1581,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                       })()}
                       <button
                         onClick={() => {
-                          if (step === 6 && selectedDestinations.length === 0 && !isAutoCurated) return;
+                          if (step === 7 && selectedDestinations.length === 0 && !isAutoCurated) return;
                           nextStep();
                         }}
                         disabled={selectedDestinations.length === 0 && !isAutoCurated}
@@ -1510,8 +1606,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         </AnimatePresence>
       </main>
 
-      {step < 6 && (() => {
-        const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && !travelMonth);
+      {step < 7 && (() => {
+        const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && !travelMonth) || (step === 4 && !companions);
         return (
           <footer className="p-6 md:p-10 flex justify-end relative z-20">
             <button

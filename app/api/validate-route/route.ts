@@ -11,7 +11,8 @@ export async function POST(request: Request) {
       residency,
       startLocation,
       destinationIds,
-      selectedLandscapes
+      selectedLandscapes,
+      companions
     } = body;
 
     if (
@@ -34,7 +35,8 @@ export async function POST(request: Request) {
       travelStyle,
       residency || 'International', // Fallback
       startLocation || 'Delhi',
-      selectedLandscapes
+      selectedLandscapes,
+      companions
     );
 
     return NextResponse.json({

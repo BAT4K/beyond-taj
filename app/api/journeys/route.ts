@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     const journey = await prisma.journey.create({
       data: {
         days: body.days,
-        travelStyle: body.travelStyle,
+        travelStyle: body.companions ? `${body.travelStyle} | ${body.companions}` : body.travelStyle,
         residency: body.residency,
         startLocation: body.startLocation,
         landscapes: body.landscapes,

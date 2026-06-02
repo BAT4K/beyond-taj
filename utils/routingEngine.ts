@@ -114,7 +114,8 @@ export async function evaluateTripFeasibility(
   style: string,
   residency: string,
   startLocation: string,
-  requestedLandscapes?: string[]
+  requestedLandscapes?: string[],
+  companions?: string
 ) {
   const warnings: WarningMessage[] = [];
   
@@ -224,9 +225,10 @@ export async function evaluateTripFeasibility(
     }
 
     if (missingEdges > 0) {
+      const severity = companions === "Family Vacation" ? 'critical' : 'warning';
       warnings.push({
         category: 'logistics',
-        severity: 'warning',
+        severity: severity,
         message: `Complex Transit: Your route requires transiting through major hubs. There are no direct connections for ${missingEdges} of your journey legs.`
       });
     }
@@ -239,6 +241,14 @@ export async function evaluateTripFeasibility(
     baseBudgetPerDay += 2; 
   } else {
     baseBudgetPerDay -= 1; 
+  }
+
+  if (companions === "Family Vacation") {
+    baseBudgetPerDay -= 2; // Much lower tolerance for fatigue
+  } else if (companions === "Solo Female Journey") {
+    baseBudgetPerDay -= 1; // Prioritize easier, safer routes
+  } else if (companions === "Solo Expedition" || companions === "Traveling with Friends") {
+    baseBudgetPerDay += 1; // Higher tolerance for adventure/fatigue
   }
 
   const totalFatigueAllowed = days * baseBudgetPerDay;
