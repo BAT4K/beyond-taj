@@ -25,6 +25,12 @@ export default function Navbar() {
 
       <div className="flex items-center gap-3 sm:gap-6">
         <Link
+          href="/journal"
+          className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-[#c9a96e] hover:text-[#d4b47a] transition-all active:scale-95 active:opacity-50 active:duration-150"
+        >
+          The Journal
+        </Link>
+        <Link
           href="/review"
           className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-widest text-white/70 hover:text-white transition-all active:scale-95 active:opacity-50 active:duration-150"
         >

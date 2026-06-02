@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -32,5 +33,58 @@ body {
     transform: scale(0.96) !important;
     opacity: 0.7 !important;
     transition-duration: 50ms !important;
+  }
+}
+
+/* Custom Luxury Prose Styling for The Journal */
+@layer components {
+  .prose-luxury {
+    @apply prose-invert prose-lg md:prose-xl max-w-3xl mx-auto;
+    
+    /* Typography */
+    @apply text-white/70 leading-relaxed font-sans;
+    
+    /* Headers */
+    h1, h2, h3, h4 {
+      @apply font-serif font-light text-white/90;
+    }
+    h2 {
+      @apply mt-12 mb-6 text-3xl md:text-4xl;
+    }
+    h3 {
+      @apply mt-8 mb-4 text-xl md:text-2xl text-[#c9a96e];
+    }
+    
+    /* Links */
+    a {
+      @apply text-[#c9a96e] no-underline border-b border-[#c9a96e]/30 hover:border-[#c9a96e] transition-colors;
+    }
+    
+    /* Blockquotes */
+    blockquote {
+      @apply border-l-2 border-[#c9a96e] pl-6 font-serif italic text-white/80 bg-white/5 py-1 pr-4 rounded-r-sm my-8;
+    }
+    
+    /* Lists */
+    ul {
+      @apply list-none pl-0;
+    }
+    li {
+      @apply relative pl-6 mb-2;
+    }
+    li::before {
+      content: "✦";
+      @apply absolute left-0 text-[#c9a96e] text-sm top-0.5;
+    }
+    
+    /* Strong */
+    strong {
+      @apply font-semibold text-white/90;
+    }
+    
+    /* Horizontal Rules */
+    hr {
+      @apply border-t border-white/10 my-10;
+    }
   }
 }
