@@ -1,65 +1,53 @@
-# How to Get an India Visa — The Complete 2026 Guide for Tourists
+# How to Get an India Visa: The Complete Foreigner's Guide (2026)
 
-**Meta description:** e-Visa types, fees by nationality, the application process step by step, common rejection reasons, and the mistakes that delay your visa.
+**Meta description:** Don't get scammed by fake visa websites. Here is the exact, step-by-step process for securing your Indian e-Visa safely, quickly, and securely.
 
-**Target keyword:** how to get visa india tourist
+**Target keyword:** how to get an india visa
 
 ---
 
-India's e-Visa system is straightforward once you know the options. Here's the complete process as of 2026.
+Getting a tourist visa for India used to be a bureaucratic nightmare. Today, the process is entirely digital, fast, and relatively painless—provided you use the correct official website.
 
-## The Three Tourist Visa Options
+The most common mistake foreign travelers make is googling "India Visa" and clicking on the first sponsored link, which is often a predatory third-party agency that will charge you $150+ for a $25 visa.
 
-| Visa Type | Duration | Fee (most nationalities) | Best For |
-|---|---|---|---|
-| 30-day e-Tourist | 30 days, double entry | $25 (Jul-Mar) / $10 (Apr-Jun) | Short trips, first-timers |
-| 1-year e-Tourist | 1 year, multiple entry | $40 | Returning visitors, long trips |
-| 5-year e-Tourist | 5 years, multiple entry | $80 | Frequent visitors |
+Here is the only guide you need to secure your Indian e-Visa.
 
-**Country-specific fees:** US citizens pay $25-160 depending on duration. UK citizens pay up to $484 for 5-year. Japanese/Sri Lankan citizens pay $25 flat. Check the official fee schedule at indianvisaonline.gov.in.
+## 1. The Only Official Website
 
-## Step-by-Step Application
+There is only **one** official Indian government website for e-Visas. 
+**URL:** `https://indianvisaonline.gov.in/evisa/`
 
-1. **Go to indianvisaonline.gov.in** — this is the ONLY official portal. Avoid third-party sites that charge extra "processing fees."
+If the website does not end in `.gov.in`, you are on a third-party agency site. Close the tab immediately.
 
-2. **Select "e-Tourist Visa"** and fill in personal details, passport information, and travel plans.
+## 2. Who is Eligible?
 
-3. **Upload documents:**
-   - Passport photo (white background, 2"x2", JPEG, 10KB-1MB)
-   - Passport bio page scan (JPEG/PDF, 10KB-300KB)
+The e-Visa facility is available to passport holders from over 165 countries, including the USA, UK, Australia, New Zealand, and most European nations. 
 
-4. **Pay online** — credit/debit card or PayPal. Additional 2.5-4% bank transaction charge applies.
+*Note: Due to diplomatic changes, eligibility for Canadian and UK citizens occasionally fluctuates between e-Visas and paper visas. Always check the official site for real-time updates.*
 
-5. **Wait 2-5 business days.** Peak season (Oct-Mar) can take longer. Apply at least 2 weeks before travel.
+## 3. Which e-Visa Should You Choose?
 
-6. **Print the ETA (Electronic Travel Authorization)** — carry a printed copy. You'll need it at immigration.
+India offers three types of Tourist e-Visas based on duration:
 
-## Common Mistakes That Cause Delays or Rejection
+* **30-Day e-Visa:** Perfect for a single short trip. It is a double-entry visa. **Cost:** $10 (April to June) or $25 (July to March).
+* **1-Year e-Visa:** Valid for 365 days from the date of grant. Multiple entries permitted (maximum stay of 90 days per visit; 180 days for US/UK citizens). **Cost:** $40.
+* **5-Year e-Visa:** Valid for 5 years. Multiple entries permitted. **Cost:** $80.
 
-- **Photo doesn't meet specs.** White background, no glasses, face clearly visible. This is the #1 rejection reason.
-- **Passport has less than 6 months validity.** Must have 6+ months from date of arrival AND 2 blank pages.
-- **Applying on a fake portal.** Only use indianvisaonline.gov.in. Sites like "india-evisa.it.com" or "e-visa-india.com" are third parties that charge $50-100 extra.
-- **Applying too late.** Minimum 4 days before travel required. Recommend 2-3 weeks.
-- **Wrong visa type.** Conference, business, and medical visas are separate categories — tourist visa doesn't cover working or volunteering.
+*Pro Tip: For the small price difference, the 1-Year or 5-Year visas are highly recommended to avoid future paperwork if you decide to return.*
 
-## Entry Points
+## 4. The Application Process (Step-by-Step)
 
-The e-Visa is accepted at 33 airports, 19 seaports, and 4 land border crossings (as of 2026). All major airports (Delhi, Mumbai, Bangalore, Chennai, Kolkata, Hyderabad, Kochi, Goa) are covered.
+1. **Prepare your documents:** You will need a digital PDF copy of your passport's bio page (under 300KB) and a square, white-background digital passport photo (under 1MB).
+2. **Fill the form:** Go to the official site and click "Apply here for e-visa". The form is notoriously long. You will need details of your parents, your profession, and a "Reference Name in India" (you can use your first hotel's name and address).
+3. **Pay the fee:** Payment gateways on the Indian government site are notoriously glitchy. If your credit card fails, try a different browser, clear your cache, or use PayPal (which often has a higher success rate on their portal).
+4. **Wait for approval:** Approval usually takes 24 to 72 hours. You will receive an email stating your status is "GRANTED".
 
-## At Immigration
+## 5. Arrival in India
 
-- Have your printed ETA ready
-- Have your passport ready
-- Have your hotel booking confirmation ready (they sometimes ask)
-- Have a return/onward flight ticket (they sometimes ask)
-- Biometrics (fingerprints) are taken at immigration — this is normal
+Your e-Visa is not stamped in your passport before you leave. You must **print the ETA (Electronic Travel Authorization) document** that says "GRANTED" and carry the physical paper with you. 
 
-## Visa on Arrival?
+When you land in Delhi, Mumbai, or any major Indian airport, follow the signs for "e-Visa Desks" (do not go to the regular immigration line). They will take your fingerprints, stamp your passport, and welcome you to India.
 
-India does NOT have a general visa on arrival for most nationalities. The e-Visa must be obtained before travel. Exception: Japanese and South Korean citizens can get visa on arrival at select airports.
+## The Verdict
 
-## Takeaway
-
-Apply at the official portal, use a compliant photo, apply 2+ weeks early, and print your ETA. The process takes under 30 minutes online.
-
-**BeyondTaj provides visa guidance as part of trip planning — including photo specs, application review before submission, and timing recommendations based on your nationality and travel dates.**
+Applying for an Indian e-Visa is cheap and straightforward if you stick to the official `.gov.in` website and have patience with their payment gateway. Apply at least two weeks before your flight to avoid any last-minute stress.

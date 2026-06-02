@@ -13,7 +13,7 @@ export interface BlogPost {
   category: BlogCategory;
 }
 
-const blogsDirectory = path.join(process.cwd(), 'blogs_formatted');
+const blogsDirectory = path.join(process.cwd(), 'blogs');
 
 /**
  * Parses a raw blog text file into a structured BlogPost object.
