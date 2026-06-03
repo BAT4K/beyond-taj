@@ -5,7 +5,7 @@ async function main() {
   const result = await evaluateTripFeasibility(
     ['Delhi', 'Leh-Ladakh', 'Spiti Valley'],
     5,
-    'March',
+    ['March'],
     'balanced',
     'International',
     'Delhi'

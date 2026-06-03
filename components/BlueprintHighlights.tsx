@@ -2,26 +2,32 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Map, Hotel, FileText } from "lucide-react";
+import { Map, Hotel, ShieldAlert, Phone } from "lucide-react";
 
 const HIGHLIGHTS = [
   {
     id: "routing",
-    title: "Optimized Routing Grid",
+    title: "Day-by-day routing that works",
     icon: Map,
-    desc: "We analyze Indian transit networks to catch impossible or exhausting travel legs before they happen. Your blueprint maps the absolute most efficient way to link your bespoke destinations."
+    desc: "No “Day 1: Arrive Delhi 9 a.m., visit Red Fort 10 a.m.” nonsense. You get options, not a schedule. The places worth your time, the order that minimizes backtracking, the days each place is actually open. You pick the pace."
   },
   {
-    id: "heritage",
-    title: "Vetted Heritage Curations",
+    id: "vetted",
+    title: "Hotels, restaurants, and trains with real names",
     icon: Hotel,
-    desc: "We bypass generic luxury chains to handpick boutique palaces, restored havelis, and eco-lodges. We provide direct links so you can book them independently and avoid middleman markups."
+    desc: "Specific properties at every price tier. The good Karim’s in Old Delhi vs the tourist-trap Karim’s. The Rajdhani train numbers that are worth booking 60 days out. Direct booking links — you keep 100% of your money, we don’t take commissions."
   },
   {
-    id: "dossier",
-    title: "Vector Print Dossier",
-    icon: FileText,
-    desc: "You receive a beautifully formatted, offline-ready PDF blueprint containing dynamic maps, timeline breakdowns, and logistical safety indicators for your entire trip."
+    id: "scams",
+    title: "The scam list for your specific route",
+    icon: ShieldAlert,
+    desc: "The fake tourism office at New Delhi Station. The “your hotel burned down” taxi scam at Indira Gandhi airport. The cumin scam at Sadar Bazaar. We list every common scam at every stop on your trip, with the exact lines and the exact prices."
+  },
+  {
+    id: "emergency",
+    title: "Phone numbers that matter",
+    icon: Phone,
+    desc: "Embassy hotlines for your nationality. The Apollo Hospital in each city. The tourist police office. Your driver’s WhatsApp template. The one hotel you can crash at if your night train gets cancelled."
   }
 ];
 
@@ -34,22 +40,20 @@ export default function BlueprintHighlights() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
+          className="mb-12 md:mb-16 flex flex-col gap-4 max-w-2xl"
         >
-          <div>
-            <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs mb-3 font-sans">
-              Blueprint Highlights
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight">
-              What You Unlock
-            </h2>
-          </div>
-          <p className="text-white/40 max-w-sm text-sm tracking-wide leading-relaxed">
-            The data, the routing, and the curation.
+          <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-sans">
+            WHAT’S IN A BLUEPRINT
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight text-balance">
+            What you actually get for $39
+          </h2>
+          <p className="text-white/40 text-sm md:text-base tracking-wide leading-relaxed">
+            A 40+ page PDF you can read offline, sized for your phone or print.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {HIGHLIGHTS.map((highlight, i) => {
             const Icon = highlight.icon;
             return (
@@ -67,7 +71,7 @@ export default function BlueprintHighlights() {
                   <Icon size={20} className="text-[#c9a96e]" />
                 </div>
                 
-                <h3 className="font-serif text-xl md:text-2xl text-white mb-4">
+                <h3 className="font-serif text-xl md:text-2xl text-white mb-4 text-balance">
                   {highlight.title}
                 </h3>
                 

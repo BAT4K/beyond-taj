@@ -24,10 +24,10 @@ export default function Manifesto() {
 
           <div className="space-y-6">
             <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-light text-balance">
-              Built with local knowledge, not just internet data. AI can show you what's trending, but locals show you what's actually worth it.
+              BeyondTaj is built by Indians who travel India for a living and foreign travelers who’ve spent months on the road here. We’ve ridden the trains. We’ve stayed in the wrong hotels. We’ve been scammed in the ways you’re about to be scammed.
             </p>
             <p className="font-sans text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-light text-balance">
-              Every itinerary is crafted by real travelers from the region who understand the culture, hidden gems, authentic food, and the tourist traps to avoid — giving you experiences you won’t find in generic travel guides.
+              Every itinerary we publish is something one of us would hand to a friend — not a tour brochure pretending to be one.
             </p>
           </div>
         </motion.div>

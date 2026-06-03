@@ -13,7 +13,7 @@ async function main() {
   }));
 
   const basePreferences = {
-    travelMonth: "January",
+    travelMonths: ["January"],
     selectedLandscapes: ["Mountains", "Royal Cities"],
     selectedVibes: ["Luxury", "Regal", "Iconic"], // "Luxury Explorer" style
     days: 10

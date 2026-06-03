@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { 
       selectedDays, 
       travelStyle, 
-      travelMonth,
+      travelMonths,
       residency,
       startLocation,
       destinationIds,
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     const result = await evaluateTripFeasibility(
       destinationIds,
       selectedDays,
-      travelMonth || 'October', // Fallback
+      travelMonths && travelMonths.length > 0 ? travelMonths : ['October'], // Fallback
       travelStyle,
       residency || 'International', // Fallback
       startLocation || 'Delhi',

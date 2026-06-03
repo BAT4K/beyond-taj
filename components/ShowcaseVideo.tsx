@@ -22,11 +22,19 @@ export default function ShowcaseVideo() {
   return (
     <section className="py-24 px-4 bg-[#0a0806]">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
-        <h2 className="font-serif text-3xl md:text-4xl text-[#c9a96e] mb-10 text-center tracking-wide drop-shadow-sm">
-          India you'll be visiting!
-        </h2>
+        <div className="text-center mb-8 flex flex-col items-center justify-center">
+          <h2 className="font-serif text-3xl md:text-5xl text-white/90 mb-4 tracking-wide drop-shadow-sm">
+            India, planned properly.
+          </h2>
+          <p className="font-sans text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed font-light text-balance">
+            Skip the tourist traps. Avoid the scams. Travel like a foreigner who knows what they’re doing.
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-[#c9a96e] tracking-wide drop-shadow-sm">
+            The India you'll be visiting
+          </h3>
+        </div>
         
-        <div className="w-full aspect-video bg-[#0a0806] relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
+        <div className="w-full aspect-video bg-[#12100e] relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl shadow-black/50">
           <video
             autoPlay
             loop

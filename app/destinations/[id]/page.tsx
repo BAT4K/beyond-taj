@@ -63,7 +63,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/40 to-transparent" />
         
         <div className="relative z-10 flex flex-col justify-end px-6 md:px-12 pt-32 pb-16 md:pb-24 max-w-6xl mx-auto w-full flex-1">
-          <Link href="/destinations" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#c9a96e] transition-all active:scale-95 active:opacity-50 active:duration-150 mb-8 group w-fit py-2">
+          <Link href="/destinations" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#c9a96e] transition active:scale-95 active:opacity-50 active:duration-150 mb-8 group w-fit py-2">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Destinations
           </Link>
           
@@ -140,11 +140,11 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
             </div>
             <h3 className="font-serif text-2xl mb-4">Curate Your Journey</h3>
             <p className="text-white/60 font-light text-sm mb-8 leading-relaxed">
-              Experience {destination.name} exactly the way it was meant to be seen. Let our AI concierge build a bespoke, logistically perfect itinerary tailored to your exact travel style.
+              Experience {destination.name} exactly the way it was meant to be seen. Let our AI concierge build an honest, logistically perfect itinerary tailored to your exact travel style.
             </p>
             <Link 
               href="/plan" 
-              className="w-full py-4 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 hover:bg-[#d4b47a] transition-all rounded-sm active:scale-95"
+              className="w-full py-4 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 hover:bg-[#d4b47a] transition rounded-sm active:scale-95"
             >
               Start Curation <ChevronRight size={16} />
             </Link>

@@ -11,7 +11,7 @@ const transitRoutes = fs.existsSync(edgesPath) ? JSON.parse(fs.readFileSync(edge
 console.log(`Loaded ${destinations.length} destinations, ${transitRoutes.length} transit edges.\n`);
 
 // ── Test Matrix ──
-const months = ['January', 'March', 'June', 'August', 'November'];
+const monthCombos = [['January'], ['March', 'April'], ['June', 'July', 'August'], ['November', 'December']];
 const landscapeCombos = [
   ['Deserts'],
   ['Mountains'],
@@ -28,7 +28,7 @@ const vibeCombos = [
   ['Historic', 'Iconic'],
   [], // no vibes
 ];
-const dayOptions = [5, 7, 10, 14, 21];
+const dayOptions = [5, 7, 14, 21, 30, 45, 60, 90];
 
 let totalTests = 0;
 let passed = 0;
@@ -43,16 +43,16 @@ const results: Array<{
   rationale: string;
 }> = [];
 
-for (const month of months) {
+for (const months of monthCombos) {
   for (const landscapes of landscapeCombos) {
     for (const vibes of vibeCombos) {
       for (const days of dayOptions) {
         totalTests++;
-        const label = `${month} | ${days}d | L:[${landscapes.join(',')}] | V:[${vibes.join(',')}]`;
+        const label = `${months.join('-')} | ${days}d | L:[${landscapes.join(',')}] | V:[${vibes.join(',')}]`;
 
         try {
           const result = generateBespokeRoute(
-            { travelMonth: month, selectedLandscapes: landscapes, selectedVibes: vibes, days },
+            { travelMonths: months, selectedLandscapes: landscapes, selectedVibes: vibes, days },
             destinations,
             transitRoutes
           );
@@ -150,8 +150,8 @@ for (const dayVal of dayOptions) {
 
 // ── Sample Routes (one per month) ──
 console.log('\n── SAMPLE ROUTES ──');
-for (const month of months) {
-  const sample = results.find(r => r.label.startsWith(month) && r.days === 14);
+for (const months of monthCombos) {
+  const sample = results.find(r => r.label.startsWith(months.join('-')) && r.days === 14);
   if (sample) {
     console.log(`\n  📅 ${sample.label}`);
     console.log(`     Route: ${sample.names.join(' → ')}`);

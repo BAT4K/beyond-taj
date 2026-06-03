@@ -1,7 +1,7 @@
 import prisma from '@/lib/prisma';
 
 export function validateDestinationCount(selectedDays: number, destinationCount: number): string | null {
-  let maxDestinations = 9;
+  let maxDestinations = 20;
   
   if (selectedDays <= 7) {
     maxDestinations = 2;
@@ -11,6 +11,12 @@ export function validateDestinationCount(selectedDays: number, destinationCount:
     maxDestinations = 4;
   } else if (selectedDays <= 21) {
     maxDestinations = 6;
+  } else if (selectedDays <= 30) {
+    maxDestinations = 9;
+  } else if (selectedDays <= 45) {
+    maxDestinations = 12;
+  } else if (selectedDays <= 60) {
+    maxDestinations = 15;
   }
 
   if (destinationCount > maxDestinations) {
@@ -213,7 +219,7 @@ type WarningMessage = {
 export async function evaluateTripFeasibility(
   destinationIds: string[],
   days: number,
-  travelMonth: string,
+  travelMonths: string[],
   style: string,
   residency: string,
   startLocation: string,
@@ -243,32 +249,35 @@ export async function evaluateTripFeasibility(
   const allNodeIds = allDestinations.map(d => d.id);
 
   // --- Weather Aggregation Check ---
-  const mIndex = MONTH_MAP[travelMonth];
   let isWeatherClosed = false;
-  if (mIndex) {
-    const closedDests: any[] = [];
-    const avoidDests: any[] = [];
+  if (travelMonths && travelMonths.length > 0) {
+    const closedDests = new Set<string>();
+    const avoidDests = new Set<string>();
     
-    destinations.forEach(d => {
-      if (d.closedMonths.includes(mIndex)) closedDests.push(d);
-      else if (d.avoidMonths.includes(mIndex)) avoidDests.push(d);
+    travelMonths.forEach(month => {
+      const mIndex = MONTH_MAP[month];
+      if (!mIndex) return;
+      destinations.forEach(d => {
+        if (d.closedMonths.includes(mIndex)) closedDests.add(d.name);
+        else if (d.avoidMonths.includes(mIndex)) avoidDests.add(d.name);
+      });
     });
 
-    if (closedDests.length > 0) {
+    if (closedDests.size > 0) {
       isWeatherClosed = true;
-      const names = closedDests.map(d => d.name);
+      const names = Array.from(closedDests);
       warnings.push({
         category: 'weather',
         severity: 'critical',
-        message: `Extreme Weather Alert: ${names.join(" and ")} ${names.length > 1 ? 'are' : 'is'} completely closed or inaccessible due to ${getWeatherReason(mIndex)} during ${travelMonth}.`
+        message: `Extreme Weather Alert: ${names.join(" and ")} ${names.length > 1 ? 'are' : 'is'} completely closed or inaccessible during parts of your selected window (${travelMonths.join(", ")}).`
       });
     }
-    if (avoidDests.length > 0) {
-      const names = avoidDests.map(d => d.name);
+    if (avoidDests.size > 0) {
+      const names = Array.from(avoidDests);
       warnings.push({
         category: 'weather',
         severity: 'warning',
-        message: `Off-Season Warning: ${names.join(" and ")} ${names.length > 1 ? 'experience' : 'experiences'} ${getWeatherReason(mIndex)} during ${travelMonth}.`
+        message: `Off-Season Warning: ${names.join(" and ")} ${names.length > 1 ? 'experience' : 'experiences'} extreme weather during parts of your selected window (${travelMonths.join(", ")}).`
       });
     }
   }

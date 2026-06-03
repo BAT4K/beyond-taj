@@ -6,20 +6,28 @@ import { ChevronDown } from "lucide-react";
 
 const FAQ_ITEMS = [
   {
-    question: "Do you handle my bookings?",
-    answer: "No. We are pure-play travel architects. We provide the ultimate data-driven blueprint, including direct links to vetted properties. You retain 100% control over your funds, booking where and when you prefer, completely bypassing middleman commissions."
-  },
-  {
     question: "What exactly do I receive for $39?",
-    answer: "You receive a comprehensive, day-by-day itinerary meticulously engineered for your pacing, preferred landscapes, and aesthetic. This includes verified hotel recommendations, transit logic, and local insights away from typical tourist traps."
+    answer: "A 40+ page downloadable PDF optimized for your phone. It contains your day-by-day routing, specific hotel and train recommendations with direct booking links, a list of common scams on your route, and emergency contacts. No fluff, just the exact logistical data you need."
   },
   {
-    question: "How does the routing engine ensure my transit times are realistic?",
-    answer: "India's topography and infrastructure can be unpredictable. Our engine cross-references historical transit data and seasonal road conditions to pad travel times, ensuring you are never rushed between your bespoke experiences."
+    question: "Is this customized to my specific trip?",
+    answer: "Yes, absolutely. Every single blueprint is dynamically built specifically for your exact travel dates, pacing preferences, and chosen destinations. Our routing engine analyzes your inputs to craft a tailored day-by-day itinerary that ensures you aren't rushing, backtracking, or visiting monuments when they're closed. You get a fully customized travel plan without the $500+ price tag of a traditional travel agent."
   },
   {
-    question: "Is the $39 blueprint fee refundable?",
-    answer: "Because our routing engine and travel specialists immediately begin curating and generating your proprietary dossier upon payment, the $39 itinerary design fee is strictly non-refundable."
+    question: "How is this different from India Someday or just using Google?",
+    answer: "Traditional agencies like India Someday act as middlemen. They plan your trip, but they also book your hotels and take a hidden cut of your money. We just give you the exact blueprint, so you can book directly and keep your budget. As for Google? If you search for an India itinerary, you'll find thousands of confusing blogs written by tourists who only visited once. We give you one clear, honest guide written by people who travel India for a living."
+  },
+  {
+    question: "Do you handle my bookings?",
+    answer: "No. We give you the exact links to book the vetted hotels, trains, and flights yourself. You retain 100% control over your money and completely bypass middleman markups and agency commissions."
+  },
+  {
+    question: "Is the $39 fee refundable?",
+    answer: "Because this is a digital product providing immediate access to our proprietary research, routing, and contacts, the $39 fee is strictly non-refundable."
+  },
+  {
+    question: "How is this different from AI trip planners?",
+    answer: "Free AI tools like Wanderlog, Trip.com, or ChatGPT just scrape the internet. If you ask an AI for an India itinerary, it will confidently tell you to take a 6-hour bus ride that actually takes 14 hours, or recommend a hotel that hasn't existed since 2019. AI doesn't know that the train station has three fake tourism offices designed to scam you. We do."
   }
 ];
 

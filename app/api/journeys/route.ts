@@ -10,9 +10,9 @@ export async function POST(request: Request) {
     if (redis) {
       const ip = request.headers.get('x-forwarded-for') || '127.0.0.1';
       const windowSeconds = 3600; // 1 hour
-      const maxRequests = 3;
+      const maxRequests = 20; // Increased from 3 to accommodate regular user testing
       
-      const key = `ratelimit_journeys_${ip}`;
+      const key = `ratelimit_journeys_v2_${ip}`;
       const requests = await redis.incr(key);
       
       if (requests === 1) {

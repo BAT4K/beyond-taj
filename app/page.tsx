@@ -11,6 +11,7 @@ const WhyChooseUs = nextDynamic(() => import("@/components/WhyChooseUs"));
 const Manifesto = nextDynamic(() => import("@/components/Manifesto"));
 const BlueprintHighlights = nextDynamic(() => import("@/components/BlueprintHighlights"));
 const FAQ = nextDynamic(() => import("@/components/FAQ"));
+const JournalShowcase = nextDynamic(() => import("@/components/JournalShowcase"));
 const FloatingReviewTicker = nextDynamic(() => import("@/components/FloatingReviewTicker"));
 const FeaturedBlogWidget = nextDynamic(() => import("@/components/FeaturedBlogWidget"));
 
@@ -30,6 +31,14 @@ export default function Home() {
     .map(filename => allBlogs.find(b => b.filename === filename))
     .filter(Boolean) as BlogPost[];
 
+  const showcaseFilenames = [
+    'Article_21_Is_India_Safe_for_Solo_Female_Trave.txt',
+    'Article_22_Top_10_Scams_Targeting_Foreign_Tour.txt'
+  ];
+  const showcaseBlogs = showcaseFilenames
+    .map(filename => allBlogs.find(b => b.filename === filename))
+    .filter(Boolean) as BlogPost[];
+
   return (
     <main className="bg-[#0a0806]">
       <Hero />
@@ -37,6 +46,7 @@ export default function Home() {
       <WhyChooseUs />
       <Manifesto />
       <BlueprintHighlights />
+      <JournalShowcase blogs={showcaseBlogs} />
       <FAQ />
       <FloatingReviewTicker />
       <FeaturedBlogWidget blogs={featuredBlogs} />

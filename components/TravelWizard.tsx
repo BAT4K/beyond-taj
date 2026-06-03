@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { X } from "lucide-react";
-import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Info, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2, Plane, Check, CloudRain, Plus } from "lucide-react";
+import { ChevronRight, ChevronLeft, CheckCircle, AlertTriangle, Info, Diamond, ShieldCheck, Loader2, Crown, Scale, Compass, Users, Mountain, Palmtree, Castle, Sun, Waves, Lock, Sunset, Moon, Wallet, Flower2, PawPrint, Leaf, Shell, Trees, Sparkles, Building2, Plane, Check, CloudRain, Plus, Minus, Search } from "lucide-react";
 import Spinner from "./Spinner";
 import FullscreenLoader from "./FullscreenLoader";
 import Link from "next/link";
@@ -200,6 +200,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Hydration check
+  const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
   const [residency, setResidency] = useState<'International' | 'India'>('International');
@@ -207,9 +209,20 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   const [locationQuery, setLocationQuery] = useState('');
   const [locationResults, setLocationResults] = useState<any[]>([]);
   const [isSearchingLocation, setIsSearchingLocation] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
+
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const query = searchQuery.toLowerCase();
+    return destinations.filter(d => 
+      d.name.toLowerCase().includes(query) || 
+      (d.state && d.state.toLowerCase().includes(query)) ||
+      (d.vibeTags && d.vibeTags.some(v => (v as string).toLowerCase().includes(query)))
+    );
+  }, [searchQuery, destinations]);
   const [selectedDays, setSelectedDays] = useState(14);
-  const [travelMonth, setTravelMonth] = useState("");
+  const [travelMonths, setTravelMonths] = useState<string[]>([]);
   const [travelStyle, setTravelStyle] = useState("Balanced");
   const [companions, setCompanions] = useState("");
   const [selectedLandscapes, setSelectedLandscapes] = useState<string[]>([]);
@@ -236,7 +249,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       setCurationRationale(null);
       setSelectedDestinations([]);
     }
-  }, [travelMonth, selectedDays, travelStyle, selectedLandscapes]);
+  }, [travelMonths, selectedDays, travelStyle, selectedLandscapes]);
 
   useEffect(() => {
     if (selectedLandscapes.length === 0) {
@@ -272,7 +285,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       try {
         const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
         const countryParam = residency === 'India' ? '&country=in' : '';
-        const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(locationQuery)}.json?access_token=${token}&types=place,region${countryParam}`);
+        const typesParam = residency === 'India' ? 'place,region' : 'place,region,country';
+        const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(locationQuery)}.json?access_token=${token}&types=${typesParam}${countryParam}`);
         const data = await res.json();
         if (data.features) {
           setLocationResults(data.features);
@@ -325,7 +339,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         body: JSON.stringify({
           selectedDays,
           travelStyle,
-          travelMonth,
+          travelMonths,
           residency,
           startLocation,
           destinationIds: selectedDestObjs.map(d => d.id),
@@ -402,7 +416,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       if (step === 1 && !startLocation.trim()) {
         return;
       }
-      if (step === 3 && !travelMonth) {
+      if (step === 3 && travelMonths.length === 0) {
         return;
       }
       setDirection(1);
@@ -443,7 +457,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         const selectedVibes = styleVibeMap[travelStyle] || styleVibeMap['Balanced'];
         
         const result = generateBespokeRoute(
-          { travelMonth, selectedLandscapes, selectedVibes, days: selectedDays, companions: companions || undefined }, 
+          { travelMonths, selectedLandscapes, selectedVibes, days: selectedDays, companions: companions || undefined }, 
           destinations,
           transitRoutes
         );
@@ -548,7 +562,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       "Analyzing preferences...",
       "Cross-referencing seasonal matrices...",
       "Calculating transit friction...",
-      "Optimizing bespoke route..."
+      "Optimizing honest route..."
     ];
     const checkoutPhrases = [
       "Securing your itinerary...",
@@ -570,7 +584,6 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     "May": 5, "June": 6, "July": 7, "August": 8,
     "September": 9, "October": 10, "November": 11, "December": 12
   };
-  const monthIndex = travelMonth ? monthMap[travelMonth] : null;
 
   const nbdIds = new Set<string>();
   const lastSelectedId = selectedDestinations.length > 0 ? selectedDestinations[selectedDestinations.length - 1] : null;
@@ -591,7 +604,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
         // Score them using the dynamic multi-vector engine
         const userContext = {
-          travelMonth,
+          travelMonths,
           selectedLandscapes,
           days: selectedDays,
           selectedVibes: [] // Optional vibes array could be populated here if added to step 3 in future
@@ -629,7 +642,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
   const getTierAndReason = (dest: Destination) => {
     const userContext = {
-      travelMonth,
+      travelMonths,
       selectedLandscapes,
       days: selectedDays,
       selectedVibes: []
@@ -734,7 +747,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       <header className="pt-20 md:pt-32 px-6 md:px-10 pb-2 md:pb-6 flex justify-start relative z-20 w-full">
         <button
           onClick={prevStep}
-          className={`group inline-flex items-center gap-2 uppercase tracking-widest text-[10px] md:text-xs transition-all cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation w-fit py-2 pr-4`}
+          className={`group inline-flex items-center gap-2 uppercase tracking-widest text-[10px] md:text-xs transition cursor-pointer print:hidden opacity-70 hover:opacity-100 active:scale-95 active:opacity-50 touch-manipulation w-fit py-2 pr-4`}
           style={{ color: theme.gold }}
         >
           <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back
@@ -764,13 +777,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     { id: 'India', title: "Resident of India", subtext: "", icon: Users },
                   ].map((option, index) => (
                     <button
+                      type="button"
+                      aria-pressed={residency === option.id}
                       key={option.id}
                       onClick={() => setResidency(option.id as any)}
                       style={{
                         borderColor: residency === option.id ? theme.gold : theme.border,
                         backgroundColor: residency === option.id ? theme.gold + '0D' : theme.darker
                       }}
-                      className="p-6 md:p-8 text-center border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col items-center active:scale-[0.98] active:opacity-80 touch-manipulation"
+                      className="p-6 md:p-8 text-center border rounded-sm transition duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col items-center active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       <option.icon className={`w-8 h-8 mb-4 ${residency === option.id ? 'text-[#c9a96e]' : 'text-white/40'}`} strokeWidth={1.5} />
                       <h3 className="font-serif text-xl md:text-2xl mb-2 text-white/90">{option.title}</h3>
@@ -802,7 +817,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     }}
                     onFocus={() => setShowLocationDropdown(true)}
                     placeholder={residency === 'India' ? "e.g., Chandigarh, India" : "e.g., Paris, France or London, UK"}
-                    className="w-full bg-[#12100e] border border-[#2a241e] focus:border-[#c9a96e] rounded-sm px-6 py-4 text-lg text-white placeholder-white/20 outline-none transition-colors shadow-inner"
+                    className="w-full bg-[#12100e] border border-[#2a241e] focus:border-[#c9a96e] rounded-sm px-6 py-4 text-lg text-white placeholder-white/20 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition-colors shadow-inner"
                   />
                   {showLocationDropdown && locationQuery.length >= 3 && (
                     <div className="absolute top-full left-0 w-full mt-2 bg-[#1a1714] border border-[#2a241e] rounded-sm shadow-2xl z-50 overflow-hidden">
@@ -845,59 +860,79 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md">
                   How many days do you have?
                 </h2>
-                <div className="relative py-10 max-w-xl mx-auto">
-                  <motion.div
-                    key={selectedDays}
-                    initial={{ textShadow: "0px 0px 0px rgba(201,169,110,0)", scale: 0.98 }}
-                    animate={{ textShadow: ["0px 0px 30px rgba(201,169,110,0.8)", "0px 0px 0px rgba(201,169,110,0)"], scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-7xl font-serif mb-2 inline-block leading-none pb-2"
-                    style={{ color: theme.gold }}
-                  >
-                    {selectedDays} <span className="text-2xl text-white/50">Days</span>
-                  </motion.div>
+                <div className="relative py-10 max-w-xl mx-auto flex flex-col items-center">
+                  <div className="flex items-center gap-8 mb-6">
+                    <button 
+                      onClick={() => setSelectedDays(prev => Math.max(1, prev - 1))}
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 transition"
+                    >
+                      <Minus size={24} />
+                    </button>
+                    
+                    <div className="text-center w-32 flex flex-col items-center">
+                      <input 
+                        type="number"
+                        value={selectedDays}
+                        onChange={(e) => {
+                          const val = parseInt(e.target.value);
+                          if (!isNaN(val)) {
+                            setSelectedDays(Math.min(90, Math.max(1, val)));
+                          }
+                        }}
+                        className="w-full bg-transparent text-center text-7xl font-serif text-[#c9a96e] focus:outline-none focus:ring-0 appearance-none m-0 p-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0"
+                        style={{ textShadow: "0px 0px 30px rgba(201,169,110,0.4)", MozAppearance: "textfield" }}
+                      />
+                      <span className="text-xl text-white/50 mt-2 font-serif">Days</span>
+                    </div>
+
+                    <button 
+                      onClick={() => setSelectedDays(prev => Math.min(90, prev + 1))}
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 transition"
+                    >
+                      <Plus size={24} />
+                    </button>
+                  </div>
+                  
                   <motion.p
                     key={`narrative-${selectedDays}`}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-white/60 text-sm italic tracking-wide mb-8"
+                    className="text-white/60 text-sm italic tracking-wide"
                   >
-                    {selectedDays < 7 ? "A brief escape..." : selectedDays <= 14 ? "A standard tour..." : selectedDays <= 21 ? "A grand immersion..." : "A long expedition..."}
+                    {selectedDays < 7 ? "A brief escape..." : selectedDays <= 14 ? "A standard tour..." : selectedDays <= 21 ? "A grand immersion..." : selectedDays <= 45 ? "A long expedition..." : "A monumental journey..."}
                   </motion.p>
-                  <input
-                    type="range"
-                    min="3"
-                    max="30"
-                    value={selectedDays}
-                    onChange={(e) => setSelectedDays(Number(e.target.value))}
-                    className="premium-slider w-full h-[2px] bg-white/10 rounded-lg appearance-none cursor-pointer outline-none"
-                  />
-                  <div className="flex justify-between text-xs tracking-widest text-white/40 mt-4 uppercase">
-                    <span>3 Days</span>
-                    <span>30 Days</span>
-                  </div>
                 </div>
               </div>
             )}
 
             {step === 3 && (
               <div className="text-center space-y-12">
-                <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-8">When are you planning to travel?</h2>
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-2">When are you planning to travel?</h2>
+                <p className="text-white/50 text-sm tracking-wide font-light mb-8">Select all the months your journey will span across.</p>
                 <div className="grid grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4 max-w-3xl mx-auto">
-                  {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, idx) => (
-                    <button
-                      key={month}
-                      onClick={() => setTravelMonth(month)}
-                      style={{
-                        borderColor: travelMonth === month ? theme.gold : theme.border,
-                        backgroundColor: travelMonth === month ? theme.gold + '1A' : theme.darker,
-                        color: travelMonth === month ? theme.gold : theme.cream
-                      }}
-                      className="p-3 md:p-4 border rounded-sm font-sans tracking-wide transition-all hover:border-white/20 uppercase text-[10px] sm:text-xs md:text-sm cursor-pointer active:scale-[0.98] active:opacity-80 touch-manipulation"
-                    >
-                      {month}
-                    </button>
-                  ))}
+                  {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month) => {
+                    const isSelected = travelMonths.includes(month);
+                    return (
+                      <button
+                        type="button"
+                        aria-pressed={isSelected}
+                        key={month}
+                        onClick={() => {
+                          setTravelMonths(prev => 
+                            prev.includes(month) ? prev.filter(m => m !== month) : [...prev, month]
+                          );
+                        }}
+                        style={{
+                          borderColor: isSelected ? theme.gold : theme.border,
+                          backgroundColor: isSelected ? theme.gold + '1A' : theme.darker,
+                          color: isSelected ? theme.gold : theme.cream
+                        }}
+                        className="p-3 md:p-4 border rounded-sm font-sans tracking-wide transition hover:border-white/20 uppercase text-[10px] sm:text-xs md:text-sm cursor-pointer active:scale-[0.98] active:opacity-80 touch-manipulation"
+                      >
+                        {month}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -916,6 +951,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     { name: "Traveling with Friends", icon: Palmtree, desc: "Vibrant culture, nightlife, adventure, and shared memories." }
                   ].map(({ name, icon: Icon, desc }) => (
                     <button
+                      type="button"
+                      aria-pressed={companions === name}
                       key={name}
                       onClick={() => setCompanions(name)}
                       style={{
@@ -923,14 +960,14 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         backgroundColor: companions === name ? theme.gold + '0D' : theme.darker,
                         boxShadow: companions === name ? '0 0 30px rgba(201,169,110,0.15)' : 'none'
                       }}
-                      className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] p-4 md:p-5 text-left border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
+                      className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] p-4 md:p-5 text-left border rounded-sm transition duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       {companions === name && (
                         <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: theme.gold }} />
                       )}
                       <div className="flex justify-between items-start w-full mb-3 md:mb-4">
                         <Icon className="w-5 h-5 md:w-6 md:h-6" style={{ color: companions === name ? theme.gold : 'rgba(255,255,255,0.4)' }} strokeWidth={1.5} />
-                        <div className="w-4 h-4 md:w-4 md:h-4 rounded-full border flex items-center justify-center transition-all duration-300" style={{ borderColor: companions === name ? theme.gold : 'rgba(255,255,255,0.2)' }}>
+                        <div className="w-4 h-4 md:w-4 md:h-4 rounded-full border flex items-center justify-center transition duration-300" style={{ borderColor: companions === name ? theme.gold : 'rgba(255,255,255,0.2)' }}>
                           {companions === name && <div className="w-2 h-2 md:w-2 md:h-2 rounded-full" style={{ backgroundColor: theme.gold }} />}
                         </div>
                       </div>
@@ -955,13 +992,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     { name: "Balanced", icon: Scale, desc: "Boutique stays, comfortable pace, authentic immersive experiences." },
                   ].map(({ name, icon: Icon, desc }, index) => (
                     <button
+                      type="button"
+                      aria-pressed={travelStyle === name}
                       key={name}
                       onClick={() => setTravelStyle(name)}
                       style={{
                         borderColor: travelStyle === name ? theme.gold : theme.border,
                         backgroundColor: travelStyle === name ? theme.gold + '0D' : theme.darker
                       }}
-                      className="p-6 md:p-8 text-left border rounded-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
+                      className="p-6 md:p-8 text-left border rounded-sm transition duration-300 hover:border-white/20 hover:-translate-y-1 relative overflow-hidden group cursor-pointer flex flex-col active:scale-[0.98] active:opacity-80 touch-manipulation"
                     >
                       {travelStyle === name && (
                         <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: theme.gold }} />
@@ -977,7 +1016,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           <Icon size={24} strokeWidth={1.5} />
                         </div>
                         <div
-                          className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-300 ${travelStyle === name ? 'border-transparent' : 'border-white/20'}`}
+                          className={`w-5 h-5 rounded-full border flex items-center justify-center transition duration-300 ${travelStyle === name ? 'border-transparent' : 'border-white/20'}`}
                           style={{ backgroundColor: travelStyle === name ? theme.gold : 'transparent' }}
                         >
                           {travelStyle === name && <div className="w-1.5 h-1.5 rounded-full bg-[#0a0806]" />}
@@ -1013,13 +1052,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     const isSelected = selectedLandscapes.includes(landscape);
                     return (
                       <button
+                        type="button"
+                        aria-pressed={isSelected}
                         key={landscape}
                         onClick={() => toggleLandscape(landscape)}
                         style={{
                           borderColor: isSelected ? theme.gold : theme.border,
                           backgroundColor: isSelected ? theme.gold + '0D' : theme.darker
                         }}
-                        className="group relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition-all duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden active:scale-[0.98] active:opacity-80 touch-manipulation"
+                        className="group relative p-6 md:p-8 flex flex-col items-center justify-center border rounded-sm transition duration-300 cursor-pointer hover:border-white/20 hover:-translate-y-1 w-full overflow-hidden active:scale-[0.98] active:opacity-80 touch-manipulation"
                       >
                         <Image
                           src={LANDSCAPE_IMAGES[landscape] || FALLBACK_IMAGE}
@@ -1028,13 +1069,13 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                           placeholder="blur"
                           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                          className="object-cover opacity-0 group-hover:opacity-60 transition-all duration-700 ease-out scale-100 group-hover:scale-110 z-0"
+                          className="object-cover opacity-0 group-hover:opacity-60 transition duration-700 ease-out scale-100 group-hover:scale-110 z-0"
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/80 to-transparent z-[1] transition-opacity opacity-0 group-hover:opacity-100 duration-700" />
 
                         <div
-                          className={`absolute top-4 right-4 w-4 h-4 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${isSelected ? 'border-transparent' : 'border-white/20'}`}
+                          className={`absolute top-4 right-4 w-4 h-4 rounded-full border flex items-center justify-center transition duration-300 z-20 ${isSelected ? 'border-transparent' : 'border-white/20'}`}
                           style={{ backgroundColor: isSelected ? theme.gold : 'transparent' }}
                         >
                           {isSelected && <div className="w-1.5 h-1.5 bg-[#0a0806] rounded-full" />}
@@ -1065,6 +1106,19 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   <div className="text-center relative">
                     <h2 className="font-serif text-4xl md:text-5xl font-light mb-2">Curate your canvas.</h2>
                     <p className="text-white/50 tracking-wide font-light">Select your preferred destinations. Our engine will handle the routing.</p>
+                    
+                    <div className="relative max-w-xl mx-auto mt-6 mb-2">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <Search className="h-5 w-5 text-white/40" />
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Search destinations (e.g. Rishikesh)..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-4 text-sm md:text-base text-white placeholder-white/40 focus:outline-none focus:border-[#c9a96e]/50 focus:bg-white/10 transition-colors"
+                      />
+                    </div>
                     <AnimatePresence>
                       {destinationError && (
                         <motion.div
@@ -1085,19 +1139,57 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   <AnimatePresence mode="wait">
     {(() => {
       
+      if (searchQuery.trim()) {
+        return (
+          <motion.div
+            key="search-results"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="flex flex-col gap-4 pr-4 pb-12"
+          >
+            <h3 className="text-white/70 font-serif text-2xl mb-2">Search Results for "{searchQuery}"</h3>
+            {searchResults.length === 0 ? (
+              <div className="flex flex-col items-center justify-center p-12 text-center border border-white/5 rounded-xl bg-white/[0.02]">
+                <Search className="w-12 h-12 text-white/20 mb-4" />
+                <p className="text-white/60 text-lg font-light mb-2">We couldn't find "{searchQuery}" in our database.</p>
+                <p className="text-white/40 text-sm max-w-sm">BeyondTaj curates specific, vetted routes in India. Try searching for major cities, regions, or vibes like "Spiritual".</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {searchResults.map(dest => {
+                  const isSelected = selectedDestinations.includes(dest.id);
+                  return (
+                    <div key={dest.id} className={`flex items-center justify-between gap-4 p-5 rounded-xl border transition-colors ${isSelected ? 'bg-[#c9a96e]/5 border-[#c9a96e]/30' : 'bg-white/5 border-white/10 hover:border-[#c9a96e]/30'}`}>
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <span className="font-serif text-lg md:text-xl text-white leading-tight break-words">{dest.name}</span>
+                        <span className="text-white/50 text-[10px] md:text-xs font-sans uppercase tracking-widest mt-1 truncate">{dest.state}</span>
+                      </div>
+                      <button
+                        onClick={() => toggleDestination(dest.id)}
+                        className={`shrink-0 whitespace-nowrap px-4 py-2 text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors border ${
+                          isSelected 
+                            ? 'bg-[#c9a96e]/20 border-[#c9a96e]/50 text-[#c9a96e]' 
+                            : 'border-white/20 text-white/80 hover:bg-white/10 hover:text-white'
+                        }`}
+                      >
+                        {isSelected ? "Added" : "+ Add"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </motion.div>
+        );
+      }
+
       if (showZeroState) {
-        const currentMonthIndex = travelMonth ? monthMap[travelMonth] : new Date().getMonth() + 1;
-        const monthMatch = filteredDestinations.filter(d => d.peakMonths?.includes(currentMonthIndex));
+        const currentMonthIndices = travelMonths.length > 0 ? travelMonths.map(m => monthMap[m]) : [new Date().getMonth() + 1];
+        const monthMatch = filteredDestinations.filter(d => currentMonthIndices.some(idx => d.peakMonths?.includes(idx)));
         
-        let styleMatch: MappedDestination[] = [];
-        let styleTitle = "";
-        if (travelStyle === "Luxury Explorer") {
-           styleTitle = "The Luxury Collection";
-           styleMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Luxury", "Regal", "Exclusive", "Iconic", "Historic", "Restorative"].includes(v as string)));
-        } else {
-           styleTitle = "The Balanced Collection";
-           styleMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Authentic", "Cultural", "Scenic", "Soulful", "Vibrant", "Rustic"].includes(v as string)));
-        }
+        const iconicMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Iconic", "Historic", "Regal", "Cultural"].includes(v as string)));
+        const slowTravelMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Soulful", "Restorative", "Peaceful", "Spiritual"].includes(v as string)));
 
         const offPath = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Remote", "Untouched", "Hidden", "Pure", "Quiet", "Raw"].includes(v as string)));
         
@@ -1121,21 +1213,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
            companionMatch = filteredDestinations.filter(d => d.vibeTags?.some(v => ["Vibrant", "Fast-paced", "Bohemian", "Cosmopolitan", "Bustling"].includes(v as string)));
         }
         
-        // Ensure lists aren't empty by falling back
-        const heroPool = monthMatch.length > 0 ? monthMatch : (styleMatch.length > 0 ? styleMatch : filteredDestinations);
-        // Deterministic but dynamic hero selection based on month + style to avoid jumping on hot reloads
-        const heroIndex = ((travelMonth?.length || 0) + travelStyle.length) % Math.max(heroPool.length, 1);
-        const heroItem = heroPool[heroIndex] || heroPool[0];
-
-        const filterHero = (arr: MappedDestination[]) => arr.filter(d => d.id !== heroItem?.id);
-        const seasonalRow = filterHero(monthMatch);
-        const styleRow = filterHero(styleMatch);
-        const offPathRow = filterHero(offPath);
-        const companionRow = filterHero(companionMatch);
+        const seasonalRow = monthMatch;
+        const iconicRow = iconicMatch;
+        const slowTravelRow = slowTravelMatch;
+        const offPathRow = offPath;
+        const companionRow = companionMatch;
         
         const landscapeRows = selectedLandscapes.map(landscape => {
            const catList = categoryMap[landscape] || [landscape];
-           const match = filterHero(filteredDestinations).filter(d => catList.some(cat => d.landscapes?.includes(cat as any)));
+           const match = filteredDestinations.filter(d => catList.some(cat => d.landscapes?.includes(cat as any)));
            return { title: landscape, items: match };
         });
 
@@ -1188,61 +1274,21 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="w-full pb-10"
           >
-            {/* HERO ITEM */}
-            {heroItem && (
-              <motion.div variants={itemVariants} className="mb-14 px-2">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-serif text-2xl md:text-3xl text-white/90">
-                    {travelMonth ? `Perfect for ${travelMonth}` : "Featured Spotlight"}
-                  </h3>
-                  <div className="h-px bg-white/10 flex-1 ml-6"></div>
-                </div>
-                
-                <div 
-                  className="relative w-full h-[280px] md:h-[500px] rounded-xl overflow-hidden cursor-pointer group border border-zinc-800/50 hover:border-[#c9a96e]/50 transition-all duration-500 hover:shadow-2xl active:scale-[0.98] touch-manipulation"
-                  onClick={() => setQuickLookId(heroItem.id)}
-                >
-                  <Image 
-                    src={heroItem.imageUrl || FALLBACK_IMAGE} 
-                    alt={heroItem.name} 
-                    fill
-                    sizes="(max-width: 1200px) 100vw, 1200px"
-                    className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/50 to-transparent z-10" />
-                  
-                  <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end z-20">
-                    <p className="text-[10px] md:text-xs uppercase tracking-widest text-[#c9a96e] mb-1.5 md:mb-2">{heroItem.region}</p>
-                    <h2 className="font-serif text-2xl md:text-6xl mb-2 md:mb-4 text-white drop-shadow-lg">{heroItem.name}</h2>
-                    <p className="text-white/80 font-light max-w-2xl text-sm md:text-base leading-relaxed italic line-clamp-2 md:line-clamp-none">
-                      "{heroItem.shortPitch || heroItem.description}"
-                    </p>
-                    <div className="mt-8 flex gap-4">
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); toggleDestination(heroItem.id); }}
-                        className="px-6 py-3 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold rounded-sm hover:bg-[#d4b47a] transition-all active:scale-95 touch-manipulation"
-                      >
-                        Add to Journey
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
             {/* BESPOKE CURATION BANNER */}
             <motion.div variants={itemVariants} className="mb-14 px-2">
               <button 
+                type="button"
+                aria-pressed={isAutoCurated}
                 onClick={toggleAutoCuration}
                 disabled={loadingAction !== null}
-                className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
+                className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
               >
                 <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
-                  <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+                  <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition duration-500">
                     <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                    <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Honest AI Curation</h3>
                     <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
                   </div>
                 </div>
@@ -1260,13 +1306,14 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
             {landscapeRows.length > 0 ? (
               <>
-                {renderRow(travelMonth ? `Peak in ${travelMonth}` : "In Season Right Now", seasonalRow)}
+                {renderRow(travelMonths.length > 0 ? `Peak in ${travelMonths.length === 1 ? travelMonths[0] : travelMonths.length + " Months"}` : "In Season Right Now", seasonalRow)}
               
               {/* COMPANION MATCH */}
               {renderRow(companionTitle, companionRow)}
 
-              {/* STYLE MATCH */}
-              {renderRow(styleTitle, styleRow)}
+              {/* NEW MICRO COLLECTIONS */}
+              {renderRow("The Iconic Edit", iconicRow)}
+              {renderRow("The Slow Travel Edit", slowTravelRow)}
 
               {/* LANDSCAPES */}
               {landscapeRows.map(row => renderRow(row.title, row.items))}
@@ -1274,7 +1321,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             ) : (
               <>
                 {renderRow(companionTitle, companionRow)}
-                {renderRow(styleTitle, styleRow)}
+                {renderRow("The Iconic Edit", iconicRow)}
+                {renderRow("The Slow Travel Edit", slowTravelRow)}
                 {renderRow("Off the Beaten Path", offPathRow)}
                 {seasonalRow.length > 0 && renderRow("Seasonal Alternatives", seasonalRow)}
               </>
@@ -1315,18 +1363,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           <button 
             onClick={toggleAutoCuration}
             disabled={loadingAction !== null}
-            className={`w-full relative overflow-hidden rounded-xl border transition-all duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation ${
+            className={`w-full relative overflow-hidden rounded-xl border transition duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation ${
               isAutoCurated 
                 ? 'border-[#c9a96e]/60 bg-gradient-to-r from-amber-950/40 to-zinc-950 shadow-[0_0_30px_rgba(201,169,110,0.15)]' 
                 : 'border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60'
             }`}
           >
             <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
-              <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition-all duration-500">
+              <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition duration-500">
                 <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div className="text-left">
-                <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Bespoke AI Curation</h3>
+                <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Honest AI Curation</h3>
                 <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
               </div>
             </div>
@@ -1392,7 +1440,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-[92vw] md:w-full max-w-6xl max-h-[80dvh] h-auto md:h-[70vh] bg-[#0a0806] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
+          className="relative w-[92vw] md:w-full max-w-6xl max-h-[80dvh] h-auto md:h-[70vh] bg-[#12100e] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
         >
           {/* Close Button */}
           <button 
@@ -1470,7 +1518,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         className="flex gap-2.5 md:gap-3 items-start"
                       >
                         <span className="text-[#c9a96e] mt-0.5 text-xs md:text-sm">✦</span>
-                        <span className="leading-relaxed text-zinc-300 text-xs md:text-sm font-light">{hl}</span>
+                        <span className="leading-relaxed text-white/70 text-xs md:text-sm font-light">{hl}</span>
                       </li>
                     ))}
                     {(!(dest as any).topHighlights || (dest as any).topHighlights.length === 0) && (
@@ -1485,10 +1533,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             <div className="absolute bottom-0 inset-x-0 p-4 md:p-10 bg-gradient-to-t from-[#0a0806] via-[#0a0806] to-transparent pt-10 md:pt-12 pointer-events-none">
               <button 
                 onClick={() => { toggleDestination(dest.id); setQuickLookId(null); }}
-                className={`w-full py-3 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-2 pointer-events-auto active:scale-95 touch-manipulation cursor-pointer ${
+                className={`w-full py-3 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-sm transition duration-300 flex items-center justify-center gap-2 pointer-events-auto active:scale-95 touch-manipulation cursor-pointer ${
                   isSelected 
                     ? 'bg-white/5 text-white/80 hover:bg-white/10 hover:text-white border border-white/10 backdrop-blur-sm' 
-                    : 'bg-[#c9a96e] text-black hover:bg-[#d4b47a] shadow-[0_0_20px_rgba(201,169,110,0.15)] hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]'
+                    : 'bg-transparent text-[#c9a96e] border border-[#c9a96e] hover:bg-[#c9a96e] hover:text-black shadow-[0_0_20px_rgba(201,169,110,0.1)]'
                 }`}
               >
                 {isSelected ? 'Remove from Itinerary' : 'Add to Itinerary'}
@@ -1601,7 +1649,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           opacity: (selectedDestinations.length === 0 && !isAutoCurated) ? 0.5 : 1,
                           cursor: (selectedDestinations.length === 0 && !isAutoCurated) ? 'not-allowed' : 'pointer'
                         }}
-                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition-all duration-300 active:scale-[0.98] touch-manipulation ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
+                        className={`w-full group relative py-4 border overflow-hidden rounded-sm transition duration-300 active:scale-[0.98] touch-manipulation ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
                       >
                         <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
                           Proceed to Checkout <ChevronRight size={16} />
@@ -1619,7 +1667,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       </main>
 
       {step < 7 && (() => {
-        const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && !travelMonth) || (step === 4 && !companions);
+        const isNextDisabled = (step === 1 && !startLocation.trim()) || (step === 3 && travelMonths.length === 0) || (step === 4 && !companions);
         return (
           <footer className="p-6 md:p-10 flex justify-end relative z-20">
             <button
@@ -1634,7 +1682,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 opacity: isNextDisabled ? 0.3 : 1,
                 cursor: isNextDisabled ? 'not-allowed' : 'pointer'
               }}
-              className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition-all duration-300 ${
+              className={`group relative px-10 py-4 border overflow-hidden rounded-sm transition duration-300 ${
                   isNextDisabled ? 'text-[#c9a96e]/30' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'
                 }`}
             >

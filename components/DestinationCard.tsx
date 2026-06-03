@@ -56,7 +56,7 @@ const DestinationCard = React.memo(function DestinationCard({
         alt={name}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={`object-cover w-full h-full transition-all duration-700 ease-out ${
+        className={`object-cover w-full h-full transition duration-700 ease-out ${
           isSelected ? 'opacity-100' : 'opacity-70 group-hover:opacity-100 group-hover:scale-105'
         }`}
         priority={isPriority}
@@ -71,7 +71,7 @@ const DestinationCard = React.memo(function DestinationCard({
             const isWarning = r.includes('Required') || r.includes('Warning') || r.includes('Off') || r.includes('Complex');
             const isSuggested = r === 'Suggested';
             return (
-              <div key={i} className={`px-1.5 py-0.5 md:px-2 md:py-1 text-[7px] md:text-[8px] uppercase tracking-widest font-semibold rounded-full backdrop-blur-md shadow-lg flex items-center gap-1 border transition-all ${
+              <div key={i} className={`px-1.5 py-0.5 md:px-2 md:py-1 text-[7px] md:text-[8px] uppercase tracking-widest font-semibold rounded-full backdrop-blur-md shadow-lg flex items-center gap-1 border transition ${
                 isWarning
                   ? 'bg-black/80 text-white/70 border-white/10'
                   : isSuggested
@@ -92,7 +92,7 @@ const DestinationCard = React.memo(function DestinationCard({
           onClick={(e) => { e.stopPropagation(); if (!isDisabled) onToggle(id); }}
           className="min-w-[44px] min-h-[44px] flex items-center justify-center group/btn touch-manipulation"
         >
-          <div className={`w-8 h-8 md:w-11 md:h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-xl ${
+          <div className={`w-8 h-8 md:w-11 md:h-11 rounded-full flex items-center justify-center backdrop-blur-md transition duration-300 shadow-xl ${
             isSelected
               ? 'bg-[#c9a96e] text-black border border-[#c9a96e]'
               : 'bg-black/40 text-white/70 border border-white/20 group-hover/btn:bg-black/60 group-hover/btn:text-white group-hover/btn:border-white/40 group-hover/btn:scale-110 group-active/btn:scale-95'

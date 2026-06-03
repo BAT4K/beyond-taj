@@ -20,8 +20,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
-  title: "Beyond Taj | Bespoke Itinerary",
-  description: "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
+  title: "Beyond Taj | Honest Itinerary",
+  description: "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — for $39.",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
@@ -54,7 +54,7 @@ export default function RootLayout({
               "name": "Beyond Taj",
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com",
               "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com"}/icon.png`,
-              "description": "Curated, AI-engineered luxury travel itineraries for the discerning explorer.",
+              "description": "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — for $39.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "IN"

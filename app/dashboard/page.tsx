@@ -45,7 +45,7 @@ export default async function UserPortal() {
             Your Travel Dossiers
           </h1>
           <p className="text-lg font-light text-white/60 max-w-2xl">
-            Access your secure, bespoke blueprints. These itineraries have been mathematically optimized and verified by local specialists.
+            Access your secure, honest blueprints. These itineraries have been mathematically optimized and verified by local specialists.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default async function UserPortal() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-3 px-8 py-3 uppercase tracking-widest text-xs font-bold rounded-sm transition-all hover:bg-white"
+              className="inline-flex items-center gap-3 px-8 py-3 uppercase tracking-widest text-xs font-bold rounded-sm transition hover:bg-white"
               style={{ backgroundColor: theme.gold, color: theme.bg }}
             >
               Start New Journey <ArrowRight size={14} />
@@ -69,7 +69,7 @@ export default async function UserPortal() {
             {journeys.map((journey: any) => (
               <div
                 key={journey.id}
-                className="group relative flex flex-col justify-between p-8 rounded-sm border transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl overflow-hidden"
+                className="group relative flex flex-col justify-between p-8 rounded-sm border transition duration-500 hover:-translate-y-1 hover:shadow-2xl overflow-hidden"
                 style={{ borderColor: theme.border, backgroundColor: theme.darker }}
               >
                 {/* Subtle gradient hover effect */}

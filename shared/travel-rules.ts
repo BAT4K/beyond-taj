@@ -39,7 +39,7 @@ export const TransitRouteSchema = z.object({
 export type TransitRouteEdge = z.infer<typeof TransitRouteSchema>;
 
 export const TripRequestSchema = z.object({
-  travelMonth: z.string().optional(),
+  travelMonths: z.array(z.string()).optional(),
   selectedLandscapes: z.array(z.string()).optional(),
   days: z.number().default(7),
   selectedVibes: z.array(z.string()).optional(),
@@ -71,18 +71,30 @@ export function getWeatherReason(m: number): string {
   return "very poor seasonal conditions";
 }
 
-export function calculateWeatherFactor(destination: Destination, travelMonthStr?: string) {
-  if (!travelMonthStr) return 1.0;
+export function calculateWeatherFactor(destination: Destination, travelMonthsArr?: string[]) {
+  if (!travelMonthsArr || travelMonthsArr.length === 0) return 1.0;
   
-  const monthInt = MONTH_MAP[travelMonthStr];
-  if (!monthInt) return 1.0;
-
-  if (destination.closedMonths?.includes(monthInt)) return 0.0;
-  if (destination.avoidMonths?.includes(monthInt)) return 0.1;
-  if (destination.peakMonths?.includes(monthInt)) return 1.0;
-  if (destination.shoulderMonths?.includes(monthInt)) return 0.75;
+  let totalScore = 0;
+  for (const m of travelMonthsArr) {
+    const monthInt = MONTH_MAP[m];
+    if (!monthInt) {
+      totalScore += 1.0;
+      continue;
+    }
+    if (destination.closedMonths?.includes(monthInt)) {
+      totalScore += 0.0;
+    } else if (destination.avoidMonths?.includes(monthInt)) {
+      totalScore += 0.1;
+    } else if (destination.peakMonths?.includes(monthInt)) {
+      totalScore += 1.0;
+    } else if (destination.shoulderMonths?.includes(monthInt)) {
+      totalScore += 0.75;
+    } else {
+      totalScore += 1.0;
+    }
+  }
   
-  return 1.0;
+  return totalScore / travelMonthsArr.length;
 }
 
 export function calculateLogisticsFactor(destinationId: string, lastSelectedNode: string, transitRoutes: TransitRouteEdge[]) {
@@ -134,7 +146,7 @@ export function calculateMatchScore(
   transitRoutes?: TransitRouteEdge[]
 ) {
   let vibeFactor = calculateVibeFactor(destination, userContext.selectedVibes);
-  const weatherFactor = calculateWeatherFactor(destination, userContext.travelMonth);
+  const weatherFactor = calculateWeatherFactor(destination, userContext.travelMonths);
   const landscapeFactor = calculateLandscapeFactor(destination, userContext.selectedLandscapes);
   
   let logisticsFactor = 1.0;

@@ -3,7 +3,7 @@ import { calculateMatchScore, TransitRouteEdge } from '@shared/travel-rules';
 import { Destination as EngineDestination } from '@shared/travel-rules';
 
 export type EnginePreferences = {
-  travelMonth: string; // "January", "February", etc.
+  travelMonths: string[]; // ["January", "February"], etc.
   selectedLandscapes: string[];
   selectedVibes?: string[]; // Added this to interface
   days: number;
@@ -117,7 +117,7 @@ export function generateBespokeRoute(
         // If it's monsoon season (July/August) and the destination is in the North (Himalayas),
         // reduce the diversity penalty since weather safety supersedes vibe diversity.
         let penaltyMultiplier = 5;
-        if ((preferences.travelMonth === 'July' || preferences.travelMonth === 'August') && d.region === 'North') {
+        if (preferences.travelMonths?.some(m => ['July', 'August'].includes(m)) && d.region === 'North') {
           penaltyMultiplier = 1;
         }
         score -= (duplicateVibeCount * penaltyMultiplier);

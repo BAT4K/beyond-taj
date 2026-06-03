@@ -82,7 +82,7 @@ export default function LoginPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="traveler@example.com"
-                    className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none transition-all duration-300 text-sm font-light placeholder-white/20 text-white"
+                    className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
                     style={{ borderColor: theme.border }}
                     onFocus={(e) => e.target.style.borderColor = theme.gold}
                     onBlur={(e) => e.target.style.borderColor = theme.border}
@@ -93,7 +93,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading || email.length === 0}
-                className="w-full py-4 uppercase tracking-widest text-xs font-bold rounded-sm hover:bg-white transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
+                className="w-full py-4 uppercase tracking-widest text-xs font-bold rounded-sm hover:bg-white transition duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
                 style={{ backgroundColor: theme.gold, color: theme.bg }}
               >
                 <span className="relative z-10 flex items-center gap-2">

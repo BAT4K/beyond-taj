@@ -151,7 +151,7 @@ async function main() {
       const result = await evaluateTripFeasibility(
         payload.destIds,
         payload.days,
-        payload.monthName,
+        [payload.monthName],
         payload.style,
         payload.residency,
         payload.startLocation,
@@ -211,7 +211,7 @@ async function main() {
 
     try {
       const result = generateBespokeRoute({
-        travelMonth: monthNames[month - 1],
+        travelMonths: [monthNames[month - 1]],
         selectedLandscapes,
         selectedVibes,
         days,

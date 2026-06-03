@@ -84,8 +84,8 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
     const textInterval = setInterval(() => {
       setLoadingText(prev =>
         prev === "Consulting local specialists..."
-          ? "Drafting your bespoke itinerary..."
-          : prev === "Drafting your bespoke itinerary..."
+          ? "Drafting your honest itinerary..."
+          : prev === "Drafting your honest itinerary..."
             ? "Refining exclusive arrangements..."
             : "Consulting local specialists..."
       );
@@ -131,7 +131,7 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
   if (generationError) {
     return (
       <div className="min-h-screen w-full flex flex-col items-center justify-center bg-[#0a0806] text-[#f5f0e8] px-4">
-        <div className="bg-[#0a0806] border border-red-900/30 p-8 rounded-sm text-center max-w-md shadow-2xl relative overflow-hidden">
+        <div className="bg-[#12100e] border border-red-900/30 p-8 rounded-sm text-center max-w-md shadow-2xl relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.05] to-transparent pointer-events-none" />
           <AlertTriangle size={32} className="text-red-500 mx-auto mb-4 opacity-80" />
           <p className="text-red-200/80 mb-6 leading-relaxed relative z-10">{generationError}</p>
@@ -214,7 +214,7 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
 
                     {/* Content */}
                     <div className="pl-16 w-full">
-                      <div className="p-6 md:p-8 rounded-sm border shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-[#0a0806] border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent print:break-inside-avoid">
+                      <div className="p-6 md:p-8 rounded-sm border shadow-2xl transition duration-300 hover:-translate-y-1 bg-[#12100e] border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent print:break-inside-avoid">
                         <p className="text-xs uppercase tracking-widest mb-2 text-[#c9a96e]">Day {day.day}</p>
                         <h4 className="font-serif text-2xl md:text-3xl mb-4 text-white">{day.location}</h4>
                         <div className="border-l border-[#c9a96e]/30 pl-4 mb-8">

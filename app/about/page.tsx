@@ -28,7 +28,7 @@ export default function AboutPage() {
           src={TEAM_IMAGE}
           alt="Taj Mahal silhouette at dawn"
           fill
-          sizes="100vw"
+          sizes="(max-width: 1152px) 100vw, 1152px"
           className="object-cover opacity-60"
           priority
         />
@@ -92,7 +92,7 @@ export default function AboutPage() {
         </p>
         <Link 
           href="/plan" 
-          className="inline-flex py-4 px-8 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold items-center justify-center hover:bg-[#d4b47a] transition-all rounded-sm active:scale-95"
+          className="inline-flex py-4 px-8 bg-[#c9a96e] text-black text-xs uppercase tracking-widest font-semibold items-center justify-center hover:bg-[#d4b47a] transition rounded-sm active:scale-95"
         >
           Curate My Journey
         </Link>

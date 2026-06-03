@@ -19,10 +19,13 @@ export default function WhyChooseUs() {
         </div>
         <div className="flex flex-col gap-6 text-sm md:text-base font-light tracking-wide leading-relaxed text-white/70 font-sans">
           <p>
-            India is one of the most rewarding countries in the world to explore — but it can also feel overwhelming if you don’t know where to go, what areas to avoid, or how to navigate the country properly. Our team combines deep local knowledge, real travel experience across India, and practical on-ground understanding to help travelers make smarter decisions throughout their journey.
+            India is the most rewarding hard country on earth.
           </p>
           <p>
-            We help you avoid overrated tourist traps, common scams, unsafe situations, poorly planned routes, and unnecessary travel stress. From recommending the right neighborhoods to stay in, to helping you understand local culture, transportation, pacing, and regional differences, our goal is to help you experience India confidently, comfortably, and more authentically. Beyond Taj is designed to help you discover the best of India — while traveling with better awareness, better planning, and better local insight.
+            It is also the country where foreign travelers get scammed by auto-rickshaw drivers, end up in the wrong Delhi neighborhood at midnight, take a 16-hour bus they didn’t need to take, eat the wrong street food on the wrong day, and burn 30% of their trip on tourist traps that look impressive on Instagram and feel pointless in person.
+          </p>
+          <p className="font-medium text-white/90">
+            BeyondTaj exists so that doesn’t happen to you.
           </p>
         </div>
       </div>

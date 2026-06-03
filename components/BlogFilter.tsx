@@ -14,9 +14,11 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-16">
         {categories.map((cat) => (
           <button
+            type="button"
             key={cat}
+            aria-pressed={activeCategory === cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer ${
+            className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-widest transition duration-300 cursor-pointer ${
               activeCategory === cat 
                 ? 'bg-[#c9a96e] text-black font-semibold' 
                 : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80'
@@ -34,7 +36,7 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
             key={blog.slug}
             className="group block"
           >
-            <article className="h-full p-6 rounded-sm border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#c9a96e]/30 transition-all duration-300 flex flex-col">
+            <article className="h-full p-6 rounded-sm border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#c9a96e]/30 transition duration-300 flex flex-col">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#c9a96e]" />
                 <span className="text-[9px] uppercase tracking-widest text-white/40">{blog.category}</span>

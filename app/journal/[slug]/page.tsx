@@ -117,7 +117,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Navigation Back */}
         <Link 
           href="/journal" 
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 hover:text-[#c9a96e] transition-all active:scale-95 active:opacity-50 active:duration-150 mb-12 md:mb-16 group py-2"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 hover:text-[#c9a96e] transition active:scale-95 active:opacity-50 active:duration-150 mb-12 md:mb-16 group py-2"
         >
           <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
           Back to Journal
@@ -162,7 +162,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {readNext && (
           <div className="mt-24 pt-12 border-t border-white/10">
             <h3 className="text-[10px] uppercase tracking-widest text-white/50 mb-6">Read Next in {blog.category}</h3>
-            <Link href={`/journal/${readNext.slug}`} className="group block p-6 rounded-sm border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#c9a96e]/30 transition-all duration-300">
+            <Link href={`/journal/${readNext.slug}`} className="group block p-6 rounded-sm border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#c9a96e]/30 transition duration-300">
               <h4 className="font-serif text-2xl text-white/90 group-hover:text-[#c9a96e] transition-colors mb-2">{readNext.title}</h4>
               <p className="font-sans text-sm text-white/50 line-clamp-2">{readNext.metaDescription}</p>
             </Link>

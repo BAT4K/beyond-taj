@@ -49,13 +49,13 @@ export default async function DestinationsIndex() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {dests.map((dest) => (
-                  <Link href={`/destinations/${dest.id}`} key={dest.id} className="group relative block aspect-[5/4] md:aspect-[4/5] rounded-lg overflow-hidden border border-white/5 hover:border-[#c9a96e]/50 transition-all duration-500">
+                  <Link href={`/destinations/${dest.id}`} key={dest.id} className="group relative block aspect-[5/4] md:aspect-[4/5] rounded-lg overflow-hidden border border-white/5 hover:border-[#c9a96e]/50 transition duration-500">
                     <Image 
                       src={dest.imageUrl || FALLBACK_IMAGE}
                       alt={dest.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                      className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                     

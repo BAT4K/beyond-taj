@@ -15,7 +15,7 @@ async function main() {
   const res1 = await evaluateTripFeasibility(
     dests1, 
     5, // days
-    "January", // travelMonth
+    ["July"], // travelMonth
     "Luxury", // style
     "International", // residency
     "Delhi", // startLocation
@@ -35,7 +35,7 @@ async function main() {
   const res2 = await evaluateTripFeasibility(
     dests2, 
     14, // days
-    "October", // travelMonth
+    ["October"], // travelMonth
     "Balanced", // style
     "International", // residency
     "Delhi", // startLocation

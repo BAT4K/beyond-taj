@@ -93,7 +93,7 @@ export default function ReviewPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all"
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition"
                     placeholder="e.g. Sarah M."
                   />
                 </div>
@@ -110,7 +110,7 @@ export default function ReviewPage() {
                     required
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all"
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition"
                     placeholder="e.g. London, UK"
                   />
                 </div>
@@ -128,7 +128,7 @@ export default function ReviewPage() {
                       type="button"
                       onClick={() => setRating(star)}
                       onMouseEnter={() => setHoverRating(star)}
-                      className="focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-sm transition-transform hover:scale-110"
+                      className="focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] focus:ring-2 focus:ring-amber-500 rounded-sm transition-transform hover:scale-110"
                     >
                       <Star
                         size={32}
@@ -154,7 +154,7 @@ export default function ReviewPage() {
                   rows={5}
                   value={formData.review}
                   onChange={handleChange}
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all resize-none"
+                  className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition resize-none"
                   placeholder="Share the details of your journey..."
                 />
               </div>

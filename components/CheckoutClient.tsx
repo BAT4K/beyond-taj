@@ -24,6 +24,7 @@ export default function CheckoutClient({
   destinations,
   landscapes,
 }: CheckoutClientProps) {
+  const displayStyle = travelStyle.split(' | ')[0];
   const router = useRouter();
   const searchParams = useSearchParams();
   const { data: session, status } = useSession();
@@ -129,14 +130,14 @@ export default function CheckoutClient({
         >
           <div className="text-center">
             <h2 className="font-serif text-4xl md:text-5xl font-light mb-4 text-white drop-shadow-md">
-              Your Bespoke Journey
+              Your Honest Journey
             </h2>
             <p className="text-white/50 text-sm italic tracking-wide">
               Crafted for the extraordinary.
             </p>
           </div>
 
-          <div className="p-8 md:p-12 rounded-sm relative overflow-hidden bg-[#0a0806] border border-white/5 border-t-2 border-t-[#c9a96e] bg-gradient-to-b from-white/[0.04] to-transparent shadow-2xl">
+          <div className="p-8 md:p-12 rounded-sm relative overflow-hidden bg-[#12100e] border border-white/5 border-t-2 border-t-[#c9a96e] bg-gradient-to-b from-white/[0.04] to-transparent shadow-2xl">
             <div className="grid grid-cols-2 gap-8 mb-10">
               <div>
                 <p className="text-xs uppercase tracking-widest text-white/40 mb-2">Duration</p>
@@ -198,7 +199,7 @@ export default function CheckoutClient({
                     <span style={{ color: theme.gold }} className="mt-0.5 shrink-0">✦</span>
                     <div>
                       <p className="text-sm text-white/90 font-medium mb-1 tracking-wide">Curated Day-by-Day Itinerary</p>
-                      <p className="text-xs text-white/50 leading-relaxed">A seamless, personalized route perfectly optimized for your {travelStyle.toLowerCase()} pace.</p>
+                      <p className="text-xs text-white/50 leading-relaxed">A seamless, personalized route perfectly optimized for your {displayStyle.toLowerCase()} pace.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
@@ -255,7 +256,7 @@ export default function CheckoutClient({
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           placeholder="traveler@example.com"
-                          className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none transition-all duration-300 text-sm font-light placeholder-white/20 text-white"
+                          className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
                           style={{ borderColor: theme.border }}
                           onFocus={(e) => e.target.style.borderColor = theme.gold}
                           onBlur={(e) => e.target.style.borderColor = theme.border}
@@ -264,8 +265,7 @@ export default function CheckoutClient({
                       <button
                         type="submit"
                         disabled={isProcessing || email.length === 0}
-                        className="w-full py-3.5 uppercase tracking-widest text-xs font-bold rounded-sm hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
-                        style={{ backgroundColor: theme.gold, color: theme.bg }}
+                        className="w-full py-3.5 uppercase tracking-widest text-xs font-bold rounded-sm border border-[#c9a96e]/40 bg-[#c9a96e]/10 text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                       >
                         {isProcessing ? "Sending Secure Link..." : "Authenticate to Continue"}
                         {!isProcessing && <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />}
@@ -278,8 +278,7 @@ export default function CheckoutClient({
               <>                <button
                   disabled={isProcessing || !cashfree}
                   onClick={handleDepositClick}
-                  style={{ backgroundColor: theme.gold, color: theme.bg }}
-                  className="w-full py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 text-sm uppercase tracking-widest font-bold border border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.1)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessing ? (
                     <span>Connecting to Secure Gateway...</span>
