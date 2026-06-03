@@ -75,10 +75,10 @@ const DestinationCard = React.memo(function DestinationCard({
                 isWarning
                   ? 'bg-black/80 text-white/70 border-white/10'
                   : isSuggested
-                    ? 'bg-[#c9a96e]/10 text-[#c9a96e] border-[#c9a96e]/40 shadow-[0_0_15px_rgba(201,169,110,0.15)]'
+                    ? 'bg-[#c9a96e] text-[#0a0806] border-[#c9a96e] shadow-[0_0_15px_rgba(201,169,110,0.4)]'
                     : 'bg-black/60 text-[#c9a96e] border-[#c9a96e]/30'
               }`}>
-                {isWarning ? <AlertTriangle size={8} className="text-white/40 md:w-[9px] md:h-[9px]" /> : isSuggested ? <Sparkles size={8} className="text-[#c9a96e] md:w-[9px] md:h-[9px]" /> : <Info size={8} className="text-[#c9a96e]/70 md:w-[9px] md:h-[9px]" />}
+                {isWarning ? <AlertTriangle size={8} className="text-white/40 md:w-[9px] md:h-[9px]" /> : isSuggested ? <Sparkles size={8} className="text-[#0a0806] md:w-[9px] md:h-[9px]" /> : <Info size={8} className="text-[#c9a96e]/70 md:w-[9px] md:h-[9px]" />}
                 {r}
               </div>
             );

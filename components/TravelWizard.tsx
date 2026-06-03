@@ -251,29 +251,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     }
   }, [travelMonths, selectedDays, travelStyle, selectedLandscapes]);
 
-  useEffect(() => {
-    if (selectedLandscapes.length === 0) {
-      if (selectedDestinations.length > 0) {
-        setSelectedDestinations([]);
-      }
-      return;
-    }
-    
-    const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
-    
-    setSelectedDestinations(prev => {
-      const newSelection = prev.filter(id => {
-        const d = destinations.find(dest => dest.id === id);
-        if (!d) return false;
-        return matchedCategories.some(cat => d.landscapes?.includes(cat as any));
-      });
-      
-      if (newSelection.length !== prev.length) {
-        return newSelection;
-      }
-      return prev;
-    });
-  }, [selectedLandscapes, destinations]);
+
   // Debounced Mapbox Geocoding
   useEffect(() => {
     const timer = setTimeout(async () => {
@@ -908,7 +886,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             {step === 3 && (
               <div className="text-center space-y-12">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-2">When are you planning to travel?</h2>
-                <p className="text-white/50 text-sm tracking-wide font-light mb-8">Select all the months your journey will span across.</p>
+                <p className="text-white/50 text-sm tracking-wide font-light">Select all the months your journey will span across.</p>
+                <p className="text-[#a0a0a0] text-[13px] md:text-[14px] italic tracking-wide mb-10 mx-auto max-w-xl leading-relaxed mt-4">
+                  Don't worry about getting this perfect. These answers give us a direction — we'll fine-tune every detail with you directly before we begin.
+                </p>
                 <div className="grid grid-cols-3 md:grid-cols-4 gap-2.5 md:gap-4 max-w-3xl mx-auto">
                   {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month) => {
                     const isSelected = travelMonths.includes(month);
@@ -1035,7 +1016,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             {step === 6 && (
               <div className="text-center">
                 <h2 className="font-serif text-4xl md:text-5xl font-light text-white/90 drop-shadow-md mb-4">What moves you?</h2>
-                <p className="text-white/50 text-sm italic tracking-wide mb-12">Select the landscapes that resonate with your soul.</p>
+                <p className="text-white/50 text-sm tracking-wide font-light">Select the landscapes that resonate with your soul.</p>
+                <p className="text-[#a0a0a0] text-[13px] md:text-[14px] italic tracking-wide mb-12 mx-auto max-w-xl leading-relaxed mt-4">
+                  Don't worry about getting this perfect. These answers give us a direction — we'll fine-tune every detail with you directly before we begin.
+                </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto">
                   {[
                     { name: "Mountains", icon: Mountain },
@@ -1099,7 +1083,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             {step === 7 && (() => {
               const maxAllowedDestinations = Math.max(3, Math.floor(selectedDays / 1.5));
               const isMaxReached = selectedDestinations.length >= maxAllowedDestinations;
-              const showZeroState = selectedDestinations.length === 0 && !isAutoCurated;
+              const showZeroState = selectedDestinations.length === 0 && !isAutoCurated && selectedLandscapes.length === 0;
 
               return (
                 <div className="space-y-8 -mt-6">
@@ -1388,9 +1372,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             <div className={`absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-[#c9a96e]/5 to-transparent z-10 pointer-events-none transition-opacity duration-700 ${isAutoCurated ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </button>
 
+          {selectedLandscapes.length > 0 && !isAutoCurated && !searchQuery.trim() && (
+            <div className="flex items-center justify-between mt-6 mb-2 px-2">
+              <h3 className="font-serif text-2xl md:text-3xl text-[#c9a96e]">
+                {selectedLandscapes.length === 1 ? `${selectedLandscapes[0]} Destinations` : 'Filtered Destinations'}
+              </h3>
+              <div className="h-px bg-[#c9a96e]/20 flex-1 ml-6"></div>
+            </div>
+          )}
+
           {/* Virtualized Destination Grid */}
           {sortedDests.length === 0 ? (
-            <div className="p-10 text-center border border-zinc-800 bg-zinc-900 rounded-sm">
+            <div className="p-10 text-center border border-white/10 bg-white/5 rounded-xl mt-4">
               <p className="text-white/40 italic">No destinations match your filters.</p>
             </div>
           ) : (
@@ -1440,7 +1433,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-[92vw] md:w-full max-w-6xl max-h-[80dvh] h-auto md:h-[70vh] bg-[#12100e] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
+          className="relative w-[92vw] md:w-full max-w-6xl max-h-[80dvh] h-auto md:h-[70vh] bg-[#0a0806] rounded-xl overflow-hidden border border-white/5 pointer-events-auto shadow-2xl flex flex-col md:flex-row"
         >
           {/* Close Button */}
           <button 

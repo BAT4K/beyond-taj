@@ -7,10 +7,12 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import FounderNoteModal from "./FounderNoteModal";
 
 export default function Navbar() {
   const { status } = useSession();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFounderNoteOpen, setIsFounderNoteOpen] = useState(false);
   const pathname = usePathname();
 
   // Automatically close mobile menu when pathname changes (navigation completes)
@@ -30,12 +32,12 @@ export default function Navbar() {
         <div className="flex items-center gap-12">
           <Link href="/" onClick={closeMenu} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition active:scale-95 active:opacity-50 active:duration-150">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Beyond Taj Emblem"
-              width={100}
-              height={44}
+              width={120}
+              height={56}
               priority
-              className="h-10 md:h-11 w-auto object-contain"
+              className="h-12 md:h-14 w-auto object-contain"
               style={{ width: "auto" }}
             />
             <span className="font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
@@ -46,6 +48,9 @@ export default function Navbar() {
             <Link href="/destinations" className="text-white/60 hover:text-[#c9a96e] transition-colors">Destinations</Link>
             <Link href="/journal" className="text-white/60 hover:text-[#c9a96e] transition-colors">The Journal</Link>
             <Link href="/about" className="text-white/60 hover:text-[#c9a96e] transition-colors">About</Link>
+            <button onClick={() => setIsFounderNoteOpen(true)} className="text-white/60 hover:text-[#c9a96e] transition-colors uppercase tracking-widest text-xs cursor-pointer">
+              Founder's Note
+            </button>
           </div>
         </div>
 
@@ -114,6 +119,7 @@ export default function Navbar() {
               <Link href="/destinations" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition duration-150">Destinations</Link>
               <Link href="/journal" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition duration-150">The Journal</Link>
               <Link href="/about" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition duration-150">About Us</Link>
+              <button onClick={() => { setIsMobileMenuOpen(false); setIsFounderNoteOpen(true); }} className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition duration-150">Founder's Note</button>
               <Link href="/review" className="text-xl font-serif text-white/80 hover:text-[#c9a96e] active:scale-95 active:opacity-50 transition duration-150">Review Us</Link>
               
               <div className="w-12 h-px bg-white/10 mx-auto my-4" />
@@ -150,6 +156,8 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <FounderNoteModal isOpen={isFounderNoteOpen} onClose={() => setIsFounderNoteOpen(false)} />
     </>
   );
 }
