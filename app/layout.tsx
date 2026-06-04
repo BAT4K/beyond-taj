@@ -7,13 +7,13 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  display: 'swap',
+  display: 'block',
 });
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
-  display: 'swap',
+  display: 'block',
 });
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -35,9 +35,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className="h-full"
     >
-      <body className="font-sans min-h-full flex flex-col" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} font-sans min-h-full flex flex-col antialiased`} suppressHydrationWarning>
         <Providers>
           <Navbar />
           {children}

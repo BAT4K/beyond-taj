@@ -71,7 +71,7 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full md:w-auto px-4 md:px-0">
           <Link href="/plan" className="w-full md:w-auto">
             <button
-              className="group relative min-h-[48px] py-4 px-6 md:py-5 md:px-10 border overflow-hidden rounded-sm cursor-pointer transition duration-500 bg-black/20 backdrop-blur-md md:hover:bg-[#c9a96e] md:hover:border-[#c9a96e] text-[#f5f0e8] md:hover:text-[#0a0806] shadow-xl md:hover:shadow-[0_0_30px_rgba(201,169,110,0.4)] w-full md:w-auto flex items-center justify-center active:scale-[0.98] active:bg-[#c9a96e]/20 active:duration-150"
+              className="group relative min-h-[48px] py-4 px-6 md:py-5 md:px-10 border overflow-hidden rounded-sm cursor-pointer touch-manipulation transition duration-200 bg-black/20 backdrop-blur-md md:hover:bg-[#c9a96e] md:hover:border-[#c9a96e] text-[#f5f0e8] md:hover:text-[#0a0806] shadow-xl md:hover:shadow-[0_0_30px_rgba(201,169,110,0.4)] w-full md:w-auto flex items-center justify-center active:scale-95 active:bg-[#c9a96e]/30"
             >
               <span className="relative font-sans tracking-widest text-sm uppercase flex items-center gap-3 font-semibold">
                 Plan Your Journey <ChevronRight size={16} className="md:group-hover:translate-x-1 transition-transform" />
@@ -83,7 +83,7 @@ export default function Hero() {
             href="/beyondtaj-jessica-blueprint.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative min-h-[48px] py-4 px-6 md:py-5 md:px-8 border border-white/20 rounded-sm cursor-pointer transition duration-500 bg-transparent md:hover:border-white/50 text-white/70 md:hover:text-white w-full md:w-auto flex items-center justify-center active:scale-[0.98] active:bg-white/10 active:duration-150"
+            className="group relative min-h-[48px] py-4 px-6 md:py-5 md:px-8 border border-white/20 rounded-sm cursor-pointer touch-manipulation transition duration-200 bg-transparent md:hover:border-white/50 text-white/70 md:hover:text-white w-full md:w-auto flex items-center justify-center active:scale-95 active:bg-white/10"
           >
             <span className="relative font-sans tracking-widest text-xs uppercase font-medium">
               View a Sample Blueprint

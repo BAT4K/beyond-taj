@@ -3,22 +3,6 @@
 import { useEffect, useState } from "react";
 
 export default function ShowcaseVideo() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return (
-      <section className="py-24 px-4 bg-[#0a0806]">
-        <div className="max-w-5xl mx-auto flex flex-col items-center min-h-[400px]">
-          {/* Layout placeholder to prevent CLS */}
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-24 px-4 bg-[#0a0806]">
       <div className="max-w-5xl mx-auto flex flex-col items-center">

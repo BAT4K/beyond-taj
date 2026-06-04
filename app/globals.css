@@ -25,7 +25,11 @@ body {
   color: var(--foreground);
 }
 
-/* Global Touch Tactile Feedback */
+/* Global Touch Tactile Feedback & Responsiveness */
+a, button, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+}
+
 @media (hover: none) and (pointer: coarse) {
   button:active, 
   a:active, 

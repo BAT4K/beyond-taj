@@ -842,7 +842,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   <div className="flex items-center gap-8 mb-6">
                     <button 
                       onClick={() => setSelectedDays(prev => Math.max(1, prev - 1))}
-                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 transition"
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition-all duration-200"
                     >
                       <Minus size={24} />
                     </button>
@@ -865,7 +865,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
                     <button 
                       onClick={() => setSelectedDays(prev => Math.min(90, prev + 1))}
-                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 transition"
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition-all duration-200"
                     >
                       <Plus size={24} />
                     </button>
