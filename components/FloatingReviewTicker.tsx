@@ -56,7 +56,7 @@ const REVIEWS = [
   {
     name: "Oliver W.",
     location: "Manchester, UK",
-    text: "The $39 fee pays for itself immediately. It saved us hundreds of dollars in bad transit choices.",
+    text: "The $40 fee pays for itself immediately. It saved us hundreds of dollars in bad transit choices.",
     rating: 5,
   },
   {

@@ -107,88 +107,7 @@ interface VirtualizedGridProps {
   gridScrollRef: React.RefObject<HTMLDivElement | null>;
 }
 
-function VirtualizedGrid({
-  sortedDests,
-  columns,
-  rowCount,
-  rowHeight,
-  currentTotalMinDays,
-  selectedDays,
-  selectedDestinations,
-  isAutoCurated,
-  destinations,
-  getTierAndReason,
-  theme,
-  onCardClick,
-  onToggle,
-  gridScrollRef,
-}: VirtualizedGridProps) {
-  const rowVirtualizer = useVirtualizer({
-    count: rowCount,
-    getScrollElement: () => gridScrollRef.current,
-    estimateSize: () => rowHeight,
-    overscan: 2, // Render 2 extra rows above/below viewport for smooth scrolling
-  });
-
-  return (
-    <div
-      id="destination-grid"
-      className="w-full"
-      style={{
-        height: `${rowVirtualizer.getTotalSize()}px`,
-        position: 'relative',
-      }}
-    >
-        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-          const rowStartIndex = virtualRow.index * columns;
-          const rowDests = sortedDests.slice(rowStartIndex, rowStartIndex + columns);
-
-          return (
-            <div
-              key={virtualRow.key}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: `${virtualRow.size}px`,
-                transform: `translateY(${virtualRow.start}px)`,
-                display: 'grid',
-                gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-                gap: '20px',
-              }}
-            >
-              {rowDests.map((dest, colIndex) => {
-                const globalIndex = rowStartIndex + colIndex;
-                const { reasons } = getTierAndReason(dest);
-                const isSelected = selectedDestinations.includes(dest.id);
-                const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
-                const isDisabled = (!isSelected && isAutoCurated) || notEnoughDays;
-
-                return (
-                  <DestinationCard
-                    key={dest.id}
-                    id={dest.id}
-                    name={dest.name}
-                    region={dest.region}
-                    imageSrc={dest.imageUrl || FALLBACK_IMAGE}
-                    isSelected={isSelected}
-                    isDisabled={isDisabled}
-                    reasons={reasons}
-                    borderColor={isSelected ? theme.gold : theme.border}
-                    isPriority={globalIndex < 6}
-                    index={globalIndex}
-                    onCardClick={onCardClick}
-                    onToggle={onToggle}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
-    </div>
-  );
-}
+// Removed VirtualizedGrid logic to eliminate mobile hydration glitches and improve native scrolling performance.
 
 export default function TravelWizard({ destinations, transitRoutes = [] }: TravelWizardProps) {
   const router = useRouter();
@@ -377,18 +296,6 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   const nextStep = async () => {
     if (step === 7) {
       if (selectedDestinations.length === 0 && !isAutoCurated) return;
-      if (isAutoCurated) {
-        saveJourneyAndCheckout();
-        return;
-      }
-      
-      setIsValidating(true);
-      if (warnings.length > 0) {
-        setValidationMessages(warnings);
-        setShowValidationModal(true);
-        return;
-      }
-      setIsValidating(false);
       saveJourneyAndCheckout();
     } else {
       if (step === 1 && !startLocation.trim()) {
@@ -1053,10 +960,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                           placeholder="blur"
                           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                          className="object-cover opacity-0 group-hover:opacity-60 transition duration-700 ease-out scale-100 group-hover:scale-110 z-0"
+                          className={`object-cover transition-all duration-700 ease-out z-0 ${isSelected ? 'opacity-70 scale-105 saturate-100' : 'opacity-40 saturate-0 group-hover:opacity-60 group-hover:saturate-50 scale-100 group-hover:scale-105'}`}
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/80 to-transparent z-[1] transition-opacity opacity-0 group-hover:opacity-100 duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/50 to-transparent z-[1] opacity-100 pointer-events-none" />
 
                         <div
                           className={`absolute top-4 right-4 w-4 h-4 rounded-full border flex items-center justify-center transition duration-300 z-20 ${isSelected ? 'border-transparent' : 'border-white/20'}`}
@@ -1065,13 +972,13 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           {isSelected && <div className="w-1.5 h-1.5 bg-[#0a0806] rounded-full" />}
                         </div>
                         
-                        <div className="relative z-10 flex flex-col items-center transform transition-transform duration-500 group-hover:-translate-y-2">
+                        <div className="relative z-10 flex flex-col items-center transform transition-transform duration-500 group-hover:-translate-y-2 drop-shadow-xl">
                           <Icon
-                            className={`w-6 h-6 mb-4 transition-colors duration-300 ${isSelected ? 'opacity-100' : 'opacity-50'}`}
+                            className={`w-6 h-6 mb-4 transition-colors duration-300 drop-shadow-md ${isSelected ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}`}
                             strokeWidth={1.5}
                             style={{ color: isSelected ? theme.gold : 'white' }}
                           />
-                          <span className="font-sans uppercase tracking-widest text-[10px] md:text-xs text-center">{landscape}</span>
+                          <span className="font-sans uppercase tracking-widest text-[10px] md:text-xs text-center drop-shadow-md font-medium">{landscape}</span>
                         </div>
                       </button>
                     );
@@ -1267,18 +1174,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 disabled={loadingAction !== null}
                 className="w-full relative overflow-hidden rounded-xl border border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60 transition duration-500 hover:shadow-2xl group flex flex-col md:flex-row items-center justify-between p-6 md:p-10 cursor-pointer disabled:opacity-50 active:scale-[0.98] touch-manipulation"
               >
-                <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
+                <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20 flex-1 md:pr-8">
                   <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition duration-500">
                     <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Honest AI Curation</h3>
-                    <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
+                    <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Don&apos;t Know Where to Start?</h3>
+                    <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Most first-timers spend 20 hours Googling and still aren&apos;t sure where to go. Let our experts choose the right destinations for you.</p>
                   </div>
                 </div>
                 
-                <div className="z-20 w-full md:w-auto">
-                  <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3">
+                <div className="z-20 w-full md:w-auto shrink-0">
+                  <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3 whitespace-nowrap">
                     Curate My Journey <ChevronRight size={16} />
                   </div>
                 </div>
@@ -1353,18 +1260,18 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 : 'border-[#c9a96e]/30 bg-gradient-to-r from-amber-950/20 to-zinc-950 hover:border-[#c9a96e]/60'
             }`}
           >
-            <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20">
+            <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-0 z-20 flex-1 md:pr-8">
               <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#c9a96e]/20 transition duration-500">
                 <Sparkles className="text-[#c9a96e] w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div className="text-left">
-                <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Honest AI Curation</h3>
-                <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Skip the browsing. Let our concierge engine build your perfect route instantly.</p>
+                <h3 className="font-serif text-xl md:text-3xl text-white/90 mb-2 group-hover:text-white transition-colors">Don&apos;t Know Where to Start?</h3>
+                <p className="text-white/50 text-sm md:text-base font-light italic leading-relaxed">Most first-timers spend 20 hours Googling and still aren&apos;t sure where to go. Let our experts choose the right destinations for you.</p>
               </div>
             </div>
             
-            <div className="z-20 w-full md:w-auto">
-              <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3">
+            <div className="z-20 w-full md:w-auto shrink-0">
+              <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3 whitespace-nowrap">
                 {isAutoCurated ? 'Curated Mode Active' : 'Curate My Journey'} <ChevronRight size={16} />
               </div>
             </div>
@@ -1381,28 +1288,38 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             </div>
           )}
 
-          {/* Virtualized Destination Grid */}
+          {/* Native CSS Grid */}
           {sortedDests.length === 0 ? (
             <div className="p-10 text-center border border-white/10 bg-white/5 rounded-xl mt-4">
               <p className="text-white/40 italic">No destinations match your filters.</p>
             </div>
           ) : (
-            <VirtualizedGrid
-              sortedDests={sortedDests}
-              columns={columns}
-              rowCount={rowCount}
-              rowHeight={ROW_HEIGHT}
-              currentTotalMinDays={currentTotalMinDays}
-              selectedDays={selectedDays}
-              selectedDestinations={selectedDestinations}
-              isAutoCurated={isAutoCurated}
-              destinations={destinations}
-              getTierAndReason={getTierAndReason}
-              theme={theme}
-              onCardClick={handleCardClick}
-              onToggle={handleToggleDestination}
-              gridScrollRef={gridScrollRef}
-            />
+            <div className="grid grid-cols-2 xl:grid-cols-3 gap-5 pb-6">
+              {sortedDests.map((dest, index) => {
+                const { reasons } = getTierAndReason(dest);
+                const isSelected = selectedDestinations.includes(dest.id);
+                const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
+                const isDisabled = (!isSelected && isAutoCurated) || notEnoughDays;
+
+                return (
+                  <DestinationCard
+                    key={dest.id}
+                    id={dest.id}
+                    name={dest.name}
+                    region={dest.region}
+                    imageSrc={dest.imageUrl || FALLBACK_IMAGE}
+                    isSelected={isSelected}
+                    isDisabled={isDisabled}
+                    reasons={reasons}
+                    borderColor={isSelected ? theme.gold : theme.border}
+                    isPriority={index < 6}
+                    index={index}
+                    onCardClick={handleCardClick}
+                    onToggle={handleToggleDestination}
+                  />
+                );
+              })}
+            </div>
           )}
         </motion.div>
       );
@@ -1568,6 +1485,19 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           </ul>
                         )}
                       </div>
+
+                      {selectedDestinations.length > 0 && (
+                        <div className="bg-black/40 border-l-2 border-[#c9a96e]/50 p-3 md:p-4 rounded-r-sm text-left mb-6">
+                          <div className="flex gap-2 items-center text-[#c9a96e]/80 mb-1.5 md:mb-2">
+                            <Info size={12} className="md:w-[14px] md:h-[14px]" />
+                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">Concierge Note</span>
+                          </div>
+                          <p className="font-sans text-white/70 leading-relaxed text-xs md:text-sm">
+                            Don&apos;t worry about getting this perfect. These answers give us a direction — we&apos;ll fine-tune every detail with you directly before we begin.
+                          </p>
+                        </div>
+                      )}
+
                       {(() => {
                         // Compute slack days client-side for instant feedback
                         const totalMinDays = selectedDestinations.reduce((sum, id) => {
@@ -1645,7 +1575,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         className={`w-full group relative py-4 border overflow-hidden rounded-sm transition duration-300 active:scale-[0.98] touch-manipulation ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
                       >
                         <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
-                          Proceed to Checkout <ChevronRight size={16} />
+                          Proceed to Checkout • ${selectedDays >= 14 ? 75 : 40} <ChevronRight size={16} />
                         </span>
                       </button>
                     </div>
@@ -1687,82 +1617,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
         );
       })()}
 
-      <AnimatePresence>
-        {showValidationModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              className="w-full max-w-xl bg-zinc-950 border border-zinc-800 rounded-sm p-8 shadow-2xl flex flex-col gap-6"
-            >
-              <h3 className="font-serif text-3xl text-white/90">Local Insights & Route Adjustments</h3>
-              <div className="w-16 h-px bg-white/20 mb-2" />
-              <div className="flex flex-col gap-4 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
-                {validationMessages.map((msg, i) => {
-                  let Icon = AlertTriangle;
-                  let colorClass = "text-[#c9a96e]";
-                  if (msg.severity === 'critical') {
-                    colorClass = "text-red-500";
-                  } else if (msg.severity === 'info') {
-                    Icon = Info;
-                    colorClass = "text-blue-400";
-                  }
-                  
-                  return (
-                    <div key={i} className="flex gap-4 items-start bg-zinc-900/50 p-4 rounded-sm border border-zinc-800/50">
-                      <Icon size={20} className={`${colorClass} flex-shrink-0 mt-0.5`} />
-                      <div className="flex flex-col gap-1">
-                        <span className={`text-xs uppercase tracking-widest font-semibold ${colorClass}`}>
-                          {msg.category}
-                        </span>
-                        <p className="text-sm leading-relaxed text-zinc-300">{msg.message}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <button
-                  onClick={() => setShowValidationModal(false)}
-                  className={`flex-1 py-3 px-4 border transition-colors uppercase tracking-widest text-xs rounded-sm cursor-pointer ${
-                    validationMessages.some(m => m.severity === 'critical')
-                      ? 'border-[#c9a96e] bg-[#c9a96e] text-black hover:bg-[#b08d55]'
-                      : 'border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 text-white/80'
-                  }`}
-                >
-                  Adjust My Plan
-                </button>
-                <button
-                  onClick={() => {
-                    if (validationMessages.some(m => m.severity === 'critical')) {
-                      if (window.confirm("WARNING: This route contains critical blockers (e.g., closed roads, extreme weather). The trip may be physically impossible. Are you absolutely sure you want to proceed?")) {
-                        setShowValidationModal(false);
-                        saveJourneyAndCheckout();
-                      }
-                    } else {
-                      setShowValidationModal(false);
-                      saveJourneyAndCheckout();
-                    }
-                  }}
-                  className={`flex-1 py-3 px-4 border transition-colors uppercase tracking-widest text-xs font-medium rounded-sm cursor-pointer ${
-                    validationMessages.some(m => m.severity === 'critical')
-                      ? 'border-red-900/50 text-red-500 hover:bg-red-950 hover:border-red-900'
-                      : 'border-[#c9a96e] text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black'
-                  }`}
-                >
-                  Proceed Anyway
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Validation modal removed as per client request to reduce friction */}
 
       <style dangerouslySetInnerHTML={{
         __html: `

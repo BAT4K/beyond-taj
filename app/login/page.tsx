@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const theme = {
     bg: "#0a0806",
@@ -21,6 +22,7 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setErrorMsg(null);
 
     try {
       const result = await signIn("email", {
@@ -31,11 +33,13 @@ export default function LoginPage() {
 
       if (result?.error) {
         console.error(result.error);
+        setErrorMsg("Failed to send the access link. Please check your email configuration.");
       } else {
         setIsSuccess(true);
       }
     } catch (error) {
       console.error(error);
+      setErrorMsg("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -89,6 +93,12 @@ export default function LoginPage() {
                   />
                 </div>
               </div>
+
+              {errorMsg && (
+                <div className="text-red-400 text-sm text-center bg-red-950/30 border border-red-900/50 p-3 rounded-sm">
+                  {errorMsg}
+                </div>
+              )}
 
               <button
                 type="submit"

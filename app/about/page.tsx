@@ -36,16 +36,16 @@ export default function AboutPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 mb-32">
-        <h2 className="font-serif text-4xl mb-12 text-[#c9a96e]">The Architecture of Luxury</h2>
+        <h2 className="font-serif text-4xl mb-12 text-[#c9a96e]">Why We Built BeyondTaj</h2>
         <div className="prose-luxury font-light text-white/80 space-y-8 text-lg leading-relaxed">
           <p>
-            Beyond Taj was born out of a stark realization: traveling to India is often an exercise in overwhelming complexity. Between navigating intense logistics, avoiding tourist traps, and filtering through outdated blogs, the modern traveler is left exhausted before they even board their flight.
+            BeyondTaj started with a frustrating truth: India is one of the most rewarding countries on earth to travel — and one of the easiest to get wrong. Between the logistics, the scams, the wrong neighborhoods, and a hundred outdated blog posts all contradicting each other, most first-timers are exhausted before they even board the flight.
           </p>
           <p>
-            We built a completely different paradigm. Instead of selling pre-packaged, cookie-cutter tours, we engineered a deterministic AI concierge rooted entirely in localized, ground-truth data.
+            So we built the opposite of a tour company. No pre-packaged group trips. No commission-driven hotel lists. No algorithm pretending to know India better than a person does. Just honest, tested planning from people who actually know the country — Indians who travel it for a living, and foreign travelers who've spent months on the road here and learned the hard way.
           </p>
           <p>
-            Every destination in our routing engine has been physically vetted by our network of local experts. Every transit route accounts for real-world fatigue costs. Our algorithm doesn't hallucinate—it strictly computes the perfect intersection of your unique travel style, physical logistics, seasonal weather patterns, and uncompromising luxury.
+            Every route we recommend, one of us has actually traveled. Every hotel, someone has actually stayed in. Every scam we warn you about, someone got caught by first. We don't take commissions, so we've got no reason to push you anywhere that isn't worth it. We just tell you what we'd tell a friend flying into Delhi next week — where to go, what to skip, what's genuinely worth your time, and what's a tourist trap dressed up to look impressive.
           </p>
         </div>
       </div>
@@ -55,30 +55,30 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white/[0.02] border border-white/5 p-10 rounded-lg hover:border-[#c9a96e]/30 transition-colors">
             <Compass className="text-[#c9a96e] mb-6" size={32} />
-            <h3 className="font-serif text-2xl mb-4 text-white/90">Curated Granularity</h3>
+            <h3 className="font-serif text-2xl mb-4 text-white/90">Built Around You, Not a Bus</h3>
             <p className="text-white/50 font-light leading-relaxed">
-              We tag every destination across 50+ axes—from the specific "vibe" of a luxury tented camp in Ranthambore to the exact demographic it best serves.
+              Your plan is shaped by your dates, your budget, your pace, and who you're traveling with — solo, couple, family, or friends. Not a fixed route shuffled between 40 strangers on a coach.
             </p>
           </div>
           <div className="bg-white/[0.02] border border-white/5 p-10 rounded-lg hover:border-[#c9a96e]/30 transition-colors">
             <Map className="text-[#c9a96e] mb-6" size={32} />
-            <h3 className="font-serif text-2xl mb-4 text-white/90">Mathematical Routing</h3>
+            <h3 className="font-serif text-2xl mb-4 text-white/90">Routing That Actually Works</h3>
             <p className="text-white/50 font-light leading-relaxed">
-              Our bespoke routing engine uses strict graphical traversal algorithms to ensure your itinerary is not only beautiful, but physically and logistically sound.
+              We map your trip so you're not stuck on a brutal overnight bus you never needed or zig-zagging across the country. Sensible order, realistic travel days, and a straight answer on when to fly instead of suffering the road.
             </p>
           </div>
           <div className="bg-white/[0.02] border border-white/5 p-10 rounded-lg hover:border-[#c9a96e]/30 transition-colors">
             <ShieldCheck className="text-[#c9a96e] mb-6" size={32} />
-            <h3 className="font-serif text-2xl mb-4 text-white/90">Ground-Truth Safety</h3>
+            <h3 className="font-serif text-2xl mb-4 text-white/90">Safety, Already Handled</h3>
             <p className="text-white/50 font-light leading-relaxed">
-              Safety and comfort are not afterthoughts. Our engine automatically applies strict transit and arrival heuristics for solo travelers and families to ensure peace of mind.
+              We bake it in — the right neighborhoods to stay in, which scams hit at which station, when "friendly" is genuine and when it's a setup — so you can actually relax instead of staying on edge the whole trip.
             </p>
           </div>
           <div className="bg-white/[0.02] border border-white/5 p-10 rounded-lg hover:border-[#c9a96e]/30 transition-colors">
             <Sparkles className="text-[#c9a96e] mb-6" size={32} />
-            <h3 className="font-serif text-2xl mb-4 text-white/90">Uncompromised Quality</h3>
+            <h3 className="font-serif text-2xl mb-4 text-white/90">Honest, Never Sponsored</h3>
             <p className="text-white/50 font-light leading-relaxed">
-              We do not accept commissions from subpar hotels to push them onto your itinerary. Our recommendations remain completely objective and relentlessly focused on quality.
+              No hotel pays to be on your itinerary, and we take zero commissions. Every recommendation is something we'd book ourselves. And when a famous place isn't worth your time, we say so.
             </p>
           </div>
         </div>

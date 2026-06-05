@@ -46,7 +46,7 @@ export default function BlueprintHighlights() {
             WHAT’S IN A BLUEPRINT
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight text-balance">
-            What you actually get for $39
+            What you actually get for $40
           </h2>
           <p className="text-white/40 text-sm md:text-base tracking-wide leading-relaxed">
             A 40+ page PDF you can read offline, sized for your phone or print.

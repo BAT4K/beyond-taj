@@ -248,39 +248,7 @@ export async function evaluateTripFeasibility(
   const allDestinations = await prisma.destination.findMany({ select: { id: true } });
   const allNodeIds = allDestinations.map(d => d.id);
 
-  // --- Weather Aggregation Check ---
-  let isWeatherClosed = false;
-  if (travelMonths && travelMonths.length > 0) {
-    const closedDests = new Set<string>();
-    const avoidDests = new Set<string>();
-    
-    travelMonths.forEach(month => {
-      const mIndex = MONTH_MAP[month];
-      if (!mIndex) return;
-      destinations.forEach(d => {
-        if (d.closedMonths.includes(mIndex)) closedDests.add(d.name);
-        else if (d.avoidMonths.includes(mIndex)) avoidDests.add(d.name);
-      });
-    });
-
-    if (closedDests.size > 0) {
-      isWeatherClosed = true;
-      const names = Array.from(closedDests);
-      warnings.push({
-        category: 'weather',
-        severity: 'critical',
-        message: `Extreme Weather Alert: ${names.join(" and ")} ${names.length > 1 ? 'are' : 'is'} completely closed or inaccessible during parts of your selected window (${travelMonths.join(", ")}).`
-      });
-    }
-    if (avoidDests.size > 0) {
-      const names = Array.from(avoidDests);
-      warnings.push({
-        category: 'weather',
-        severity: 'warning',
-        message: `Off-Season Warning: ${names.join(" and ")} ${names.length > 1 ? 'experience' : 'experiences'} extreme weather during parts of your selected window (${travelMonths.join(", ")}).`
-      });
-    }
-  }
+  // --- Weather Aggregation Check Removed (User Preference) ---
 
   // --- Vibe Thresholding (Anti-Nagging) ---
   if (requestedLandscapes && requestedLandscapes.length > 0) {
@@ -341,7 +309,7 @@ export async function evaluateTripFeasibility(
       warnings.push({
         category: 'logistics',
         severity: severity,
-        message: `Complex Transit: Your route requires transiting through major hubs. There are no direct connections for ${missingEdges} of your journey legs.`
+        message: `${missingEdges} chosen destinations have no direct connection — you'll need to change transport at a hub in between. Completely doable by train or bus, just make sure your trip has enough days to cover the travel time.`
       });
     }
   }
@@ -410,9 +378,9 @@ export async function evaluateTripFeasibility(
     });
   }
 
-  let fatigueScoreOverride = (isDisconnected || isWeatherClosed) ? 0 : (totalMinDays > days ? 0 : 100);
+  let fatigueScoreOverride = (isDisconnected) ? 0 : (totalMinDays > days ? 0 : 100);
   const remainingBudget = totalFatigueAllowed - totalTripFatigue;
-  if (remainingBudget < 0 && !isDisconnected && totalMinDays <= days && !isWeatherClosed) {
+  if (remainingBudget < 0 && !isDisconnected && totalMinDays <= days) {
     fatigueScoreOverride = Math.max(0, 100 - (Math.abs(remainingBudget) * 5));
     warnings.push({
       category: 'logistics',
@@ -442,7 +410,7 @@ export async function evaluateTripFeasibility(
   geoScore = Math.max(0, geoScore);
   let TRIP_SCORE = Math.round((geoScore * 0.5) + (fatigueScore * 0.5));
   
-  if (isDisconnected || isWeatherClosed || totalMinDays > days) {
+  if (isDisconnected || totalMinDays > days) {
     TRIP_SCORE = 0;
   }
   

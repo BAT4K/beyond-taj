@@ -5,11 +5,13 @@ import prisma from "@/lib/prisma";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  session: { strategy: "jwt" },
   providers: [
     EmailProvider({
       server: {
         host: process.env.EMAIL_SERVER_HOST,
         port: Number(process.env.EMAIL_SERVER_PORT),
+        secure: Number(process.env.EMAIL_SERVER_PORT) === 465,
         auth: {
           user: process.env.EMAIL_SERVER_USER,
           pass: process.env.EMAIL_SERVER_PASSWORD,

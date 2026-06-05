@@ -31,14 +31,10 @@ export default function Navbar() {
       <header className="w-full px-4 md:px-10 py-4 md:py-6 flex justify-between items-center z-50 fixed top-0 bg-[#0a0806]/80 backdrop-blur-md border-b border-white/5 text-white">
         <div className="flex items-center gap-12">
           <Link href="/" onClick={closeMenu} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition active:scale-95 active:opacity-50 touch-manipulation transition-all duration-200">
-            <Image
+            <img
               src="/logo.svg"
               alt="Beyond Taj Emblem"
-              width={120}
-              height={56}
-              priority
               className="h-12 md:h-14 w-auto object-contain"
-              style={{ width: "auto" }}
             />
             <span className="font-serif text-xl md:text-2xl tracking-wide text-white">Beyond Taj</span>
           </Link>

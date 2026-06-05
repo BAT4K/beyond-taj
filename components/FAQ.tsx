@@ -6,8 +6,15 @@ import { ChevronDown } from "lucide-react";
 
 const FAQ_ITEMS = [
   {
-    question: "What exactly do I receive for $39?",
-    answer: "A 40+ page downloadable PDF optimized for your phone. It contains your day-by-day routing, specific hotel and train recommendations with direct booking links, a list of common scams on your route, and emergency contacts. No fluff, just the exact logistical data you need."
+    question: "What exactly do I receive for the $40 planning fee?",
+    answer: (
+      <div className="flex flex-col gap-4">
+        <span>A 40+ page downloadable PDF optimized for your phone. It contains your day-by-day routing, specific hotel and train recommendations with direct booking links, a list of common scams on your route, and emergency contacts. No fluff, just the exact logistical data you need.</span>
+        <div className="px-4 py-3 bg-white/5 border-l-2 border-[#c9a96e] text-white/70 italic rounded-r-sm text-sm">
+          Note: For extended trips of 14 days or longer, the fee is $75 to account for the additional curation required.
+        </div>
+      </div>
+    )
   },
   {
     question: "Is this customized to my specific trip?",
@@ -22,8 +29,8 @@ const FAQ_ITEMS = [
     answer: "No. We give you the exact links to book the vetted hotels, trains, and flights yourself. You retain 100% control over your money and completely bypass middleman markups and agency commissions."
   },
   {
-    question: "Is the $39 fee refundable?",
-    answer: "Because this is a digital product providing immediate access to our proprietary research, routing, and contacts, the $39 fee is strictly non-refundable."
+    question: "Is the planning fee refundable?",
+    answer: "Because this is a digital product providing immediate access to our proprietary research, routing, and contacts, the planning fee is strictly non-refundable."
   },
   {
     question: "How is this different from AI trip planners?",

@@ -141,19 +141,20 @@ model VerificationToken {
 }
 
 model Journey {
-  id            String   @id @default(uuid())
-  days          Int
-  travelStyle   String
-  residency     String   @default("International")
-  startLocation String   @default("")
-  landscapes    String[]
-  destinations  Json
-  customerName  String
-  customerEmail String
-  itinerary     Json?
-  status        String   @default("pending")
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  userId        String?
-  User          User?    @relation(fields: [userId], references: [id])
+  id               String   @id @default(uuid())
+  days             Int
+  travelStyle      String
+  residency        String   @default("International")
+  startLocation    String   @default("")
+  landscapes       String[]
+  destinations     Json
+  customerName     String
+  customerEmail    String
+  customerWhatsapp String?
+  itinerary        Json?
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  userId           String?
+  User             User?    @relation(fields: [userId], references: [id])
 }

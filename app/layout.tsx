@@ -21,7 +21,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: "Beyond Taj | Honest Itinerary",
-  description: "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — for $39.",
+  description: "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — starting at $40.",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
@@ -54,7 +54,7 @@ export default function RootLayout({
               "name": "Beyond Taj",
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com",
               "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com"}/icon.png`,
-              "description": "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — for $39.",
+              "description": "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — starting at $40.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "IN"

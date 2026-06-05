@@ -9,6 +9,7 @@ export const revalidate = 86400; // Cache for 24 hours
 // Dynamically import components below the fold
 const WhyChooseUs = nextDynamic(() => import("@/components/WhyChooseUs"));
 const Manifesto = nextDynamic(() => import("@/components/Manifesto"));
+const LocalAdvisors = nextDynamic(() => import("@/components/LocalAdvisors"));
 const BlueprintHighlights = nextDynamic(() => import("@/components/BlueprintHighlights"));
 const FAQ = nextDynamic(() => import("@/components/FAQ"));
 const JournalShowcase = nextDynamic(() => import("@/components/JournalShowcase"));
@@ -45,6 +46,7 @@ export default function Home() {
       <ShowcaseVideo />
       <WhyChooseUs />
       <Manifesto />
+      <LocalAdvisors />
       <BlueprintHighlights />
       <JournalShowcase blogs={showcaseBlogs} />
       <FAQ />

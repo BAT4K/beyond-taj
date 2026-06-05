@@ -23,7 +23,7 @@ export default function JournalShowcase({ blogs }: { blogs: BlogPost[] }) {
             WHAT WE'VE WRITTEN
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight mb-6 text-balance">
-            Before you spend $39, spend 20 minutes reading what's already free.
+            Before you spend $40, spend 20 minutes reading what's already free.
           </h2>
           <p className="font-sans text-white/60 text-lg md:text-xl leading-relaxed font-light text-balance">
             If our free articles don't sound like the BeyondTaj you want, our paid blueprint won't either.

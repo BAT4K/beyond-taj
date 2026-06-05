@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Wallet, Lock, ShieldCheck, Mail, ArrowRight } from "lucide-react";
+import { countries } from "@/lib/countries";
+import { Wallet, Lock, ShieldCheck, Mail, ArrowRight, ChevronDown, Search } from "lucide-react";
 import Spinner from "./Spinner";
 import Script from "next/script";
 import { useSession, signIn } from "next-auth/react";
@@ -32,14 +33,58 @@ export default function CheckoutClient({
   const [isAuthSuccess, setIsAuthSuccess] = useState(false);
   const [cashfree, setCashfree] = useState<any>(null);
   const [email, setEmail] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState({ name: "United States", code: "+1", flag: "🇺🇸" });
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const [countrySearch, setCountrySearch] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [name, setName] = useState("");
 
+  const filteredCountries = countries.filter(c => 
+    c.name.toLowerCase().includes(countrySearch.toLowerCase()) || 
+    c.code.includes(countrySearch)
+  );
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.country-dropdown-container')) {
+        setIsCountryDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+
+  const verifyOrder = async (orderId: string) => {
+    try {
+      setIsProcessing(true);
+      const res = await fetch('/api/cashfree/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order_id: orderId, journeyId })
+      });
+      const data = await res.json();
+      if (data.status === 'completed') {
+        window.location.href = `/dashboard/${journeyId}`;
+      } else {
+        setIsProcessing(false);
+        alert('Payment is pending or failed. Please try again.');
+      }
+    } catch(err) {
+      setIsProcessing(false);
+      console.error('Verification failed', err);
+    }
+  };
 
   useEffect(() => {
     // Post-Payment Routing check: Cashfree returnUrl appends ?order_id=
-    if (searchParams.get("order_id")) {
-      router.push(`/dashboard/${journeyId}`);
+    const orderId = searchParams.get("order_id");
+    if (orderId) {
+      verifyOrder(orderId);
     }
-  }, [searchParams, router, journeyId]);
+  }, [searchParams, journeyId]);
 
   const theme = {
     bg: "#0a0806",
@@ -52,11 +97,22 @@ export default function CheckoutClient({
     setIsProcessing(true);
     
     try {
+      const fullPhone = `${selectedCountry.code}${whatsapp}`;
+      const sanitizedPhone = fullPhone.replace(/\D/g, '');
+      if (sanitizedPhone.length < 7 || sanitizedPhone.length > 15) {
+        alert("Please enter a valid WhatsApp number (7-15 digits including country code)");
+        setIsProcessing(false);
+        return;
+      }
+
       const res = await fetch("/api/cashfree/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           journeyId,
+          whatsappNumber: sanitizedPhone,
+          customerName: name || "Anonymous",
+          customerEmail: session?.user?.email || "anonymous@example.com",
         })
       });
       
@@ -76,8 +132,8 @@ export default function CheckoutClient({
             setIsProcessing(false);
           }
           if (result.paymentDetails || result.redirect) {
-            // Force a hard redirect to bypass any Next.js router state issues
-            window.location.href = `/dashboard/${journeyId}`;
+            // Verify payment on our backend before redirecting
+            verifyOrder(data.order_id);
           }
         });
       } else {
@@ -275,10 +331,92 @@ export default function CheckoutClient({
                 )}
               </div>
             ) : (
-              <>                <button
-                  disabled={isProcessing || !cashfree}
+              <>
+                <div className="text-center mb-6">
+                  <h3 className="font-serif text-xl text-white mb-2">Almost There</h3>
+                  <p className="text-xs text-white/50 font-light">
+                    Please provide your name and WhatsApp number for our concierge.
+                  </p>
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    placeholder="Full Name"
+                    className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
+                    style={{ borderColor: theme.border }}
+                    onFocus={(e) => e.target.style.borderColor = theme.gold}
+                    onBlur={(e) => e.target.style.borderColor = theme.border}
+                  />
+                </div>
+                <div className="mb-6 flex gap-2">
+                  <div className="relative w-1/3 country-dropdown-container">
+                    <div 
+                      onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                      className="w-full px-3 py-3 h-full bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light text-white cursor-pointer flex items-center justify-between"
+                      style={{ borderColor: theme.border }}
+                    >
+                      <span className="truncate">
+                        {selectedCountry.flag} {selectedCountry.code}
+                      </span>
+                      <svg className={`w-4 h-4 fill-current text-white/50 transition-transform ${isCountryDropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                      </svg>
+                    </div>
+
+                    {isCountryDropdownOpen && (
+                      <div className="absolute z-50 bottom-full mb-2 w-64 bg-[#12100e] border border-white/10 shadow-2xl rounded-sm max-h-64 flex flex-col">
+                        <div className="p-2 border-b border-white/10 sticky top-0 bg-[#12100e]">
+                          <input
+                            type="text"
+                            placeholder="Search countries..."
+                            value={countrySearch}
+                            onChange={(e) => setCountrySearch(e.target.value)}
+                            className="w-full bg-white/5 border-none px-3 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-[#c9a96e] rounded-sm"
+                            autoFocus
+                          />
+                        </div>
+                        <ul className="overflow-y-auto custom-scrollbar">
+                          {filteredCountries.length > 0 ? filteredCountries.map((c, i) => (
+                            <li 
+                              key={i}
+                              onClick={() => {
+                                setSelectedCountry(c);
+                                setIsCountryDropdownOpen(false);
+                                setCountrySearch("");
+                              }}
+                              className="px-4 py-2 text-sm text-white/80 hover:bg-[#c9a96e]/10 hover:text-[#c9a96e] cursor-pointer flex justify-between items-center transition-colors"
+                            >
+                              <span className="truncate pr-4">{c.flag} {c.name}</span>
+                              <span className="text-white/40">{c.code}</span>
+                            </li>
+                          )) : (
+                            <li className="px-4 py-3 text-sm text-white/40 text-center">No countries found</li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  <div className="relative w-2/3">
+                    <input
+                      type="tel"
+                      value={whatsapp}
+                      onChange={(e) => setWhatsapp(e.target.value.replace(/\D/g, ''))}
+                      required
+                      placeholder="WhatsApp Number"
+                      className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
+                      style={{ borderColor: theme.border }}
+                      onFocus={(e) => e.target.style.borderColor = theme.gold}
+                      onBlur={(e) => e.target.style.borderColor = theme.border}
+                    />
+                  </div>
+                </div>
+                <button
+                  disabled={isProcessing || !cashfree || name.trim().length === 0 || (`${selectedCountry.code}${whatsapp}`).replace(/\D/g, '').length < 7}
                   onClick={handleDepositClick}
-                  className="w-full py-4 text-sm uppercase tracking-widest font-bold border border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.1)] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 text-sm uppercase tracking-widest font-bold border border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.1)] disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
                 >
                   {isProcessing ? (
                     <span>Connecting to Secure Gateway...</span>
