@@ -444,15 +444,15 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
   if (loadingAction) {
     const bespokePhrases = [
-      "Analyzing preferences...",
-      "Cross-referencing seasonal matrices...",
-      "Calculating transit friction...",
-      "Optimizing honest route..."
+      "Analyzing preferences…",
+      "Cross-referencing seasonal matrices…",
+      "Calculating transit friction…",
+      "Optimizing honest route…"
     ];
     const checkoutPhrases = [
-      "Securing your itinerary...",
-      "Reserving dates...",
-      "Preparing checkout..."
+      "Securing your itinerary…",
+      "Reserving dates…",
+      "Preparing checkout…"
     ];
     
     return (
@@ -708,7 +708,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     <div className="absolute top-full left-0 w-full mt-2 bg-[#1a1714] border border-[#2a241e] rounded-sm shadow-2xl z-50 overflow-hidden">
                       {isSearchingLocation ? (
                         <div className="p-4 text-white/50 text-sm flex items-center gap-3">
-                          <Spinner size="sm" showLogo={false} /> Searching...
+                          <Spinner size="sm" showLogo={false} /> Searching…
                         </div>
                       ) : locationResults.length > 0 ? (
                         <ul className="max-h-60 overflow-y-auto custom-scrollbar">
@@ -749,7 +749,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   <div className="flex items-center gap-8 mb-6">
                     <button 
                       onClick={() => setSelectedDays(prev => Math.max(1, prev - 1))}
-                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition-all duration-200"
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition duration-200"
                     >
                       <Minus size={24} />
                     </button>
@@ -764,7 +764,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                             setSelectedDays(Math.min(90, Math.max(1, val)));
                           }
                         }}
-                        className="w-full bg-transparent text-center text-7xl font-serif text-[#c9a96e] focus:outline-none focus:ring-0 appearance-none m-0 p-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0"
+                        className="w-full bg-transparent text-center text-7xl font-serif text-[#c9a96e] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] appearance-none m-0 p-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0"
                         style={{ textShadow: "0px 0px 30px rgba(201,169,110,0.4)", MozAppearance: "textfield" }}
                       />
                       <span className="text-xl text-white/50 mt-2 font-serif">Days</span>
@@ -772,7 +772,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
                     <button 
                       onClick={() => setSelectedDays(prev => Math.min(90, prev + 1))}
-                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition-all duration-200"
+                      className="w-14 h-14 rounded-full border border-[#c9a96e]/30 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e]/10 active:scale-95 touch-manipulation transition duration-200"
                     >
                       <Plus size={24} />
                     </button>
@@ -784,7 +784,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     animate={{ opacity: 1, y: 0 }}
                     className="text-white/60 text-sm italic tracking-wide"
                   >
-                    {selectedDays < 7 ? "A brief escape..." : selectedDays <= 14 ? "A standard tour..." : selectedDays <= 21 ? "A grand immersion..." : selectedDays <= 45 ? "A long expedition..." : "A monumental journey..."}
+                    {selectedDays < 7 ? "A brief escape…" : selectedDays <= 14 ? "A standard tour…" : selectedDays <= 21 ? "A grand immersion…" : selectedDays <= 45 ? "A long expedition…" : "A monumental journey…"}
                   </motion.p>
                 </div>
               </div>
@@ -960,7 +960,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                           placeholder="blur"
                           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
-                          className={`object-cover transition-all duration-700 ease-out z-0 ${isSelected ? 'opacity-70 scale-105 saturate-100' : 'opacity-40 saturate-0 group-hover:opacity-60 group-hover:saturate-50 scale-100 group-hover:scale-105'}`}
+                          className={`object-cover transition duration-700 ease-out z-0 ${isSelected ? 'opacity-70 scale-105 saturate-100' : 'opacity-40 saturate-0 group-hover:opacity-60 group-hover:saturate-50 scale-100 group-hover:scale-105'}`}
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/50 to-transparent z-[1] opacity-100 pointer-events-none" />
@@ -1004,7 +1004,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                       </div>
                       <input
                         type="text"
-                        placeholder="Search destinations (e.g. Rishikesh)..."
+                        placeholder="Search destinations (e.g. Rishikesh)…"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-4 text-sm md:text-base text-white placeholder-white/40 focus:outline-none focus:border-[#c9a96e]/50 focus:bg-white/10 transition-colors"
@@ -1509,9 +1509,9 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
 
                         if (isValidating) {
                           return (
-                            <div className="flex gap-3 items-center text-white/40 p-4">
+                            <div className="flex gap-3 items-center text-white/40 p-4" aria-live="polite">
                               <Spinner size="sm" showLogo={false} />
-                              <span className="font-sans text-[11px] uppercase tracking-widest">Reviewing route...</span>
+                              <span className="font-sans text-[11px] uppercase tracking-widest">Reviewing route…</span>
                             </div>
                           );
                         }

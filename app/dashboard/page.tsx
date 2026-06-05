@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Map, Calendar, ArrowRight, LogOut } from "lucide-react";
 
 export const metadata = {
-  title: "Your Dossiers | Beyond Taj",
+  title: "Your Blueprints | Beyond Taj",
 };
 
 export default async function UserPortal() {
@@ -42,7 +42,7 @@ export default async function UserPortal() {
         <div className="mb-16">
           <p className="uppercase tracking-widest text-xs mb-3" style={{ color: theme.gold }}>The Intelligence Portal</p>
           <h1 className="font-serif text-4xl md:text-5xl font-light text-white leading-tight mb-4">
-            Your Travel Dossiers
+            Your Travel Blueprints
           </h1>
           <p className="text-lg font-light text-white/60 max-w-2xl">
             Access your secure, honest blueprints. These itineraries have been mathematically optimized and verified by local specialists.
@@ -52,7 +52,7 @@ export default async function UserPortal() {
         {journeys.length === 0 ? (
           <div className="text-center py-20 border border-dashed rounded-sm" style={{ borderColor: theme.border, backgroundColor: theme.darker }}>
             <Map size={48} className="mx-auto mb-6 text-white/20" />
-            <h2 className="font-serif text-2xl text-white mb-3">No Active Dossiers</h2>
+            <h2 className="font-serif text-2xl text-white mb-3">No Active Blueprints</h2>
             <p className="text-white/50 font-light mb-8 max-w-md mx-auto">
               You haven't generated any travel blueprints yet. Return to the concierge to begin crafting your journey.
             </p>
@@ -78,7 +78,7 @@ export default async function UserPortal() {
                 <div className="relative z-10 mb-10">
                   <div className="flex justify-between items-start mb-6">
                     <span className="uppercase tracking-widest text-[10px] font-bold px-3 py-1 rounded-full border border-white/10" style={{ color: journey.status === 'completed' ? theme.gold : 'rgba(255,255,255,0.4)', backgroundColor: journey.status === 'completed' ? `${theme.gold}10` : 'rgba(255,255,255,0.05)' }}>
-                      {journey.status === 'completed' ? 'Active Dossier' : 'Pending Payment'}
+                      {journey.status === 'completed' ? 'Active Blueprint' : 'Pending Payment'}
                     </span>
                     <span className="text-xs font-light text-white/40 flex items-center gap-2">
                       <Calendar size={12} />

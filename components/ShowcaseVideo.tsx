@@ -31,6 +31,7 @@ export default function ShowcaseVideo() {
             suppressHydrationWarning
             className="w-full h-full object-cover"
             src="/showcase-720.mp4"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
       </div>

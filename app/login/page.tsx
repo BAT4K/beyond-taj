@@ -55,7 +55,7 @@ export default function LoginPage() {
           <div className="relative z-10 text-center mb-8">
             <h1 className="font-serif text-3xl mb-3 text-white">Access Portal</h1>
             <p className="text-white/50 text-sm font-light leading-relaxed">
-              Enter your email address to receive a secure, passwordless magic link to your travel dossiers.
+              Enter your email address to receive a secure, passwordless magic link to your travel blueprints.
             </p>
           </div>
 

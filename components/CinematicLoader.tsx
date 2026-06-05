@@ -4,10 +4,10 @@ import React from "react";
 import FullscreenLoader from "./FullscreenLoader";
 
 const PHRASES = [
-  "Analyzing routing logistics...",
-  "Vetting heritage properties...",
-  "Optimizing transit windows...",
-  "Generating custom vector blueprint..."
+  "Analyzing routing logistics…",
+  "Vetting heritage properties…",
+  "Optimizing transit windows…",
+  "Generating custom vector blueprint…"
 ];
 
 export default function CinematicLoader() {

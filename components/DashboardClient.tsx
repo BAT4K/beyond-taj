@@ -166,7 +166,7 @@ export default function DashboardClient({ journeyId, destinations }: DashboardCl
               className="px-10 py-4 uppercase tracking-widest text-sm font-bold rounded-sm hover:bg-white transition-colors cursor-pointer shadow-lg inline-flex items-center justify-center gap-3 w-full md:w-auto active:scale-[0.98] active:opacity-90 touch-manipulation"
             >
               <FileDown size={18} />
-              Download Offline Dossier (PDF)
+              Download Offline Blueprint (PDF)
             </button>
             <a
               href={`https://wa.me/1234567890?text=Hi,%20I%20need%20help%20with%20my%20Beyond%20Taj%20blueprint.%20My%20Journey%20ID%20is:%20${journeyId}`}

@@ -1,8 +1,15 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session || !session.user || !(session.user as any).id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { journeyId } = await req.json();
 
     if (!journeyId) {
@@ -15,6 +22,14 @@ export async function POST(req: Request) {
 
     if (!journey) {
       return NextResponse.json({ error: 'Journey not found' }, { status: 404 });
+    }
+
+    if (journey.userId !== (session.user as any).id) {
+      return NextResponse.json({ error: 'Forbidden. You do not own this journey.' }, { status: 403 });
+    }
+
+    if (journey.status !== 'paid' && journey.status !== 'completed') {
+      return NextResponse.json({ error: 'Payment required before generation.' }, { status: 403 });
     }
 
     const destinationIds = (journey.destinations || []) as string[];

@@ -26,6 +26,7 @@ export default function Hero() {
           priority
           sizes="100vw"
           className="object-cover"
+          style={{ objectFit: "cover" }}
         />
         <video
           suppressHydrationWarning
@@ -39,6 +40,7 @@ export default function Hero() {
           poster="/master-hero-poster.webp"
           src="/master-hero.mp4"
           className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
       </div>

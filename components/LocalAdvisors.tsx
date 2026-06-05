@@ -122,7 +122,7 @@ export default function LocalAdvisors() {
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
-            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
             aria-label="Scroll left"
           >
             <ChevronLeft size={20} />
@@ -130,7 +130,7 @@ export default function LocalAdvisors() {
           <button
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
-            className="w-12 h-12 rounded-full border border-[#c9a96e]/30 bg-[#c9a96e]/10 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e] hover:text-[#0a0806] transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-[#c9a96e]/10 disabled:hover:text-[#c9a96e]"
+            className="w-12 h-12 rounded-full border border-[#c9a96e]/30 bg-[#c9a96e]/10 flex items-center justify-center text-[#c9a96e] hover:bg-[#c9a96e] hover:text-[#0a0806] transition disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-[#c9a96e]/10 disabled:hover:text-[#c9a96e]"
             aria-label="Scroll right"
           >
             <ChevronRight size={20} />

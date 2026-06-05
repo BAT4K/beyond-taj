@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from "@/lib/prisma";
+import { sendAdminNotification } from "@/lib/resend";
 
 export async function POST(request: Request) {
   try {
@@ -29,10 +30,19 @@ export async function POST(request: Request) {
 
     // order_status can be PAID, ACTIVE, EXPIRED, etc.
     if (orderData.order_status === 'PAID') {
-      await prisma.journey.update({
+      const journey = await prisma.journey.update({
         where: { id: journeyId },
         data: { status: 'completed' }
       });
+      
+      // Fire admin notification securely in the background
+      if (journey.customerEmail) {
+        // We don't await this so it doesn't block the webhook response
+        sendAdminNotification(journey.customerEmail, journey.days, orderData.order_amount).catch(err => {
+          console.error("Failed to trigger admin notification", err);
+        });
+      }
+
       return NextResponse.json({ success: true, status: 'completed' });
     }
 

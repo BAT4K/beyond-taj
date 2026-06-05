@@ -279,7 +279,7 @@ export default function CheckoutClient({
             {status === "loading" ? (
               <div className="flex flex-col items-center justify-center py-6 gap-4 border border-white/5 rounded-sm" style={{ backgroundColor: theme.bg }}>
                 <Spinner size="sm" showLogo={false} />
-                <span className="text-xs uppercase tracking-widest text-white/40">Verifying Identity...</span>
+                <span className="text-xs uppercase tracking-widest text-white/40">Verifying Identity…</span>
               </div>
             ) : status === "unauthenticated" ? (
               <div className="p-6 md:p-8 rounded-sm border" style={{ backgroundColor: theme.bg, borderColor: theme.border }}>
@@ -298,7 +298,7 @@ export default function CheckoutClient({
                     <div className="text-center mb-6">
                       <h3 className="font-serif text-xl text-white mb-2">Secure Your Blueprint</h3>
                       <p className="text-xs text-white/50 font-light">
-                        Enter your email to verify your identity and attach this journey to your private dossier.
+                        Enter your email to verify your identity and attach this journey to your private blueprint.
                       </p>
                     </div>
                     <form onSubmit={handleAuthSubmit} className="space-y-4">
@@ -311,8 +311,9 @@ export default function CheckoutClient({
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
+                          autoComplete="email"
                           placeholder="traveler@example.com"
-                          className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
+                          className="w-full pl-11 pr-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white"
                           style={{ borderColor: theme.border }}
                           onFocus={(e) => e.target.style.borderColor = theme.gold}
                           onBlur={(e) => e.target.style.borderColor = theme.border}
@@ -323,7 +324,7 @@ export default function CheckoutClient({
                         disabled={isProcessing || email.length === 0}
                         className="w-full py-3.5 uppercase tracking-widest text-xs font-bold rounded-sm border border-[#c9a96e]/40 bg-[#c9a96e]/10 text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                       >
-                        {isProcessing ? "Sending Secure Link..." : "Authenticate to Continue"}
+                        {isProcessing ? "Sending Secure Link…" : "Authenticate to Continue"}
                         {!isProcessing && <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />}
                       </button>
                     </form>
@@ -344,8 +345,9 @@ export default function CheckoutClient({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                    autoComplete="name"
                     placeholder="Full Name"
-                    className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
+                    className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white"
                     style={{ borderColor: theme.border }}
                     onFocus={(e) => e.target.style.borderColor = theme.gold}
                     onBlur={(e) => e.target.style.borderColor = theme.border}
@@ -371,7 +373,7 @@ export default function CheckoutClient({
                         <div className="p-2 border-b border-white/10 sticky top-0 bg-[#12100e]">
                           <input
                             type="text"
-                            placeholder="Search countries..."
+                            placeholder="Search countries…"
                             value={countrySearch}
                             onChange={(e) => setCountrySearch(e.target.value)}
                             className="w-full bg-white/5 border-none px-3 py-2 text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-[#c9a96e] rounded-sm"
@@ -405,8 +407,9 @@ export default function CheckoutClient({
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value.replace(/\D/g, ''))}
                       required
+                      autoComplete="tel"
                       placeholder="WhatsApp Number"
-                      className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light placeholder-white/20 text-white"
+                      className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white"
                       style={{ borderColor: theme.border }}
                       onFocus={(e) => e.target.style.borderColor = theme.gold}
                       onBlur={(e) => e.target.style.borderColor = theme.border}
@@ -419,7 +422,7 @@ export default function CheckoutClient({
                   className="w-full py-4 text-sm uppercase tracking-widest font-bold border border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.1)] disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
                 >
                   {isProcessing ? (
-                    <span>Connecting to Secure Gateway...</span>
+                    <span>Connecting to Secure Gateway…</span>
                   ) : (
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       <Lock size={16} />
