@@ -40,7 +40,7 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     EmailProvider({
-      from: process.env.EMAIL_FROM || "Beyond Taj <hello@beyondtaj.com>",
+      from: process.env.EMAIL_FROM || "Beyond Taj <onboarding@resend.dev>",
       sendVerificationRequest: async ({ identifier, url, provider }) => {
         const { host } = new URL(url);
         
@@ -48,13 +48,18 @@ export const authOptions: NextAuthOptions = {
           // Plain text fallback to bypass aggressive spam filters
           const textContent = `Sign in to Beyond Taj\n\nClick the link below to securely sign in:\n${url}\n\nIf you did not request this email, you can safely ignore it.`;
 
-          await resend.emails.send({
+          const { error } = await resend.emails.send({
             from: provider.from,
             to: identifier,
             subject: `Sign in to Beyond Taj`,
             html: MagicLinkEmail({ url, host }),
             text: textContent,
           });
+          
+          if (error) {
+            console.error("Resend API Error:", error);
+            throw new Error(`Resend API Error: ${error.message}`);
+          }
         } catch (error) {
           console.error("Failed to send verification email", error);
           throw new Error("Failed to send verification email");
