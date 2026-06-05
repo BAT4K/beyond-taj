@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from "@/lib/prisma";
-import { sendAdminNotification } from "@/lib/resend";
+import { sendAdminNotification, sendCustomerReceipt } from "@/lib/resend";
 
 export async function POST(request: Request) {
   try {
@@ -38,8 +38,32 @@ export async function POST(request: Request) {
       // Fire admin notification securely in the background
       if (journey.customerEmail) {
         // We don't await this so it doesn't block the webhook response
-        sendAdminNotification(journey.customerEmail, journey.days, orderData.order_amount).catch(err => {
+        sendAdminNotification(journey, orderData.order_amount).catch(err => {
           console.error("Failed to trigger admin notification", err);
+        });
+
+        // Determine the destination string
+        let destinationString = "India";
+        try {
+          const dests = JSON.parse(journey.destinations as string);
+          if (Array.isArray(dests) && dests.length > 0) {
+            destinationString = dests.join(', ');
+          }
+        } catch (e) {
+          if (typeof journey.destinations === 'string' && journey.destinations !== '[]') {
+            destinationString = journey.destinations;
+          }
+        }
+
+        // Fire customer receipt securely in the background
+        sendCustomerReceipt(
+          journey.customerEmail,
+          journey.customerName,
+          destinationString,
+          journey.days,
+          orderData.order_amount
+        ).catch(err => {
+          console.error("Failed to trigger customer receipt", err);
         });
       }
 
