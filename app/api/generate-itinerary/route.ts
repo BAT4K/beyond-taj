@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       throw new Error("GEMINI_API_KEY is not configured");
     }
 
-    const prompt = `You are a luxury Indian travel expert. Create a detailed, highly curated itinerary for a ${journey.duration} day trip to ${destinationNames.join(', ')} in India.
+    const prompt = `You are a luxury Indian travel expert. Create a luxurious, highly curated itinerary for a ${journey.days} day trip to ${destinationNames.join(', ')} in India.
 
 Return ONLY a valid JSON object matching this exact TypeScript interface, with no markdown formatting or backticks:
 
@@ -51,7 +51,7 @@ interface ItineraryResponse {
   antiScamTips: string[]; // 2-3 essential security tips for these specific locations
 }
 
-The dailyItinerary array must have exactly ${journey.duration} items. Keep activity descriptions highly descriptive and luxurious but concise (1-2 sentences max).`;
+The dailyItinerary array must have exactly ${journey.days} items. Keep activity descriptions highly descriptive and luxurious but concise (1-2 sentences max).`;
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
