@@ -10,7 +10,14 @@ export default async function DashboardPage({ params }: { params: Promise<{ jour
     select: {
       id: true,
       status: true,
-      destinations: true
+      destinations: true,
+      days: true,
+      travelStyle: true,
+      startLocation: true,
+      landscapes: true,
+      customerName: true,
+      residency: true,
+      specificInterests: true
     }
   });
 
@@ -18,7 +25,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ jour
     notFound();
   }
 
-  if (journey.status !== 'completed') {
+  if (journey.status === 'pending') {
     redirect(`/checkout/${journey.id}`);
   }
 
@@ -46,6 +53,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ jour
     <DashboardClient
       journeyId={journey.id}
       destinations={destinations}
+      journey={journey}
     />
   );
 }

@@ -34,25 +34,25 @@ export async function sendAdminNotification(journey: any, price: number) {
   }
 }
 
-export async function sendCustomerReceipt(customerEmail: string, customerName: string, destination: string, days: number, price: number) {
+export async function sendCustomerInquiryEmail(customerEmail: string, customerName: string, destination: string, days: number) {
   try {
     const htmlString = await render(
       <ReceiptEmailTemplate 
         customerName={customerName || 'Traveler'} 
         destination={destination} 
         days={days} 
-        price={price} 
+        price={0} 
       />
     );
 
     await resend.emails.send({
       from: process.env.EMAIL_FROM || "Beyond Taj <onboarding@resend.dev>",
       to: customerEmail,
-      subject: "Your Beyond Taj Journey: Itinerary in Progress",
+      subject: "Your Beyond Taj Blueprint Inquiry",
       html: htmlString,
-      text: `Dear ${customerName || 'Traveler'},\n\nThank you for trusting Beyond Taj. We have successfully received your payment of $${price}.\n\nOur concierge specialists are currently reviewing your preferences and curating your bespoke itinerary. We will personally deliver your complete blueprint shortly.\n\nPurchase Summary:\nDestination: ${destination}\nDuration: ${days} Days\nTotal Paid: $${price}\n\nWarm regards,\nThe Beyond Taj Team`,
+      text: `Dear ${customerName || 'Traveler'},\n\nThank you for requesting a blueprint with Beyond Taj. We have successfully received your inquiry.\n\nOur concierge specialists are currently reviewing your preferences. We will be reaching out via WhatsApp or email shortly to discuss your custom itinerary and coordinate the blueprint creation.\n\nInquiry Summary:\nDestination: ${destination}\nDuration: ${days} Days\n\nWarm regards,\nThe Beyond Taj Team`,
     });
   } catch (error) {
-    console.error("Failed to send customer receipt email", error);
+    console.error("Failed to send customer inquiry email", error);
   }
 }

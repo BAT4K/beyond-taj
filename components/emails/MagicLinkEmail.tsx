@@ -31,6 +31,19 @@ export const MagicLinkEmailTemplate = ({
   return (
     <Html>
       <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style>
+          {`
+            :root {
+              color-scheme: light dark;
+              supported-color-schemes: light dark;
+            }
+            body {
+              background-color: #0a0806 !important;
+            }
+          `}
+        </style>
         <Font
           fontFamily="Playfair Display"
           fallbackFontFamily="Georgia"
@@ -59,9 +72,8 @@ export const MagicLinkEmailTemplate = ({
             <Img
               src={logoUrl}
               width="60"
-              height="60"
               alt="Beyond Taj Emblem"
-              style={logo}
+              style={{ ...logo, height: 'auto' }}
             />
             <Heading style={heading}>Beyond Taj</Heading>
           </Section>

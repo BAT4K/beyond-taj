@@ -32,6 +32,19 @@ export const ReceiptEmailTemplate = ({
   return (
     <Html>
       <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style>
+          {`
+            :root {
+              color-scheme: light dark;
+              supported-color-schemes: light dark;
+            }
+            body {
+              background-color: #0a0806 !important;
+            }
+          `}
+        </style>
         <Font
           fontFamily="Playfair Display"
           fallbackFontFamily="Georgia"
@@ -75,15 +88,15 @@ export const ReceiptEmailTemplate = ({
             </Text>
             
             <Text style={text}>
-              Thank you for trusting Beyond Taj with your expedition. We have successfully received your payment of <strong>${price}</strong>.
+              Thank you for requesting a blueprint with Beyond Taj. We have successfully received your inquiry.
             </Text>
             
             <Text style={highlightText}>
-              Our concierge specialists are currently reviewing your preferences and curating your bespoke itinerary. We will personally deliver your complete blueprint shortly.
+              Our concierge specialists are currently reviewing your preferences. We will be reaching out via WhatsApp or email shortly to discuss your custom itinerary and coordinate the blueprint creation.
             </Text>
             
             <Container style={summaryBox}>
-              <Text style={summaryTitle}>Purchase Summary</Text>
+              <Text style={summaryTitle}>Inquiry Summary</Text>
               <Hr style={summaryDivider} />
               <Section>
                 <Text style={summaryRow}>
@@ -91,9 +104,6 @@ export const ReceiptEmailTemplate = ({
                 </Text>
                 <Text style={summaryRow}>
                   <strong style={summaryLabel}>Duration:</strong> {days} Days
-                </Text>
-                <Text style={summaryRow}>
-                  <strong style={summaryLabel}>Total Paid:</strong> ${price}
                 </Text>
               </Section>
             </Container>

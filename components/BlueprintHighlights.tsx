@@ -46,7 +46,7 @@ export default function BlueprintHighlights() {
             WHAT’S IN A BLUEPRINT
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-white font-light leading-tight text-balance">
-            What you actually get for $40
+            What you actually get for $40 / $75
           </h2>
           <p className="text-white/40 text-sm md:text-base tracking-wide leading-relaxed">
             A 40+ page PDF you can read offline, sized for your phone or print.
@@ -81,6 +81,15 @@ export default function BlueprintHighlights() {
               </motion.div>
             );
           })}
+        </div>
+        
+        <div className="mt-16 flex justify-center">
+          <a
+            href="/plan"
+            className="group relative inline-flex items-center justify-center px-8 py-4 uppercase tracking-[0.2em] text-xs font-bold bg-[#c9a96e] text-black hover:bg-[#b0935d] transition-colors duration-300 rounded-sm shadow-[0_0_20px_rgba(201,169,110,0.2)] hover:shadow-[0_0_30px_rgba(201,169,110,0.4)]"
+          >
+            Start Your Inquiry
+          </a>
         </div>
       </div>
     </section>

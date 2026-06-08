@@ -30,9 +30,9 @@ export default async function AdminDashboard() {
               <p className="text-xs text-white/40 uppercase tracking-widest">Paid</p>
               <p className="font-serif text-2xl text-[#c9a96e]">{paidCount}</p>
             </div>
-            <div className="text-left sm:text-right">
-              <p className="text-xs text-white/40 uppercase tracking-widest">Pending</p>
-              <p className="font-serif text-2xl text-white/70">{pendingCount}</p>
+            <div className="text-left sm:text-right" title="Journeys that were generated but no inquiry was submitted (abandoned carts)">
+              <p className="text-xs text-white/40 uppercase tracking-widest">Abandoned</p>
+              <p className="font-serif text-2xl text-white/30">{pendingCount}</p>
             </div>
           </div>
         </div>
@@ -51,12 +51,12 @@ export default async function AdminDashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
-              {journeys.length === 0 ? (
+              {journeys.filter(j => j.status !== 'pending').length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-8 text-center text-white/30 italic">No journeys found.</td>
+                  <td colSpan={6} className="px-6 py-8 text-center text-white/30 italic">No submitted inquiries found.</td>
                 </tr>
               ) : (
-                journeys.map((journey) => (
+                journeys.filter(j => j.status !== 'pending').map((journey) => (
                   <tr key={journey.id} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4">
                       <p className="text-white/90 font-medium">{journey.customerName}</p>
@@ -99,14 +99,14 @@ export default async function AdminDashboard() {
           </table>
         </div>
 
-        {/* Mobile Card View */}
+        {/* Mobile View */}
         <div className="md:hidden space-y-4">
-          {journeys.length === 0 ? (
-            <div className="p-6 border border-white/10 rounded-sm bg-[#12100e] text-center text-white/30 italic">
-              No journeys found.
+          {journeys.filter(j => j.status !== 'pending').length === 0 ? (
+            <div className="p-8 text-center text-white/30 italic border border-white/10 rounded-sm bg-[#12100e]">
+              No submitted inquiries found.
             </div>
           ) : (
-            journeys.map((journey) => (
+            journeys.filter(j => j.status !== 'pending').map((journey) => (
               <div key={journey.id} className="p-5 border border-white/10 rounded-sm bg-[#12100e] space-y-4">
                 <div className="flex justify-between items-start">
                   <div>

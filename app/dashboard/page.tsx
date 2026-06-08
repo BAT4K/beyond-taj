@@ -77,8 +77,8 @@ export default async function UserPortal() {
                 
                 <div className="relative z-10 mb-10">
                   <div className="flex justify-between items-start mb-6">
-                    <span className="uppercase tracking-widest text-[10px] font-bold px-3 py-1 rounded-full border border-white/10" style={{ color: journey.status === 'completed' ? theme.gold : 'rgba(255,255,255,0.4)', backgroundColor: journey.status === 'completed' ? `${theme.gold}10` : 'rgba(255,255,255,0.05)' }}>
-                      {journey.status === 'completed' ? 'Active Blueprint' : 'Pending Payment'}
+                    <span className="uppercase tracking-widest text-[10px] font-bold px-3 py-1 rounded-full border border-white/10" style={{ color: journey.status === 'completed' ? theme.gold : (journey.status === 'inquiry_submitted' ? '#3b82f6' : 'rgba(255,255,255,0.4)'), backgroundColor: journey.status === 'completed' ? `${theme.gold}10` : (journey.status === 'inquiry_submitted' ? 'rgba(59,130,246,0.1)' : 'rgba(255,255,255,0.05)') }}>
+                      {journey.status === 'completed' ? 'Active Blueprint' : (journey.status === 'inquiry_submitted' ? 'Inquiry Submitted' : 'Pending Payment')}
                     </span>
                     <span className="text-xs font-light text-white/40 flex items-center gap-2">
                       <Calendar size={12} />
@@ -109,11 +109,11 @@ export default async function UserPortal() {
 
                 <div className="relative z-10 pt-6 border-t border-white/5 mt-auto">
                   <Link
-                    href={journey.status === 'completed' ? `/dashboard/${journey.id}` : `/checkout/${journey.id}`}
+                    href={journey.status === 'pending' ? `/checkout/${journey.id}` : `/dashboard/${journey.id}`}
                     className={`flex items-center justify-between w-full uppercase tracking-widest text-xs font-bold transition-colors hover:text-white`}
-                    style={{ color: journey.status === 'completed' ? theme.gold : 'rgba(255,255,255,0.4)' }}
+                    style={{ color: journey.status === 'pending' ? 'rgba(255,255,255,0.4)' : theme.gold }}
                   >
-                    <span>{journey.status === 'completed' ? 'View Blueprint' : 'Complete Payment'}</span>
+                    <span>{journey.status === 'pending' ? 'Complete Inquiry' : 'View Blueprint'}</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

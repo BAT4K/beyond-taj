@@ -9,7 +9,6 @@ import Spinner from "./Spinner";
 import FullscreenLoader from "./FullscreenLoader";
 import Link from "next/link";
 import Image from "next/image";
-import { generateBespokeRoute } from "@/lib/curationEngine";
 import { calculateMatchScore, Destination } from "@shared/travel-rules";
 
 export type MappedDestination = Destination & {
@@ -42,7 +41,7 @@ const DESTINATION_IMAGES: Record<string, string> = {};
 
 
 const LANDSCAPE_IMAGES: Record<string, string> = {
-  "Mountains": "/destinations/leh-ladakh.webp",
+  "Mountains": "/destinations/kashmir-valley.webp",
   "Coastal & Islands": "/destinations/andaman-islands.webp",
   "Royal Cities": "/destinations/jaipur.webp",
   "Desert": "/destinations/jaisalmer.webp",
@@ -149,7 +148,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   const [destinationError, setDestinationError] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [isAutoCurated, setIsAutoCurated] = useState(false);
-  const [curationRationale, setCurationRationale] = useState<string | null>(null);
+
   const [warnings, setWarnings] = useState<WarningMessage[]>([]);
   const [isValidating, setIsValidating] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
@@ -165,7 +164,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
   useEffect(() => {
     if (isAutoCurated) {
       setIsAutoCurated(false);
-      setCurationRationale(null);
+
       setSelectedDestinations([]);
     }
   }, [travelMonths, selectedDays, travelStyle, selectedLandscapes]);
@@ -328,34 +327,38 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
     );
   };
 
-  const toggleAutoCuration = () => {
-    if (!isAutoCurated) {
-      setLoadingAction('curating');
-      
-      setTimeout(() => {
-        setIsAutoCurated(true);
-        // Map travelStyle to vibe tags for the engine
-        const styleVibeMap: Record<string, string[]> = {
-          'Luxury Explorer': ['Luxury', 'Regal', 'Exclusive', 'Iconic', 'Historic'],
-          'Balanced': ['Authentic', 'Cultural', 'Scenic', 'Soulful', 'Vibrant'],
-        };
-        const selectedVibes = styleVibeMap[travelStyle] || styleVibeMap['Balanced'];
-        
-        const result = generateBespokeRoute(
-          { travelMonths, selectedLandscapes, selectedVibes, days: selectedDays, companions: companions || undefined }, 
-          destinations,
-          transitRoutes
-        );
-        setSelectedDestinations(result.destinationIds);
-        setCurationRationale(result.rationale);
-        setWarnings([]);
-        setValidationMessages([]);
+  const toggleAutoCuration = async () => {
+    setLoadingAction('checkout');
+    setIsAutoCurated(true);
+    
+    try {
+      const response = await fetch('/api/journeys', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          days: selectedDays,
+          travelStyle,
+          residency,
+          startLocation,
+          landscapes: selectedLandscapes,
+          destinations: [],
+          isAutoCurated: true,
+          companions,
+        }),
+      });
+      if (response.ok) {
+        const journey = await response.json();
+        router.push(`/checkout/${journey.id}`);
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Failed to save journey');
         setLoadingAction(null);
-      }, 4000);
-    } else {
+        setIsAutoCurated(false);
+      }
+    } catch (err) {
+      console.error(err);
+      setLoadingAction(null);
       setIsAutoCurated(false);
-      setSelectedDestinations([]);
-      setCurationRationale(null);
     }
   };
 
@@ -1022,8 +1025,11 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         </motion.div>
                       )}
                     </AnimatePresence>
+                    <p className="text-white/40 text-[11px] md:text-xs font-light italic mt-4 max-w-xl mx-auto">
+                      If your location is not in the catalogue, use <span className="text-[#c9a96e]">Curate My Journey</span> and tell us about the location on WhatsApp.
+                    </p>
                   </div>
-                  <div className="flex flex-col lg:flex-row gap-8">
+                  <div className="flex flex-col lg:flex-row gap-8 mt-4">
                     
 {/* Zero-State Lobby & Grid Container */}
 <div ref={gridScrollRef} className="flex-1 flex flex-col min-w-0 max-h-[70vh] overflow-y-auto custom-scrollbar" id="main-scroll-container">
@@ -1186,7 +1192,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 
                 <div className="z-20 w-full md:w-auto shrink-0">
                   <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3 whitespace-nowrap">
-                    Curate My Journey <ChevronRight size={16} />
+                    {loadingAction === 'checkout' ? 'Processing...' : 'Curate My Journey'} <ChevronRight size={16} />
                   </div>
                 </div>
                 
@@ -1272,7 +1278,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
             
             <div className="z-20 w-full md:w-auto shrink-0">
               <div className="px-8 py-4 w-full md:w-auto text-center border border-[#c9a96e] text-[#c9a96e] group-hover:bg-[#c9a96e] group-hover:text-black text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors flex items-center justify-center gap-3 whitespace-nowrap">
-                {isAutoCurated ? 'Curated Mode Active' : 'Curate My Journey'} <ChevronRight size={16} />
+                {loadingAction === 'checkout' ? 'Processing...' : 'Curate My Journey'} <ChevronRight size={16} />
               </div>
             </div>
             {/* Subtle background glow */}
@@ -1462,15 +1468,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                     <div className="w-full lg:w-96 shrink-0 sticky top-8 h-fit bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 flex flex-col gap-6">
                       <div>
                         <h4 className="font-sans uppercase tracking-widest text-[10px] mb-4 text-white/50">Your Selection</h4>
-                        {isAutoCurated ? (
-                          <div className="bg-black/40 border border-white/10 p-5 rounded-sm">
-                            <div className="flex gap-3 items-center text-[#c9a96e] mb-3">
-                              <Crown size={18} />
-                              <p className="text-xs uppercase tracking-widest">Concierge Insights</p>
-                            </div>
-                            <p className="font-serif text-white/90 leading-relaxed tracking-wide">&ldquo;{curationRationale}&rdquo;</p>
-                          </div>
-                        ) : selectedDestinations.length === 0 ? (
+                        {selectedDestinations.length === 0 ? (
                           <p className="text-sm text-zinc-500 italic">No destinations selected</p>
                         ) : (
                           <ul className="space-y-2">
@@ -1575,7 +1573,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                         className={`w-full group relative py-4 border overflow-hidden rounded-sm transition duration-300 active:scale-[0.98] touch-manipulation ${(selectedDestinations.length === 0 && !isAutoCurated) ? 'text-white/50' : 'hover:bg-[#c9a96e] text-[#c9a96e] hover:text-[#0a0806]'}`}
                       >
                         <span className="relative font-sans tracking-widest text-sm uppercase flex items-center justify-center gap-3 font-medium">
-                          Proceed to Checkout • ${selectedDays >= 14 ? 75 : 40} <ChevronRight size={16} />
+                          Request Blueprint <ChevronRight size={16} />
                         </span>
                       </button>
                     </div>

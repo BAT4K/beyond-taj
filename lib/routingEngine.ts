@@ -309,7 +309,7 @@ export async function evaluateTripFeasibility(
       warnings.push({
         category: 'logistics',
         severity: severity,
-        message: `${missingEdges} chosen destinations have no direct connection — you'll need to change transport at a hub in between. Completely doable by train or bus, just make sure your trip has enough days to cover the travel time.`
+        message: `Some of your chosen destinations don't share a direct route, even if they look nearby on a map. You'll simply need to transit through a central hub in between. Don't worry — our concierge will optimize this exact routing for you.`
       });
     }
   }

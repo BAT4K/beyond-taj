@@ -40,7 +40,9 @@ export default async function AdminJourneyDetails({ params }: { params: Promise<
           <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 border-b border-white/10 pb-6">
             <div>
               <h1 className="font-serif text-3xl text-white">Journey Details</h1>
-              <p className="text-white/50 text-sm mt-1 font-mono">{journey.id}</p>
+              <p className="text-white/50 text-sm mt-1 font-mono" title={journey.id}>
+                ID: {journey.id.split('-')[0].toUpperCase()}
+              </p>
             </div>
             <div className="flex items-center gap-3">
               <span className={`px-3 py-1 rounded-sm text-xs uppercase tracking-widest font-medium ${

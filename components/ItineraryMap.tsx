@@ -24,7 +24,7 @@ const theme = {
 export default function ItineraryMap({ destinations }: ItineraryMapProps) {
   const mapRef = useRef<MapRef>(null);
 
-  useEffect(() => {
+  const fitMapToBounds = () => {
     if (destinations.length > 0 && mapRef.current) {
       const selectedCoords = destinations.filter(d => d.latitude && d.longitude);
       
@@ -49,15 +49,27 @@ export default function ItineraryMap({ destinations }: ItineraryMapProps) {
             ],
             { padding: 100, duration: 1500 }
           );
+        } else {
+          // Single destination case
+          mapRef.current.flyTo({
+            center: [minLng, minLat],
+            zoom: 10,
+            duration: 1500
+          });
         }
       }
     }
+  };
+
+  useEffect(() => {
+    fitMapToBounds();
   }, [destinations]);
 
   return (
     <div className="w-full h-full">
       <Map
         ref={mapRef}
+        onLoad={fitMapToBounds}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         initialViewState={{ longitude: 78.9629, latitude: 20.5937, zoom: 4 }}
         mapStyle="mapbox://styles/mapbox/dark-v11"

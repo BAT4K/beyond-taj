@@ -37,6 +37,19 @@ export const AdminNotificationEmailTemplate = ({
   return (
     <Html>
       <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style>
+          {`
+            :root {
+              color-scheme: light dark;
+              supported-color-schemes: light dark;
+            }
+            body {
+              background-color: #0a0806 !important;
+            }
+          `}
+        </style>
         <Font
           fontFamily="Inter"
           fallbackFontFamily="Helvetica"
@@ -48,11 +61,11 @@ export const AdminNotificationEmailTemplate = ({
           fontStyle="normal"
         />
       </Head>
-      <Preview>New Purchase Alert: {journey?.days} Days (${price})</Preview>
+      <Preview>New Inquiry Alert: {journey?.days} Days</Preview>
       <Body style={main}>
         <Container style={container}>
-          <Heading style={heading}>New Purchase Alert</Heading>
-          <Text style={subtitle}>A new blueprint has been securely purchased.</Text>
+          <Heading style={heading}>New Blueprint Inquiry</Heading>
+          <Text style={subtitle}>A new customer inquiry has been received.</Text>
           
           <Section style={box}>
             <Text style={boxTitle}>Traveler Details</Text>
@@ -60,6 +73,7 @@ export const AdminNotificationEmailTemplate = ({
             <Text style={row}><strong>Email:</strong> {journey?.customerEmail}</Text>
             <Text style={row}><strong>WhatsApp:</strong> {journey?.customerWhatsapp || 'Not provided'}</Text>
             <Text style={row}><strong>Residency:</strong> {journey?.residency}</Text>
+            <Text style={row}><strong>Specific Interests:</strong> {journey?.specificInterests || 'None'}</Text>
           </Section>
 
           <Section style={box}>
@@ -72,7 +86,7 @@ export const AdminNotificationEmailTemplate = ({
           </Section>
 
           <Section style={priceBox}>
-            <Text style={priceText}><strong>Price Collected:</strong> ${price}</Text>
+            <Text style={priceText}><strong>Note:</strong> Payment is pending manual WhatsApp outreach.</Text>
           </Section>
         </Container>
       </Body>

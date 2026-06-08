@@ -5,9 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { countries } from "@/lib/countries";
-import { Wallet, Lock, ShieldCheck, Mail, ArrowRight, ChevronDown, Search } from "lucide-react";
+import { Mail, ArrowRight, ChevronDown, Search } from "lucide-react";
 import Spinner from "./Spinner";
-import Script from "next/script";
 import { useSession, signIn } from "next-auth/react";
 
 interface CheckoutClientProps {
@@ -31,13 +30,13 @@ export default function CheckoutClient({
   const { data: session, status } = useSession();
   const [isProcessing, setIsProcessing] = useState(false);
   const [isAuthSuccess, setIsAuthSuccess] = useState(false);
-  const [cashfree, setCashfree] = useState<any>(null);
   const [email, setEmail] = useState("");
   const [selectedCountry, setSelectedCountry] = useState({ name: "United States", code: "+1", flag: "🇺🇸" });
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [name, setName] = useState("");
+  const [specificInterests, setSpecificInterests] = useState("");
 
   const filteredCountries = countries.filter(c => 
     c.name.toLowerCase().includes(countrySearch.toLowerCase()) || 
@@ -57,34 +56,7 @@ export default function CheckoutClient({
   }, []);
 
 
-  const verifyOrder = async (orderId: string) => {
-    try {
-      setIsProcessing(true);
-      const res = await fetch('/api/cashfree/verify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ order_id: orderId, journeyId })
-      });
-      const data = await res.json();
-      if (data.status === 'completed') {
-        window.location.href = `/dashboard/${journeyId}`;
-      } else {
-        setIsProcessing(false);
-        alert('Payment is pending or failed. Please try again.');
-      }
-    } catch(err) {
-      setIsProcessing(false);
-      console.error('Verification failed', err);
-    }
-  };
 
-  useEffect(() => {
-    // Post-Payment Routing check: Cashfree returnUrl appends ?order_id=
-    const orderId = searchParams.get("order_id");
-    if (orderId) {
-      verifyOrder(orderId);
-    }
-  }, [searchParams, journeyId]);
 
   const theme = {
     bg: "#0a0806",
@@ -105,42 +77,29 @@ export default function CheckoutClient({
         return;
       }
 
-      const res = await fetch("/api/cashfree/create-order", {
+      const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           journeyId,
-          whatsappNumber: sanitizedPhone,
           customerName: name || "Anonymous",
-          customerEmail: session?.user?.email || "anonymous@example.com",
+          customerEmail: session?.user?.email || email || "anonymous@example.com",
+          customerWhatsapp: sanitizedPhone,
+          specificInterests
         })
       });
       
       const data = await res.json();
       
       if (!res.ok) {
-        throw new Error(data.error || "Failed to create order");
+        throw new Error(data.error || "Failed to submit inquiry");
       }
       
-      if (cashfree && data.payment_session_id) {
-        cashfree.checkout({
-          paymentSessionId: data.payment_session_id,
-          redirectTarget: "_modal"
-        }).then((result: any) => {
-          if (result.error) {
-            console.error("Payment modal closed or error:", result.error);
-            setIsProcessing(false);
-          }
-          if (result.paymentDetails || result.redirect) {
-            // Verify payment on our backend before redirecting
-            verifyOrder(data.order_id);
-          }
-        });
-      } else {
-        throw new Error("Payment SDK not initialized or session missing");
-      }
+      window.location.href = `/dashboard/${journeyId}`;
+      
     } catch(err) {
-       console.error("Payment flow error:", err);
+       console.error("Inquiry submission error:", err);
+       alert("Failed to submit inquiry. Please try again.");
        setIsProcessing(false);
     }
   };
@@ -166,17 +125,6 @@ export default function CheckoutClient({
       className="min-h-screen w-full flex flex-col font-sans pt-32 pb-16"
       style={{ backgroundColor: theme.bg, color: theme.cream }}
     >
-      <Script
-        src="https://sdk.cashfree.com/js/v3/cashfree.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          // @ts-ignore
-          if (window.Cashfree) {
-            // @ts-ignore
-            setCashfree(window.Cashfree({ mode: "sandbox" }));
-          }
-        }}
-      />
       <main className="flex-1 w-full max-w-2xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -245,9 +193,9 @@ export default function CheckoutClient({
               <div className="p-6 md:p-8 rounded-sm border border-white/5 bg-gradient-to-br from-[#c9a96e]/[0.06] via-transparent to-transparent relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a96e]/30 to-transparent" />
                 
-                <div className="flex justify-between items-start mb-6">
+                <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 mb-6">
                   <p className="text-xs uppercase tracking-widest text-white/40">Blueprint Deliverables</p>
-                  <p className="text-xs uppercase tracking-widest" style={{ color: theme.gold }}>INCLUDED IN YOUR BLUEPRINT</p>
+                  <p className="w-fit text-[10px] sm:text-xs uppercase tracking-widest px-2 py-1 bg-[#c9a96e]/10 rounded-sm border border-[#c9a96e]/20" style={{ color: theme.gold }}>Included in your blueprint</p>
                 </div>
 
                 <ul className="space-y-5">
@@ -273,6 +221,13 @@ export default function CheckoutClient({
                     </div>
                   </li>
                 </ul>
+
+                <div className="mt-8 p-4 bg-[#c9a96e]/[0.03] border border-[#c9a96e]/10 rounded-sm flex items-start gap-3">
+                  <Mail size={16} className="text-[#c9a96e] mt-0.5 shrink-0" />
+                  <p className="text-xs text-[#c9a96e]/80 leading-relaxed">
+                    Our concierge will connect with you via WhatsApp or email very soon to begin crafting your journey.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -353,14 +308,14 @@ export default function CheckoutClient({
                     onBlur={(e) => e.target.style.borderColor = theme.border}
                   />
                 </div>
-                <div className="mb-6 flex gap-2">
-                  <div className="relative w-1/3 country-dropdown-container">
+                <div className="mb-6 flex gap-3">
+                  <div className="relative w-[35%] md:w-1/3 country-dropdown-container">
                     <div 
                       onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-                      className="w-full px-3 py-3 h-full bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition duration-300 text-sm font-light text-white cursor-pointer flex items-center justify-between"
+                      className="w-full px-3 h-[46px] bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] transition duration-300 text-sm font-light text-white cursor-pointer flex items-center justify-between"
                       style={{ borderColor: theme.border }}
                     >
-                      <span className="truncate">
+                      <span className="truncate pr-1">
                         {selectedCountry.flag} {selectedCountry.code}
                       </span>
                       <svg className={`w-4 h-4 fill-current text-white/50 transition-transform ${isCountryDropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20">
@@ -401,7 +356,7 @@ export default function CheckoutClient({
                       </div>
                     )}
                   </div>
-                  <div className="relative w-2/3">
+                  <div className="relative w-[65%] md:w-2/3">
                     <input
                       type="tel"
                       value={whatsapp}
@@ -409,32 +364,40 @@ export default function CheckoutClient({
                       required
                       autoComplete="tel"
                       placeholder="WhatsApp Number"
-                      className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0a0806] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white"
+                      className="w-full px-4 h-[46px] bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white"
                       style={{ borderColor: theme.border }}
                       onFocus={(e) => e.target.style.borderColor = theme.gold}
                       onBlur={(e) => e.target.style.borderColor = theme.border}
                     />
                   </div>
                 </div>
+
+                <div className="mb-8">
+                  <textarea
+                    value={specificInterests}
+                    onChange={(e) => setSpecificInterests(e.target.value)}
+                    placeholder="Any specific interests, dietary needs, or constraints?"
+                    className="w-full px-4 py-3 bg-white/5 border focus:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a96e] transition-colors duration-300 text-sm font-light placeholder-white/20 text-white min-h-[100px] resize-y custom-scrollbar"
+                    style={{ borderColor: theme.border }}
+                    onFocus={(e) => e.target.style.borderColor = theme.gold}
+                    onBlur={(e) => e.target.style.borderColor = theme.border}
+                  />
+                </div>
                 <button
-                  disabled={isProcessing || !cashfree || name.trim().length === 0 || (`${selectedCountry.code}${whatsapp}`).replace(/\D/g, '').length < 7}
+                  disabled={isProcessing || name.trim().length === 0 || (`${selectedCountry.code}${whatsapp}`).replace(/\D/g, '').length < 7}
                   onClick={handleDepositClick}
-                  className="w-full py-4 text-sm uppercase tracking-widest font-bold border border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-black hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.1)] disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+                  className="w-full py-4 px-2 text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest font-bold border border-[#c9a96e] bg-[#c9a96e] text-black hover:bg-[#b0935d] hover:scale-[1.02] active:scale-[0.98] transition duration-300 flex justify-center items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(201,169,110,0.2)] disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
                 >
                   {isProcessing ? (
-                    <span>Connecting to Secure Gateway…</span>
+                    <span className="text-center truncate">Submitting Inquiry…</span>
                   ) : (
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      <Lock size={16} />
-                      PROCEED TO SECURE CHECKOUT
+                    <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 text-center whitespace-nowrap overflow-hidden text-ellipsis">
+                      SUBMIT INQUIRY
                     </span>
                   )}
                 </button>
-                <div className="flex flex-col items-center justify-center gap-2 mt-4 text-[10px] text-white/40 uppercase tracking-widest text-center">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck size={12} />
-                    Secure, encrypted processing via Cashfree
-                  </div>
+                <div className="mt-4 text-[10px] text-white/40 uppercase tracking-widest text-center max-w-[260px] mx-auto leading-relaxed">
+                  We will contact you via WhatsApp with the next steps
                 </div>
               </>
             )}

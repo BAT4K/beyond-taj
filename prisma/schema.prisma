@@ -148,10 +148,11 @@ model Journey {
   startLocation    String   @default("")
   landscapes       String[]
   destinations     Json
-  customerName     String
-  customerEmail    String
-  customerWhatsapp String?
-  itinerary        Json?
+  customerName      String
+  customerEmail     String
+  customerWhatsapp  String?
+  specificInterests String?
+  itinerary         Json?
   status           String   @default("pending")
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
