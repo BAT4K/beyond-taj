@@ -1492,6 +1492,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                           </div>
                           <p className="font-sans text-white/70 leading-relaxed text-xs md:text-sm">
                             Don&apos;t worry about getting this perfect. These answers give us a direction — we&apos;ll fine-tune every detail with you directly before we begin.
+                            <span className="text-[#c9a96e] opacity-80 italic mt-1.5 block">Don't worry — we'll work this out with you directly on WhatsApp before your blueprint is finalised.</span>
                           </p>
                         </div>
                       )}
