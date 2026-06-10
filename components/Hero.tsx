@@ -19,15 +19,12 @@ export default function Hero() {
       style={{ backgroundColor: theme.bg, color: theme.cream }}
     >
       <div className="absolute inset-0 z-0">
-        <Image 
+        <img 
           src="/master-hero-poster.webp"
           alt="Hero background"
-          fill
-          priority
           fetchPriority="high"
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectFit: "cover" }}
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         />
         <video
           suppressHydrationWarning
