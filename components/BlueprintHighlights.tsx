@@ -4,12 +4,30 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Map, Hotel, ShieldAlert, Phone } from "lucide-react";
 
+const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+  </svg>
+);
+
 const HIGHLIGHTS = [
   {
     id: "routing",
-    title: "Day-by-day routing that works",
+    title: "An itinerary built how you actually travel",
     icon: Map,
-    desc: "No “Day 1: Arrive Delhi 9 a.m., visit Red Fort 10 a.m.” nonsense. You get options, not a schedule. The places worth your time, the order that minimizes backtracking, the days each place is actually open. You pick the pace."
+    desc: "Day-by-day if you want structure, region-by-region if you want flexibility, or a hand-drawn route map if you're bikepacking. You choose the format; we build it your way."
   },
   {
     id: "vetted",
@@ -28,6 +46,12 @@ const HIGHLIGHTS = [
     title: "Phone numbers that matter",
     icon: Phone,
     desc: "Embassy hotlines for your nationality. The Apollo Hospital in each city. The tourist police office. Your driver’s WhatsApp template. The one hotel you can crash at if your night train gets cancelled."
+  },
+  {
+    id: "support",
+    title: "Live WhatsApp Support",
+    icon: WhatsAppIcon,
+    desc: "A local expert in your pocket. From real-time translation and haggling advice to finding an emergency dentist or rebooking a cancelled train, we're just a text away during your entire trip."
   }
 ];
 
@@ -63,7 +87,7 @@ export default function BlueprintHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-colors duration-500 relative overflow-hidden"
+                className={`group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-colors duration-500 relative overflow-hidden ${i === 4 ? 'md:col-span-2' : ''}`}
               >
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity" />
                 

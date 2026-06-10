@@ -27,9 +27,28 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return { title: 'Destination Not Found | Beyond Taj' };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in';
+  const url = `${baseUrl}/destinations/${id}`;
+
   return {
     title: `${destination.name} Luxury Travel Guide | Beyond Taj`,
     description: destination.shortPitch || destination.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${destination.name} Luxury Travel Guide | Beyond Taj`,
+      description: destination.shortPitch || destination.description,
+      url,
+      type: 'website',
+      images: destination.imageUrl ? [{ url: destination.imageUrl, width: 800, height: 600, alt: destination.name }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${destination.name} Luxury Travel Guide | Beyond Taj`,
+      description: destination.shortPitch || destination.description,
+      images: destination.imageUrl ? [destination.imageUrl] : [],
+    },
   };
 }
 
@@ -47,8 +66,23 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
   const landscapes = Array.from(new Set(destination.Landscape?.map(l => l.name) || []));
   const vibes = Array.from(new Set(destination.vibeTags || []));
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in';
+
   return (
     <main className="min-h-screen bg-[#0a0806] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TouristDestination",
+            "name": destination.name,
+            "description": destination.shortPitch || destination.description,
+            "url": `${baseUrl}/destinations/${id}`,
+            "image": destination.imageUrl || FALLBACK_IMAGE,
+          })
+        }}
+      />
       <ScrollToTop />
       {/* Hero Section */}
       <div className="relative min-h-[70vh] md:min-h-[85vh] w-full flex flex-col justify-end">

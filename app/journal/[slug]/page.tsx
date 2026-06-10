@@ -23,14 +23,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in';
+  const url = `${baseUrl}/journal/${blog.slug}`;
+
   return {
     title: `${blog.title} | Beyond Taj Journal`,
     description: blog.metaDescription,
     keywords: blog.targetKeyword,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: blog.title,
       description: blog.metaDescription,
+      url,
       type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.metaDescription,
     }
   };
 }
@@ -92,19 +104,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'
+        item: process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Journal',
-        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'}/journal`
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in'}/journal`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: blog.title,
-        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com'}/journal/${blog.slug}`
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in'}/journal/${blog.slug}`
       }
     ]
   };

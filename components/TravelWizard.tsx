@@ -610,12 +610,12 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
       const matchedCategories = selectedLandscapes.flatMap(label => categoryMap[label] || [label]);
       return matchedCategories.some(cat => d.landscapes?.includes(cat as any));
     })
+    .map((d) => ({ destination: d, tier: getTierAndReason(d).tier }))
     .sort((a, b) => {
-      const tierA = getTierAndReason(a).tier;
-      const tierB = getTierAndReason(b).tier;
-      if (tierA !== tierB) return tierA - tierB;
-      return a.region.localeCompare(b.region);
-    });
+      if (a.tier !== b.tier) return a.tier - b.tier;
+      return a.destination.region.localeCompare(b.destination.region);
+    })
+    .map((obj) => obj.destination);
 
   return (
     <div

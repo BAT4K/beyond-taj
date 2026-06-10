@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = getAllBlogs();
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in';
 
   const blogEntries: MetadataRoute.Sitemap = blogs.map((blog) => ({
     url: `${baseUrl}/journal/${blog.slug}`,
@@ -44,6 +44,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/review`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/destinations`,

@@ -25,6 +25,27 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+  icons: {
+    icon: '/icon.svg',
+    apple: '/seo-icon.svg',
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://beyondtaj.in'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Beyond Taj | Honest Itinerary",
+    description: "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — starting at $40.",
+    url: '/',
+    siteName: 'Beyond Taj',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Beyond Taj | Honest Itinerary",
+    description: "Honest India trip planning for foreign travelers.",
+  },
 };
 
 export default function RootLayout({
@@ -59,8 +80,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "TravelAgency",
               "name": "Beyond Taj",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com",
-              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.com"}/icon.png`,
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.in",
+              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://beyondtaj.in"}/icon.png`,
               "description": "Honest India trip planning for foreign travelers. Skip the tourist traps. Avoid the scams. Get a tested itinerary built by people who know India — starting at $40.",
               "address": {
                 "@type": "PostalAddress",
