@@ -1,36 +1,47 @@
 "use client";
 
-import { useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { BlogPost, BlogCategory } from '@/lib/blogs';
 
+const ITEMS_PER_PAGE = 12;
+
 export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
-  const [activeCategory, setActiveCategory] = useState<BlogCategory | 'All'>('All');
+  const searchParams = useSearchParams();
+  const activeCategory = searchParams.get('category') || 'All';
+  const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10));
+
   const categories: (BlogCategory | 'All')[] = ['All', 'Safety', 'Culture & Etiquette', 'Logistics', 'Regions', 'Itineraries', 'General'];
+  
   const filteredBlogs = blogs.filter(blog => activeCategory === 'All' || blog.category === activeCategory);
+  
+  const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE));
+  
+  // Ensure current page doesn't exceed total pages if category changes
+  const validCurrentPage = Math.min(currentPage, totalPages);
+  const startIndex = (validCurrentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedBlogs = filteredBlogs.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
     <>
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-16">
         {categories.map((cat) => (
-          <button
-            type="button"
+          <Link
             key={cat}
-            aria-pressed={activeCategory === cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-widest transition duration-300 cursor-pointer ${
+            href={`?category=${encodeURIComponent(cat)}&page=1`}
+            className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-widest transition duration-300 ${
               activeCategory === cat 
                 ? 'bg-[#c9a96e] text-black font-semibold' 
                 : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80'
             }`}
           >
             {cat}
-          </button>
+          </Link>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-        {filteredBlogs.map((blog) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-16">
+        {paginatedBlogs.map((blog) => (
           <Link 
             href={`/journal/${blog.slug}`} 
             key={blog.slug}
@@ -54,6 +65,40 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
           </Link>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4">
+          {validCurrentPage > 1 ? (
+            <Link 
+              href={`?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage - 1}`}
+              className="px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase"
+            >
+              Previous
+            </Link>
+          ) : (
+            <span className="px-6 py-2 border border-transparent text-white/20 text-sm tracking-widest uppercase cursor-not-allowed">
+              Previous
+            </span>
+          )}
+
+          <span className="text-white/50 text-sm font-sans">
+            Page {validCurrentPage} of {totalPages}
+          </span>
+
+          {validCurrentPage < totalPages ? (
+            <Link 
+              href={`?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage + 1}`}
+              className="px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase"
+            >
+              Next
+            </Link>
+          ) : (
+            <span className="px-6 py-2 border border-transparent text-white/20 text-sm tracking-widest uppercase cursor-not-allowed">
+              Next
+            </span>
+          )}
+        </div>
+      )}
     </>
   );
 }

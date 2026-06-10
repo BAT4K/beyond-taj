@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { getAllBlogs } from '@/lib/blogs';
 import BlogFilter from '@/components/BlogFilter';
 
@@ -21,7 +22,9 @@ export default function JournalIndex() {
           </p>
         </header>
 
-        <BlogFilter blogs={blogs} />
+        <Suspense fallback={<div className="text-white/50 text-center py-12">Loading articles...</div>}>
+          <BlogFilter blogs={blogs} />
+        </Suspense>
       </div>
     </div>
   );
