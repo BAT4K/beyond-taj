@@ -37,7 +37,6 @@ export default function Hero() {
           aria-hidden="true"
           tabIndex={-1}
           preload="none"
-          poster="/master-hero-poster.webp"
           src="/master-hero.mp4"
           className="absolute inset-0 w-full h-full object-cover z-0"
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
@@ -45,10 +44,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/60 z-10" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+      <div
         className="relative z-20 flex flex-col items-center text-center px-4 md:px-0 drop-shadow-2xl w-full"
       >
         <p style={{ color: theme.gold }} className="tracking-[0.3em] uppercase text-sm mb-5 font-sans">
@@ -92,7 +88,7 @@ export default function Hero() {
             </span>
           </a>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0 }}
