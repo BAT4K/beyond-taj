@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { AlertTriangle, Info, Sparkles, Check, Plus } from "lucide-react";
 
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
+const FALLBACK_IMAGE = "/master-hero-poster.webp";
 
 interface DestinationCardProps {
   id: string;

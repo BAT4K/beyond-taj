@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, MapPin, Sun, Sparkles, ChevronRight } from 'lucide-react';
 import ScrollToTop from '@/components/ScrollToTop';
 
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
+const FALLBACK_IMAGE = "/master-hero-poster.webp";
 
 const MONTH_NAMES = [
   "", "January", "February", "March", "April", "May", "June", 

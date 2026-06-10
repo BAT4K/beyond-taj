@@ -250,25 +250,7 @@ export async function evaluateTripFeasibility(
 
   // --- Weather Aggregation Check Removed (User Preference) ---
 
-  // --- Vibe Thresholding (Anti-Nagging) ---
-  if (requestedLandscapes && requestedLandscapes.length > 0) {
-    const combinedLandscapes = new Set(
-      destinations.flatMap(d => d.Landscape.map(l => l.name))
-    );
-    let intersectionCount = 0;
-    
-    requestedLandscapes.forEach(req => {
-      if (combinedLandscapes.has(req)) intersectionCount++;
-    });
 
-    if (intersectionCount === 0) {
-      warnings.push({
-        category: 'vibe',
-        severity: 'info',
-        message: `Vibe Check: You requested ${requestedLandscapes.join(", ")}, but none of your manually selected destinations match these landscapes.`
-      });
-    }
-  }
 
   // 2. Run Route Optimization
   const { optimalPath, totalFatigue: routeFatigue } = optimizePathByFatigue(destinations, edges, startLocation, allNodeIds);
@@ -309,7 +291,7 @@ export async function evaluateTripFeasibility(
       warnings.push({
         category: 'logistics',
         severity: severity,
-        message: `Some of your chosen destinations don't share a direct route, even if they look nearby on a map. You'll simply need to transit through a central hub in between. Don't worry — our concierge will optimize this exact routing for you.`
+        message: `Some of your chosen destinations don't share a direct route, even if they look nearby on a map. You'll simply need to transit through a central hub in between.`
       });
     }
   }

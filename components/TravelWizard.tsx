@@ -36,7 +36,7 @@ interface TravelWizardProps {
   transitRoutes?: { originId: string; destinationId: string; fatigueCost: number }[];
 }
 
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800";
+const FALLBACK_IMAGE = "/master-hero-poster.webp";
 const DESTINATION_IMAGES: Record<string, string> = {};
 
 
@@ -1136,7 +1136,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                   const isSelected = selectedDestinations.includes(dest.id);
                   const currentTotalMinDays = selectedDestinations.reduce((sum, id) => sum + (destinations.find(x => x.id === id)?.minRequiredDays || 2), 0);
                   const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
-                  const isDisabled = notEnoughDays;
+                  const isDisabled = false; // Client requested: do not disable any cards
 
                   return (
                     <div key={dest.id} className="shrink-0 w-[200px] md:w-[280px] snap-start">
@@ -1305,7 +1305,7 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                 const { reasons } = getTierAndReason(dest);
                 const isSelected = selectedDestinations.includes(dest.id);
                 const notEnoughDays = !isSelected && (currentTotalMinDays + (dest.minRequiredDays || 2) > selectedDays);
-                const isDisabled = (!isSelected && isAutoCurated) || notEnoughDays;
+                const isDisabled = (!isSelected && isAutoCurated); // Removed notEnoughDays constraint
 
                 return (
                   <DestinationCard
@@ -1522,7 +1522,10 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                                     {warn.category === 'vibe' ? <Info size={12} className="md:w-[14px] md:h-[14px]" /> : <AlertTriangle size={12} className="md:w-[14px] md:h-[14px]" />}
                                     <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">{warn.category} Note</span>
                                   </div>
-                                  <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">{warn.message}</p>
+                                  <p className="font-sans text-white/80 leading-relaxed text-xs md:text-sm">
+                                    {warn.message}{" "}
+                                    <span className="text-[#c9a96e] opacity-80 italic mt-1.5 block">Don't worry — we'll work this out with you directly on WhatsApp before your blueprint is finalised.</span>
+                                  </p>
                                 </div>
                               ))}
                             </div>
@@ -1545,7 +1548,8 @@ export default function TravelWizard({ destinations, transitRoutes = [] }: Trave
                                 {selectedDestinations.length === 1 
                                   ? `${destinations.find(d => d.id === selectedDestinations[0])?.name || 'This destination'} needs about ${totalMinDays} days. You have ${selectedDays}. Consider ${singleSuggest} for a tighter journey.`
                                   : `Your selections need roughly ${totalMinDays} days. You have ${selectedDays}. Consider ${multiSuggest}.`
-                                }
+                                }{" "}
+                                <span className="text-[#c9a96e] opacity-80 italic mt-1.5 block">Don't worry — we'll work this out with you directly on WhatsApp before your blueprint is finalised.</span>
                               </p>
                             </div>
                           );

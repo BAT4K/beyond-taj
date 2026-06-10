@@ -57,9 +57,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full"
     >
-      <body className={`${inter.variable} ${playfair.variable} font-sans min-h-full flex flex-col antialiased bg-[#0a0806] text-white`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#0a0806] text-white overflow-x-hidden`} suppressHydrationWarning>
         <style dangerouslySetInnerHTML={{__html: `
           .hidden { display: none !important; }
           img.object-cover, video.object-cover { object-fit: cover !important; }
