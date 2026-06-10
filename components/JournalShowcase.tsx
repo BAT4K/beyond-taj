@@ -12,13 +12,7 @@ export default function JournalShowcase({ blogs }: { blogs: BlogPost[] }) {
   return (
     <section className="py-24 px-6 md:px-10 bg-[#0a0806] border-t border-white/5 relative">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 text-center max-w-3xl mx-auto"
-        >
+        <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
           <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs mb-4 font-sans">
             WHAT WE'VE WRITTEN
           </p>
@@ -28,17 +22,11 @@ export default function JournalShowcase({ blogs }: { blogs: BlogPost[] }) {
           <p className="font-sans text-white/60 text-lg md:text-xl leading-relaxed font-light text-balance">
             If our free articles don't sound like the BeyondTaj you want, our paid blueprint won't either.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {blogs.map((blog, i) => (
-            <motion.div
-              key={blog.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-            >
+            <div key={blog.slug} className="h-full">
               <Link 
                 href={`/journal/${blog.slug}`}
                 className="group block p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 hover:border-[#c9a96e]/50 transition-colors duration-500 h-full flex flex-col justify-between relative overflow-hidden"
@@ -58,7 +46,7 @@ export default function JournalShowcase({ blogs }: { blogs: BlogPost[] }) {
                   Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
         

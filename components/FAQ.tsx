@@ -44,11 +44,7 @@ export default function FAQ() {
   return (
     <section className="py-24 px-6 md:px-10 bg-[#0a0806] border-t border-white/5 relative">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs mb-3 font-sans">
@@ -57,16 +53,12 @@ export default function FAQ() {
           <h2 className="font-serif text-3xl md:text-5xl text-white font-light">
             Frequently Asked Questions
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
           {FAQ_ITEMS.map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
               className="border border-white/10 rounded-sm bg-white/[0.01] overflow-hidden"
             >
               <button
@@ -99,7 +91,7 @@ export default function FAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

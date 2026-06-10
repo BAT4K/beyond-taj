@@ -59,13 +59,7 @@ export default function BlueprintHighlights() {
   return (
     <section className="py-24 bg-[#0a0806] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 flex flex-col gap-4 max-w-2xl"
-        >
+        <div className="mb-12 md:mb-16 flex flex-col gap-4 max-w-2xl">
           <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-sans">
             WHAT’S IN A BLUEPRINT
           </p>
@@ -75,18 +69,14 @@ export default function BlueprintHighlights() {
           <p className="text-white/40 text-sm md:text-base tracking-wide leading-relaxed">
             A 40+ page PDF you can read offline, sized for your phone or print.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {HIGHLIGHTS.map((highlight, i) => {
             const Icon = highlight.icon;
             return (
-              <motion.div
+              <div
                 key={highlight.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
                 className={`group p-8 md:p-10 rounded-sm bg-white/[0.02] backdrop-blur-sm border border-white/5 md:hover:border-[#c9a96e]/50 transition-colors duration-500 relative overflow-hidden ${i === 4 ? 'md:col-span-2' : ''}`}
               >
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e]/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity" />
@@ -102,7 +92,7 @@ export default function BlueprintHighlights() {
                 <p className="text-white/60 text-sm leading-relaxed font-sans font-light">
                   {highlight.desc}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

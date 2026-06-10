@@ -1,17 +1,36 @@
 "use client";
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useState, useTransition } from 'react';
 import { BlogPost, BlogCategory } from '@/lib/blogs';
 
 const ITEMS_PER_PAGE = 12;
 
 export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
+
   const activeCategory = searchParams.get('category') || 'All';
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10));
 
   const categories: (BlogCategory | 'All')[] = ['All', 'Safety', 'Culture & Etiquette', 'Logistics', 'Regions', 'Itineraries', 'General'];
+
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    startTransition(() => {
+      router.push(url, { scroll: false });
+      // Small delay to allow the router to update before scrolling
+      setTimeout(() => {
+        const grid = document.getElementById('blog-grid-top');
+        if (grid) {
+          window.scrollTo({ top: grid.offsetTop - 120, behavior: 'smooth' });
+        }
+      }, 50);
+    });
+  };
   
   const filteredBlogs = blogs.filter(blog => activeCategory === 'All' || blog.category === activeCategory);
   
@@ -24,23 +43,24 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-16">
+      <div id="blog-grid-top" className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-16">
         {categories.map((cat) => (
           <Link
             key={cat}
             href={`?category=${encodeURIComponent(cat)}&page=1`}
+            onClick={(e) => handleNavigation(e, `?category=${encodeURIComponent(cat)}&page=1`)}
             className={`px-4 py-1.5 rounded-full text-xs uppercase tracking-widest transition duration-300 ${
               activeCategory === cat 
                 ? 'bg-[#c9a96e] text-black font-semibold' 
                 : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80'
-            }`}
+            } ${isPending ? 'opacity-50 pointer-events-none' : ''}`}
           >
             {cat}
           </Link>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-16">
+      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-16 transition-opacity duration-300 ${isPending ? 'opacity-40' : 'opacity-100'}`}>
         {paginatedBlogs.map((blog) => (
           <Link 
             href={`/journal/${blog.slug}`} 
@@ -71,7 +91,8 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
           {validCurrentPage > 1 ? (
             <Link 
               href={`?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage - 1}`}
-              className="px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase"
+              onClick={(e) => handleNavigation(e, `?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage - 1}`)}
+              className={`px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase ${isPending ? 'opacity-50 pointer-events-none' : ''}`}
             >
               Previous
             </Link>
@@ -88,7 +109,8 @@ export default function BlogFilter({ blogs }: { blogs: BlogPost[] }) {
           {validCurrentPage < totalPages ? (
             <Link 
               href={`?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage + 1}`}
-              className="px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase"
+              onClick={(e) => handleNavigation(e, `?category=${encodeURIComponent(activeCategory)}&page=${validCurrentPage + 1}`)}
+              className={`px-6 py-2 border border-white/20 text-white hover:border-[#c9a96e] hover:text-[#c9a96e] transition rounded-sm text-sm tracking-widest uppercase ${isPending ? 'opacity-50 pointer-events-none' : ''}`}
             >
               Next
             </Link>

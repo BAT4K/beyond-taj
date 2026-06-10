@@ -7,12 +7,7 @@ export default function Manifesto() {
   return (
     <section className="py-24 px-6 md:px-10 bg-[#0a0806] border-t border-white/5 relative">
       <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-10">
           <p className="text-[#c9a96e] tracking-[0.3em] uppercase text-xs mb-4 font-sans">
             The Curation Standard
           </p>
@@ -30,7 +25,7 @@ export default function Manifesto() {
               Every itinerary we publish is something one of us would hand to a friend — not a tour brochure pretending to be one.
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
