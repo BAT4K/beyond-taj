@@ -67,12 +67,12 @@ const advisors = [
     name: "The Wider Network",
     region: "Across India",
     bio: "Beyond the featured advisors, BeyondTaj draws on a wider circle of local contributors — including Harsh Tyagi, Aradhya Chandra, Shreyansh Gaur, and 20+ other respected travelers across India. South, central, the Northeast, the small towns most blogs never cover. Wherever your trip takes you, someone we know has actually been there.",
-    image: "/master-hero-poster.webp"
+    image: "/destinations/jaisalmer.webp"
   }
 ];
 
 // Fallback image in case the user hasn't added the specific photo yet
-const FALLBACK_IMAGE = "/master-hero-poster.webp";
+const FALLBACK_IMAGE = "/destinations/jaisalmer.webp";
 
 export default function LocalAdvisors() {
   const scrollRef = useRef<HTMLUListElement>(null);

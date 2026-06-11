@@ -7,7 +7,7 @@ export const metadata = {
   description: "Learn about the philosophy and local expertise behind Beyond Taj, India's premier AI-curated luxury travel concierge.",
 };
 
-const TEAM_IMAGE = "/showcase-poster.webp";
+const TEAM_IMAGE = "/destinations/varanasi.webp";
 
 export default function AboutPage() {
   return (
