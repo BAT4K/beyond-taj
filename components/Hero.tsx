@@ -13,6 +13,16 @@ const theme = {
 };
 
 export default function Hero() {
+  const [shouldLoadVideo, setShouldLoadVideo] = React.useState(false);
+
+  React.useEffect(() => {
+    // Delay loading the heavy video so the LCP poster image and fonts can paint first
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className="h-[100svh] w-full flex flex-col items-center justify-center relative overflow-hidden"
@@ -26,19 +36,24 @@ export default function Hero() {
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
-        <video
-          suppressHydrationWarning
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden="true"
-          tabIndex={-1}
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
-        >
-          <source src="/master-hero.mp4" type="video/mp4" />
-        </video>
+        {shouldLoadVideo && (
+          <motion.video
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            suppressHydrationWarning
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+            tabIndex={-1}
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}
+          >
+            <source src="/master-hero.mp4" type="video/mp4" />
+          </motion.video>
+        )}
         <div className="absolute inset-0 bg-black/60 z-10" />
       </div>
 
